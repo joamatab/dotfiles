@@ -1,0 +1,12 @@
+*.bib
+*.pdf
+*.ipynb
+*.svg
+*.js
+*.vtu
+*.pyc
+*.css
+*.html
+*.xml
+*.lyp
+_static/

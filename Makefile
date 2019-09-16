@@ -1,0 +1,24 @@
+help:
+	@echo 'make install:    Install config files in your system'
+	@echo 'make backup:     Creates a backup of your vimrc, bashrc and zshrc'
+	@echo 'make lumerical:  Creates a backup of your vimrc, bashrc and zshrc'
+
+backup:
+	mv ~/.vimrc $(HOME)/vimrc.bak
+	mv ~/.bashrc ~/.bashrc.bak
+	mv ~/.zshrc ~/.zshrc.bak
+
+install: 
+	sh install.sh
+
+lumerical:
+	cp -r Lumerical $(HOME)/.config/
+
+tmux:
+	rm -rf ~/.tmux
+	git clone https://github.com/gpakosz/.tmux.git $(HOME)/.tmux
+	ln -sf $(HOME)/.tmux/.tmux.conf ~/.tmux.conf
+	cp $(HOME)/.tmux/.tmux.conf.local ~
+
+
+.PHONY: help install backup tmux lumerical
