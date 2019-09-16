@@ -6,7 +6,6 @@ test.sh
 weechat/logs/
 weechat/logs/core.weechat.weechatlog
 logs/
-dotbot/
 vifm/vifminfo
 
 ranger/bookmarks
