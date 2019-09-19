@@ -1,0 +1,130 @@
+if status --is-interactive
+    set -g fish_user_abbreviations
+# git
+    abbr -a c "cd ~/code; ls"
+    abbr -a cfa nvim ~/.config/fish/abbr.fish
+    abbr -a cfb nvim ~/.bashrc
+    abbr -a cff nvim ~/.config/fish/config.fish
+    abbr -a cffl nvim ~/.local.fish
+    abbr -a cfr nvim ~/.config/ranger/rc.conf
+    abbr -a cfsd nvim ~/.bmdirs
+    abbr -a cfsf nvim ~/.bmfiles
+    abbr -a cfssh nvim ~/.ssh/config
+    abbr -a cft nvim ~/dotfiles/tmux.conf
+    abbr -a cfv nvim ~/.vimrc
+    abbr -a cfz nvim ~/.zshrc
+    abbr -a define sdcv
+    abbr -a duh du -d1 -h
+    abbr -a dus du -d1 | sort -n
+    abbr -a e exa --git-ignore -I __pycache__
+    abbr -a et exa --tree --git-ignore -I __pycache__
+    abbr -a g git
+    abbr -a ga git add
+    abbr -a gb git branch
+    abbr -a gc git commit -v
+    abbr -a gca git commit -v -a
+    abbr -a gcb git checkout -b
+    abbr -a gco git checkout
+    abbr -a gcp "git commit -v -a; git push"
+    abbr -a gd git diff
+    abbr -a gl git pull
+    abbr -a glo git log --oneline
+    abbr -a gp git push
+    abbr -a gpo git push -u origin master
+    abbr -a gra git remote add origin
+    abbr -a gs git status
+    abbr -a kpo open ~/.config/keepass/database.kdbx
+    abbr -a ll ls -al
+    abbr -a music ncmpcpp 
+    abbr -a o open
+    abbr -a p python3
+    abbr -a p2 python2
+    abbr -a p3 python3
+    abbr -a path 'echo $PATH | tr -s " " "\n"'
+    abbr -a pb pdk build
+    abbr -a pipu "pip uninstall"
+    abbr -a q exit
+    abbr -a r ranger
+    abbr -a sf source ~/.config/fish/config.fish
+    abbr -a srd sr duckduckgo
+    abbr -a srg sr google
+    abbr -a ssht ssh -L 5901:localhost:5901
+    abbr -a t trash
+    abbr -a te terraform
+    abbr -a ytm youtube-dl  -x --audio-format mp3
+    abbr -a ytv youtube-dl -ic
+end
+
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias icat="kitty +kitten icat"
+
+# alias cfc="vi ~/dotfiles/shortcut-sync/configs"
+# alias cfs="vi ~/dotfiles/shortcut-sync/folders"
+# alias cfssh="vi ~/.ssh/config"
+# alias cff="vi ~/dotfiles/fish/config.fish"
+# alias cfv="vi ~/.vimrc"
+# alias cfz="vi ~/.zshrc"
+# alias cfb="vi ~/.bashrc"
+# alias cft="vi ~/.tmux.conf"
+# alias cfr="vi ~/.config/ranger/rc.conf"
+# alias cfq="vi ~/.config/qutebrowser/config.py"
+
+# abbr -a vi nvim
+# abbr -a vim nvim
+# abbr -a gitignoresymlinks find . -type l >> .gitignore
+
+# alias bb='bpython'
+# alias sv="sudo vim"
+# alias wp="which python"
+# alias ka="killall"
+
+# alias r="ranger"
+# alias diff=colordiff
+# alias kpd='kpcli -kdb ~/.config/keepass/database.kdbx'
+# alias kpo='open ~/.config/keepass/database.kdbx'
+# alias sc='screencapture -s'
+# alias define="sdcv"
+# alias o="open ." # Open the current directory in Finder
+# alias clearnb='jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace **.ipynb'
+# alias sourcefish='source ~/dotfiles/fish/config.fish'
+
+# alias replace="sed -i -e" # usage: replace s/old/new/g' **.py
+# alias ytm="youtube-dl  -x --audio-format mp3"
+# alias ytv="youtube-dl -ic"
+# alias pandocmakeslides="pandoc -t beamer -o slides.pdf" 
+# alias pandocmakereadme='pandoc -o README.pdf README.md --number-sections; open README.pdf &'
+
+# alias shortcut_sync='python ~/dotfiles/shortcut-sync/shortcuts.py'
+# alias pylt='pylint --rcfile=~/.pylintrc'
+# alias p8='autopep8 --in-place --aggressive -r'
+
+# alias dbtm='pgcli -h tmtest.psiquantum.lan -d tmtest -U psiuser'
+# alias dbmode='psql --host=TheModeDB.psiquantum.lan --port=5432 --username=ckeraly --dbname=TheModeDB'
+
+# alias duh='du -d1 -h' # human readable 1 level
+# alias dus='du -d1 | sort -n' # sort by zie
+
+# alias ll="ls -al" # List all files in current directory in long list format
+# alias ll="ls -al | grep -v .DS_Store | grep -v .pyc"
+# alias ls="ls -G | grep -v .pyc"
+# alias ut="uptime" # Computer uptime
+
+# alias ipy="ipython2"
+# alias ipyq="ipython qtconsole"
+# alias ipyn="ipython notebook"
+
+# alias h="history"
+# alias pip="pip2"
+
+# alias sf="source $HOME/.config/fish/config.fish"  # reload fish config
+# alias ssht="ssh -L 5901:localhost:5901" # open vnc tunnel over ssh
+# alias sshta="ssh -L 5918:localhost:5901 alpha" # open vnc tunnel over ssh for alpha
+# alias sshta3="ssh -L 5908:localhost:5908 i3@alpha" # open vnc tunnel over ssh for alpha for ipkiss3
+# alias backup='rsync -av --delete ~/files /Volumes/Joaquin4084620610/'
+# alias cppcompile='c++ -std=c++11 -stdlib=libc++' # cppcompile main.cpp
+
+# alias hostreload='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+# alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES ; killall Finder"
+# alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO ; killall Finder"
