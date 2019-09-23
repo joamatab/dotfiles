@@ -2,20 +2,20 @@ if status --is-interactive
     set -g fish_user_abbreviations
 # git
     abbr -a c "cd ~/code; ls"
-    abbr -a cfa nvim ~/.config/fish/abbr.fish
-    abbr -a cfb nvim ~/.bashrc
-    abbr -a cff nvim ~/.config/fish/config.fish
+    abbr -a cfa nvim ~/dotfiles/fish/abbr.fish
+    abbr -a cff nvim ~/dotfiles/fish/config.fish
+    abbr -a cfb nvim ~/dotfiles/bashrc
     abbr -a cffl nvim ~/.local.fish
-    abbr -a cfr nvim ~/.config/ranger/rc.conf
-    abbr -a cfl nvim ~/.config/lf/lfrc
+    abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
+    abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfy nvim ~/.yabairc
     abbr -a cfs nvim ~/.skhdrc
     abbr -a cfsd nvim ~/.bmdirs
     abbr -a cfsf nvim ~/.bmfiles
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/dotfiles/tmux.conf
-    abbr -a cfv nvim ~/.vimrc
-    abbr -a cfz nvim ~/.zshrc
+    abbr -a cfv nvim ~/dotfiles/vimrc
+    abbr -a cfz nvim ~/dotfiles/zshrc
     abbr -a define sdcv
     abbr -a duh du -d1 -h
     abbr -a dus du -d1 | sort -n
@@ -64,17 +64,6 @@ alias vi="nvim"
 alias vim="nvim"
 alias icat="kitty +kitten icat"
 
-# alias cfc="vi ~/dotfiles/shortcut-sync/configs"
-# alias cfs="vi ~/dotfiles/shortcut-sync/folders"
-# alias cfssh="vi ~/.ssh/config"
-# alias cff="vi ~/dotfiles/fish/config.fish"
-# alias cfv="vi ~/.vimrc"
-# alias cfz="vi ~/.zshrc"
-# alias cfb="vi ~/.bashrc"
-# alias cft="vi ~/.tmux.conf"
-# alias cfr="vi ~/.config/ranger/rc.conf"
-# alias cfq="vi ~/.config/qutebrowser/config.py"
-
 # abbr -a vi nvim
 # abbr -a vim nvim
 # abbr -a gitignoresymlinks find . -type l >> .gitignore
@@ -84,7 +73,6 @@ alias icat="kitty +kitten icat"
 # alias wp="which python"
 # alias ka="killall"
 
-# alias r="ranger"
 # alias diff=colordiff
 # alias kpd='kpcli -kdb ~/.config/keepass/database.kdbx'
 # alias kpo='open ~/.config/keepass/database.kdbx'
@@ -103,9 +91,6 @@ alias icat="kitty +kitten icat"
 # alias shortcut_sync='python ~/dotfiles/shortcut-sync/shortcuts.py'
 # alias pylt='pylint --rcfile=~/.pylintrc'
 # alias p8='autopep8 --in-place --aggressive -r'
-
-# alias dbtm='pgcli -h tmtest.psiquantum.lan -d tmtest -U psiuser'
-# alias dbmode='psql --host=TheModeDB.psiquantum.lan --port=5432 --username=ckeraly --dbname=TheModeDB'
 
 # alias duh='du -d1 -h' # human readable 1 level
 # alias dus='du -d1 | sort -n' # sort by zie
