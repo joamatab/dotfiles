@@ -32,7 +32,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', {'for':'python'}
 Plug 'goerz/jupytext'
-Plug 'dag/vim-fish'
+Plug 'dag/vim-fish', {'for':'fish'}
 
 " Autoformat
 Plug 'ambv/black', { 'on': 'Black' }
