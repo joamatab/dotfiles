@@ -29,6 +29,7 @@ export SSH_KEY_PATH="~/.ssh/keys/id_rsa"
 
 # }}}
 # Software {{{
+alias q="exit"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
