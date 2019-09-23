@@ -88,10 +88,6 @@ alias icat="kitty +kitten icat"
 # alias pandocmakeslides="pandoc -t beamer -o slides.pdf" 
 # alias pandocmakereadme='pandoc -o README.pdf README.md --number-sections; open README.pdf &'
 
-# alias shortcut_sync='python ~/dotfiles/shortcut-sync/shortcuts.py'
-# alias pylt='pylint --rcfile=~/.pylintrc'
-# alias p8='autopep8 --in-place --aggressive -r'
-
 # alias duh='du -d1 -h' # human readable 1 level
 # alias dus='du -d1 | sort -n' # sort by zie
 
@@ -105,13 +101,11 @@ alias icat="kitty +kitten icat"
 # alias ipyn="ipython notebook"
 
 # alias h="history"
-# alias pip="pip2"
-
 # alias sf="source $HOME/.config/fish/config.fish"  # reload fish config
 # alias ssht="ssh -L 5901:localhost:5901" # open vnc tunnel over ssh
 # alias sshta="ssh -L 5918:localhost:5901 alpha" # open vnc tunnel over ssh for alpha
 # alias sshta3="ssh -L 5908:localhost:5908 i3@alpha" # open vnc tunnel over ssh for alpha for ipkiss3
-# alias backup='rsync -av --delete ~/files /Volumes/Joaquin4084620610/'
+# alias backup='rsync -av --delete ~/files /Volumes/Joaquin'
 # alias cppcompile='c++ -std=c++11 -stdlib=libc++' # cppcompile main.cpp
 
 # alias hostreload='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
