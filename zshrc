@@ -7,7 +7,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git vi-mode)
+plugins=(git vi-mode zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 export GIT_EDITOR=nvim
 export EDITOR=nvim
