@@ -78,7 +78,6 @@ alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES ; killa
 alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO ; killall Finder"
 # }}}
 # lf {{{
-LFCD="$GOPATH/src/github.com/gokcehan/lf/etc/lfcd.sh"  # source
 LFCD="~/.config/lf/lfcd.sh"                            # pre-built binary
 if [ -f "$LFCD" ]; then
     source "$LFCD"
