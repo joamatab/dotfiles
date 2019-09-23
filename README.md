@@ -4,7 +4,8 @@ Frequent use:
 
 - fish: friendly interactive shell
 - vimrc: manage plugins with VimPlug
-- ranger: vim-inspired terminal-based file-browser
+- ranger: vim-inspired terminal-based file-browser. Written in python
+- lf: vim-inspired terminal-based file-browser. Written in go (faster)
 - kitty: GPU accelerated terminal
 
 some use:
