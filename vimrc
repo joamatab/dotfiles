@@ -159,6 +159,7 @@ nmap <leader>v :vsplit<cr>
 nmap <leader>w :w <cr>
 nmap <leader>x :split<cr>
 nmap <leader>z :wq <cr>
+nmap <leader>c :Gwrite <cr>
 
 map <leader>cfv :vi ~/.vimrc<CR>
 map <leader>wu :vi ~/wikis/psi/updates_joaquin.md<CR>
