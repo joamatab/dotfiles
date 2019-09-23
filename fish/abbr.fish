@@ -48,6 +48,7 @@ if status --is-interactive
     abbr -a pipu "pip uninstall"
     abbr -a q exit
     abbr -a r ranger
+    abbr -a l lfcd
     abbr -a sf source ~/.config/fish/config.fish
     abbr -a srd sr duckduckgo
     abbr -a srg sr google
