@@ -94,8 +94,12 @@ lfcd () {
             fi
         fi
     fi
-bindkey -s '^o' 'lfcd\n'  # zsh
 }
+bindkey -s '^O' 'lfcd\n'  # zsh
+# }}}
+# edit current line in VIM with ctrl-e {{{
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^E' edit-command-line
 # }}}
 # shortcut_sync {{{
 # DO NOT DELETE LMAO
