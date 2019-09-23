@@ -35,6 +35,8 @@ map X !$f
 cmd aj %lf -remote "send $id cd '$(autojump $1)'"
 map a push :aj<space>
 
+map f $lf -remote "send $id select '$(fzf)'"
+
 # file opener actions dedicated keys{{{
 # map o &mimeopen $f
 # map O $mimeopen --ask $f
