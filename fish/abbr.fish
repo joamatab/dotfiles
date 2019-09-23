@@ -8,6 +8,8 @@ if status --is-interactive
     abbr -a cffl nvim ~/.local.fish
     abbr -a cfr nvim ~/.config/ranger/rc.conf
     abbr -a cfl nvim ~/.config/lf/lfrc
+    abbr -a cfy nvim ~/.yabairc
+    abbr -a cfs nvim ~/.skhdrc
     abbr -a cfsd nvim ~/.bmdirs
     abbr -a cfsf nvim ~/.bmfiles
     abbr -a cfssh nvim ~/.ssh/config

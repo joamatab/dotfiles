@@ -2,10 +2,10 @@
 # alt - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
 alt - return : /Applications/Hyper.app/Contents/MacOS/Hyper --single-instance -d ~
 # focus window
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+ctrl + cmd - h : yabai -m window --focus west
+ctrl + cmd - j : yabai -m window --focus south
+ctrl + cmd - k : yabai -m window --focus north
+ctrl + cmd - l : yabai -m window --focus east
 
 # swap window
 shift + alt - h : yabai -m window --swap west
