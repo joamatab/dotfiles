@@ -26,7 +26,7 @@
     ~/.config/mpv: mpv
     ~/.config/newsboat: newsboat
     ~/.config/ranger: ranger 
-    ~/.config/lf/lfrc: lfrc
+    ~/.config/lf:
     ~/.config/sxhkd: 
     ~/.config/zathura/zathurarc: 
     ~/.dircolors:

@@ -1,5 +1,6 @@
 # interpreter for shell commands (needs to be POSIX compatible)
-set shell sh
+# set shell sh
+set shell zsh
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -28,8 +29,9 @@ map x $$f
 map X !$f
 
 # dedicated keys for file opener actions
-map o &mimeopen $f
-map O $mimeopen --ask $f
+# map o &mimeopen $f
+# map O $mimeopen --ask $f
+map o open $f
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
@@ -65,7 +67,7 @@ cmd trash %set -f; mv $fx ~/.trash
 # use '<delete>' key for either 'trash' or 'delete' command
 map <delete> trash
 map <bs2> trash
-# map <delete> delete
+map D trash
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)

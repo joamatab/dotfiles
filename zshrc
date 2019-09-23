@@ -11,6 +11,7 @@ plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 export GIT_EDITOR=nvim
 export EDITOR=nvim
+export OPENER=open
 alias path='echo $PATH | tr -s ":" "\n"'
 # }}}
 # PATHS {{{
@@ -75,6 +76,13 @@ alias cppcompile='c++ -std=c++11 -stdlib=libc++' # cppcompile main.cpp
 alias hostreload='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES ; killall Finder"
 alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO ; killall Finder"
+# }}}
+# lf {{{
+LFCD="$GOPATH/src/github.com/gokcehan/lf/etc/lfcd.sh"  # source
+LFCD="~/.config/lf/lfcd.sh"                            # pre-built binary
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
 # }}}
 # shortcut_sync {{{
 # DO NOT DELETE LMAO

@@ -21,6 +21,7 @@ fi
 
 set -o vi
 export EDITOR=vim
+export OPENER=open
 alias r=ranger
 alias t=trash
 alias ga="git add"
@@ -49,7 +50,12 @@ alias md='mkdir -p'
 alias rd='rmdir'
 alias less='less -R'
 
-
 # [ -d "/opt/lumerical/mode" ] && export PATH=$PATH:/opt/lumerical/fdtd/bin:/opt/lumerical/mode/bin:/opt/lumerical/device/bin:/opt/lumerical/interconnect/bin && export PYTHONPATH=/opt/lumerical/mode/api/python
 # [ -d "$HOME/.lumerical/mode" ] && export PATH=$PATH:$HOME/.lumerical/fdtd/bin:$HOME/.lumerical/mode/bin:$HOME/.lumerical/device/bin:$HOME/.lumerical/interconnect/bin && export PYTHONPATH=$HOME/.lumerical/mode/api/python
 export KUBECONFIG=/Users/j/.kube/k8s-local-config:/Users/j/.kube/k8s-kops-config
+
+LFCD="$GOPATH/src/github.com/gokcehan/lf/etc/lfcd.sh"  # source
+LFCD="~/.config/lf/lfcd.sh"                            # pre-built binary
+if [ -f "$LFCD" ]; then
+    source "$LFCD"
+fi
