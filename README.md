@@ -7,11 +7,14 @@ Frequent use:
 - ranger: vim-inspired terminal-based file-browser. Written in python
 - lf: vim-inspired terminal-based file-browser. Written in go (faster)
 - kitty: GPU accelerated terminal
+- yabai: MacOS tiling manager.
+- sxhkd: change keyboard keys
+- tmux: terminal multiplexer
 
 some use:
 
 - gitignore: global system git ignore
-- ag ignore: ag is nicer than grep to search words 
+- ag ignore: ag is nicer than grep to search words
 - flake8: python linter
 - pylintrc: python linter more strict
 
@@ -22,13 +25,14 @@ rare use:
 - newsboat: rss feed reader
 - i3gaps: tiling windows manager for linux. I use dwm in linux and amethist in MacOs
 - vifm: vim-inspired terminal-based file-browser
-- tmux: terminal multiplexer
-- sxhkd: change keyboard keys
 - mpv: video
 - bashrc: bash terminal
 - zsh: z-shell terminal
 - xonshrc: python-based terminal
 
+Stopped using:
+
+- amethist: tiling manager for OS
 
 ## Installation
 
