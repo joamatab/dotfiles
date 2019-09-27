@@ -62,18 +62,21 @@ cmd open ${{
 cmd trash %set -f; mv $fx ~/.trash
 
 # define a custom 'delete' command
-# cmd delete ${{
+cmd delete ${{
+    set -f
+    rm -rf $fx
 #     set -f
 #     printf "$fx\n"
 #     printf "delete?[y/n]"
 #     read ans
 #     [ $ans = "y" ] && rm -rf $fx
-# }}
+}}
 
 # use '<delete>' key for either 'trash' or 'delete' command
-map <delete> trash
+map <delete> delete
 map <bs2> trash
-map D trash
+map D delete
+map t trash
 # }}}
 # functions {{{
 # extract the current file with the right command
