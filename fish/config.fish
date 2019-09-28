@@ -58,9 +58,12 @@ if [ -d "$HOME/dotfiles/scripts" ]
     set PATH $PATH $HOME/dotfiles/scripts
 end
 
-
 if [ -f ~/.config/fish/abbr.fish ]
   source ~/.config/fish/abbr.fish
+end
+
+if [ -d ~/go/bin ]
+    set PATH $PATH $HOME/go/bin
 end
 
 if [ -f ~/.shortcuts.fish ]
