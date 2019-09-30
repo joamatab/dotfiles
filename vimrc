@@ -98,6 +98,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
+nnoremap S :%s//g<Left><Left> " Replace all is aliased to S.
 
 " Return to the same line you left off at
 augroup line_return
