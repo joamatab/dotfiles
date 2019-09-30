@@ -27,8 +27,11 @@
     ~/.config/newsboat: newsboat
     ~/.config/ranger: ranger 
     ~/.config/lf:
+    ~/.config/clipit/clipitrc:
+    ~/.config/dunst/dunstrc:
     ~/.config/sxhkd: 
     ~/.config/zathura/zathurarc: 
+    ~/.config/gnome-session/sessions/gnome_plus_i3.config: gnome_plus_i3.session
     ~/.dircolors:
     ~/.gitignore: 
     ~/.pylintrc: 
@@ -42,4 +45,5 @@
     ~/.xinitrc:
     ~/.yabairc:
     ~/.skhdrc:
+    ~/.xsession:
 
