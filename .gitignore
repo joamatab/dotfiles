@@ -25,6 +25,7 @@ mpd/sticker.sql
 newsboat/newsboat
 
 fish/fish_variables
+fish/fishd.*
 
 # General
 .DS_Store
