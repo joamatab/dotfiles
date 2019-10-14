@@ -58,3 +58,6 @@ LFCD="~/.config/lf/lfcd.sh"                            # pre-built binary
 if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
+
+eval "$(starship init bash)"
+

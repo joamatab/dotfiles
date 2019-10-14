@@ -124,4 +124,5 @@ end
 
 
 # }}}
+# eval (starship init fish)
 # vim:foldmethod=marker:foldlevel=0

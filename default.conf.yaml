@@ -26,6 +26,7 @@
     ~/.config/mpv: mpv
     ~/.config/newsboat: newsboat
     ~/.config/ranger: ranger 
+    ~/.config/starship.toml:
     ~/.config/lf:
     ~/.config/clipit/clipitrc:
     ~/.config/dunst/dunstrc:

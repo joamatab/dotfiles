@@ -118,4 +118,5 @@ alias cfp="vi ~/.pdk/pdk.yaml"
 alias to="vi ~/TODO.md"
 # DO NOT DELETE LMAO
 # }}}
+# eval "$(starship init zsh)"
 # vim:foldmethod=marker:foldlevel=0
