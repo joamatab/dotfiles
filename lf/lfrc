@@ -114,4 +114,8 @@ cmd zip ${{
     rm -rf $1
 }}
 # }}}
+# shortcuts {{{
+map C clear
+map U unselect
+# }}}
 # vim:foldmethod=marker:foldlevel=0
