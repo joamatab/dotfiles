@@ -4,6 +4,7 @@ if status --is-interactive
     abbr -a c "cd ~/code; ls"
     abbr -a cfa nvim ~/dotfiles/fish/abbr.fish
     abbr -a cff nvim ~/dotfiles/fish/config.fish
+    abbr -a cfk nvim ~/dotfiles/kitty.conf
     abbr -a cfb nvim ~/dotfiles/bashrc
     abbr -a cffl nvim ~/.local.fish
     abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
