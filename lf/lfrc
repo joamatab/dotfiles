@@ -3,7 +3,7 @@ set shell sh
 # set shell zsh
 # set shell fish
 set preview true
-set previewer ~/dotfiles/scripts/lf/preview
+set previewer ~/.config/lf/preview
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
