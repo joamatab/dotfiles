@@ -14,7 +14,6 @@ ranger/base16-shell/
 ranger/fish/
 ranger/nvim/
 ranger/omf/
-ranger/shortcuts.conf
 ranger/plugins/__pycache__/
 
 feh/feh
