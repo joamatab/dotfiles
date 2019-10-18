@@ -60,4 +60,5 @@ if [ -f "$LFCD" ]; then
 fi
 
 eval "$(starship init bash)"
+# alias ls='lsd -hA --group-dirs first'
 
