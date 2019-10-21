@@ -59,6 +59,7 @@ if status --is-interactive
     abbr -a te terraform
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
+    abbr -a wea curl wttr.in 
 end
 
 alias v="nvim"
