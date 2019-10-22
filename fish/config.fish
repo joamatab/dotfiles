@@ -98,6 +98,10 @@ if [ -d "$HOME/bin" ]
     set PATH $HOME/bin $PATH
 end
 
+if [ -d "$HOME/.yarn/bin" ]
+    set PATH $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin $PATH
+end
+
 # if [ -d "$HOME/.rbenv" ]
 #     set PATH $HOME/.rbenv/shims $PATH
 #     set PATH $HOME/.rbenv/bin $PATH
