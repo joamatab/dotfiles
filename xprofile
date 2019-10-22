@@ -17,14 +17,16 @@ xrandr --output eDP-1 --mode 2560x1440
 
 # xrandr --output eDP-1 --mode 3200x1800
 mons -e right
-dwmstatus 2>&1
+
+# dwmstatus 2>&1
 redshift &
 
 export EDITOR="nvim"
-export TERMINAL="st"
 export BROWSER="chromium-browser"
 export READER="zathura"
-export FILE="vifm"
+export FILE="lf"
+export TERMINAL="st"
+export TERM=xterm-256color
 # export BIB="$HOME/Documents/LaTeX/uni.bib"
 # export REFER="$HOME/Documents/referbib"
 # export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
