@@ -74,6 +74,10 @@ if [ -f ~/.local.fish ]
   source ~/.local.fish
 end
 
+if [ -d ~/.cargo/bin ]
+    set PATH $HOME/.cargo/bin $PATH
+end
+
 if test -e "$HOME/.extra.fish";
 	source ~/.extra.fish
 end

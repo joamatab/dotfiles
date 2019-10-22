@@ -19,7 +19,7 @@
     ~/.config/fish: 
         force: true
     ~/.config/flake8: 
-    ~/.config/i3/config: i3/config
+    ~/.config/i3/config: i3/joaquin
     ~/.config/i3blocks/config: i3blocks/config
     ~/.config/kitty/kitty.conf: 
     ~/.config/mpd: mpd
