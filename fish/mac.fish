@@ -31,7 +31,7 @@ if [ -d "$HOME/dotfiles/scripts/mac" ]
     set PATH $PATH $HOME/dotfiles/scripts/mac
 end
 
-for a in klayout VimR Marp
+for a in klayout VimR Marp calibre
     if [ -d "/Applications/$a.app" ]
         set PATH $PATH "/Applications/$a.app/Contents/MacOS"
     end
