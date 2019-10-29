@@ -60,6 +60,7 @@ if status --is-interactive
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
     abbr -a wea curl wttr.in 
+    abbr -a et export TERM=xterm-256color
 end
 
 alias v="nvim"
