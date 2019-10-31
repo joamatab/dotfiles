@@ -1,14 +1,15 @@
 #!/bin/bash
 # uses Rsync to backup into a hard drive
 
-BACKUP_PATH=/Volumes/Joaquin/backup/
-#BACKUP_PATH=/Volumes/Toshiba/backup/
+BACKUP_PATH="/Volumes/joaquin/backup/"
+# BACKUP_PATH=/Volumes/Joaquin/backup/
+# BACKUP_PATH=/Volumes/Toshiba/backup/
 
 # dirs='Desktop'
 # dirs='Music Pictures Documents books code'
 # dirs='books code research personal'
 # dirs='code research'
-dirs='Music files'
+dirs='Music'
 
 for dir in $dirs; do
     rsync -av --delete ~/$dir $BACKUP_PATH
