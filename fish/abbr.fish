@@ -11,8 +11,8 @@ if status --is-interactive
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfy nvim ~/.yabairc
     abbr -a cfs nvim ~/.skhdrc
-    abbr -a cfsd nvim ~/.bmdirs
-    abbr -a cfsf nvim ~/.bmfiles
+    abbr -a bm nvim ~/.bmdirs
+    abbr -a bf nvim ~/.bmfiles
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/dotfiles/tmux.conf
     abbr -a cfv nvim ~/dotfiles/vimrc
