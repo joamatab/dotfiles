@@ -8,6 +8,7 @@ if status --is-interactive
     abbr -a cfb nvim ~/dotfiles/bashrc
     abbr -a cff nvim ~/dotfiles/fish/config.fish
     abbr -a cffl nvim ~/.local.fish
+    abbr -a cfi nvim ~/dotfiles/i3/config
     abbr -a cfk nvim ~/dotfiles/kitty.conf
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfr nvim ~/dotfiles/ranger/rc.conf

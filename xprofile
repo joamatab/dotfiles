@@ -23,7 +23,7 @@ redshift -P -O 2000 &
 megasync &
 
 export EDITOR="nvim"
-export BROWSER="chromium-browser"
+export BROWSER="chromium"
 export READER="zathura"
 export FILE="lf"
 export TERM=xterm-256color
