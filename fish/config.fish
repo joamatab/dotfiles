@@ -7,7 +7,7 @@ end
 # fundle plugin 'tuvistavie/oh-my-fish-core'
 bind -M insert \cc kill-whole-line force-repaint
 set -g -x fish_greeting ''
-bind \ce edit_command_buffer
+bind \cb edit_command_buffer
 
 if test -f "$HOME/.autojump/share/autojump/autojump.fish"; . ~/.autojump/share/autojump/autojump.fish; end
 # set -g fish_key_bindings fish_vi_key_bindings
