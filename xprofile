@@ -13,13 +13,13 @@ xcape -e 'Control_L=Escape'
 nmcli con up psiq_vpn 2>&1
 
 # Monitor
-xrandr --output eDP-1 --mode 2560x1440
+# xrandr --output eDP-1 --mode 2560x1440
 
 # xrandr --output eDP-1 --mode 3200x1800
-mons -e right
+# mons -e right
 
 # dwmstatus 2>&1
-redshift -P -O 2000 &
+# redshift -P -O 2000 &
 megasync &
 
 export EDITOR="nvim"
