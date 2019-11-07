@@ -44,14 +44,14 @@ if status --is-interactive
     abbr -a lf lfcd
     abbr -a ll ls -al
     abbr -a lt lsd --tree
-    abbr -a music ncmpcpp 
+    abbr -a nc ncmpcpp 
     abbr -a o open
     abbr -a p python3
     abbr -a p2 python2
     abbr -a p3 python3
     abbr -a path 'echo $PATH | tr -s " " "\n"'
-    abbr -a pb pdk build
     abbr -a pu "pip uninstall"
+    abbr -a pe "pipenv"
     abbr -a q exit
     abbr -a rs redshift -P -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
