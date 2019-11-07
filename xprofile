@@ -10,7 +10,7 @@ setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 
 # VPN
-nmcli con up psiq_vpn 2>&1
+# nmcli con up vpno 2>&1
 
 # Monitor
 # xrandr --output eDP-1 --mode 2560x1440
