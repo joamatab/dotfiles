@@ -51,7 +51,7 @@ if status --is-interactive
     abbr -a p3 python3
     abbr -a path 'echo $PATH | tr -s " " "\n"'
     abbr -a pb pdk build
-    abbr -a pipu "pip uninstall"
+    abbr -a pu "pip uninstall"
     abbr -a q exit
     abbr -a rs redshift -P -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
