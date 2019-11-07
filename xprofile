@@ -19,7 +19,8 @@ xrandr --output eDP-1 --mode 2560x1440
 mons -e right
 
 # dwmstatus 2>&1
-redshift &
+redshift -P -O 2000 &
+megasync &
 
 export EDITOR="nvim"
 export BROWSER="chromium-browser"

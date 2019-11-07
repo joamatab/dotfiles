@@ -1,27 +1,28 @@
 if status --is-interactive
     set -g fish_user_abbreviations
 # git
+    abbr -a bf nvim ~/.bmfiles
+    abbr -a bm nvim ~/.bmdirs
     abbr -a c "cd ~/code; ls"
     abbr -a cfa nvim ~/dotfiles/fish/abbr.fish
-    abbr -a cff nvim ~/dotfiles/fish/config.fish
-    abbr -a cfk nvim ~/dotfiles/kitty.conf
     abbr -a cfb nvim ~/dotfiles/bashrc
+    abbr -a cff nvim ~/dotfiles/fish/config.fish
     abbr -a cffl nvim ~/.local.fish
-    abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
+    abbr -a cfk nvim ~/dotfiles/kitty.conf
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
-    abbr -a cfy nvim ~/.yabairc
+    abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
     abbr -a cfs nvim ~/.skhdrc
-    abbr -a bm nvim ~/.bmdirs
-    abbr -a bf nvim ~/.bmfiles
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/dotfiles/tmux.conf
     abbr -a cfv nvim ~/dotfiles/vimrc
+    abbr -a cfy nvim ~/.yabairc
     abbr -a cfz nvim ~/dotfiles/zshrc
     abbr -a define sdcv
     abbr -a duh du -d1 -h
     abbr -a dus du -d1 | sort -n
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
+    abbr -a et export TERM=xterm-256color
     abbr -a g git
     abbr -a ga git add
     abbr -a gb git branch
@@ -38,7 +39,10 @@ if status --is-interactive
     abbr -a gra git remote add origin
     abbr -a gs git status
     abbr -a kpo open ~/.config/keepass/database.kdbx
+    abbr -a l lsd -hA --group-dirs first
+    abbr -a lf lfcd
     abbr -a ll ls -al
+    abbr -a lt lsd --tree
     abbr -a music ncmpcpp 
     abbr -a o open
     abbr -a p python3
@@ -48,19 +52,16 @@ if status --is-interactive
     abbr -a pb pdk build
     abbr -a pipu "pip uninstall"
     abbr -a q exit
-    abbr -a l lsd -hA --group-dirs first
-    abbr -a lt lsd --tree
-    abbr -a lf lfcd
+    abbr -a rs redshift -P -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
     abbr -a srd sr duckduckgo
     abbr -a srg sr google
     abbr -a ssht ssh -L 5901:localhost:5901
     abbr -a t trash
     abbr -a te terraform
+    abbr -a wea curl wttr.in 
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
-    abbr -a wea curl wttr.in 
-    abbr -a et export TERM=xterm-256color
 end
 
 alias v="nvim"
