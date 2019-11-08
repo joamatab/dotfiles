@@ -19,7 +19,6 @@
     ~/.config/fish: 
         force: true
     ~/.config/flake8: 
-    ~/.config/i3/config: i3/joaquin
     ~/.config/i3blocks/config: i3blocks/config
     ~/.config/kitty/kitty.conf: 
     ~/.config/mpd: mpd
@@ -35,6 +34,7 @@
     ~/.config/gnome-session/sessions/gnome_plus_i3.config: gnome_plus_i3.session
     ~/.dircolors:
     ~/.gitignore: 
+    ~/.i3: 
     ~/.pylintrc: 
     ~/.profile: 
     ~/.vifm: 
