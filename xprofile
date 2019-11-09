@@ -5,6 +5,7 @@
 
 # make CapsLock behave like Ctrl:
 setxkbmap -option ctrl:nocaps
+xmodmap -e "keycode 47 = colon semicolon" # remap : and ;
 
 # make short-pressed Ctrl behave like Escape:
 xcape -e 'Control_L=Escape'
