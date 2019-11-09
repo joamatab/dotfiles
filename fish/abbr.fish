@@ -55,6 +55,7 @@ if status --is-interactive
     abbr -a q exit
     abbr -a rs redshift -P -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
+    abbr -a sp sudo pacman -Suy --nocofirm
     abbr -a srd sr duckduckgo
     abbr -a srg sr google
     abbr -a ssht ssh -L 5901:localhost:5901
