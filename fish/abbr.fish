@@ -59,16 +59,19 @@ if status --is-interactive
     abbr -a srg sr google
     abbr -a ssht ssh -L 5901:localhost:5901
     abbr -a t trash
+    abbr -a v nvim
+    abbr -a vi nvim
+    abbr -a vim nvim
     abbr -a te terraform
     abbr -a wea curl wttr.in 
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
 end
 
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
-alias icat="kitty +kitten icat"
+# alias v="nvim"
+# alias vi="nvim"
+# alias vim="nvim"
+# alias icat="kitty +kitten icat"
 
 # abbr -a vi nvim
 # abbr -a vim nvim
