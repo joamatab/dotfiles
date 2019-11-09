@@ -24,15 +24,15 @@ Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
-Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
+" Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', {'for':'python'}
-Plug 'goerz/jupytext'
 Plug 'dag/vim-fish', {'for':'fish'}
+" Plug 'goerz/jupytext'
 
 " Autoformat
 Plug 'ambv/black', { 'on': 'Black' }
