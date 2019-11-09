@@ -126,6 +126,10 @@ if [ -d "$HOME/.pyenv/bin" ]
     set PATH $HOME/.pyenv/bin $PATH
 end
 
+if [ -d "$HOME/.local/kitty.app/bin" ]
+    set PATH $HOME/.local/kitty.app/bin $PATH
+end
+
 if [ -d "$HOME/.kube/k8s-kops-config" ]
     set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 end
