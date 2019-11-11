@@ -1,0 +1,12 @@
+#!/bin/bash
+# https://github.com/maxwell-bland/i3-natural-scrolling-and-tap/blob/master/inverse-scroll.sh
+
+# Get id of touchpad and the id of the field corresponding to
+# natural scrolling
+id=`xinput list | grep -i "Touchpad" | cut -d'=' -f2 | cut -d'[' -f1`
+natural_scrolling_id=`xinput list-props $id | \
+                      grep -i "Natural Scrolling Enabled (" \
+                      | cut -d'(' -f2 | cut -d')' -f1`
+
+# Set the property to true
+xinput --set-prop $id $natural_scrolling_id 1 
