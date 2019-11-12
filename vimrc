@@ -428,4 +428,3 @@ iab retrun return
 iab previosu previous
 iab Wb wb
 
-" vim:set et sw=2 foldmethod=expr foldexpr=getline(v\:lnum)=~'^\"\ Section\:'?'>1'\:'=':
