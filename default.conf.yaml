@@ -24,6 +24,7 @@
     ~/.config/mpd: mpd
     ~/.config/mpv: mpv
     ~/.config/newsboat: newsboat
+    ~/.config/karabiner: 
     ~/.config/ranger: ranger 
     ~/.config/starship.toml:
     ~/.config/lf:

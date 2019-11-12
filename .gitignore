@@ -99,7 +99,6 @@ Icon?
 *.xml
 *.tar.gz
 *.gds
-*.json
 *.zip
 *.rdb
 *.sty
