@@ -103,7 +103,11 @@ if [ -d "$HOME/bin" ]
 end
 
 if [ -d "$HOME/.yarn/bin" ]
-    set PATH $HOME/.yarn/bin $HOME/.config/yarn/global/node_modules/.bin $PATH
+    set PATH $HOME/.yarn/bin $PATH
+end
+
+if [ -d "$HOME/.config/yarn/global/node_modules/.bin" ]
+    set PATH  $HOME/.config/yarn/global/node_modules/.bin $PATH
 end
 
 # if [ -d "$HOME/.rbenv" ]
