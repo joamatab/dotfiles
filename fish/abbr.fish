@@ -1,6 +1,5 @@
 if status --is-interactive
     set -g fish_user_abbreviations
-# git
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
     abbr -a c "cd ~/code; ls"
@@ -40,8 +39,7 @@ if status --is-interactive
     abbr -a gra git remote add origin
     abbr -a gs git status
     abbr -a kpo open ~/.config/keepass/database.kdbx
-    abbr -a l lsd -hA --group-dirs first
-    abbr -a lf lfcd
+    abbr -a l lfcd
     abbr -a ll ls -al
     abbr -a lt lsd --tree
     abbr -a nc ncmpcpp 
@@ -69,6 +67,7 @@ if status --is-interactive
     abbr -a ytv youtube-dl -ic
 end
 
+# abbr -a l lsd -hA --group-dirs first
 # alias v="nvim"
 # alias vi="nvim"
 # alias vim="nvim"
