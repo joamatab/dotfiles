@@ -36,6 +36,7 @@
     ~/.dircolors:
     ~/.gitignore: 
     ~/.i3: 
+        force: true
     ~/.pylintrc: 
     ~/.profile: 
     ~/.vifm: 
