@@ -20,7 +20,7 @@ function pyc
   command find . -name "*.pyc" -exec rm -rf {} \;
 end
 
-function ip
+function ipmac
   dig +short myip.opendns.com @resolver1.opendns.com
 end
 
