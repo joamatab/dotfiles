@@ -20,10 +20,6 @@ function pyc
   command find . -name "*.pyc" -exec rm -rf {} \;
 end
 
-function ipmac
-  dig +short myip.opendns.com @resolver1.opendns.com
-end
-
 function md2html
     markdown-to-slides "$argv" -o slides.html
     open slides.html
