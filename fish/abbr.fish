@@ -1,5 +1,6 @@
 if status --is-interactive
     set -g fish_user_abbreviations
+# git
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
     abbr -a c "cd ~/code; ls"
@@ -61,13 +62,14 @@ if status --is-interactive
     abbr -a v nvim
     abbr -a vi nvim
     abbr -a vim nvim
+    abbr -a vw nvim -c "VimwikiIndex"
+    abbr -a vd nvim -c "VimwikiDiaryIndex"
     abbr -a te terraform
     abbr -a wea curl wttr.in 
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
 end
 
-# abbr -a l lsd -hA --group-dirs first
 # alias v="nvim"
 # alias vi="nvim"
 # alias vim="nvim"
