@@ -43,6 +43,7 @@ Plug 'prettier/vim-prettier'
 
 " Git help
 Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 
