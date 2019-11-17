@@ -2,15 +2,15 @@
 " Section: Vim Plug 
 call plug#begin('~/.vim/plugged')
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug 'zxqfl/tabnine-vim'
-  " Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"   " Plug 'zxqfl/tabnine-vim'
+"   " Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 " file browsing
 Plug 'vim-scripts/mru.vim'
@@ -35,7 +35,7 @@ Plug 'dag/vim-fish', {'for':'fish'}
 " Plug 'goerz/jupytext'
 
 " Autoformat
-Plug 'ambv/black', { 'on': 'Black' }
+Plug 'ambv/black'
 Plug 'prettier/vim-prettier'
 " Plug 'prettier/vim-prettier', {
 "   \ 'do': 'yarn install',
