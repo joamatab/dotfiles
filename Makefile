@@ -15,7 +15,7 @@ lumerical:
 	cp -r Lumerical $(HOME)/.config/
 
 arch:
-	ln -s xprofile.arch $(HOME)/.xprofile
+	ln -sf $(PWD)/xprofile.arch $(HOME)/.xprofile
 
 tmux:
 	rm -rf ~/.tmux

@@ -1,4 +1,5 @@
 #!/bin/sh
 
+nextcloud &
 dunst &
 nmcli con up vpno 2>&1 &
