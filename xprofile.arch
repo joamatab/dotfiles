@@ -1,0 +1,4 @@
+#!/bin/sh
+
+dunst &
+nmcli con up vpno 2>&1 &

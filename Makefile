@@ -14,6 +14,9 @@ install:
 lumerical:
 	cp -r Lumerical $(HOME)/.config/
 
+arch:
+	ln -s xprofile.arch $(HOME)/.xprofile
+
 tmux:
 	rm -rf ~/.tmux
 	git clone https://github.com/gpakosz/.tmux.git $(HOME)/.tmux
