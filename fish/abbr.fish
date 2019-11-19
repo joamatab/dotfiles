@@ -3,7 +3,7 @@ if status --is-interactive
 # git
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
-    abbr -a c "cd ~/code; ls"
+    abbr -a c cloudron
     abbr -a cfa nvim ~/dotfiles/fish/abbr.fish
     abbr -a cfb nvim ~/dotfiles/bashrc
     abbr -a cff nvim ~/dotfiles/fish/config.fish
@@ -59,12 +59,12 @@ if status --is-interactive
     abbr -a srg sr google
     abbr -a ssht ssh -L 5901:localhost:5901
     abbr -a t trash
+    abbr -a te terraform
     abbr -a v nvim
     abbr -a vi nvim
     abbr -a vim nvim
-    abbr -a vw nvim -c "VimwikiIndex"
-    abbr -a vd nvim -c "VimwikiDiaryIndex"
-    abbr -a te terraform
+    abbr -a ww nvim -c "VimwikiIndex"
+    abbr -a wi nvim -c "VimwikiDiaryIndex"
     abbr -a wea curl wttr.in 
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
