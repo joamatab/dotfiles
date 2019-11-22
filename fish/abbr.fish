@@ -52,6 +52,7 @@ if status --is-interactive
     abbr -a pu "pip uninstall"
     abbr -a pe "pipenv"
     abbr -a q exit
+    abbr -a r ranger
     abbr -a rs redshift -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
     abbr -a sp sudo pacman -Suy --nocofirm
