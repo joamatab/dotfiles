@@ -37,6 +37,7 @@ if status --is-interactive
     abbr -a glo git log --oneline
     abbr -a gp git push
     abbr -a gpo git push -u origin master
+    abbr -a gpb git push --set-upstream origin 
     abbr -a gra git remote add origin
     abbr -a gs git status
     abbr -a kpo open ~/.config/keepass/database.kdbx
