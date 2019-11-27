@@ -15,6 +15,7 @@
     ~/.bash_darwin:
     ~/.bash_profile: 
     ~/.bashrc: 
+    ~/.config/dunst/dunstrc: 
     ~/.config/feh: feh
     ~/.config/fish: 
         force: true
