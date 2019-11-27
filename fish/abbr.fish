@@ -24,7 +24,6 @@ if status --is-interactive
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
     abbr -a et export TERM=xterm-256color
-    abbr -a g git
     abbr -a ga git add
     abbr -a gb git branch
     abbr -a gc git commit -v
@@ -37,7 +36,7 @@ if status --is-interactive
     abbr -a glo git log --oneline
     abbr -a gp git push
     abbr -a gpo git push -u origin master
-    abbr -a gpb git push --set-upstream origin 
+    abbr -a gps git push --set-upstream origin 
     abbr -a gra git remote add origin
     abbr -a gs git status
     abbr -a kpo open ~/.config/keepass/database.kdbx
@@ -50,6 +49,7 @@ if status --is-interactive
     abbr -a p2 python2
     abbr -a p3 python3
     abbr -a path 'echo $PATH | tr -s " " "\n"'
+    abbr -a pi "pip install"
     abbr -a pu "pip uninstall"
     abbr -a pe "pipenv"
     abbr -a q exit

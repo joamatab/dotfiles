@@ -11,7 +11,8 @@ call plug#begin('~/.vim/plugged')
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'markdown'}
+" Plug 'kiteco/vim-plugin', { 'for': 'python' }
 
 " file browsing
 Plug 'vim-scripts/mru.vim'
