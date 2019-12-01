@@ -134,6 +134,7 @@ if [ -d "$HOME/.kube/k8s-kops-config" ]
     set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 end
 
+[ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
 
 # }}}
 # eval (starship init fish)

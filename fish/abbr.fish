@@ -21,6 +21,8 @@ if status --is-interactive
     abbr -a define sdcv
     abbr -a duh du -d1 -h
     abbr -a dus du -d1 | sort -n
+    abbr -a due 'killall -SIGUSR2 dunst'
+    abbr -a dud 'killall -SIGUSR1 dunst'
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
     abbr -a et export TERM=xterm-256color
