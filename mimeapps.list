@@ -1,0 +1,42 @@
+[Default Applications]
+x-scheme-handler/http=userapp-Pale Moon.desktop
+x-scheme-handler/https=userapp-Pale Moon.desktop
+x-scheme-handler/ftp=userapp-Pale Moon.desktop
+x-scheme-handler/chrome=userapp-Pale Moon.desktop
+text/html=userapp-Pale Moon.desktop
+application/x-extension-htm=userapp-Pale Moon.desktop
+application/x-extension-html=userapp-Pale Moon.desktop
+application/x-extension-shtml=userapp-Pale Moon.desktop
+application/xhtml+xml=userapp-Pale Moon.desktop
+application/x-extension-xhtml=userapp-Pale Moon.desktop
+application/x-extension-xht=userapp-Pale Moon.desktop
+image/jpeg=viewnior.desktop;gpicview.desktop;
+image/png=viewnior.desktop;gpicview.desktop;
+text/plain=mousepad.desktop
+x-scheme-handler/mailto=userapp-Evolution-OF7OB0.desktop
+message/rfc822=userapp-Thunderbird.desktop
+application/pdf=epdfview.desktop
+application/x-bittorrent=deluge.desktop
+x-scheme-handler/kite=kite-copilot.desktop
+application/octet-stream=klayoutEditor.desktop
+
+[Added Associations]
+x-scheme-handler/http=userapp-Pale Moon.desktop;
+x-scheme-handler/https=userapp-Pale Moon.desktop;
+x-scheme-handler/ftp=userapp-Pale Moon.desktop;
+x-scheme-handler/chrome=userapp-Pale Moon.desktop;
+text/html=firefox.desktop;userapp-Pale Moon.desktop;
+application/x-extension-htm=userapp-Pale Moon.desktop;
+application/x-extension-html=userapp-Pale Moon.desktop;
+application/x-extension-shtml=userapp-Pale Moon.desktop;
+application/xhtml+xml=userapp-Pale Moon.desktop;
+application/x-extension-xhtml=userapp-Pale Moon.desktop;
+application/x-extension-xht=userapp-Pale Moon.desktop;
+image/jpeg=viewnior.desktop;gpicview.desktop;
+image/png=viewnior.desktop;gpicview.desktop;
+text/plain=mousepad.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird.desktop;userapp-Evolution-OF7OB0.desktop;
+message/rfc822=userapp-Thunderbird.desktop;
+application/pdf=epdfview.desktop;
+application/x-bittorrent=deluge.desktop;
+application/octet-stream=klayoutEditor.desktop;

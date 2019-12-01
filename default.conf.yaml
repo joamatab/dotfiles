@@ -22,6 +22,8 @@
     ~/.config/flake8: 
     ~/.config/i3blocks/config: i3blocks/config
     ~/.config/kitty/kitty.conf: 
+    ~/.config/mimeapps.list: 
+        force: true
     ~/.config/mpd: mpd
     ~/.config/mpv: mpv
     ~/.config/newsboat: newsboat
