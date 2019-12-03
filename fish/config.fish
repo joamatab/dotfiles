@@ -88,11 +88,6 @@ if [ -d "$HOME/anaconda3" ]
     # set PATH $HOME/anaconda3/bin $PATH
 end
 
-if [ -d "$HOME/miniconda3" ]
-    source $HOME/miniconda3/etc/fish/conf.d/conda.fish
-    set PATH $PATH $HOME/miniconda3/bin
-    # set PATH $HOME/miniconda3/bin $PATH
-end
 
 if [ -d "$HOME/bin" ]
     set PATH $HOME/bin $PATH
@@ -132,6 +127,12 @@ end
 
 if [ -d "$HOME/.kube/k8s-kops-config" ]
     set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
+end
+
+if [ -d "$HOME/miniconda3" ]
+    source $HOME/miniconda3/etc/fish/conf.d/conda.fish
+    # set PATH $PATH $HOME/miniconda3/bin
+    set PATH $HOME/miniconda3/bin $PATH
 end
 
 [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
