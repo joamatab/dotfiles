@@ -21,7 +21,9 @@ xcape -e 'Control_L=Escape'
 
 # dwmstatus 2>&1
 # redshift -P -O 2000 &
-# megasync &
+
+megasync &
+davmail &
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export QT_QPA_PLATFORMTHEME="qt5ct"
