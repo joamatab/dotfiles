@@ -23,10 +23,6 @@ if [ -d "/Applications/OpenSCAD.app" ]
     set PATH $PATH "/Applications/OpenSCAD.app/Contents/MacOS"
 end
 
-if [ -d "$HOME/.cargo" ]
-    set PATH $PATH $HOME/.cargo/bin
-end
-
 if [ -d "$HOME/dotfiles/scripts/mac" ]
     set PATH $PATH $HOME/dotfiles/scripts/mac
 end

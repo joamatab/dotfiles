@@ -13,10 +13,6 @@ end
 #     set -x PYTHONPATH /opt/lumerical/fdtd/api/python
 # end
 
-if [ -d "/opt/lumerical/2019b" ]
-    set -x PYTHONPATH /opt/lumerical/2019b/api/python
-    set PATH /opt/lumerical/2019b/bin $PATH
-end
 
 if [ -d "$HOME/.lumerical/" ]
     set -x PYTHONPATH $HOME/.lumerical/api/python
