@@ -131,8 +131,8 @@ end
 
 if [ -d "$HOME/miniconda3" ]
     # source $HOME/miniconda3/etc/fish/conf.d/conda.fish
-    set PATH $PATH $HOME/miniconda3/bin
-    # set PATH $HOME/miniconda3/bin $PATH
+    # set PATH $PATH $HOME/miniconda3/bin
+    set PATH $HOME/miniconda3/bin $PATH
 end
 
 [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
