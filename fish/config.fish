@@ -130,7 +130,7 @@ if [ -d "$HOME/.kube/k8s-kops-config" ]
 end
 
 if [ -d "$HOME/miniconda3" ]
-    # source $HOME/miniconda3/etc/fish/conf.d/conda.fish
+    source $HOME/miniconda3/etc/fish/conf.d/conda.fish
     # set PATH $PATH $HOME/miniconda3/bin
     set PATH $HOME/miniconda3/bin $PATH
 end
