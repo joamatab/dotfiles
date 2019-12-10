@@ -286,6 +286,11 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+bindsym $mod+Shift+y		exec --no-startup-id i3resize left
+bindsym $mod+Shift+u		exec --no-startup-id i3resize down
+bindsym $mod+Shift+i		exec --no-startup-id i3resize up
+bindsym $mod+Shift+o		exec --no-startup-id i3resize right
+
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock

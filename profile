@@ -34,6 +34,7 @@ export FILE="lf"
 export TERM=xterm-256color
 export TERMINAL="kitty"
 export BROWSER="firefox"
+export MUSIC="ncmpcpp"
 # export BROWSER="qutebrowser"
 # export BROWSER="chromium"
 # export TERMINAL="st"
