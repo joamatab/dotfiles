@@ -1,12 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 ./install
 
-# if [ -d /Applications ]; then
-#   ln -sf $script_home/fish/mac.fish $HOME/.local.fish
-# else
-#   ln -sf $script_home/fish/linux.fish $HOME/.local.fish
-# fi
 
 if [ ! -d $HOME/.tmux ]; then
   cd
@@ -14,4 +9,12 @@ if [ ! -d $HOME/.tmux ]; then
   ln -s -f .tmux/.tmux.conf
   cp .tmux/.tmux.conf.local .
 fi
+
+if [ ! -d $PWD/luke ]; then
+  git clone https://github.com/LukeSmithxyz/voidrice.git luke
+else
+  cd luke
+  git pull
+fi
+
 
