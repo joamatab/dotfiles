@@ -41,6 +41,7 @@
     ~/.gitignore: 
     ~/.i3: 
         force: true
+    ~/.moc/config: moc/config
     ~/.pylintrc: 
     ~/.profile: 
     ~/.vifm: 
