@@ -29,7 +29,8 @@
     ~/.config/ncmpcpp:
     ~/.config/newsboat: newsboat
     ~/.config/karabiner: 
-    ~/.config/ranger: ranger 
+    ~/.config/ranger: 
+        force: true
     ~/.config/starship.toml:
     ~/.config/lf:
     ~/.config/clipit/clipitrc:
