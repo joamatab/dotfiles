@@ -1,0 +1,5 @@
+# backend: TkAgg
+# backend: WXAgg
+# backend: MacOSX
+backend: TkAgg
+
