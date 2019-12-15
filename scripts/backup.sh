@@ -1,7 +1,7 @@
 #!/bin/bash
 # uses Rsync to backup into a hard drive
 
-BACKUP_PATH="/Volumes/joaquin/backup/"
+BACKUP_PATH="/Volumes/joaquin/"
 # BACKUP_PATH=/Volumes/Joaquin/backup/
 # BACKUP_PATH=/Volumes/Toshiba/backup/
 
