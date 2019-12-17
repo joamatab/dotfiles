@@ -69,7 +69,7 @@
 #
 # Example:    MusicDir = "/home/joe/music"
 #
-#MusicDir =
+MusicDir =/home/j
 
 # Start in the music directory by default?  If set to 'no', start
 # in the current directory by default.  A single directory on
@@ -264,7 +264,7 @@ Theme = manjaro
 #
 # Example:    Keymap = my_keymap
 #
-#Keymap =
+Keymap =keymap
 
 # Use ASCII rather than graphic characters for drawing lines.  This
 # helps on some terminals.
