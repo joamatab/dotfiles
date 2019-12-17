@@ -43,6 +43,7 @@
     ~/.i3: 
         force: true
     ~/.moc/config: moc/config
+    ~/.matplotlib/matplotlibrc: 
     ~/.pylintrc: 
     ~/.profile: 
     ~/.vifm: 
