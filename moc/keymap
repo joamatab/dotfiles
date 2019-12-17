@@ -65,9 +65,9 @@ quit_client           = q
 quit                  = Q
 
 # Menu and interface control keys:
-go                    = ENTER 
-menu_down             = DOWN
-menu_up               = UP
+go                    = ENTER l
+menu_down             = DOWN j
+menu_up               = UP k
 menu_page_down        = PAGE_DOWN
 menu_page_up          = PAGE_UP
 menu_first_item       = HOME
@@ -77,11 +77,11 @@ toggle_read_tags      = f
 toggle_show_time      = ^t
 toggle_show_format    = ^f
 toggle_menu           = TAB
-toggle_layout         = l
+# toggle_layout         = L
 toggle_hidden_files   = H
 show_lyrics           = L
 theme_menu            = T
-help                  = h ?
+help                  = ?
 refresh               = ^r
 reload                = r
 
@@ -130,7 +130,7 @@ go_to_fast_dir8       = *
 go_to_fast_dir9       = (
 go_to_fast_dir10      = )
 go_to_playing_file    = G
-go_up                 = U
+go_up                 = U h
 
 # Playlist specific keys:
 add_file              = a
@@ -139,7 +139,7 @@ plist_add_stream      = ^u
 delete_from_playlist  = d
 playlist_full_paths   = P
 plist_move_up         = u
-plist_move_down       = j
+# plist_move_down       = j
 save_playlist         = V
 remove_dead_entries   = Y
 clear_playlist        = C
