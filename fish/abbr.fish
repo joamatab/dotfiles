@@ -65,8 +65,6 @@ if status --is-interactive
     abbr -a t trash
     abbr -a te terraform
     abbr -a v nvim
-    abbr -a vi nvim
-    abbr -a vim nvim
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
     abbr -a wea curl wttr.in 
