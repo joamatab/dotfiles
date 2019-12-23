@@ -13,7 +13,7 @@ matrix:
       dist: trusty
       sudo: false
       script:
-        - bash install ubuntu.mk
+        - bash install.sh
     - name: Test on ubuntu 18.04
       os: linux
       dist: bionic
@@ -25,8 +25,8 @@ matrix:
       osx_image: xcode11.3
       sudo: required
       script:
-        - bash install mac.mk
+        - bash install.sh
     - name: Test on windows
       os: windows
       script:
-        - bash install mac.mk
+        - bash install.sh
