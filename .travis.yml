@@ -19,7 +19,3 @@ matrix:
       sudo: required
       script:
         - bash install.sh
-    - name: Test on windows
-      os: windows
-      script:
-        - bash install.sh
