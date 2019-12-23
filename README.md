@@ -10,3 +10,7 @@ You can install this config files copy-pasting this into a terminal:
 sh install.sh
 ```
 
+# References
+
+- https://github.com/maximbaz/dotfiles
+- https://github.com/ashishb/dotfiles/blob/master/.travis.yml
