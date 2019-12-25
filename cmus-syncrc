@@ -1,0 +1,8 @@
+[phone]
+music = /home/j/Phone/SD card/Music
+playlist = /home/j/Phone/SD card/Music/playlist
+
+[source]
+music = /home/j/External/Music
+playlist = /home/j/.config/cmus/playlist.pl
+

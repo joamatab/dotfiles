@@ -15,6 +15,7 @@
     ~/.bash_darwin:
     ~/.bash_profile: 
     ~/.bashrc: 
+    ~/.cmus-syncrc:
     ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc: 
     ~/.config/feh: feh
