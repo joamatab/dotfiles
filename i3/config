@@ -48,6 +48,14 @@ bindsym $mod+d exec dmenu_run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
+
+################################################################################################
+## Music
+################################################################################################
+bindsym $mod+n --release exec --no-startup-id cmus-remote -n
+bindsym $mod+p --release exec --no-startup-id cmus-remote -p
+bindsym $mod+c --release exec --no-startup-id cmus-remote -u
+
 ################################################################################################
 ## screenshots
 ################################################################################################
