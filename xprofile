@@ -4,5 +4,5 @@ pcloud &
 nextcloud &
 dunst &
 nmcli con up vpno 2>&1 &
-megasync &
 davmail &
+# megasync &

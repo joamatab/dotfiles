@@ -1,6 +1,5 @@
 if status --is-interactive
     set -g fish_user_abbreviations
-# git
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
     abbr -a c cloudron
@@ -65,6 +64,7 @@ if status --is-interactive
     abbr -a t trash
     abbr -a te terraform
     abbr -a v nvim
+    abbr -a vpn  'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
     abbr -a wea curl wttr.in 
