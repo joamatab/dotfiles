@@ -15,6 +15,14 @@ if [ ! -d $PWD/luke ]; then
 else
   cd luke
   git pull
+  cd ..
 fi
 
+if [ ! -d $PWD/brodie ]; then
+  git clone https://github.com/BrodieRobertson/scripts.git brodie
+else
+  cd brodie
+  git pull
+  cd ..
+fi
 
