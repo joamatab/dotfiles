@@ -62,6 +62,8 @@ if status --is-interactive
     abbr -a srg sr google
     abbr -a ssht ssh -L 5901:localhost:5901
     abbr -a t trash
+    abbr -a timela 'timedatectl set-timezone America/Los_Angeles'
+    abbr -a timemadrid 'timedatectl set-timezone Europe/Madrid'
     abbr -a te terraform
     abbr -a v nvim
     abbr -a vpn  'nmcli con up vpno 2>&1'
