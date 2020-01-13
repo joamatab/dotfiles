@@ -44,6 +44,15 @@ set -x GIT_EDITOR nvim
 set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 set -x PDKROOT $HOME/pdk2
 
+# color man pages
+set -gx LESS_TERMCAP_mb \e'[1;32m'
+set -gx LESS_TERMCAP_md \e'[1;32m'
+set -gx LESS_TERMCAP_me \e'[0m'
+set -gx LESS_TERMCAP_se \e'[0m'
+set -gx LESS_TERMCAP_so \e'[01;33m'
+set -gx LESS_TERMCAP_ue \e'[0m'
+set -gx LESS_TERMCAP_us \e'[1;4;31m'
+
 # set -x TERM xterm-256color  
 # sh-add -K ~/.ssh/keys/id_rsa # saves git credentials
 # set -x KLAYOUT_PYTHONPATH /usr/local/bin/python3

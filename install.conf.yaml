@@ -15,6 +15,7 @@
     ~/.bash_darwin:
     ~/.bash_profile: 
     ~/.bashrc: 
+      force: true
     ~/.cmus-syncrc:
     ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc: 
@@ -50,14 +51,13 @@
     ~/.matplotlib/matplotlibrc: 
     ~/.pylintrc: 
     ~/.profile: 
+    ~/.skhdrc:
     ~/.vifm: 
     ~/.vimrc: 
-    ~/.xonshrc:
-    ~/.zshrc:
     ~/.weechat:
     ~/.xinitrc:
-    ~/.yabairc:
-    ~/.skhdrc:
-    ~/.xsession:
+    ~/.xonshrc:
     ~/.xprofile:
-
+    ~/.xsession:
+    ~/.yabairc:
+    ~/.zshrc:
