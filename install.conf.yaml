@@ -19,6 +19,7 @@
     ~/.cmus-syncrc:
     ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc: 
+      force: true
     ~/.config/feh: feh
     ~/.config/fish: 
         force: true
@@ -51,11 +52,13 @@
     ~/.matplotlib/matplotlibrc: 
     ~/.pylintrc: 
     ~/.profile: 
+      force: true
     ~/.skhdrc:
     ~/.vifm: 
     ~/.vimrc: 
     ~/.weechat:
     ~/.xinitrc:
+      force: true
     ~/.xonshrc:
     ~/.xprofile:
     ~/.xsession:
