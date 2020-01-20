@@ -1,6 +1,5 @@
 if status --is-interactive
     set -g fish_user_abbreviations
-# git
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
     abbr -a c cloudron
@@ -63,10 +62,11 @@ if status --is-interactive
     abbr -a srg sr google
     abbr -a ssht ssh -L 5901:localhost:5901
     abbr -a t trash
+    abbr -a timela 'timedatectl set-timezone America/Los_Angeles'
+    abbr -a timemadrid 'timedatectl set-timezone Europe/Madrid'
     abbr -a te terraform
     abbr -a v nvim
-    abbr -a vi nvim
-    abbr -a vim nvim
+    abbr -a vpn  'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
     abbr -a wea curl wttr.in 

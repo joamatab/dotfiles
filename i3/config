@@ -48,6 +48,14 @@ bindsym $mod+d exec dmenu_run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
+
+################################################################################################
+## Music
+################################################################################################
+bindsym $mod+n --release exec --no-startup-id cmus-remote -n
+bindsym $mod+p --release exec --no-startup-id cmus-remote -p
+bindsym $mod+c --release exec --no-startup-id cmus-remote -u
+
 ################################################################################################
 ## screenshots
 ################################################################################################
@@ -307,7 +315,7 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 

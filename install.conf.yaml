@@ -15,7 +15,11 @@
     ~/.bash_darwin:
     ~/.bash_profile: 
     ~/.bashrc: 
+      force: true
+    ~/.cmus-syncrc:
+    ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc: 
+      force: true
     ~/.config/feh: feh
     ~/.config/fish: 
         force: true
@@ -32,6 +36,7 @@
     ~/.config/ranger: 
         force: true
     ~/.config/starship.toml:
+    ~/.config/nvim/init.vim: vimrc
     ~/.config/lf:
     ~/.config/clipit/clipitrc:
     ~/.config/dunst/dunstrc:
@@ -43,17 +48,19 @@
     ~/.i3: 
         force: true
     ~/.moc/config: moc/config
+    ~/.moc/keymap: moc/keymap
     ~/.matplotlib/matplotlibrc: 
     ~/.pylintrc: 
     ~/.profile: 
+      force: true
+    ~/.skhdrc:
     ~/.vifm: 
     ~/.vimrc: 
-    ~/.xonshrc:
-    ~/.zshrc:
     ~/.weechat:
     ~/.xinitrc:
-    ~/.yabairc:
-    ~/.skhdrc:
-    ~/.xsession:
+      force: true
+    ~/.xonshrc:
     ~/.xprofile:
-
+    ~/.xsession:
+    ~/.yabairc:
+    ~/.zshrc:

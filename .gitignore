@@ -1,7 +1,10 @@
 extra/
 *.pyo
 *.pyc
+
 luke/
+brodie/
+
 test.sh
 .DS_Store
 weechat/logs/
