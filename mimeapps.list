@@ -1,15 +1,15 @@
 [Default Applications]
-x-scheme-handler/http=userapp-firefox.desktop
-x-scheme-handler/https=userapp-firefox.desktop
-x-scheme-handler/ftp=browser.desktop;
-x-scheme-handler/chrome=browser.desktop
-text/html=userapp-firefox.desktop
-application/x-extension-htm=browser.desktop
-application/x-extension-html=browser.desktop;
-application/x-extension-shtml=browser.desktop;
-application/xhtml+xml=browser.desktop;
-application/x-extension-xhtml=browser.desktop;
-application/x-extension-xht=browser.desktop;
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
 image/jpeg=viewnior.desktop;gpicview.desktop;
 image/png=viewnior.desktop;gpicview.desktop;
 text/plain=text.desktop
@@ -19,4 +19,18 @@ application/pdf=epdfview.desktop
 application/x-bittorrent=deluge.desktop
 x-scheme-handler/kite=kite-copilot.desktop
 application/octet-stream=klayoutEditor.desktop
+video/mp4=mpv.desktop
 
+[Added Associations]
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/ftp=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+text/html=firefox.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/xhtml+xml=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
+video/mp4=mpv.desktop;

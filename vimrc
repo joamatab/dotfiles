@@ -15,7 +15,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'markdown'}
 " Plug 'kiteco/vim-plugin', { 'for': 'python' }
 
 " file browsing
-Plug 'vim-scripts/mru.vim'
+Plug 'lvht/mru'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -158,7 +158,7 @@ nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :CtrlPMRUFiles<cr>
 nmap <leader>k :EnableAutocorrect<cr>
 nmap <leader>l :Black<cr>
-nmap <leader>m :MRU<CR>
+nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>q :q <cr>
 nmap <leader>sv :w!<cr>:source ~/.vimrc<CR>
@@ -391,11 +391,8 @@ nnoremap <space> za
 " Section: VimWiki
 let g:vimwiki_list = [
 \ {'path': '~/wikis/joaquin/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ {'path': '~/wikis/psi/', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ {'path': '~/wikis/github/', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ {'path': '~/wikis/masks', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ {'path': '~/wikis/gotbletu', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ {'path': '~/wikis/kubernetes', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ ]
 
 "" set preferred settings

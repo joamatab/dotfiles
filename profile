@@ -35,6 +35,7 @@ export TERM=xterm-256color
 export TERMINAL="kitty"
 export BROWSER="firefox"
 export MUSIC="ncmpcpp"
+
 # export BROWSER="qutebrowser"
 # export BROWSER="chromium"
 # export TERMINAL="st"
@@ -43,5 +44,6 @@ export MUSIC="ncmpcpp"
 # export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 # export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
 # export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
-
 # [ -f "$HOME/.xprofile" ] && source ~/.xprofile
+
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"

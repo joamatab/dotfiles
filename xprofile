@@ -1,8 +1,8 @@
 #!/bin/sh
 
-pcloud &
-nextcloud &
 dunst &
 nmcli con up vpno 2>&1 &
 davmail &
 # megasync &
+# pcloud &
+# nextcloud &

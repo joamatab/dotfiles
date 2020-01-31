@@ -25,6 +25,7 @@ if status --is-interactive
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
     abbr -a et export TERM=xterm-256color
+    abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
     abbr -a ga git add
     abbr -a gb git branch
     abbr -a gc git commit -v
@@ -66,6 +67,8 @@ if status --is-interactive
     abbr -a timemadrid 'timedatectl set-timezone Europe/Madrid'
     abbr -a te terraform
     abbr -a v nvim
+    abbr -a vi nvim
+    abbr -a vim nvim
     abbr -a vpn  'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
