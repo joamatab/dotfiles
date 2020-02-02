@@ -63,6 +63,10 @@ if [ -d "$HOME/dotfiles/scripts" ]
     set PATH $PATH $HOME/dotfiles/scripts
 end
 
+if [ -d "$HOME/dotfiles/brodie" ]
+    set PATH $PATH $HOME/dotfiles/brodie
+end
+
 if [ -d "$HOME/dotfiles/luke/.local/bin" ]
     set PATH $PATH $HOME/dotfiles/luke/.local/bin
 end
