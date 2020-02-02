@@ -8,9 +8,9 @@
 # exec dwm
 # exec i3
 
-sxhkd &
-urxvt &
-exec bspwm
+# sxhkd &
+# urxvt &
+# exec bspwm
 
 # userresources=$HOME/.Xresources
 # usermodmap=$HOME/.Xmodmap
