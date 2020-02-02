@@ -1,146 +1,140 @@
-# Basic binds
-super + Return
-	$TERMINAL
-super + d
-	dmenu_run
-super + r
-	$TERMINAL -e $FILE
-super + e
-	$TERMINAL -e neomutt
-super + m
-	$TERMINAL -e ncmpcpp
-super + n
-	$TERMINAL -e newsboat
-super + i
-	$TERMINAL -e htop
-super + y
-	$TERMINAL -e calcurse
-super + shift + a
-	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
-super + shift + c
-	camtoggle
-super + shift + e
-	tutorialvids
-super + w
-	webby | xargs -r $BROWSER
+#---BSPWM Bindings
+# Quit bspwm
+super + shift + Escape
+  prompt "Are you sure you would like to quit this Xsession" "bspc quit"
+
+# Restart bspwm
 super + shift + w
-	$BROWSER
-super + shift + g
-	gimp
+  bspc wm -r
 
-# Etcetera...
-super + grave
-	dmenuunicode
-super + Scroll_Lock
-	killall screenkey || screenkey
-super + Insert
-	showclip
+# Kill Window
+super + q
+  xdo close && bspunhide
+
+# Focus on window in direction
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+#	Send window to desktop
+super + shift + {0-9}
+  bspc node -d {0-9} && bspunhide
+
+# Send window to desktop and swap to desktop
+super + control + {0-9}
+  bspc node -d {0-9} && bspunhide && bspc desktop -f {0-9}
+
+# Toggle fullscreen on and off
+super + f
+  bspfullscreen
+
+# Toggle floating on and off
+super + o
+  bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+
+# Swap window with direction
+super + shift + {h,j,k,l}
+	bspc node -s {west,south,north,east}
+
+# Focus on desktop
+super + {0-9}
+	bspc desktop -f {0-9}
+
+# Expand a window by moving one of its side outward
+ctrl + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+  #xdo resize {-w -20, -h +20, -h -20, -w +20}
+
+# Contract a window by moving one of its side inward
+ctrl + super + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+  #xdo resize {-w +20, -h -20, -h +20, -w -20}
+
+# Move a floating window
+ctrl + alt + {Left,Right,Up,Down}
+  xdo move {-x -20, -x +20, -y -20, -y +20}
+
+#---System Control---#
+# Restart hotkey damon
 super + shift + x
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
-super + shift + BackSpace
-	prompt "Reboot computer?" "sudo -A shutdown -r now"
-super + x
-	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
-XF86Launch1
-	xset dpms force off
-XF86AudioMute
-	lmc mute
-XF86AudioLowerVolume
-	lmc down 5
-shift+XF86AudioLowerVolume
-	lmc down 10
-control+XF86AudioLowerVolume
-	lmc down 1
-XF86AudioRaiseVolume
-	lmc up 5
-shift+XF86AudioRaiseVolume
-	lmc up 10
-control+XF86AudioRaiseVolume
-	lmc up 1
-XF86AudioNext
-	lmc next
-XF86AudioPlay
-	lmc toggle
-XF86AudioPrev
-	lmc prev
-XF86AudioStop
-	lmc toggle
-XF86MonBrightnessDown
-	xbacklight -dec 15
-XF86MonBrightnessUp
-	xbacklight -inc 15
+  killandnotify "sxhkd" "Config reloaded" && sxhkd &
 
+super + shift + o
+  reloadpolybar
 
-# Recording
-# Take screenshot
+super + shift + {r, d}
+  prompt {"Are you sure you would like to reboot?" "sudo reboot", "Are you sure you would like to shutdown" "sudo shutdown"}
+
+super + shift + l
+  betterlockscreen -l
+
+super + shift + c
+  toggleprogram "picom" "-b"
+
+#---Script Keys---#
+super + {a, x, u, y, t, w, i, c, g}
+  {mntandroid, multimonitor, updatepackages, pyshell, notifytorrents, devenv, importandroid, timer, openterminalin}
+
+super + {b, e}
+  {bm, sch} firefox
+
+F7
+  toggletouch
+
+# Audio Control
+super + {_, shift} + p
+  volctrl Headphone {2%+, 2%-}
+
+super + {_, shift} + s
+  volctrl Speaker {2%+, 2%-}
+
+super + {Up, Down}
+  volctrl Master {2%+, 2%-}
+
+super + m
+  volctrl All mute
+
+# Brightness
+super + {Right, Left}
+  light {-A 5, -U 5} && polybar-msg hook backlight 1
+
+# Screenshots
 Print
-	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
-# Pick screenshot type
+  screenshot full
+
 shift + Print
-	maimpick
-# Record audio or video
+  screenshot select
+
+control + Print
+  screenshot fulltime
+
 super + Print
-	dmenurecord
-# kill active recording
-super + Delete
-	dmenurecord kill
+  screenshot selecttime
 
-# Pause audio
-super + {_,shift +} p
-	lmc {toggle,pause}
-# Changes to next/previous tracks
-super + {comma,period}
-	lmc {prev,next}
-# Restart track
-super + shift + less
-	lmc replay
-# Increase volume
-super + {equal,plus}
-	lmc up {5,15}
-# Decrease volume
-super {_,shift +} + minus
-	lmc down {5,15}
-# Seek foward in song
-super + {_,shift +} bracketright
-	lmc forward {10,120}
-# Seek backward in song
-super + {_,shift +} bracketleft
-	lmc back {10,120}
+#---Application Launchers---#
+super + d
+  dmenu_run
 
-# Function keys
-# Show readme
-super + F1
-	groff -mom $HOME/.local/share/larbs/readme.mom -Tpdf | zathura -
-# F2 is restart in i3 right now.
-# Change display
-super + F3
-	displayselect
-# Hibernate
-super + F4
-	prompt 'Hibernate computer?' 'sudo systemctl suspend'
-# Restart/rescan wifi/eth networks
-super + F5
-	sudo -A systemctl restart NetworkManager
-# Start torrent daemon/open interface
-super + F6
-	torwrap
-# toggle torrent daemon
-super + F7
-	td-toggle
-# sync email
-super + F8
-	mailsync
-# Mount a USB drive or Android device
-super + F9
-	dmenumount
-# Unmount a USB drive or Android device
-super + F10
-	dmenuumount
-# Search with Duckduckgo
-super + F11
-	ducksearch
-# Network Manager interface
-super + F12
-	$TERMINAL -e sudo -A nmcli
+super + Return
+  $TERMINAL
 
+# super + q
+#   brave https://studio.youtube.com
 
+super + {alt, Shift_L} + Return
+  {urxvt, stabmux}
+
+super + alt + {s, l}
+  snap run {spotify, slack}
+
+super + alt + {k, o, g, b, e, f, v}
+  {kdenlive, obs, gimp, firefox, brave, pcmanfm, virtualbox}
+
+# Tracking Apps
+#super + alt + {a, r, t, p, n, c, j}
+#  bspc rule -a st-256color -o state=floating rectangle=800x500+100+100 sticky=on && $TERMINAL -e {alsamixer, lf, transmission-remote-cli, htop, nvim, calcurse, joplin}
+
+super + alt + {a, r, t, p, n, c, j}
+  $TERMINAL -e {alsamixer, lf, transmission-remote-cli, htop, nvim, calcurse, joplin}
+
+super + alt + d
+  apulse discord
