@@ -71,8 +71,8 @@ super + shift + c
   toggleprogram "picom" "-b"
 
 #---Script Keys---#
-super + {a, x, u, y, t, w, i, c, g}
-  {mntandroid, multimonitor, updatepackages, pyshell, notifytorrents, devenv, importandroid, timer, openterminalin}
+# super + {a, x, u, y, t, w, i, c, g}
+#   {mntandroid, multimonitor, updatepackages, pyshell, notifytorrents, devenv, importandroid, timer, openterminalin}
 
 super + {b, e}
   {bm, sch} firefox
@@ -119,6 +119,9 @@ super + Return
 
 # super + q
 #   brave https://studio.youtube.com
+
+super + i
+  firefox
 
 super + {alt, Shift_L} + Return
   {urxvt, stabmux}
