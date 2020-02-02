@@ -26,3 +26,11 @@ else
   cd ..
 fi
 
+mkdir -p extra
+if [[ ! -d extra/brodie ]]; then
+    git clone https://github.com/BrodieRobertson/dotfiles.git extra/brodie
+else
+    cd extra/brodie
+    git pull
+    cd ../..
+fi

@@ -17,6 +17,7 @@
     ~/.bashrc: 
       force: true
     ~/.cmus-syncrc:
+    ~/.config/bspwm:
     ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc: 
       force: true
