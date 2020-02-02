@@ -1,0 +1,270 @@
+[colors]
+background = ${xrdb:background}
+background-wm = #444
+background-alt = #2d2d2d
+foreground = ${xrdb:foreground}
+foreground-alt = #555
+primary = #3c71ea
+secondary = ${xrdb:color3}
+alert = #ed0b0b
+
+[bar/bar]
+monitor = ${env:MONITOR:eDP-1}
+monitor-fallback =
+monitor-strict = false
+monitor-exact = true
+#override-redirect = true
+wm-restack = bspwm
+enable-ipc = true
+fixed-center = false
+bottom = false
+separator =
+#dim-value = 1.0
+
+width = 100%
+height = 32
+offset-x = 0
+offset-y = 0
+radius = 0.0
+
+#background-0 = ${colors.primary}
+#background-1 = ${colors.secondary}
+#background-2 = ${colors.alert}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+padding = 0
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = SourceCodeProMedium:pixelsize=10;
+font-1 = HackNerdFont:pixelsize=10;
+font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
+#dpi-x = 96
+#dpi-y = 96
+
+modules-left = bspwm xwindow
+modules-right = pacman-packages torrents cpu-usage cpu-temperature memory backlight volume battery weather time
+
+tray-position = right
+tray-padding = 1
+tray-background = ${colors.background-alt}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-scale = 1.0
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+cursor-click = pointer
+cursor-scroll = default
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-wm}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+label-occupied = %index%
+label-occupied-padding = 1
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/pacman-packages]
+type = custom/ipc
+hook-0 = sudo pacman -Qu | wc -l
+format-prefix = "📦 "
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+initial = 1
+
+[module/torrents]
+type = custom/ipc
+hook-0 = i3torrents
+hook-1 = echo "Hello World"
+click-left = $TERMINAL -e transmission-remote-cli
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+initial = 1
+
+[module/memory]
+type = custom/script
+exec = i3memory
+label = "%output%"
+format-prefix = "🧠 "
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/wifi]
+type = custom/script
+exec = i3wifi
+label = "%output%"
+format-prefix = "📡 "
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/network-speed]
+type = custom/script
+exec = i3speedtest
+label = "%output%"
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/cpu-usage]
+type = custom/script
+exec = polycpu
+label = "%output%"
+interval = 10
+format-prefix = "💻 "
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/cpu-temperature]
+type = custom/script
+exec = polytemp
+label = "%output%"
+interval = 10
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/battery]
+type = custom/script
+exec = polybattery
+label = "%output%"
+interval = 30
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/backlight]
+type = custom/ipc
+hook-0 = light -G | sed 's/\.[0-9]*//'
+format-prefix = "💡 "
+format-underline = #268bd2
+initial = 1
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/weather]
+type = custom/script
+exec = i3weather
+label = "%output%"
+click-left = $TERMINAL -e w3m wttr.in/Adelaide
+interval = 1800
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/volume]
+type = custom/ipc
+hook-0 = i3volume
+click-left = $TERMINAL -e alsamixer
+initial = 1
+format-background = ${colors.background-alt}
+format-underline = #268bd2
+format-padding = 1
+
+[module/time]
+type = custom/script
+exec = date '+%d/%m/%Y %H:%M:%S'
+click-left = $TERMINAL -e calcurse
+label = "%output%"
+interval = 5
+format-underline = #268bd2
+format-background = ${colors.background-alt}
+format-padding = 1
+
+[module/eth]
+type = internal/network
+interface = net0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+pseudo-transparency = true
+#throttle-output = 5
+#throttle-output-for = 10
+#throttle-input-for = 30
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini

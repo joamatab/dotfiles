@@ -1,4 +1,4 @@
-#---BSPWM Bindings
+#---BSPWM Bindings from https://github.com/BrodieRobertson/dotfiles.git
 # Quit bspwm
 super + shift + Escape
   prompt "Are you sure you would like to quit this Xsession" "bspc quit"

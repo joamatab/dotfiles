@@ -75,20 +75,22 @@ wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
-; [module/mutt-wizard]
-; type = custom/script
-; exec = mailbox
-; interval = 5
-; format-prefix = " "
-; format-underline = ${colors.red}
-; click-left = $TERMINAL -e neomutt
+[module/mutt-wizard]
+
+type = custom/script
+exec = mailbox
+interval = 5
+format-prefix = " "
+format-underline = ${colors.red}
+
+click-left = $TERMINAL -e neomutt
 
 
-; [module/weather]
+[module/weather]
 
-; type = custom/script
-; exec = weather
-; interval = 5000
+type = custom/script
+exec = weather
+interval = 5000
 ;format-underline =
 
 [module/xwindow]
