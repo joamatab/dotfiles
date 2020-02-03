@@ -17,6 +17,7 @@
     ~/.bashrc: 
       force: true
     ~/.cmus-syncrc:
+    ~/.config/bspwm:
     ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc: 
       force: true
@@ -25,6 +26,7 @@
         force: true
     ~/.config/flake8: 
     ~/.config/i3blocks/config: i3blocks/config
+    ~/.config/karabiner: 
     ~/.config/kitty/kitty.conf: 
     ~/.config/mimeapps.list: 
         force: true
@@ -32,7 +34,7 @@
     ~/.config/mpv: mpv
     ~/.config/ncmpcpp:
     ~/.config/newsboat: newsboat
-    ~/.config/karabiner: 
+    ~/.config/polybar:
     ~/.config/ranger: 
         force: true
     ~/.config/starship.toml:

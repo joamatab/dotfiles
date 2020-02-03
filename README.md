@@ -12,5 +12,7 @@ sh install.sh
 
 # References
 
+- https://github.com/LukeSmithxyz/voidrice
+- https://github.com/BrodieRobertson/dotfiles.git
 - https://github.com/maximbaz/dotfiles
 - https://github.com/ashishb/dotfiles/blob/master/.travis.yml
