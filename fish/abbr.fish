@@ -72,6 +72,7 @@ if status --is-interactive
     abbr -a vpn  'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
+    abbr -a xr xrandr --output eDP-1 --mode 2560x1440
     abbr -a wea curl wttr.in 
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
