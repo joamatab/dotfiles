@@ -73,6 +73,7 @@ if status --is-interactive
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
     abbr -a wea curl wttr.in 
+    abbr -a xclip -sel clip < ~/.ssh/id_rsa.pub
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
 end
