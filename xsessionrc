@@ -13,9 +13,13 @@ xsetroot -solid "#333333"
 ## Uncomment if you use urxvt terminal emulator.
 ## Start urxvtd
 #urxvtd -q -f -o
-#export TERMINAL=urxvtc
+# export TERMINAL=urxvtc
+# export TERM=xterm-256color
+
+export TERM=xterm-kitty
 export TERMINAL=kitty
 export SHELL="/usr/bin/fish"
+export BROWSER=firefox
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 [ -f "$HOME/.profile" ] && . ~/.profile

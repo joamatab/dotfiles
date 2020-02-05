@@ -61,9 +61,26 @@ if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
 
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
 # alias ls='lsd -hA --group-dirs first'
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# start fish shell
+if [[ $- = *i* && -z $WHICH_FISH ]] && WHICH_FISH=$(type -p fish); then
+  # Safeguard to only activate fish for interactive shells and only if fish
+  # shell is present and executable. Verify that this is a new session by
+  # checking if $WHICH_FISH is set. If it is not set, we export WHICH_FISH
+  # and start fish.
+  #
+  # If this is not a new session, the user probably typed 'bash' into their
+  # console and wants bash, so we skip this.
+  #
+  # Note that we do not set $SHELL, and neither does fish, because doing so
+  # tends to interfere with programs that expect $SHELL to point to a
+  # POSIX-compatible shell, which fish is not.
+  export WHICH_FISH
+  exec "$WHICH_FISH" -i
+fi
