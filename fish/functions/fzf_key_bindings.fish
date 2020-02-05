@@ -1,1 +1,1 @@
-/home/j/.fzf/shell/key-bindings.fish
+/home/jmatres/.fzf/shell/key-bindings.fish

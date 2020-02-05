@@ -20,13 +20,8 @@ if [ -n "$TMUX" ]; then
 fi
 
 set -o vi
-export EDITOR=vim
+export EDITOR=nvim
 export OPENER=open
-alias r=ranger
-alias t=trash
-alias ga="git add"
-alias ytm="youtube-dl  -x --audio-format mp3"
-alias ytv="youtube-dl -ic"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -d "/opt/lumerical/2019b" ] && export PATH=$PATH:/opt/lumerical/2019b/bin && export PYTHONPATH=/opt/lumerical/2019b/api/python
@@ -37,18 +32,25 @@ alias ytv="youtube-dl -ic"
 [ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"  && eval "$(rbenv init -)" && export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 alias path='echo $PATH | tr -s ":" "\n"'
-alias ls='ls -G -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias -- +='pushd .'
 alias -- -='popd'
+alias ga="git add"
 alias l='ls -a -l -F -G'
 alias la='ls -l -a -G'
+alias less='less -R'
 alias ll='ls -G -h -l'
 alias ls-l='ls -l -G'
+alias ls='ls -G -h'
 alias md='mkdir -p'
+alias q="exit"
+alias r=ranger
 alias rd='rmdir'
-alias less='less -R'
+alias t=trash
+alias v=nvim
+alias ytm="youtube-dl  -x --audio-format mp3"
+alias ytv="youtube-dl -ic"
 
 # [ -d "/opt/lumerical/mode" ] && export PATH=$PATH:/opt/lumerical/fdtd/bin:/opt/lumerical/mode/bin:/opt/lumerical/device/bin:/opt/lumerical/interconnect/bin && export PYTHONPATH=/opt/lumerical/mode/api/python
 # [ -d "$HOME/.lumerical/mode" ] && export PATH=$PATH:$HOME/.lumerical/fdtd/bin:$HOME/.lumerical/mode/bin:$HOME/.lumerical/device/bin:$HOME/.lumerical/interconnect/bin && export PYTHONPATH=$HOME/.lumerical/mode/api/python
@@ -62,3 +64,6 @@ fi
 eval "$(starship init bash)"
 # alias ls='lsd -hA --group-dirs first'
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"

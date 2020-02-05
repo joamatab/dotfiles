@@ -63,6 +63,6 @@
       force: true
     ~/.xonshrc:
     ~/.xprofile:
-    ~/.xsession:
+    ~/.xsessionrc:
     ~/.yabairc:
     ~/.zshrc:
