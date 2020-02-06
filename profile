@@ -32,12 +32,12 @@ export EDITOR="nvim"
 export READER="zathura"
 export FILE="lf"
 export TERM=xterm-kitty
-# export TERM=xterm-256color
 export TERMINAL="kitty"
 export BROWSER="firefox"
 export MUSIC="cmus"
 export SHELL="/usr/bin/fish"
 
+# export TERM=xterm-256color
 # export BROWSER="qutebrowser"
 # export BROWSER="chromium"
 # export TERMINAL="st"

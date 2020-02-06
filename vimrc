@@ -392,6 +392,7 @@ nnoremap <space> za
 let g:vimwiki_list = [
 \ {'path': '~/wikis/joaquin/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ {'path': '~/wikis/github/', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
+\ {'path': '~/wikis/go', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ {'path': '~/wikis/gotbletu', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ ]
 
