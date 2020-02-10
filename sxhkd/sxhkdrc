@@ -8,11 +8,11 @@ super + r
 super + e
 	$TERMINAL -e neomutt
 super + m
-	$TERMINAL -e ncmpcpp
+	$TERMINAL -e cmus
 super + n
 	$TERMINAL -e newsboat
 super + i
-	$TERMINAL -e htop
+	$BROWSER
 super + y
 	$TERMINAL -e calcurse
 super + shift + a
@@ -22,9 +22,7 @@ super + shift + c
 super + shift + e
 	tutorialvids
 super + w
-	webby | xargs -r $BROWSER
-super + shift + w
-	$BROWSER
+	google-chrome
 super + shift + g
 	gimp
 

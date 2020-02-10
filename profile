@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# sxhkd &	# Bind keys
+sxhkd &	# Bind keys
 xset r rate 300 50 &	# Speed xrate up
 
 # make CapsLock behave like Ctrl:
@@ -31,11 +31,13 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
 export READER="zathura"
 export FILE="lf"
-export TERM=xterm-256color
+export TERM=xterm-kitty
 export TERMINAL="kitty"
 export BROWSER="firefox"
-export MUSIC="ncmpcpp"
+export MUSIC="cmus"
+export SHELL="/usr/bin/fish"
 
+# export TERM=xterm-256color
 # export BROWSER="qutebrowser"
 # export BROWSER="chromium"
 # export TERMINAL="st"
@@ -47,3 +49,5 @@ export MUSIC="ncmpcpp"
 # [ -f "$HOME/.xprofile" ] && source ~/.xprofile
 
 PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+
+export PATH="$HOME/.cargo/bin:$PATH"

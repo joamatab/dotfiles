@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Necessary to make chrome pick up the proxy settings stored in gconf.
+export DESKTOP_SESSION=cinnamon  # gnome for trusty.
+
+# NOTE: This may break your compose key.
+# See http://g/i3-users/YBexXGbik7E for more details.
+export GTK_IM_MODULE=xim
+
+# Desktop background color.
+xsetroot -solid "#333333"
+
+## Uncomment if you use urxvt terminal emulator.
+## Start urxvtd
+# urxvtd -q -f -o
+# export TERMINAL=urxvtc
+# export TERM=xterm-256color
+
+export TERM=xterm-kitty
+export TERMINAL=kitty
+export SHELL="/usr/bin/fish"
+export BROWSER=firefox
+
+[ -f "$HOME/.xprofile" ] && . ~/.xprofile
+[ -f "$HOME/.profile" ] && . ~/.profile
+
+# Comment out the following if this is .xsessionrc file,
+# as opposed to .xsession. See https://wiki.debian.org/Xsession for details.
+# exec i3
+
+
