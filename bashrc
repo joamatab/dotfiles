@@ -68,4 +68,6 @@ alias ytv="youtube-dl -ic"
 eval "$(starship init bash)"
 # alias ls='lsd -hA --group-dirs first'
 
-
+# Prevents having multiple ssh-agent processes running at the same time.
+pkill ssh-agent
+eval $(ssh-agent -s)

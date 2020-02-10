@@ -38,7 +38,8 @@ Plug 'dag/vim-fish', {'for':'fish'}
 
 " Autoformat
 Plug 'ambv/black'
-Plug 'prettier/vim-prettier'
+Plug 'Chiel92/vim-autoformat'
+" Plug 'prettier/vim-prettier'
 " Plug 'prettier/vim-prettier', {
 "   \ 'do': 'yarn install',
 "   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -148,16 +149,17 @@ let mapleader="'"
 " nmap <leader>e :w!<cr>:!fish run.sh cat<cr>
 " nmap <leader>p :AsyncRun gp<cr>
 " nmap <leader>r  :w!<cr> :Ranger<CR>
+" nmap <Leader>t <Plug>(Prettier)
+" nmap <leader>l :Black<cr>
 map <leader>b :Buffers<cr>
 map <leader>g :GFiles<cr>
 map <leader>f :Files<cr>
 map <leader>e :set foldmethod=expr<cr>
 
-nmap <Leader>t <Plug>(Prettier)
+nmap <Leader>a :Autoformat<cr>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :CtrlPMRUFiles<cr>
 nmap <leader>k :EnableAutocorrect<cr>
-nmap <leader>l :Black<cr>
 nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>q :q <cr>
@@ -390,9 +392,9 @@ nnoremap <space> za
 
 " Section: VimWiki
 let g:vimwiki_list = [
+\ {'path': '~/wikis/go', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ {'path': '~/wikis/joaquin/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ {'path': '~/wikis/github/', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ {'path': '~/wikis/go', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ {'path': '~/wikis/gotbletu', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
 \ ]
 
