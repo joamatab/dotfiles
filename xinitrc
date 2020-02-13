@@ -5,6 +5,7 @@
 # Executed by startx (run your window manager from here)
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
+[ -f "$HOME/.xprofile2" ] && . ~/.xprofile2
 [ -f "$HOME/.profile" ] && . ~/.profile
 # exec dwm
 # exec i3

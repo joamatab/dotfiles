@@ -149,8 +149,8 @@ let mapleader="'"
 " nmap <leader>e :w!<cr>:!fish run.sh cat<cr>
 " nmap <leader>p :AsyncRun gp<cr>
 " nmap <leader>r  :w!<cr> :Ranger<CR>
-" nmap <Leader>t <Plug>(Prettier)
-" nmap <leader>l :Black<cr>
+nmap <Leader>t <Plug>(Prettier)
+nmap <leader>l :Black<cr>
 map <leader>b :Buffers<cr>
 map <leader>g :GFiles<cr>
 map <leader>f :Files<cr>

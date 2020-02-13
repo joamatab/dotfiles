@@ -48,11 +48,6 @@ bindsym $mod+d exec dmenu_run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-
-# Lock screen (Ctrl+Alt+L)
-bindsym Mod1+Ctrl+l exec cinnamon-screensaver-command --lock
-
-
 ################################################################################################
 ## Music
 ################################################################################################

@@ -91,6 +91,10 @@ if [ -d ~/.cargo/bin ]
     set PATH $HOME/.cargo/bin $PATH
 end
 
+if [ -d /snap/bin ]
+    set PATH /snap/bin $PATH
+end
+
 if test -e "$HOME/.extra.fish";
 	source ~/.extra.fish
 end
