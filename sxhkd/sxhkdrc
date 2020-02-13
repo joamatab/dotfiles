@@ -71,11 +71,12 @@ XF86MonBrightnessUp
 
 # Recording
 # Take screenshot
-Print
-	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
+# Print
+#     flameshot gui
+	# maim pic-full-$(date '+%y%m%d-%H%M-%S').png
 # Pick screenshot type
-shift + Print
-	maimpick
+# shift + Print
+# 	maimpick
 # Record audio or video
 super + Print
 	dmenurecord

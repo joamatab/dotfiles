@@ -11,7 +11,7 @@ if status --is-interactive
     abbr -a cfk nvim ~/dotfiles/kitty.conf
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
-    abbr -a cfs nvim ~/.skhdrc
+    abbr -a cfs nvim ~/.config/sxhkd/sxhkdrc
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/dotfiles/tmux.conf
     abbr -a cfv nvim ~/dotfiles/vimrc

@@ -55,7 +55,6 @@
     ~/.pylintrc: 
     ~/.profile: 
       force: true
-    ~/.skhdrc:
     ~/.vifm: 
     ~/.vimrc: 
     ~/.weechat:
