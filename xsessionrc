@@ -17,13 +17,13 @@ xsetroot -solid "#333333"
 # export TERM=xterm-256color
 # export TERM=xterm-kitty
 # export TERMINAL=kitty
+# export TERMINAL=st
+# export SHELL="/usr/bin/fish"
+# export BROWSER=firefox
 
-export TERMINAL=st
-export SHELL="/usr/bin/fish"
-export BROWSER=firefox
-
-[ -f "$HOME/.xprofile" ] && . ~/.xprofile
-[ -f "$HOME/.profile" ] && . ~/.profile
+# [ -f "$HOME/.xprofile" ] && . ~/.xprofile
+# [ -f "$HOME/.profile" ] && . ~/.profile
+# [ -f "$HOME/.zprofile" ] && . ~/.zprofile
 
 # Comment out the following if this is .xsessionrc file,
 # as opposed to .xsession. See https://wiki.debian.org/Xsession for details.

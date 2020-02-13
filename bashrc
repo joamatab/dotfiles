@@ -25,7 +25,9 @@ fi
 set -o vi
 export CLICOLOR=YES
 export EDITOR=nvim
-export OPENER=open
+export OPENER=xdg-open
+export BROWSER=firefox
+export TERMINAL=st
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
