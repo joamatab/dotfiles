@@ -37,6 +37,12 @@ function fish_user_key_bindings
     bind -M insert \cn history-token-search-forward
 end
 
+function path
+    if [ -d $argv ]
+        set PATH $PATH $argv
+    end
+end
+
 # }}}
 # variables {{{
 set -x EDITOR nvim
@@ -53,12 +59,8 @@ set -gx LESS_TERMCAP_se \e'[0m'
 set -gx LESS_TERMCAP_so \e'[01;33m'
 set -gx LESS_TERMCAP_ue \e'[0m'
 set -gx LESS_TERMCAP_us \e'[1;4;31m'
-
-function path
-    if [ -d $argv ]
-        set PATH $PATH $argv
-    end
-end
+# }}}
+# source {{{
 
 if [ -f ~/.config/fish/abbr.fish ]
   source ~/.config/fish/abbr.fish
@@ -68,8 +70,8 @@ if [ -f ~/.shortcuts.fish ]
   source ~/.shortcuts.fish
 end
 
-if [ -f ~/.local.fish ]
-  source ~/.local.fish
+if [ -f ~/.local/share/fish/config.fish ]
+  source ~/.local/share/fish/config.fish
 end
 
 if test -e "/Applications";
@@ -77,16 +79,8 @@ if test -e "/Applications";
 else
 	source ~/.config/fish/linux.fish
 end
-
-# if test -e "$HOME/.extra.fish";
-# 	source ~/.extra.fish
-# end
-
-
-############################
-# PATH
-############################
-
+# }}}
+# path {{{
 path ~/dotfiles/scripts
 path ~/dotfiles/brodie
 path ~/dotfiles/luke/.local/bin
@@ -100,12 +94,12 @@ path ~/.config/yarn/global/node_modules/.bin
 path ~/.local/bin
 path ~/.pyenv/bin
 path ~/.local/kitty.app/bin
-path ~/.local/kitty.app/bin
+path ~/.local/google-cloud-sdk/bin
 path /opt/lumerical/2020a/bin
+# }}}
+# more_variables {{{
 
-##############################
-# Variables
-##############################
+if test -d "/opt/lumerical/2020a/"; set -x PYTHONPATH /opt/lumerical/2020a/api/python; end
 
 if [ -d "$HOME/.kube/k8s-kops-config" ]
     set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
@@ -130,16 +124,9 @@ end
 # end
 
 # [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
+# [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
+# [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
+# [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
 
 # }}}
-# eval (starship init fish)
 # vim:foldmethod=marker:foldlevel=0
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-# uninstall by removing these lines or running `tabtab uninstall sls`
-# uninstall by removing these lines or running `tabtab uninstall slss`
-#
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
