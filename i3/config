@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+# set $mod Mod4
 
 gaps inner 15
 gaps outer 0
@@ -42,7 +43,8 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+# bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 #lock screen
 bindsym $mod+Control+l exec /usr/share/goobuntu-desktop-files/xsecurelock.sh 
@@ -65,7 +67,7 @@ bindsym $mod+Control+Left exec i3-workspacer go -d down
 bindsym $mod+Up exec i3-workspacer go -d next
 bindsym $mod+Down exec i3-workspacer go -d prev
 bindsym $mod+y exec i3-workspacer go --exact --number `zenity --entry --text "Go to workspace:"`
-bindsym $mod+q exec i3-workspacer move --exact --number `zenity --entry --text "Move to workspace:"`
+bindsym $mod+Shift+q exec i3-workspacer move --exact --number `zenity --entry --text "Move to workspace:"`
 bindsym $mod+t exec i3-workspacer rename --name `zenity --entry --text "Rename workspace:"`
 
 
