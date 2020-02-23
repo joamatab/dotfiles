@@ -82,8 +82,6 @@ end
 # }}}
 # path {{{
 path ~/dotfiles/scripts
-path ~/dotfiles/brodie
-path ~/dotfiles/luke/.local/bin
 path ~/go/bin
 path ~/.cargo/bin
 path ~/snap/bin
@@ -96,6 +94,8 @@ path ~/.pyenv/bin
 path ~/.local/kitty.app/bin
 path ~/.local/google-cloud-sdk/bin
 path /opt/lumerical/2020a/bin
+path ~/dotfiles/brodie
+path ~/dotfiles/luke/.local/bin
 # }}}
 # more_variables {{{
 
