@@ -33,8 +33,9 @@ export READER="zathura"
 export FILE="lf"
 export BROWSER="firefox"
 export MUSIC="cmus"
-export SHELL="/usr/bin/fish"
 export TERMINAL="st"
+export SHELL="/usr/bin/bash"
+# export SHELL="/usr/bin/fish"
 
 # export TERM=xterm-kitty
 # export TERMINAL="kitty"
@@ -52,3 +53,21 @@ export TERMINAL="st"
 PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi

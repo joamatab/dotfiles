@@ -18,9 +18,10 @@ xsetroot -solid "#333333"
 # export TERM=xterm-kitty
 # export TERMINAL=kitty
 
+# export SHELL="/usr/bin/fish"
+export SHELL="/bin/bash"
 export TERMINAL=st
-export SHELL="/usr/bin/fish"
-export BROWSER=firefox
+export BROWSER=google-chrome
 
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 [ -f "$HOME/.profile" ] && . ~/.profile
