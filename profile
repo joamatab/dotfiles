@@ -31,12 +31,13 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
 export READER="zathura"
 export FILE="lf"
-export TERM=xterm-kitty
-export TERMINAL="kitty"
 export BROWSER="firefox"
 export MUSIC="cmus"
 export SHELL="/usr/bin/fish"
+export TERMINAL="st"
 
+# export TERM=xterm-kitty
+# export TERMINAL="kitty"
 # export TERM=xterm-256color
 # export BROWSER="qutebrowser"
 # export BROWSER="chromium"

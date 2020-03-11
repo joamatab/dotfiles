@@ -37,12 +37,19 @@ function fish_user_key_bindings
     bind -M insert \cn history-token-search-forward
 end
 
+function path
+    if [ -d $argv ]
+        set PATH $PATH $argv
+    end
+end
+
 # }}}
 # variables {{{
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
-set -x PDKROOT $HOME/pdk2
+set -x BROWSER firefox
+set -x TERMINAL st
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'
@@ -52,95 +59,47 @@ set -gx LESS_TERMCAP_se \e'[0m'
 set -gx LESS_TERMCAP_so \e'[01;33m'
 set -gx LESS_TERMCAP_ue \e'[0m'
 set -gx LESS_TERMCAP_us \e'[1;4;31m'
-
-# set -x TERM xterm-256color  
-# sh-add -K ~/.ssh/keys/id_rsa # saves git credentials
-# set -x KLAYOUT_PYTHONPATH /usr/local/bin/python3
-# set -x KLAYOUT_PATH $HOME/files/code/layout/klayout/klayout-ipc/klayout_dot_config
 # }}}
-# path {{{
-if [ -d "$HOME/dotfiles/scripts" ]
-    set PATH $PATH $HOME/dotfiles/scripts
-end
-
-if [ -d "$HOME/dotfiles/brodie" ]
-    set PATH $PATH $HOME/dotfiles/brodie
-end
-
-if [ -d "$HOME/dotfiles/luke/.local/bin" ]
-    set PATH $PATH $HOME/dotfiles/luke/.local/bin
-end
+# source {{{
 
 if [ -f ~/.config/fish/abbr.fish ]
   source ~/.config/fish/abbr.fish
-end
-
-if [ -d ~/go/bin ]
-    set PATH $PATH $HOME/go/bin
 end
 
 if [ -f ~/.shortcuts.fish ]
   source ~/.shortcuts.fish
 end
 
-if [ -f ~/.local.fish ]
-  source ~/.local.fish
+if [ -f ~/.local/share/fish/config.fish ]
+  source ~/.local/share/fish/config.fish
 end
-
-if [ -d ~/.cargo/bin ]
-    set PATH $HOME/.cargo/bin $PATH
-end
-
-if test -e "$HOME/.extra.fish";
-	source ~/.extra.fish
-end
-
-if [ -d /usr/local/sbin ]
-    set PATH /usr/local/sbin $PATH
-end
-
-if [ -d "$HOME/anaconda3" ]
-    source $HOME/anaconda3/etc/fish/conf.d/conda.fish
-    set PATH $PATH $HOME/anaconda3/bin
-    # set PATH $HOME/anaconda3/bin $PATH
-end
-
-
-if [ -d "$HOME/bin" ]
-    set PATH $HOME/bin $PATH
-end
-
-if [ -d "$HOME/.yarn/bin" ]
-    set PATH $HOME/.yarn/bin $PATH
-end
-
-if [ -d "$HOME/.config/yarn/global/node_modules/.bin" ]
-    set PATH  $HOME/.config/yarn/global/node_modules/.bin $PATH
-end
-
-# if [ -d "$HOME/.rbenv" ]
-#     set PATH $HOME/.rbenv/shims $PATH
-#     set PATH $HOME/.rbenv/bin $PATH
-#     set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
-# end
 
 if test -e "/Applications";
 	source ~/.config/fish/mac.fish
 else
 	source ~/.config/fish/linux.fish
 end
+# }}}
+# path {{{
+path ~/dotfiles/scripts
+path ~/dotfiles/brodie
+path ~/dotfiles/luke/.local/bin
+path ~/go/bin
+path ~/.cargo/bin
+path ~/snap/bin
+path /usr/local/sbin
+path ~/bin
+path ~/.yarn/bin
+path ~/.config/yarn/global/node_modules/.bin
+path ~/.local/bin
+path ~/.pyenv/bin
+path ~/.local/kitty.app/bin
+path ~/.local/google-cloud-sdk/bin
+path /opt/lumerical/2020a/bin
+# }}}
+# more_variables {{{
 
-if [ -d "$HOME/.local/bin" ]
-    set PATH $HOME/.local/bin $PATH
-end
-
-if [ -d "$HOME/.pyenv/bin" ]
-    set PATH $HOME/.pyenv/bin $PATH
-end
-
-if [ -d "$HOME/.local/kitty.app/bin" ]
-    set PATH $HOME/.local/kitty.app/bin $PATH
-end
+if test -d "/opt/lumerical/2020a/"; set -x PYTHONPATH /opt/lumerical/2020a/api/python; end
 
 if [ -d "$HOME/.kube/k8s-kops-config" ]
     set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
@@ -152,17 +111,22 @@ if [ -d "$HOME/miniconda3" ]
     set PATH $HOME/miniconda3/bin $PATH
 end
 
-[ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
+if [ -d "$HOME/anaconda3" ]
+    source $HOME/anaconda3/etc/fish/conf.d/conda.fish
+    set PATH $PATH $HOME/anaconda3/bin
+    # set PATH $HOME/anaconda3/bin $PATH
+end
+
+# if [ -d "$HOME/.rbenv" ]
+#     set PATH $HOME/.rbenv/shims $PATH
+#     set PATH $HOME/.rbenv/bin $PATH
+#     set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+# end
+
+# [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
+# [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
+# [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
+# [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
 
 # }}}
-# eval (starship init fish)
 # vim:foldmethod=marker:foldlevel=0
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-# uninstall by removing these lines or running `tabtab uninstall sls`
-# uninstall by removing these lines or running `tabtab uninstall slss`
-#
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
