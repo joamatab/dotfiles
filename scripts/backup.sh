@@ -9,15 +9,15 @@ BACKUP_PATH="/Volumes/joaquin/"
 # dirs='Music Pictures Documents books code'
 # dirs='books code research personal'
 # dirs='code research'
-dirs='Music'
+dirs='Music joaquin'
 
 for dir in $dirs; do
     rsync -av --delete ~/$dir $BACKUP_PATH
 done
 
 rsync -av --delete ~/Calibre\ \Library  $BACKUP_PATH
-rsync -av --delete ~/files/personal/games  $BACKUP_PATH
 
+# rsync -av --delete ~/files/personal/games  $BACKUP_PATH
 # rsync -av --delete .ssh $BACKUP_PATH
 # rsync -av --delete .zshrc $BACKUP_PATH
 # rsync -av --delete .vim_runtime $BACKUP_PATH
