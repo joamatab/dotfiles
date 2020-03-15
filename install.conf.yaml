@@ -12,6 +12,7 @@
 
 - link:
     ~/.agignore: 
+    ~/.aliases: 
     ~/.bash_darwin:
     ~/.bash_profile: 
     ~/.bashrc: 

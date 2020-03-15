@@ -33,8 +33,8 @@ export READER="zathura"
 export FILE="lf"
 export BROWSER="firefox"
 export MUSIC="cmus"
-export TERMINAL="st"
 export SHELL="/usr/bin/bash"
+export TERMINAL="st"
 # export SHELL="/usr/bin/fish"
 
 # export TERM=xterm-kitty

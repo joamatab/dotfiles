@@ -19,7 +19,7 @@ xsetroot -solid "#333333"
 # export TERMINAL=kitty
 
 # export SHELL="/usr/bin/fish"
-export SHELL="/bin/bash"
+# export SHELL="/bin/bash"
 export TERMINAL=st
 export BROWSER=google-chrome
 
