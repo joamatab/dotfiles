@@ -3,8 +3,9 @@
 # this file and re-run i3-config-wizard(1).
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# set $mod Mod1
-set $mod Mod4
+# set $mod Mod1 # Alt
+# set $mod Mod4 # Super key
+set $mod Mod1
 
 gaps inner 15
 gaps outer 0
@@ -36,6 +37,7 @@ bindsym $mod+Control+l exec /usr/share/goobuntu-desktop-files/xsecurelock.sh
 
 # start synapse
 # bindsym mod+space exec synapse
+bindsym Super_L exec synapse
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
