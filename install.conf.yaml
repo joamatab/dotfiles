@@ -18,6 +18,7 @@
     ~/.bashrc: 
       force: true
     ~/.cmus-syncrc:
+    ~/.config/broot:
     ~/.config/bspwm:
     ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc: 
@@ -44,6 +45,7 @@
     ~/.config/clipit/clipitrc:
     ~/.config/dunst/dunstrc:
     ~/.config/sxhkd: 
+    ~/.config/synapse:
     ~/.config/zathura/zathurarc: 
     ~/.config/gnome-session/sessions/gnome_plus_i3.config: gnome_plus_i3.session
     ~/.dircolors:
