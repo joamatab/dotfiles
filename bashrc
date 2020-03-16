@@ -96,6 +96,6 @@ if [ -f ~/.aliases ]; then
 fi
 
 
-if [ -f /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br]; then
+if [ -f /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br ]; then
     source /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br
 fi
