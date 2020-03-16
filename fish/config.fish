@@ -48,7 +48,6 @@ end
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
-set -x BROWSER firefox
 set -x TERMINAL st
 
 # color man pages

@@ -37,7 +37,7 @@ bindsym $mod+Control+l exec /usr/share/goobuntu-desktop-files/xsecurelock.sh
 
 # start synapse
 # bindsym mod+space exec synapse
-bindsym Super_L exec synapse
+# bindsym Super_L exec synapse
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run

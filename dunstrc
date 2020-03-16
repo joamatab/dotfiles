@@ -146,7 +146,8 @@
     
     # Browser for opening urls in context menu.
     # browser = palemoon
-    browser = firefox
+    # browser = firefox
+    browser = google-chrome
 
     # Align icons left/right/off
     icon_position = left

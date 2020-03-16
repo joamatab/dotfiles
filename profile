@@ -31,10 +31,11 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="nvim"
 export READER="zathura"
 export FILE="lf"
-export BROWSER="firefox"
 export MUSIC="cmus"
 export SHELL="/usr/bin/bash"
 export TERMINAL="st"
+export BROWSER="google-chrome"
+# export BROWSER="firefox"
 # export SHELL="/usr/bin/fish"
 
 # export TERM=xterm-kitty
