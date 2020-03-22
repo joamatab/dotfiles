@@ -12,3 +12,4 @@ if [ -f ~/.bash_local ]; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+

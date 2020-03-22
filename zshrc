@@ -120,3 +120,5 @@ alias to="vi ~/TODO.md"
 # }}}
 # eval "$(starship init zsh)"
 # vim:foldmethod=marker:foldlevel=0
+
+source /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br
