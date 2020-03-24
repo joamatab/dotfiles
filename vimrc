@@ -40,9 +40,9 @@ Plug 'dag/vim-fish', {'for':'fish'}
 Plug 'ambv/black'
 Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
-" Plug 'prettier/vim-prettier', {
-"   \ 'do': 'yarn install',
-"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " Git help
 Plug 'tpope/vim-fugitive'
