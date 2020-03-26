@@ -16,7 +16,6 @@
     ~/.bash_darwin:
     ~/.bash_profile: 
     ~/.bashrc: 
-      force: true
     ~/.cmus-syncrc:
     ~/.config/broot:
     ~/.config/bspwm:
