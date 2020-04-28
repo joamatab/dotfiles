@@ -116,6 +116,7 @@ augroup line_return
         \ endif
 augroup END
 
+
 " luke
 " set laststatus=1
 " set nohlsearch
@@ -332,7 +333,7 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal shiftwidth=2
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.py setlocal tabstop=4
-    autocmd BufEnter *.lsf setlocal filetype=lumerical
+    autocmd BufEnter *.lsf setlocal filetype=python
     autocmd BufEnter *.lyrdb setlocal filetype=python
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown

@@ -2,7 +2,7 @@ if status --is-interactive
     set -g fish_user_abbreviations
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
-    abbr -a c cloudron
+    abbr -a c cd ~/code
     abbr -a cfa nvim ~/dotfiles/fish/abbr.fish
     abbr -a cfb nvim ~/dotfiles/bashrc
     abbr -a cff nvim ~/dotfiles/fish/config.fish
@@ -72,11 +72,7 @@ if status --is-interactive
     abbr -a vpn  'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
-<<<<<<< HEAD
-    abbr -a xr xrandr --output eDP1 --mode 2560x1440
-=======
     abbr -a xr xrandr --output eDP1 --mode 1920x1080
->>>>>>> fc2001a78bd052a073b322737ce8ea740d7b7240
     abbr -a wea curl wttr.in 
     abbr -a xclip -sel clip < ~/.ssh/id_rsa.pub
     abbr -a ytm youtube-dl  -x --audio-format mp3
