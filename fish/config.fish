@@ -95,6 +95,7 @@ path ~/.local/google-cloud-sdk/bin
 path /opt/lumerical/2020a/bin
 path ~/dotfiles/brodie
 path ~/dotfiles/luke/.local/bin
+path ~/.poetry/bin
 # }}}
 # more_variables {{{
 
