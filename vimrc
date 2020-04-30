@@ -11,9 +11,9 @@ call plug#begin('~/.vim/plugged')
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'markdown'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'markdown'}
 " Plug 'kiteco/vim-plugin', { 'for': 'python' }
-Plug 'neoclide/coc.nvim', {'branch':'release'}
+" Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " file browsing
 
@@ -161,6 +161,7 @@ map <leader>b :Buffers<cr>
 map <leader>g :GFiles<cr>
 map <leader>f :Files<cr>
 map <leader>e :set foldmethod=expr<cr>
+" nnoremap <F2> <Plug>(coc-rename)
 
 nmap <Leader>a :Autoformat<cr>
 nmap <leader>d :r!date "+\%F"<CR>
