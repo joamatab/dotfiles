@@ -13,8 +13,13 @@ call plug#begin('~/.vim/plugged')
 " endif
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'markdown'}
 " Plug 'kiteco/vim-plugin', { 'for': 'python' }
+" Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " file browsing
+
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 Plug 'lvht/mru'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -156,6 +161,7 @@ map <leader>b :Buffers<cr>
 map <leader>g :GFiles<cr>
 map <leader>f :Files<cr>
 map <leader>e :set foldmethod=expr<cr>
+" nnoremap <F2> <Plug>(coc-rename)
 
 nmap <Leader>a :Autoformat<cr>
 nmap <leader>d :r!date "+\%F"<CR>
@@ -390,6 +396,21 @@ set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
 nnoremap <space> za
+
+" COC
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-prettier',
+    \ 'coc-json',
+    \ 'coc-angular',
+    \ 'coc-vimtex',
+    \ 'coc-omnisharp'
+    \ ]
+
 
 " Section: VimWiki
 let g:vimwiki_list = [
