@@ -16,10 +16,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'markdown'}
 " Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " file browsing
-
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
-
 Plug 'lvht/mru'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -39,6 +37,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', {'for':'python'}
 Plug 'dag/vim-fish', {'for':'fish'}
+Plug 'szymonmaszke/vimpyter' "vim-plug
 " Plug 'goerz/jupytext'
 
 " Autoformat
@@ -171,14 +170,17 @@ nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>q :q <cr>
 nmap <leader>sv :w!<cr>:source ~/.vimrc<CR>
-nmap <leader>v :vsplit<cr>
 nmap <leader>w :w <cr>
 nmap <leader>x :split<cr>
 nmap <leader>z :wq <cr>
 nmap <leader>c :Gwrite <cr>
-
 map <leader>cfv :vi ~/.vimrc<CR>
 map <leader>wu :vi ~/wikis/psi/updates_joaquin.md<CR>
+vnoremap <leader>s :sort<cr>
+
+" autocmd Filetype ipynb nmap <silent><Leader>vb :VimpyterInsertPythonBlock<CR>
+" autocmd Filetype ipynb nmap <silent><Leader>vj :VimpyterStartJupyter<CR>
+" autocmd Filetype ipynb nmap <silent><Leader>vn :VimpyterStartNteract<CR>
 
 " map <leader>f :Neoformat<cr>
 " nnoremap t :silent %!prettier --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
@@ -188,7 +190,6 @@ map <leader>wu :vi ~/wikis/psi/updates_joaquin.md<CR>
 " nmap <leader>sw :w !sudo tee % > /dev/null<CR>
 " nmap <leader>t :terminal <cr>
 
-vnoremap <leader>s :sort<cr>
 " nmap <leader>n :tabnext<cr>
 " nmap <leader>e :w!<cr>:tabe %:p:h<cr>
 vnoremap < <gv
@@ -212,7 +213,6 @@ vnoremap > >gv
 "nnoremap <leader>r :TestFile<CR>
 "nnoremap <leader>g :call RunGoFile()<CR>
 "vnoremap <leader>y "+y
-
 
 " Section: async Run 
 nnoremap <leader>r :call <SID>compile_and_run()<CR>
@@ -340,6 +340,7 @@ augroup configgroup
     autocmd BufEnter *.sh setlocal softtabstop=2
     autocmd BufEnter *.py setlocal tabstop=4
     autocmd BufEnter *.lsf setlocal filetype=python
+    autocmd BufEnter *.ipynb setlocal filetype=python
     autocmd BufEnter *.lyrdb setlocal filetype=python
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
