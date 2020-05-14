@@ -213,3 +213,5 @@ client.focused #000000 #000000 #222222 #444444
 
 hide_edge_borders vertical
 
+# bindsym $mod+Shift+v exec ~/.vim-anywhere/bin/run
+

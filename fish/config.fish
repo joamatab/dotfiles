@@ -48,7 +48,7 @@ end
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
-set -x TERMINAL st
+set -x TERMINAL kitty
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'
@@ -95,6 +95,7 @@ path ~/.local/google-cloud-sdk/bin
 path /opt/lumerical/2020a/bin
 path ~/dotfiles/brodie
 path ~/dotfiles/luke/.local/bin
+path ~/.poetry/bin
 # }}}
 # more_variables {{{
 
