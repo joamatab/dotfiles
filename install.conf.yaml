@@ -50,6 +50,8 @@
     ~/.config/gnome-session/sessions/gnome_plus_i3.config: gnome_plus_i3.session
     ~/.dircolors:
     ~/.gitignore: 
+    ~/.gitignore: 
+    ~/.gitcli.yml: 
     ~/.moc/config: moc/config
     ~/.moc/keymap: moc/keymap
     ~/.matplotlib/matplotlibrc: 

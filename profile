@@ -37,7 +37,7 @@ export TERMINAL="kitty"
 export BROWSER="google-chrome"
 # export SHELL="/usr/bin/bash"
 # export BROWSER="firefox"
-# export SHELL="/usr/bin/fish"
+export SHELL="/usr/bin/fish"
 
 # export TERM=xterm-kitty
 # export TERMINAL="kitty"
