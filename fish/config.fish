@@ -100,6 +100,10 @@ path ~/dotfiles/luke/.local/bin
 
 if test -d "/opt/lumerical/2020a/"; set -x PYTHONPATH /opt/lumerical/2020a/api/python; end
 
+if test -d "/Applications/Lumerical 2020a.app/Contents/API/"; set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'; end
+
+
+
 if [ -d "$HOME/.kube/k8s-kops-config" ]
     set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 end
