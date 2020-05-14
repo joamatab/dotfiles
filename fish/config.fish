@@ -49,6 +49,7 @@ set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 set -x TERMINAL kitty
+set -x SHELL /usr/bin/fish
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'
