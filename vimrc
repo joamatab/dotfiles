@@ -37,6 +37,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', {'for':'python'}
 Plug 'dag/vim-fish', {'for':'fish'}
+Plug 'itspriddle/vim-shellcheck'
 Plug 'szymonmaszke/vimpyter' "vim-plug
 " Plug 'goerz/jupytext'
 
