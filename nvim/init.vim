@@ -22,7 +22,7 @@ Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
-Plug 'psf/black'
+Plug 'ambv/black'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -157,12 +157,12 @@ nmap <leader>k :EnableAutocorrect<cr>
 nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>q :q <cr>
-nmap <leader>sv :w!<cr>:source ~/.vimrc<CR>
+nmap <leader>sv :w!<cr>:source ~/.config/nvim/init.vim<CR>
 nmap <leader>w :w <cr>
 nmap <leader>x :split<cr>
 nmap <leader>z :wq <cr>
 nmap <leader>c :Gwrite <cr>
-map <leader>cfv :vi ~/.vimrc<CR>
+map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
 map <leader>wu :vi ~/wikis/psi/updates_joaquin.md<CR>
 vnoremap <leader>s :sort<cr>
 nnoremap <leader>r :call <SID>compile_and_run()<CR>
@@ -405,4 +405,3 @@ iab teh the
 iab retrun return
 iab previosu previous
 iab Wb wb
-

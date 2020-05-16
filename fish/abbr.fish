@@ -14,7 +14,7 @@ if status --is-interactive
     abbr -a cfs nvim ~/.config/sxhkd/sxhkdrc
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/dotfiles/tmux.conf
-    abbr -a cfv nvim ~/dotfiles/vimrc
+    abbr -a cfv nvim ~/.config/nvim/init.vim
     abbr -a cfy nvim ~/.yabairc
     abbr -a cfz nvim ~/dotfiles/zshrc
     abbr -a define sdcv

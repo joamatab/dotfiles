@@ -1,7 +1,3 @@
-
-
-
-
 " let g:python3_host_prog="/Users/joaquin/miniconda3/bin/python3"
 " let g:python_host_prog='/Users/joaquin/anaconda3/bin/python'
 " let g:python3_host_prog='/Users/joaquin/anaconda3/bin/python'
