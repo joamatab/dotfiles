@@ -1,3 +1,82 @@
+" leader
+" nnoremap <F2> <Plug>(coc-rename)
+" nmap <leader>a :w!<CR>:!python % <bar> cat<cr>
+" nmap <leader>e :w!<CR>:!fish run.sh cat<CR>
+" nmap <leader>p :AsyncRun gp<CR>
+" nmap <leader>r  :w!<CR> :Ranger<CR>
+" map <leader>g :GFiles<CR>
+" nmap <leader>l :Black<CR>
+
+" autocmd Filetype ipynb nmap <silent><Leader>vb :VimpyterInsertPythonBlock<CR>
+" autocmd Filetype ipynb nmap <silent><Leader>vj :VimpyterStartJupyter<CR>
+" autocmd Filetype ipynb nmap <silent><Leader>vn :VimpyterStartNteract<CR>
+
+" map <leader>f :Neoformat<cr>
+" nnoremap t :silent %!prettier --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
+" map <leader>t :Tags<cr>
+" map <leader>k :Calendar<CR>
+" map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+" nmap <leader>sw :w !sudo tee % > /dev/null<CR>
+" nmap <leader>t :terminal <cr>
+
+" nmap <leader>n :tabnext<cr>
+" nmap <leader>e :w!<cr>:tabe %:p:h<cr>
+" nnoremap <silent><buffer><expr> <C-s> :split<CR>
+" nnoremap <silent><buffer><expr> <C-v> :vsplit<CR>
+
+"nmap <leader>i :!/usr/local/bin/ipython -i  <cr> 
+"nnoremap <leader>m :silent make\|redraw!\|cw<CR>
+"nnoremap <leader>h :A<CR>
+"nnoremap <leader>ev :vsp $MYVIMRC<CR>
+"nnoremap <leader>et :exec ":vsp /Users/dblack/notes/vim/" . strftime('%m-%d-%y') . ".md"<CR>
+"nnoremap <leader>ez :vsp ~/.zshrc<CR>
+"nnoremap <leader>l :call ToggleNumber()<CR>
+"nnoremap <leader><space> :noh<CR>
+"nnoremap <leader>s :mksession<CR>
+"nnoremap <leader>a :Ag 
+"nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
+"nnoremap <leader>1 :set number!<CR>
+"nnoremap <leader>d :Make! 
+"nnoremap <leader>r :TestFile<CR>
+"nnoremap <leader>g :call RunGoFile()<CR>
+"vnoremap <leader>y "+y
+
+
+
+
+" COC
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-prettier',
+    \ 'coc-json',
+    \ 'coc-angular',
+    \ 'coc-vimtex',
+    \ 'coc-omnisharp'
+    \ ]
+
+"" set preferred settings
+" let vimwiki_folding='syntax'
+" let g:vimwiki_folding='list'
+" autocmd FileType vimwiki setlocal tabstop=4 expandtab
+
+" Section: Calendar
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+" Section: python
+" let g:pymode_python = 'python'
+" let g:pymode_virtualenv = 1
+" let g:pymode_virtualenv_path = $VIRTUAL_ENV
+" let g:pymode_rope_lookup_project = 0
+" let g:pymode_rope_complete_on_dot = 0
+" let g:pymode_rope = 0
+" autocmd BufWritePre *.py execute ':Black'
+
+
 " let g:python3_host_prog="/Users/joaquin/miniconda3/bin/python3"
 " let g:python_host_prog='/Users/joaquin/anaconda3/bin/python'
 " let g:python3_host_prog='/Users/joaquin/anaconda3/bin/python'
