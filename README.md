@@ -16,3 +16,4 @@ sh install.sh
 - https://github.com/BrodieRobertson/dotfiles.git
 - https://github.com/maximbaz/dotfiles
 - https://github.com/ashishb/dotfiles/blob/master/.travis.yml
+- https://github.com/erkrnt/awesome-streamerrc/tree/master/ThePrimeagen
