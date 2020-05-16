@@ -19,6 +19,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
+Plug 'mbbill/undotree'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
