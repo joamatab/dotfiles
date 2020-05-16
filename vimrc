@@ -1,16 +1,7 @@
 " Section: Vim Plug 
 call plug#begin('~/.vim/plugged')
 
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"   " Plug 'zxqfl/tabnine-vim'
-"   " Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'for': 'markdown'}
+Plug 'Shougo/deoplete.nvim'
 " Plug 'kiteco/vim-plugin', { 'for': 'python' }
 " Plug 'neoclide/coc.nvim', {'branch':'release'}
 
@@ -31,6 +22,7 @@ Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
+Plug 'psf/black'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -41,7 +33,6 @@ Plug 'szymonmaszke/vimpyter' "vim-plug
 " Plug 'goerz/jupytext'
 
 " Autoformat
-Plug 'ambv/black'
 Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
 Plug 'prettier/vim-prettier', {
@@ -68,13 +59,26 @@ set nocompatible
 if has("autocmd")
   filetype plugin indent on
 endif
-set pastetoggle=<F2> " toggles between ```set paste``` and ```set nopaste```
+
+set hidden
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+
 set backspace=indent,eol,start
 set shiftwidth=4
 set modelines=1
-set autoindent                              "Retain indentation on next line
-set smartindent                             "Turn on autoindenting of blocks
 " set showcmd             " show command in bottom bar
+" set ignorecase      " Ignore case in all searches...
 set nocursorline        " highlight current line
 set wildmenu
 set lazyredraw
@@ -140,21 +144,14 @@ highlight InvisibleSpaces ctermfg=Black ctermbg=Black
 call matchadd('InvisibleSpaces', '\S\@<=\s\+\%#\ze\s*$', -10)
 
 " Section: Leader
-let mapleader=" "
-" nmap <leader>a :w!<CR>:!python % <bar> cat<cr>
-" nmap <leader>e :w!<CR>:!fish run.sh cat<CR>
-" nmap <leader>p :AsyncRun gp<CR>
-" nmap <leader>r  :w!<CR> :Ranger<CR>
-" map <leader>g :GFiles<CR>
-"
+let mapleader="'"
+
 map <leader>g :G<CR>
-nmap <Leader>t <Plug>(Prettier)
-nmap <leader>l :Black<CR>
+nmap <Leader>p <Plug>(Prettier)
+nnoremap <F9> :Black<CR>
 map <leader>b :Buffers<CR>
 map <leader>f :Files<CR>
 map <leader>e :set foldmethod=expr<CR>
-" nnoremap <F2> <Plug>(coc-rename)
-
 nmap <Leader>a :Autoformat<CR>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :CtrlPMRUFiles<cr>
@@ -170,6 +167,22 @@ nmap <leader>c :Gwrite <cr>
 map <leader>cfv :vi ~/.vimrc<CR>
 map <leader>wu :vi ~/wikis/psi/updates_joaquin.md<CR>
 vnoremap <leader>s :sort<cr>
+nnoremap <leader>r :call <SID>compile_and_run()<CR>
+nnoremap <leader>ap :call <SID>push()<CR>
+nnoremap <leader>al :call <SID>pull()<CR>
+nmap <leader>v :call PasteClipboardImage()<cr>
+map <leader>l :Lf<CR>
+
+vnoremap < <gv
+vnoremap > >gv
+
+" nnoremap <F2> <Plug>(coc-rename)
+" nmap <leader>a :w!<CR>:!python % <bar> cat<cr>
+" nmap <leader>e :w!<CR>:!fish run.sh cat<CR>
+" nmap <leader>p :AsyncRun gp<CR>
+" nmap <leader>r  :w!<CR> :Ranger<CR>
+" map <leader>g :GFiles<CR>
+" nmap <leader>l :Black<CR>
 
 " autocmd Filetype ipynb nmap <silent><Leader>vb :VimpyterInsertPythonBlock<CR>
 " autocmd Filetype ipynb nmap <silent><Leader>vj :VimpyterStartJupyter<CR>
@@ -185,8 +198,6 @@ vnoremap <leader>s :sort<cr>
 
 " nmap <leader>n :tabnext<cr>
 " nmap <leader>e :w!<cr>:tabe %:p:h<cr>
-vnoremap < <gv
-vnoremap > >gv
 " nnoremap <silent><buffer><expr> <C-s> :split<CR>
 " nnoremap <silent><buffer><expr> <C-v> :vsplit<CR>
 
@@ -207,11 +218,10 @@ vnoremap > >gv
 "nnoremap <leader>g :call RunGoFile()<CR>
 "vnoremap <leader>y "+y
 
-" Section: async Run 
-nnoremap <leader>r :call <SID>compile_and_run()<CR>
-nnoremap <leader>ap :call <SID>push()<CR>
-nnoremap <leader>al :call <SID>pull()<CR>
 
+let g:lf_map_keys = 0
+
+" Section: Functions
 function! s:compile_and_run()
     exec 'w'
     if &filetype == 'c'
@@ -246,9 +256,6 @@ let g:asyncrun_open = 5
 let $PYTHONUNBUFFERED=1
 " }}}
 
-" Section: Paste images from clipboard 
-nmap <leader>p :call PasteClipboardImage()<cr>
-
 function! PasteClipboardImage() abort
   " Create `img` directory if it doesn't exist
   let img_dir = getcwd() . '/images'
@@ -278,28 +285,6 @@ function! PasteClipboardImage() abort
   endif
 endfunction
 
-
-" Section: Search
-" set incsearch       " search as characters are entered
-set ignorecase      " Ignore case in all searches...
-set smartcase       " unless uppercase letters used
-
-set hlsearch        " highlight all matches
-highlight clear Search
-highlight       Search    ctermfg=White  ctermbg=Black  cterm=bold
-highlight    IncSearch    ctermfg=White  ctermbg=Red    cterm=bold
-
-" persistent_undo {{{
-if has('persistent_undo')
-    " Save all undo files in a single location (less messy, more risky)...
-    set undodir=$HOME/.VIM_UNDO_FILES
-
-    " Save a lot of back-history...
-    set undolevels=5000
-
-    " Actually switch on persistent undo
-    set undofile
-end
 
 " Section: CTL+P
 let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -331,15 +316,8 @@ augroup configgroup
     autocmd BufEnter *.lyrdb setlocal filetype=python
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
+    autocmd FileType python nnoremap <buffer><silent><leader>p :Black<CR>
 augroup END
-
-" Backups 
-" set backup
-" set backupdir=~/.vim/backup
-" set backupskip=/tmp/*,/private/tmp/*
-" set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-" set writebackup
-" silent execute '!mkdir _backupdir'
 
 " spell chech
 map <leader>ss :setlocal spell!<cr>
@@ -364,16 +342,6 @@ let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 let g:python_host_prog='/usr/local/bin/python'
 let g:python3_host_prog='/usr/local/bin/python'
-
-" Section: Markdown
-let g:vim_markdown_math = 1
-let g:vim_markdown_autowrite = 1
-let vim_markdown_preview_toggle=1
-let vim_markdown_preview_browser='Google Chrome'
-let g:mkdp_browser = 'Google Chrome'
-let g:vim_markdown_no_extensions_in_markdown = 1
-let g:vim_markdown_auto_insert_bullets = 1
-" let g:vim_markdown_folding_style_pythonic = 1
 
 set completefunc=emoji#complete
 
