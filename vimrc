@@ -1,4 +1,3 @@
-" ~/.vimrc
 " Section: Vim Plug 
 call plug#begin('~/.vim/plugged')
 
@@ -122,15 +121,6 @@ augroup line_return
 augroup END
 
 
-" luke
-" set laststatus=1
-" set nohlsearch
-" set clipboard=unnamedplus
-" Enable autocompletion:
-" set wildmode=longest,full
-" Disables automatic commenting on newline:
-" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 " Section: Colors
 syntax enable           " enable syntax processing
 colorscheme badwolf
@@ -150,20 +140,22 @@ highlight InvisibleSpaces ctermfg=Black ctermbg=Black
 call matchadd('InvisibleSpaces', '\S\@<=\s\+\%#\ze\s*$', -10)
 
 " Section: Leader
-let mapleader="'"
-" nmap <leader>a :w!<cr>:!python % <bar> cat<cr>
-" nmap <leader>e :w!<cr>:!fish run.sh cat<cr>
-" nmap <leader>p :AsyncRun gp<cr>
-" nmap <leader>r  :w!<cr> :Ranger<CR>
+let mapleader=" "
+" nmap <leader>a :w!<CR>:!python % <bar> cat<cr>
+" nmap <leader>e :w!<CR>:!fish run.sh cat<CR>
+" nmap <leader>p :AsyncRun gp<CR>
+" nmap <leader>r  :w!<CR> :Ranger<CR>
+" map <leader>g :GFiles<CR>
+"
+map <leader>g :G<CR>
 nmap <Leader>t <Plug>(Prettier)
-nmap <leader>l :Black<cr>
-map <leader>b :Buffers<cr>
-map <leader>g :GFiles<cr>
-map <leader>f :Files<cr>
-map <leader>e :set foldmethod=expr<cr>
+nmap <leader>l :Black<CR>
+map <leader>b :Buffers<CR>
+map <leader>f :Files<CR>
+map <leader>e :set foldmethod=expr<CR>
 " nnoremap <F2> <Plug>(coc-rename)
 
-nmap <Leader>a :Autoformat<cr>
+nmap <Leader>a :Autoformat<CR>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :CtrlPMRUFiles<cr>
 nmap <leader>k :EnableAutocorrect<cr>
@@ -249,12 +241,6 @@ function! s:pull()
     exec "AsyncRun! git pull -q"
 endfunction
 
-" augroup SPACEVIM_ASYNCRUN
-"     autocmd!
-"    " Automatically open the quickfix window
-"     autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
-" augroup END
-"
 " asyncrun now has an option for opening quickfix automatically
 let g:asyncrun_open = 5
 let $PYTHONUNBUFFERED=1
@@ -397,7 +383,6 @@ set foldmethod=indent   " fold based on indent level
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
-nnoremap <space> za
 
 " COC
 let g:coc_global_extensions = [
