@@ -306,6 +306,7 @@ set foldmethod=indent   " fold based on indent level
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
+nnoremap <space> za
 
 
 " Section: VimWiki
