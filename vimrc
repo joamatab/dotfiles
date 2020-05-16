@@ -75,7 +75,6 @@ set undofile
 set incsearch
 
 set backspace=indent,eol,start
-set shiftwidth=4
 set modelines=1
 " set showcmd             " show command in bottom bar
 " set ignorecase      " Ignore case in all searches...
@@ -86,7 +85,6 @@ set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
 let g:deoplete#enable_at_startup = 1
 set cursorline " gray line around the line
-
 set nobackup
 set nowritebackup
 set noswapfile
