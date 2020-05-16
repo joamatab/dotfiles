@@ -171,6 +171,7 @@ nnoremap <leader>ap :call <SID>push()<CR>
 nnoremap <leader>al :call <SID>pull()<CR>
 nmap <leader>v :call PasteClipboardImage()<cr>
 map <leader>l :Lf<CR>
+nnoremap <leader>u :UndotreeToggle<cr>
 
 vnoremap < <gv
 vnoremap > >gv
