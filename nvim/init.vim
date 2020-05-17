@@ -149,9 +149,8 @@ let mapleader="'"
 map <leader>g :G<CR>
 nmap <Leader>p <Plug>(Prettier)
 nnoremap <F9> :Black<CR>
-map <leader>b :Buffers<CR>
+map <leader>b :buffers<CR>
 map <leader>f :Files<CR>
-map <leader>e :set foldmethod=expr<CR>
 nmap <Leader>a :Autoformat<CR>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :CtrlPMRUFiles<cr>
@@ -159,13 +158,12 @@ nmap <leader>k :EnableAutocorrect<cr>
 nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>q :q <cr>
-nmap <leader>sv :w!<cr>:source ~/.config/nvim/init.vim<CR>
 nmap <leader>w :w <cr>
 nmap <leader>x :split<cr>
 nmap <leader>z :wq <cr>
 nmap <leader>c :Gwrite <cr>
+nmap <leader>sv :w!<cr>:source ~/.config/nvim/init.vim<CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
-map <leader>wu :vi ~/wikis/psi/updates_joaquin.md<CR>
 vnoremap <leader>s :sort<cr>
 nnoremap <leader>r :call <SID>compile_and_run()<CR>
 nnoremap <leader>ap :call <SID>push()<CR>
@@ -178,7 +176,7 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
-map <leader>s? z=
+map <leader>sf z=
 
 vnoremap < <gv
 vnoremap > >gv
