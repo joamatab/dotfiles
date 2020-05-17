@@ -59,6 +59,8 @@
     ~/.pylintrc: 
     ~/.profile: 
       force: true
+    ~/.tmux.conf.local:
+        force: true
     ~/.vifm: 
     ~/.weechat:
     ~/.xinitrc:
