@@ -1,12 +1,14 @@
 " leader
-" nnoremap <F2> <Plug>(coc-rename)
-" nmap <leader>a :w!<CR>:!python % <bar> cat<cr>
-" nmap <leader>e :w!<CR>:!fish run.sh cat<CR>
-" nmap <leader>p :AsyncRun gp<CR>
-" nmap <leader>r  :w!<CR> :Ranger<CR>
-" map <leader>g :GFiles<CR>
-" nmap <leader>l :Black<CR>
-" map <leader>e :set foldmethod=expr<CR>
+
+map <leader>b :buffers<CR>
+nnoremap <F2> <Plug>(coc-rename)
+nmap <leader>a :w!<CR>:!python % <bar> cat<cr>
+nmap <leader>e :w!<CR>:!fish run.sh cat<CR>
+nmap <leader>p :AsyncRun gp<CR>
+nmap <leader>r  :w!<CR> :Ranger<CR>
+map <leader>g :GFiles<CR>
+nmap <leader>l :Black<CR>
+map <leader>e :set foldmethod=expr<CR>
 
 " autocmd Filetype ipynb nmap <silent><Leader>vb :VimpyterInsertPythonBlock<CR>
 " autocmd Filetype ipynb nmap <silent><Leader>vj :VimpyterStartJupyter<CR>

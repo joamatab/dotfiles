@@ -1,4 +1,4 @@
-" Section: Vim Plug 
+" Section: Vim Plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/deoplete.nvim'
@@ -38,8 +38,8 @@ Plug 'jupyter-vim/jupyter-vim'
 Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+            \ 'do': 'yarn install',
+            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " Git help
 Plug 'tpope/vim-fugitive'
@@ -59,7 +59,7 @@ call plug#end()
 " Section: General
 set nocompatible
 if has("autocmd")
-  filetype plugin indent on
+    filetype plugin indent on
 endif
 
 set hidden
@@ -119,9 +119,9 @@ nnoremap S :%s//g<Left><Left>
 augroup line_return
     au!
     au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \	execute 'normal! g`"zvzz' |
-        \ endif
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \   execute 'normal! g`"zvzz' |
+                \ endif
 augroup END
 
 
@@ -149,30 +149,31 @@ let mapleader="'"
 map <leader>g :G<CR>
 nmap <Leader>p <Plug>(Prettier)
 nnoremap <F9> :Black<CR>
-map <leader>b :buffers<CR>
 map <leader>f :Files<CR>
 nmap <Leader>a :Autoformat<CR>
 nmap <leader>d :r!date "+\%F"<CR>
-nmap <leader>j :CtrlPMRUFiles<cr>
-nmap <leader>k :EnableAutocorrect<cr>
+nmap <leader>j :CtrlPMRUFiles<CR>
+nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>m :Mru<CR>
-nmap <leader>n :NERDTreeToggle<cr>
-nmap <leader>q :q <cr>
-nmap <leader>w :w <cr>
-nmap <leader>x :split<cr>
-nmap <leader>z :wq <cr>
-nmap <leader>c :Gwrite <cr>
-nmap <leader>sv :w!<cr>:source ~/.config/nvim/init.vim<CR>
+nmap <leader>t :NERDTreeToggle<CR>
+nmap <leader>n :bn<CR>
+nmap <leader>q :q <CR>
+nmap <leader>w :w <CR>
+nmap <leader>x :split<CR>
+nmap <leader>z :wq <CR>
+nmap <leader>c :Gwrite <CR>
+nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
-vnoremap <leader>s :sort<cr>
+vnoremap <leader>s :sort<CR>
 nnoremap <leader>r :call <SID>compile_and_run()<CR>
 nnoremap <leader>ap :call <SID>push()<CR>
 nnoremap <leader>al :call <SID>pull()<CR>
-nmap <leader>v :call PasteClipboardImage()<cr>
+nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
-nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap <leader>u :UndotreeToggle<CR>
+
 " spell chech
-map <leader>ss :setlocal spell!<cr>
+map <leader>ss :setlocal spell!<CR>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
@@ -190,16 +191,16 @@ function! s:compile_and_run()
     if &filetype == 'c'
         exec "AsyncRun! gcc % -o %<; time ./%<"
     elseif &filetype == 'cpp'
-       exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+        exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
     elseif &filetype == 'java'
-       exec "AsyncRun! javac %; time java %<"
+        exec "AsyncRun! javac %; time java %<"
     elseif &filetype == 'sh'
-       exec "AsyncRun! time bash %"
+        exec "AsyncRun! time bash %"
     elseif &filetype == 'fish'
-       exec "AsyncRun! time fish %"
+        exec "AsyncRun! time fish %"
     elseif &filetype == 'python'
-       " exec "AsyncRun! time python %"
-       exec "AsyncRun -raw python %"
+        " exec "AsyncRun! time python %"
+        exec "AsyncRun -raw python %"
     endif
 endfunction
 
@@ -220,32 +221,32 @@ let $PYTHONUNBUFFERED=1
 " }}}
 
 function! PasteClipboardImage() abort
-  " Create `img` directory if it doesn't exist
-  let img_dir = getcwd() . '/images'
-  let img_path = 'images'
-  if !isdirectory(img_dir)
-    silent call mkdir(img_dir)
-  endif
+    " Create `img` directory if it doesn't exist
+    let img_dir = getcwd() . '/images'
+    let img_path = 'images'
+    if !isdirectory(img_dir)
+        silent call mkdir(img_dir)
+    endif
 
-  let index = strftime("%y%m%d%H%M%S")
-  let file_path = img_dir . "/" . index . ".png"
+    let index = strftime("%y%m%d%H%M%S")
+    let file_path = img_dir . "/" . index . ".png"
 
-  let file_relative_path = "images/" . index . ".png"
-  let clip_command = 'osascript'
-  let clip_command .= ' -e "set png_data to the clipboard as «class PNGf»"'
-  let clip_command .= ' -e "set referenceNumber to open for access POSIX path of'
-  let clip_command .= ' (POSIX file \"' . file_path . '\") with write permission"'
-  let clip_command .= ' -e "write png_data to referenceNumber"'
+    let file_relative_path = "images/" . index . ".png"
+    let clip_command = 'osascript'
+    let clip_command .= ' -e "set png_data to the clipboard as «class PNGf»"'
+    let clip_command .= ' -e "set referenceNumber to open for access POSIX path of'
+    let clip_command .= ' (POSIX file \"' . file_path . '\") with write permission"'
+    let clip_command .= ' -e "write png_data to referenceNumber"'
 
-  silent call system(clip_command)
+    silent call system(clip_command)
 
-  if v:shell_error == 1
-    normal! p
-  elseif &filetype == 'rst'
-      exec "normal! i.. image:: " . file_relative_path
-  else
-    exec "normal! i![](" . file_relative_path . ")"
-  endif
+    if v:shell_error == 1
+        normal! p
+    elseif &filetype == 'rst'
+        exec "normal! i.. image:: " . file_relative_path
+    else
+        exec "normal! i![](" . file_relative_path . ")"
+    endif
 endfunction
 
 
@@ -309,11 +310,11 @@ nnoremap <space> za
 
 " Section: VimWiki
 let g:vimwiki_list = [
-\ {'path': '~/wikis/go', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ {'path': '~/wikis/joaquin/', 'path_html': '~/public_html/vimwiki/PersonalWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ {'path': '~/wikis/github/', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ {'path': '~/wikis/gotbletu', 'path_html': '~/public_html/vimwiki/HouseholdWiki', 'syntax': 'markdown', 'ext': '.md'},
-\ ]
+            \ {'path': '~/wikis/go', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
+            \ {'path': '~/wikis/joaquin/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
+            \ {'path': '~/wikis/github/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
+            \ {'path': '~/wikis/gotbletu', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
+            \ ]
 
 
 " Section: ALE
@@ -334,7 +335,7 @@ let g:ale_fixers.markdown = ['prettier', 'remark']
 iab ipdb import ipdb; ipdb.set_trace()
 iab pdb import pdb; pdb.set_trace()
 iab ifmain if __name__ == "__main__":
-iab heigth height 
+iab heigth height
 iab teh the
 iab retrun return
 iab previosu previous
