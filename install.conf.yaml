@@ -40,8 +40,7 @@
     ~/.config/ranger: 
         force: true
     ~/.config/starship.toml:
-    # ~/.config/nvim/init.vim: vimrc
-    ~/.config/nvim:
+    ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/lf:
     ~/.config/clipit/clipitrc:
     ~/.config/dunst/dunstrc:
