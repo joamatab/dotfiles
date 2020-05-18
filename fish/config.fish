@@ -66,9 +66,7 @@ if [ -f ~/.config/fish/abbr.fish ]
   source ~/.config/fish/abbr.fish
 end
 
-if [ -f ~/.shortcuts.fish ]
-  source ~/.shortcuts.fish
-end
+test -f ~/.local.fish  && source ~/.local.fish
 
 if [ -f ~/.local/share/fish/config.fish ]
   source ~/.local/share/fish/config.fish
@@ -101,10 +99,7 @@ path ~/.poetry/bin
 # more_variables {{{
 
 if test -d "/opt/lumerical/2020a/"; set -x PYTHONPATH /opt/lumerical/2020a/api/python; end
-
 if test -d "/Applications/Lumerical 2020a.app/Contents/API/"; set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'; end
-
-
 
 if [ -d "$HOME/.kube/k8s-kops-config" ]
     set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"

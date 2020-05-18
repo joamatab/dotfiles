@@ -1,6 +1,8 @@
 extra/
 *.pyo
 *.pyc
+nvim/.netrwhist
+
 
 luke/
 brodie/

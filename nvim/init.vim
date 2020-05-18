@@ -172,6 +172,9 @@ nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
+
 " spell chech
 map <leader>ss :setlocal spell!<CR>
 map <leader>sn ]s
