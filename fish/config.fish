@@ -9,7 +9,7 @@ bind -M insert \cc kill-whole-line force-repaint
 set -g -x fish_greeting ''
 bind \cb edit_command_buffer
 
-if test -f "$HOME/.autojump/share/autojump/autojump.fish"; . ~/.autojump/share/autojump/autojump.fish; end
+test -f "$HOME/.autojump/share/autojump/autojump.fish" && . ~/.autojump/share/autojump/autojump.fish
 # set -g fish_key_bindings fish_vi_key_bindings
 # }}}
 # functions {{{
@@ -61,22 +61,9 @@ set -gx LESS_TERMCAP_ue \e'[0m'
 set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # }}}
 # source {{{
-
-if [ -f ~/.config/fish/abbr.fish ]
-  source ~/.config/fish/abbr.fish
-end
-
-test -f ~/.local.fish  && source ~/.local.fish
-
-if [ -f ~/.local/share/fish/config.fish ]
-  source ~/.local/share/fish/config.fish
-end
-
-if test -e "/Applications";
-	source ~/.config/fish/mac.fish
-else
-	source ~/.config/fish/linux.fish
-end
+test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
+test -f ~/.local.fish && source ~/.local.fish
+test -f ~/.local/share/fish/config.fish && source ~/.local/share/fish/config.fish
 # }}}
 # path {{{
 path ~/dotfiles/scripts
@@ -99,36 +86,16 @@ path /opt/lumerical/2020a/bin
 path /opt/lumerical/2019b/bin
 # }}}
 # more_variables {{{
+test -d "/opt/lumerical/2020a/" && set -x PYTHONPATH /opt/lumerical/2020a/api/python
+test -d "/opt/lumerical/2019b" && set -x PYTHONPATH /opt/lumerical/2019b/api/python
+test -d "/Applications/Lumerical 2020a.app/Contents/API/" && set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
+test -d "$HOME/.kube/k8s-kops-config" && set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
+test -d "$HOME/miniconda3" && source $HOME/miniconda3/etc/fish/conf.d/conda.fish && set PATH $HOME/miniconda3/bin $PATH
 
-if test -d "/opt/lumerical/2020a/"; set -x PYTHONPATH /opt/lumerical/2020a/api/python; end
-if test -d "/Applications/Lumerical 2020a.app/Contents/API/"; set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'; end
-
-if [ -d "$HOME/.kube/k8s-kops-config" ]
-    set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
-end
-
-if [ -d "$HOME/miniconda3" ]
-    source $HOME/miniconda3/etc/fish/conf.d/conda.fish
-    # set PATH $PATH $HOME/miniconda3/bin
-    set PATH $HOME/miniconda3/bin $PATH
-end
-
-if [ -d "$HOME/anaconda3" ]
-    source $HOME/anaconda3/etc/fish/conf.d/conda.fish
-    set PATH $PATH $HOME/anaconda3/bin
-    # set PATH $HOME/anaconda3/bin $PATH
-end
-
-# if [ -d "$HOME/.rbenv" ]
-#     set PATH $HOME/.rbenv/shims $PATH
-#     set PATH $HOME/.rbenv/bin $PATH
-#     set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
-# end
-
+# test -d "$HOME/.rbenv" && set PATH $HOME/.rbenv/shims $PATH && set PATH $HOME/.rbenv/bin $PATH && set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 # [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
 # [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
 # [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
 # [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
-
 # }}}
 # vim:foldmethod=marker:foldlevel=0
