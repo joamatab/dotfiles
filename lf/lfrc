@@ -114,6 +114,7 @@ cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
 map C clear
 map U unselect
 map ee $$EDITOR "$f"
+map br $vimv $fx
 # }}}
 
 # archive mappings {{{
