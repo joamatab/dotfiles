@@ -95,6 +95,8 @@ path /opt/lumerical/2020a/bin
 path ~/dotfiles/brodie
 path ~/dotfiles/luke/.local/bin
 path ~/.poetry/bin
+path /opt/lumerical/2020a/bin
+path /opt/lumerical/2019b/bin
 # }}}
 # more_variables {{{
 
