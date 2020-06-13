@@ -1,60 +1,27 @@
 # i3 config file (v4)
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# set $mod Mod1 # Alt
-# set $mod Mod4 # Super key
-set $mod Mod1
+# set $mod Mod4 
+set $mod Mod1 
 
 gaps inner 15
 gaps outer 0
 
 workspace_layout default
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# font pango:monospace 9
-# font pango:DejaVu Sans Mono 9
 
 new_window 1pixel
-# window_border 0
 for_window [class="^.*"] border pixel 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal 
 # bindsym $mod+Return exec $TERMINAL
 
-# kill focused window
-# bindsym $mod+Shift+q kill
-bindsym $mod+q kill
-
-#lock screen
-bindsym $mod+Shift+x exec i3lock
-#bindsym $mod+Control+l exec xscreensaver-command -lock
-
-# start synapse
-# bindsym mod+space exec synapse
-# bindsym Super_L exec synapse
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
+bindsym $mod+q kill 
+bindsym $mod+Shift+x exec i3lock 
 bindsym $mod+d exec rofi -show run
 bindsym $mod+x exec rofi -show window 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-
-#i3-workspacer
-bindsym $mod+Control+Right exec i3-workspacer go -d up
-bindsym $mod+Control+Left exec i3-workspacer go -d down
-bindsym $mod+Up exec i3-workspacer go -d next
-bindsym $mod+Down exec i3-workspacer go -d prev
-bindsym $mod+y exec i3-workspacer go --exact --number `zenity --entry --text "Go to workspace:"`
-bindsym $mod+Shift+q exec i3-workspacer move --exact --number `zenity --entry --text "Move to workspace:"`
-bindsym $mod+t exec i3-workspacer rename --name `zenity --entry --text "Rename workspace:"`
 
 # change focus
 bindsym $mod+j focus down 
@@ -82,6 +49,7 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+o split h
+bindsym $mod+Shift+o split v
 
 # split in vertical orientation
 # bindsym $mod+v split v
@@ -96,15 +64,6 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+b workspace back_and_forth
@@ -155,7 +114,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You done messed up' -b 'Ok, I wont do it again' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
