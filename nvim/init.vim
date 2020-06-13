@@ -79,7 +79,7 @@ set incsearch
 set backspace=indent,eol,start
 set modelines=1
 " set showcmd             " show command in bottom bar
-" set ignorecase      " Ignore case in all searches...
+set ignorecase      " Ignore case in all searches...
 set nocursorline        " highlight current line
 set wildmenu
 set lazyredraw
