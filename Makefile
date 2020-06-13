@@ -23,5 +23,7 @@ tmux:
 	ln -sf $(HOME)/.tmux/.tmux.conf ~/.tmux.conf
 	cp $(HOME)/.tmux/.tmux.conf.local ~
 
+brodie:
+	git clone https://github.com/BrodieRobertson/scripts.git brodie
 
 .PHONY: help install backup tmux lumerical

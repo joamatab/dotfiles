@@ -12,7 +12,9 @@ super + m
 super + n
 	$TERMINAL -e newsboat
 super + i
-	$BROWSER
+	firefox
+super + sift + i
+	google-chrome
 super + y
 	$TERMINAL -e calcurse
 super + shift + a
@@ -21,8 +23,6 @@ super + shift + c
 	camtoggle
 super + shift + e
 	tutorialvids
-super + w
-	google-chrome
 super + shift + g
 	gimp
 
@@ -33,6 +33,8 @@ super + Scroll_Lock
 	killall screenkey || screenkey
 super + Insert
 	showclip
+super + shift + r
+    killandnotify "sxhkd" "Config reloaded" && sxhkd &
 super + shift + x
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + shift + BackSpace
