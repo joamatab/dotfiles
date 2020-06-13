@@ -1,36 +1,21 @@
 [Default Applications]
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/ftp=firefox.desktop;
-x-scheme-handler/chrome=firefox.desktop;
-text/html=firefox.desktop;
-application/x-extension-htm=firefox.desktop;
-application/x-extension-html=firefox.desktop;
-application/x-extension-shtml=firefox.desktop;
-application/xhtml+xml=firefox.desktop;
-application/x-extension-xhtml=firefox.desktop;
-application/x-extension-xht=firefox.desktop;
-image/jpeg=viewnior.desktop;sxiv.desktop;
-image/png=viewnior.desktop;sxiv.desktop;
-text/plain=text.desktop;
-x-scheme-handler/mailto=userapp-Evolution-OF7OB0.desktop;
-message/rfc822=userapp-Evolution-OF7OB0.desktop;
-application/pdf=epdfview.desktop;
-application/x-bittorrent=deluge.desktop;
-x-scheme-handler/kite=kite-copilot.desktop;
-application/octet-stream=klayoutEditor.desktop;
-video/mp4=mpv.desktop;
 
-[Added Associations]
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/ftp=firefox.desktop;
-x-scheme-handler/chrome=firefox.desktop;
-text/html=firefox.desktop;
-application/x-extension-htm=firefox.desktop;
-application/x-extension-html=firefox.desktop;
-application/x-extension-shtml=firefox.desktop;
-application/xhtml+xml=firefox.desktop;
-application/x-extension-xhtml=firefox.desktop;
-application/x-extension-xht=firefox.desktop;
+# xdg-open will use these settings to determine how to open filetypes.
+# These .desktop entries can also be seen and changed in ~/.local/share/applications/
+
+text/x-shellscript=text.desktop;
+x-scheme-handler/magnet=torrent.desktop;
+application/x-bittorrent=torrent.desktop;
+x-scheme-handler/mailto=mail.desktop;
+text/plain=text.desktop;
+application/postscript=pdf.desktop;
+application/pdf=pdf.desktop;
+image/png=img.desktop;
+image/jpeg=img.desktop;
+image/gif=img.desktop;
+application/rss+xml=rss.desktop
+video/x-matroska=video.desktop
+x-scheme-handler/lbry=lbry.desktop
+inode/directory=file.desktop
+application/octet-stream=klayoutEditor.desktop;
 video/mp4=mpv.desktop;
