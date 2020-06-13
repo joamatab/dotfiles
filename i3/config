@@ -32,7 +32,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 #lock screen
-bindsym $mod+Control+l exec /usr/share/goobuntu-desktop-files/xsecurelock.sh 
+bindsym $mod+Shift+x exec i3lock
 #bindsym $mod+Control+l exec xscreensaver-command -lock
 
 # start synapse
