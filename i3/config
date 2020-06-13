@@ -22,6 +22,8 @@ bindsym $mod+q kill
 bindsym $mod+Shift+x exec i3lock 
 bindsym $mod+d exec rofi -show run
 bindsym $mod+x exec rofi -show window 
+bindsym $mod+i exec firefox
+bindsym $mod+Shift+i exec google-chrome
 
 # change focus
 bindsym $mod+j focus down 
@@ -47,12 +49,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split in horizontal/vertical orientation
 bindsym $mod+o split h
 bindsym $mod+Shift+o split v
-
-# split in vertical orientation
-# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
