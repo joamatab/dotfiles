@@ -51,7 +51,6 @@ venv.bak
 
 .idea/
 *.cprof
-.ipynb_checkpoints/
 
 # Sphinx documentation
 doc/_build/
