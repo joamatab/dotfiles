@@ -13,7 +13,6 @@
 - link:
     ~/.agignore: 
     ~/.aliases: 
-    ~/.bash_darwin:
     ~/.bash_profile: 
     ~/.bashrc: 
     ~/.cmus-syncrc:
@@ -56,8 +55,6 @@
     ~/.moc/keymap: moc/keymap
     ~/.matplotlib/matplotlibrc: 
     ~/.pylintrc: 
-    ~/.profile: 
-      force: true
     ~/.tmux.conf.local:
         force: true
     ~/.vifm: 
