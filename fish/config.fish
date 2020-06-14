@@ -1,7 +1,7 @@
 # config {{{
 if status --is-interactive
     # eval sh $HOME/.config/base16-shell/scripts/base16-solarized-light.sh
-    eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
+    test -f $HOME/.config/base16-shell/scripts/base16-default-dark.sh && eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
 end
 
 # fundle plugin 'tuvistavie/oh-my-fish-core'
