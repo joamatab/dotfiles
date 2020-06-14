@@ -32,10 +32,10 @@ bindsym $mod+h focus left
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-bindsym $mod+Left workspace prev
-bindsym $mod+Right workspace next
-#bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Shift+h workspace prev
+# bindsym $mod+Shift+l workspace next
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move down 
@@ -50,8 +50,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal/vertical orientation
-bindsym $mod+o split h
-bindsym $mod+Shift+o split v
+bindsym $mod+v split h
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
