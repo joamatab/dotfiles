@@ -1,5 +1,6 @@
 " leader
 
+nnoremap <F9> :Black<CR>
 map <leader>b :buffers<CR>
 nnoremap <F2> <Plug>(coc-rename)
 nmap <leader>a :w!<CR>:!python % <bar> cat<cr>
