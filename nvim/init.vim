@@ -37,9 +37,10 @@ Plug 'jupyter-vim/jupyter-vim'
 " Autoformat
 Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
-Plug 'prettier/vim-prettier', {
-            \ 'do': 'yarn install',
-            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" Plug 'prettier/vim-prettier', {
+"             \ 'do': 'yarn install',
+"             \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Git help
 Plug 'tpope/vim-fugitive'
@@ -148,7 +149,6 @@ let mapleader="'"
 
 map <leader>g :G<CR>
 nmap <Leader>p <Plug>(Prettier)
-nnoremap <F9> :Black<CR>
 map <leader>f :Files<CR>
 nmap <Leader>a :Autoformat<CR>
 nmap <leader>d :r!date "+\%F"<CR>
@@ -159,7 +159,7 @@ nmap <leader>t :NERDTreeToggle<CR>
 nmap <leader>n :bn<CR>
 nmap <leader>q :q <CR>
 nmap <leader>w :w <CR>
-nmap <leader>x :split<CR>
+nmap <leader>x :vsplit<CR>
 nmap <leader>z :wq <CR>
 nmap <leader>c :Gwrite <CR>
 nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
