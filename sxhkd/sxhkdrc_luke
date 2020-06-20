@@ -38,6 +38,9 @@ super + w
 	$TERMINAL -e sudo nmtui
 super + shift + w
 	$BROWSER
+super + Space
+    rofi
+	
 
 # Et cetera...
 super + grave
