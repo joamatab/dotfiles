@@ -26,8 +26,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|xterm-256color) color_prompt=yes;;
-esac
+    xterm-color|xterm-256color) color_prompt=yes;; esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -91,6 +90,9 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
+export PATH="$PATH:$(du "$HOME/dotfiles/luke/.local/bin/" | cut -f2 | paste -sd ':')"
+
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
@@ -99,7 +101,14 @@ if [ -f ~/.aliases2 ]; then
     . ~/.aliases2
 fi
 
-
 if [ -f /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br ]; then
     source /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br
 fi
+
+export EDITOR="nvim"
+export READER="zathura"
+export FILE="lf"
+export MUSIC="cmus"
+export BROWSER="google-chrome"
+export SHELL="/usr/bin/fish"
+export TERMINAL="st"

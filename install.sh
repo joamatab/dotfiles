@@ -10,3 +10,5 @@ if [ ! -d $HOME/.tmux ]; then
   cp .tmux/.tmux.conf.local .
 fi
 
+[ ! -d luke ] && git clone https://github.com/LukeSmithxyz/voidrice.git luke
+ln -s $PWD/luke/.local/share/larbs ~/.local/share/larbs

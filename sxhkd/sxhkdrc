@@ -1,24 +1,24 @@
 # Basic binds
 super + Return
 	$TERMINAL
-super + d
+super + shift + d
 	dmenu_run
+super + d
+	rofi -show run
 super + r
 	$TERMINAL -e $FILE
-super + e
-	$TERMINAL -e neomutt
 super + m
 	$TERMINAL -e cmus
 super + n
 	$TERMINAL -e newsboat
 super + i
 	firefox
-super + sift + i
+super + shift + i
 	google-chrome
 super + y
 	$TERMINAL -e calcurse
 super + shift + a
-	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
+	$TERMINAL -e pulsemixer; pkill -RTMIN+10 blocks
 super + shift + c
 	camtoggle
 super + shift + e
@@ -44,34 +44,24 @@ super + x
 XF86Launch1
 	xset dpms force off
 
-
-XF86AudioMute
-	lmc mute
-XF86AudioLowerVolume
-	lmc down 5
-shift+XF86AudioLowerVolume
-	lmc down 10
-control+XF86AudioLowerVolume
-	lmc down 1
-XF86AudioRaiseVolume
-	lmc up 5
-shift+XF86AudioRaiseVolume
-	lmc up 10
-control+XF86AudioRaiseVolume
-	lmc up 1
-XF86AudioNext
-	lmc next
-XF86AudioPlay
-	lmc toggle
-XF86AudioPrev
-	lmc prev
-XF86AudioStop
-	lmc toggle
 XF86MonBrightnessDown
 	xbacklight -dec 15
 XF86MonBrightnessUp
 	xbacklight -inc 15
 
+# Audiokeys
+XF86AudioMute
+	amixer sset Master toggle; pkill -RTMIN+10 blocks
+XF86Audio{Raise,Lower}Volume
+	amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
+# Increase volume
+super + {equal,plus}
+	amixer sset Master {5,15}%+; pkill -RTMIN+10 blocks
+# Decrease volume
+super {_,shift +} + minus
+	amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks
+super + shift + m
+	amixer sset Master toggle; pkill -RTMIN+10 blocks
 
 # Recording
 # Take screenshot
@@ -134,5 +124,4 @@ super + F11
 # Network Manager interface
 super + F12
 	$TERMINAL -e sudo -A nmcli
-
 

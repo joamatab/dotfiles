@@ -35,7 +35,7 @@ Plug 'jupyter-vim/jupyter-vim'
 " Plug 'goerz/jupytext'
 
 " Autoformat
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
 " Plug 'prettier/vim-prettier', {
 "             \ 'do': 'yarn install',
@@ -148,21 +148,21 @@ call matchadd('InvisibleSpaces', '\S\@<=\s\+\%#\ze\s*$', -10)
 let mapleader="'"
 
 map <leader>g :G<CR>
-nmap <Leader>p <Plug>(Prettier)
+nmap <Leader>a <Plug>(Prettier)
 map <leader>f :Files<CR>
-nmap <Leader>a :Autoformat<CR>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :CtrlPMRUFiles<CR>
 nmap <leader>k :EnableAutocorrect<CR>
+nmap <leader>t :tabe<CR>
 nmap <leader>m :Mru<CR>
-nmap <leader>t :NERDTreeToggle<CR>
-nmap <leader>n :bn<CR>
+nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>bn :bn<CR>
+nmap <leader>p :bp<CR>
 nmap <leader>q :q <CR>
 nmap <leader>w :w <CR>
 nmap <leader>x :vsplit<CR>
 nmap <leader>z :wq <CR>
 nmap <leader>c :Gwrite <CR>
-nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
 vnoremap <leader>s :sort<CR>
 nnoremap <leader>r :call <SID>compile_and_run()<CR>
@@ -174,6 +174,8 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
+" nmap <Leader>a :Autoformat<CR>
+" nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 
 " spell chech
 map <leader>ss :setlocal spell!<CR>
@@ -286,7 +288,7 @@ augroup configgroup
     autocmd BufEnter *.lyrdb setlocal filetype=python
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
-    autocmd FileType python nnoremap <buffer><silent><leader>p :Black<CR>
+    autocmd FileType python nnoremap <buffer><silent><leader>a :Black<CR>
 augroup END
 
 
