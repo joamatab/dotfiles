@@ -25,6 +25,10 @@ super + shift + e
 	tutorialvids
 super + shift + g
 	gimp
+super + o
+	mons -o
+super + shift + o
+	mons -s
 
 # Etcetera...
 super + grave
