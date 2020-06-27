@@ -11,10 +11,10 @@ super + m
 	$TERMINAL -e cmus
 super + n
 	$TERMINAL -e newsboat
-super + i
-	firefox
-super + shift + i
+super + w
 	google-chrome
+super + e
+	firefox
 super + y
 	$TERMINAL -e calcurse
 super + shift + a

@@ -17,7 +17,7 @@ xcape -e 'Control_L=Escape'
 # xrandr --output eDP-1 --mode 2560x1440
 # xrandr --output eDP-1 --mode 3200x1800
 # mons -e right
-
+mons -O 2
 
 dunst &
 # davmail &
@@ -29,3 +29,6 @@ dunst &
 # redshift -P -O 2000 &
 # megasync &
 # davmail &
+setbg &
+dwmblocks &
+
