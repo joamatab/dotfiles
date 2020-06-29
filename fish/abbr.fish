@@ -2,7 +2,6 @@ if status --is-interactive
     set -g fish_user_abbreviations
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
-    abbr -a c cd ~/code
     abbr -a d cd ~/Downloads
     abbr -a cfa nvim ~/dotfiles/fish/abbr.fish
     abbr -a cfb nvim ~/dotfiles/bashrc

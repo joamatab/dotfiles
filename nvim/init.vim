@@ -30,8 +30,10 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', {'for':'python'}
 Plug 'dag/vim-fish', {'for':'fish'}
 Plug 'itspriddle/vim-shellcheck'
-Plug 'szymonmaszke/vimpyter' "vim-plug
-Plug 'jupyter-vim/jupyter-vim'
+Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
+Plug 'jpalardy/vim-slime', { 'for': 'python' }
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+" Plug 'jupyter-vim/jupyter-vim'
 " Plug 'goerz/jupytext'
 
 " Autoformat
@@ -345,3 +347,10 @@ iab teh the
 iab retrun return
 iab previosu previous
 iab Wb wb
+
+
+" Section: ipython
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+
