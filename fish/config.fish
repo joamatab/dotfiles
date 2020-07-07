@@ -64,7 +64,7 @@ set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 set -x TERMINAL kitty
 set -x SHELL /usr/bin/fish
 set -x _CONDA_ROOT $HOME/miniconda3
-set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
+# set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'
@@ -78,6 +78,7 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # source {{{
 test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
 test -f ~/.local.fish && source ~/.local.fish
+status --is-interactive; and source (pyenv init -|psub)
 # }}}
 # path {{{
 path /opt/lumerical/2019b/bin
