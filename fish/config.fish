@@ -79,6 +79,7 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
 test -f ~/.local.fish && source ~/.local.fish
 status --is-interactive; and source (pyenv init -|psub)
+test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
 # }}}
 # path {{{
 path /opt/lumerical/2019b/bin
@@ -86,12 +87,15 @@ path /opt/lumerical/2020a/bin
 path /usr/local/sbin
 path ~/.cargo/bin
 path ~/.config/yarn/global/node_modules/.bin
+path ~/.gem/ruby/2.7.0/bin
 path ~/.local/bin
 path ~/.local/google-cloud-sdk/bin
 path ~/.local/kitty.app/bin
 path ~/.local/node-v14.5.0-linux-x64/bin
+path ~/.npm-global/bin
 path ~/.poetry/bin
 path ~/.pyenv/bin
+path ~/.rbenv/bin
 path ~/.yarn/bin
 path ~/dotfiles/brodie
 path ~/dotfiles/luke/.local/bin

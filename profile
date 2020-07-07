@@ -44,4 +44,5 @@ export SHELL="/usr/bin/fish"
 #     PATH="$HOME/.local/bin:$PATH"
 # fi
 
-# export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=~/.npm-global/bin:$PATH

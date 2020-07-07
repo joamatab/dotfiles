@@ -26,7 +26,7 @@
         force: true
     ~/.config/flake8: 
     ~/.config/i3: 
-    ~/.config/i3blocks/config: i3blocks/config
+    # ~/.config/i3blocks/config: i3blocks/config
     ~/.config/karabiner: 
     ~/.config/kitty/kitty.conf: 
     ~/.config/mimeapps.list: 
@@ -35,7 +35,7 @@
     ~/.config/mpv: mpv
     ~/.config/ncmpcpp:
     ~/.config/newsboat: newsboat
-    ~/.config/polybar:
+    # ~/.config/polybar:
     ~/.config/ranger: 
         force: true
     ~/.config/starship.toml:
@@ -61,6 +61,6 @@
     ~/.xinitrc:
       force: true
     ~/.xonshrc:
+    ~/.profile:
     ~/.xprofile:
-    ~/.yabairc:
     ~/.zshrc:
