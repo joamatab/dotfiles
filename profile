@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 export EDITOR="nvim"
 export READER="zathura"
 export FILE="lf"
@@ -25,24 +24,24 @@ export SHELL="/usr/bin/fish"
 # export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 # [ -f "$HOME/.xprofile" ] && source ~/.xprofile
 
-PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
-
-export PATH="$HOME/.cargo/bin:$PATH"
+# PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+# if [ -n "$BASH_VERSION" ]; then
+#     # include .bashrc if it exists
+#     if [ -f "$HOME/.bashrc" ]; then
+# 	. "$HOME/.bashrc"
+#     fi
+# fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# if [ -d "$HOME/bin" ] ; then
+#     PATH="$HOME/bin:$PATH"
+# fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+# if [ -d "$HOME/.local/bin" ] ; then
+#     PATH="$HOME/.local/bin:$PATH"
+# fi
+
+# export PATH="$HOME/.cargo/bin:$PATH"

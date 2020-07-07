@@ -301,8 +301,8 @@ let g:netrw_list_hide= '.*\.pyc$'
 
 let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
-let g:python_host_prog='/usr/local/bin/python'
-let g:python3_host_prog='/usr/local/bin/python'
+" let g:python_host_prog='/usr/local/bin/python'
+" let g:python3_host_prog='/usr/local/bin/python'
 
 set completefunc=emoji#complete
 

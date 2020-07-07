@@ -37,10 +37,23 @@ function fish_user_key_bindings
     bind -M insert \cn history-token-search-forward
 end
 
-function path
-    if [ -d $argv ]
-        set PATH $PATH $argv
+function dedup_path --description "Removes duplicate entries from \$PATH"
+  set -l NEWPATH
+  for p in $PATH
+    if not contains $NEWPATH $p
+      set NEWPATH $NEWPATH $p
     end
+  end
+  set PATH $NEWPATH
+end
+
+function path
+    test -d $argv && set PATH $PATH $argv
+    # test -d $argv && set -U fish_user_paths $argv $fish_user_paths 
+    # test -d $argv && set -Ux fish_user_paths $argv $fish_user_paths 
+    # if [ -d $argv ]
+        # set PATH $PATH $argv
+    # end
 end
 
 # }}}
@@ -51,7 +64,7 @@ set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 set -x TERMINAL kitty
 set -x SHELL /usr/bin/fish
 set -x _CONDA_ROOT $HOME/miniconda3
-
+set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'
@@ -65,36 +78,36 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # source {{{
 test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
 test -f ~/.local.fish && source ~/.local.fish
-test -f ~/.local/share/fish/config.fish && source ~/.local/share/fish/config.fish
 # }}}
 # path {{{
-path ~/dotfiles/scripts
-path ~/go/bin
-path ~/.cargo/bin
-path ~/snap/bin
+path /opt/lumerical/2019b/bin
+path /opt/lumerical/2020a/bin
 path /usr/local/sbin
-path ~/bin
-path ~/.yarn/bin
+path ~/.cargo/bin
 path ~/.config/yarn/global/node_modules/.bin
 path ~/.local/bin
-path ~/.pyenv/bin
-path ~/.local/kitty.app/bin
 path ~/.local/google-cloud-sdk/bin
-path /opt/lumerical/2020a/bin
+path ~/.local/kitty.app/bin
+path ~/.local/node-v14.5.0-linux-x64/bin
+path ~/.poetry/bin
+path ~/.pyenv/bin
+path ~/.yarn/bin
 path ~/dotfiles/brodie
 path ~/dotfiles/luke/.local/bin
 path ~/dotfiles/luke/.local/bin/statusbar
-path ~/.poetry/bin
-path ~/.yarn/bin
-path /opt/lumerical/2020a/bin
-path /opt/lumerical/2019b/bin
+path ~/dotfiles/scripts
+path ~/go/bin
+path ~/snap/bin
+dedup_path
 # }}}
 # more_variables {{{
-test -d "/opt/lumerical/2020a/" && set -x PYTHONPATH /opt/lumerical/2020a/api/python
+test -d "/opt/lumerical/2020a" && set -x PYTHONPATH /opt/lumerical/2020a/api/python
 test -d "/opt/lumerical/2019b" && set -x PYTHONPATH /opt/lumerical/2019b/api/python
 test -d "/Applications/Lumerical 2020a.app/Contents/API/" && set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 test -d "$HOME/.kube/k8s-kops-config" && set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 test -d "$HOME/miniconda3" && source $HOME/miniconda3/etc/fish/conf.d/conda.fish && set PATH $HOME/miniconda3/bin $PATH
+# test -d "$HOME/.pyenv" && set -Ux PYENV_ROOT $HOME/.pyenv && set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths && pyenv init - | source
+# set -Ux PYENV_ROOT $HOME/.pyenv && set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 
 # test -d "$HOME/.rbenv" && set PATH $HOME/.rbenv/shims $PATH && set PATH $HOME/.rbenv/bin $PATH && set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 # [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
