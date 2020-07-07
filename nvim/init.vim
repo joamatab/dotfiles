@@ -303,6 +303,8 @@ let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 " let g:python_host_prog='/usr/local/bin/python'
 " let g:python3_host_prog='/usr/local/bin/python'
+" let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
+" let g:python3_host_prog = expand('~/.pyenv/versions/3.7.8/bin/python')
 
 set completefunc=emoji#complete
 
