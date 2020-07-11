@@ -1,6 +1,7 @@
 #!/bin/bash
 # https://github.com/lukesmithxyz/voidrice
 # Output locations. Unactivated progs should go to /dev/null.
+
 shell_shortcuts="$HOME/.shortcuts"
 ranger_shortcuts="$HOME/.config/ranger/shortcuts.conf"
 fish_shortcuts="$HOME/.shortcuts.fish"

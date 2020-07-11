@@ -111,3 +111,97 @@ function emptytrash -d 'Empty the Trash on all mounted volumes and the main HDD.
 end
 
 
+# Change working dir in fish to last dir in lf on exit (adapted from ranger).
+#
+# You may put this file to a directory in $fish_function_path variable:
+#
+#     mkdir -p ~/.config/fish/functions
+#     ln -s "/path/to/lfcd.fish" ~/.config/fish/functions
+#
+# You may also like to assign a key to this command:
+#
+#     bind \co 'lfcd; commandline -f repaint'
+#
+# You need to put this in a function called fish_user_key_bindings.
+
+function lfcd
+    set tmp (mktemp)
+    lf -last-dir-path=$tmp $argv
+    if test -f "$tmp"
+        set dir (cat $tmp)
+        rm -f $tmp
+        if test -d "$dir"
+            if test "$dir" != (pwd)
+                cd $dir
+            end
+        end
+    end
+end
+
+function dedup_path --description "Removes duplicate entries from \$PATH"
+  set -l NEWPATH
+  for p in $PATH
+    if not contains $NEWPATH $p
+      set NEWPATH $NEWPATH $p
+    end
+  end
+  set PATH $NEWPATH
+end
+
+
+function fish_prompt
+  set -l last_command_status $status
+  set -l cwd
+
+  if test "$theme_short_path" = 'yes'
+    set cwd (basename (prompt_pwd))
+  else
+    set cwd (prompt_pwd)
+  end
+
+  set -l fish     "⋊>"
+  set -l ahead    "↑"
+  set -l behind   "↓"
+  set -l diverged "⥄ "
+  set -l dirty    "⨯"
+  set -l none     "◦"
+
+  set -l normal_color     (set_color normal)
+  set -l success_color    (set_color $fish_pager_color_progress 2> /dev/null; or set_color cyan)
+  set -l error_color      (set_color $fish_color_error 2> /dev/null; or set_color red --bold)
+  set -l directory_color  (set_color $fish_color_quote 2> /dev/null; or set_color brown)
+  set -l repository_color (set_color $fish_color_cwd 2> /dev/null; or set_color green)
+
+  if test $last_command_status -eq 0
+    echo -n -s $success_color $fish $normal_color
+  else
+    echo -n -s $error_color $fish $normal_color
+  end
+
+  if git_is_repo
+    if test "$theme_short_path" = 'yes'
+      set root_folder (command git rev-parse --show-toplevel 2> /dev/null)
+      set parent_root_folder (dirname $root_folder)
+      set cwd (echo $PWD | sed -e "s|$parent_root_folder/||")
+    end
+
+    echo -n -s " " $directory_color $cwd $normal_color
+    echo -n -s " on " $repository_color (git_branch_name) $normal_color " "
+
+    if git_is_touched
+      echo -n -s $dirty
+    else
+      echo -n -s (git_ahead $ahead $behind $diverged $none)
+    end
+  else
+    echo -n -s " " $directory_color $cwd $normal_color
+  end
+
+  echo -n -s " "
+
+   if set -q VIRTUAL_ENV
+     echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+   end
+
+end
+
