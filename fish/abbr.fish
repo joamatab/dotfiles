@@ -26,6 +26,7 @@ if status --is-interactive
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
     abbr -a et export TERM=xterm-256color
+    abbr -a f fzf
     abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
     abbr -a g git 
     abbr -a ga git add
