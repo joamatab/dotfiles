@@ -1,25 +1,20 @@
+# vim: ft=python
+# from https://github.com/ninjaaron/dot/blob/master/dotfiles/xonshrc
 
-# adjust some paths
-# $LD_LIBRARY_PATH = ['~/.local/lib', '~/miniconda3/lib', '']
-#
+from pathlib import Path
+# XONSH WIZARD START
+xontrib load coreutils jedi vox fzf-widgets
+# XONSH WIZARD END
 
-$PATH.insert(0, $HOME + '/miniconda3/bin')
-
-# alias to quit AwesomeWM from the terminal
-def _quit_awesome(args, stdin=None):
-    lines = $(ps ux | grep "gnome-session --session=awesome").splitlines()
-    pids = [l.split()[1] for l in lines]
-    for pid in pids:
-        kill @(pid)
-
-aliases['qa'] = _quit_awesome
-
-# some customization options, see https://xon.sh/envvars.html for details
-$MULTILINE_PROMPT = '`·.,¸,.·*¯`·.,¸,.·*¯'
+$VI_MODE = True
+$XONSH_COLOR_STYLE = 'paraiso-dark'
+$PROMPT = '{env_name:{}|}{BLUE}{short_cwd}{branch_color}{curr_branch:|{}}{NO_COLOR}>{NO_COLOR} '
+$XONSH_HISTORY_BACKEND = 'sqlite'
 $XONSH_SHOW_TRACEBACK = True
-$XONSH_STORE_STDOUT = True
-$XONSH_HISTORY_MATCH_ANYWHERE = True
-$COMPLETIONS_CONFIRM = True
-$XONSH_AUTOPAIR = True
-$VI_MODE=True
 
+aliases['vi'] = "nvim"
+aliases["lt"] = "ls -ltr"
+aliases["l"] = "ls -ltr"
+aliases["la"] = "ls -la"
+aliases["ll"] = "ls -l"
+aliases["q"] = "exit"

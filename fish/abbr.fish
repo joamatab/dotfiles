@@ -16,7 +16,8 @@ if status --is-interactive
     abbr -a cft nvim ~/dotfiles/tmux.conf.local
     abbr -a cfv nvim ~/.config/nvim/init.vim
     abbr -a cfy nvim ~/.yabairc
-    abbr -a cfz nvim ~/dotfiles/zshrc
+    abbr -a cfx nvim ~/.xonshrc
+    abbr -a cfz nvim ~/.zshrc
     abbr -a define sdcv
     abbr -a duh du -d1 -h
     abbr -a dus du -d1 | sort -n
