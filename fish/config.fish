@@ -10,7 +10,7 @@ set -g -x fish_greeting ''
 bind \cb edit_command_buffer
 
 test -f "$HOME/.autojump/share/autojump/autojump.fish" && . ~/.autojump/share/autojump/autojump.fish
-# set -g fish_key_bindings fish_vi_key_bindings
+set -g fish_key_bindings fish_vi_key_bindings
 # }}}
 # functions {{{
 source ~/.config/fish/functions.fish
