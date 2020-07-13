@@ -20,6 +20,7 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'mbbill/undotree'
+Plug 'masukomi/vim-markdown-folding'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
@@ -159,6 +160,7 @@ nmap <leader>t :tabe<CR>
 nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>bn :bn<CR>
+nmap <leader>' :bn<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>q :q <CR>
 nmap <leader>w :w <CR>
