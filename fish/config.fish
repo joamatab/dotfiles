@@ -91,6 +91,7 @@ path /opt/lumerical/2020a/bin
 path /usr/local/sbin
 path ~/.cargo/bin
 path ~/.config/yarn/global/node_modules/.bin
+path ~/.fzf/bin
 path ~/.gem/ruby/2.7.0/bin
 path ~/.local/bin
 path ~/.local/google-cloud-sdk/bin
