@@ -48,7 +48,9 @@ function dedup_path --description "Removes duplicate entries from \$PATH"
 end
 
 function path
-    test -d $argv && set PATH $PATH $argv
+    if not contains $argv $PATH
+        test -d $argv && set PATH $argv $PATH 
+    end
     # test -d $argv && set -U fish_user_paths $argv $fish_user_paths 
     # test -d $argv && set -Ux fish_user_paths $argv $fish_user_paths 
     # if [ -d $argv ]

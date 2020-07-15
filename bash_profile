@@ -2,9 +2,9 @@
 #   . ~/.bash_darwin
 # fi
 
-# if [ -f ~/.bashrc ]; then
-#   . ~/.bashrc
-# fi
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
 
 # # Source any local files
 # if [ -f ~/.bash_local ]; then
