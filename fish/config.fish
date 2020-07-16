@@ -67,6 +67,9 @@ set -x TERMINAL kitty
 set -x SHELL /usr/bin/fish
 set -x _CONDA_ROOT $HOME/miniconda3
 set -U FZF_LEGACY_KEYBINDINGS 0
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
 # set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
 
 # color man pages
@@ -99,7 +102,6 @@ path ~/.local/kitty.app/bin
 path ~/.local/node-v14.5.0-linux-x64/bin
 path ~/.npm-global/bin
 path ~/.poetry/bin
-path ~/.pyenv/bin
 path ~/.rbenv/bin
 path ~/.yarn/bin
 path ~/dotfiles/brodie
