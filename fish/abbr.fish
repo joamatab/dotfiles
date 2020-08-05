@@ -3,6 +3,7 @@ if status --is-interactive
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
     abbr -a d cd ~/Downloads
+    abbr -a ca 'eval ~/.pyenv/versions/miniconda3-latest/bin/conda "shell.fish" "hook" $argv | source'
     abbr -a cfa nvim ~/dotfiles/fish/abbr.fish
     abbr -a cfb nvim ~/dotfiles/bashrc
     abbr -a cff nvim ~/dotfiles/fish/config.fish

@@ -1,13 +1,18 @@
 # Zshell{{{
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-#export FIGNORE="DS_Store:$FIGNORE"
+# BASE16_SHELL=$HOME/.config/base16-shell/
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+# export FIGNORE="DS_Store:$FIGNORE"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -d ~/.autojump ] && . ~/.autojump/share/autojump/autojump.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-export ZSH=~/.oh-my-zsh
+
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# plugins=(git vi-mode zsh-syntax-highlighting)
+# source "$HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+#
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git vi-mode zsh-syntax-highlighting)
+plugins=(git vi-mode)
+
 source $ZSH/oh-my-zsh.sh
 export GIT_EDITOR=nvim
 export EDITOR=nvim
@@ -26,6 +31,7 @@ export SSH_KEY_PATH="~/.ssh/keys/id_rsa"
 [ -d "$HOME/anaconda3" ] && . ~/anaconda3/etc/profile.d/conda.sh
 [ -d "$HOME/miniconda3" ] && . ~/miniconda3/etc/profile.d/conda.sh && export PATH=$HOME/miniconda3/bin:$PATH
 [ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"  && eval "$(rbenv init -)" && export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
 
 # }}}
 # Software {{{
@@ -102,6 +108,20 @@ bindkey -s '^O' 'lfcd\n'  # zsh
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
 # }}}
+# alias {{{
+# }}}
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
+if [ -f ~/.aliases2 ]; then
+    . ~/.aliases2
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
 # shortcut_sync {{{
 # DO NOT DELETE LMAO
 alias cfc="vi ~/dotfiles/shortcut-sync/configs"
@@ -120,5 +140,3 @@ alias to="vi ~/TODO.md"
 # }}}
 # eval "$(starship init zsh)"
 # vim:foldmethod=marker:foldlevel=0
-
-source /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br
