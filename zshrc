@@ -20,10 +20,10 @@ export OPENER=open
 alias path='echo $PATH | tr -s ":" "\n"'
 # }}}
 # PATHS {{{
-export KLAYOUT_PYTHONPATH="/usr/local/bin/python"
-export SSH_KEY_PATH="~/.ssh/keys/id_rsa"
+# export KLAYOUT_PYTHONPATH="/usr/local/bin/python"
+# export SSH_KEY_PATH="~/.ssh/keys/id_rsa"
 # sh-add -K ~/.ssh/keys/id_rsa # saves git credentials
-#
+
 [ -d /Applications/klayout.app ] && export PATH="/Applications/klayout.app/Contents/MacOS:$PATH"
 [ -d "/opt/lumerical/2019b" ] && export PATH=$PATH:/opt/lumerical/2019b/bin && export PYTHONPATH=/opt/lumerical/2019b/api/python
 [ -d "$HOME/.lumerical" ] && export PATH=$PATH:$HOME/.lumerical/bin && export PYTHONPATH=$HOME/.lumerical/api/python
@@ -120,8 +120,6 @@ if [ -f ~/.aliases2 ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
 # shortcut_sync {{{
 # DO NOT DELETE LMAO
 alias cfc="vi ~/dotfiles/shortcut-sync/configs"
