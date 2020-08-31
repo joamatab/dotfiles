@@ -84,7 +84,7 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # source {{{
 test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
 test -f ~/.local.fish && source ~/.local.fish
-status --is-interactive; and source (pyenv init -|psub)
+test -f ~/.pyenv; and status --is-interactive; and source (pyenv init -|psub)
 test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
 # test -d "$HOME/.pyenv/versions/miniconda3-latest/bin" && eval "$HOME/.pyenv/versions/miniconda3-latest/bin/conda" "shell.fish" "hook" $argv | source
 # }}}
