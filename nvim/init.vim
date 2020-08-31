@@ -343,6 +343,9 @@ let g:ale_fixers = {'json': ['jq'], 'rust': ['rustfmt'], 'javascript': ['prettie
 let g:ale_fixers.markdown = ['prettier', 'remark']
 
 " Section: Abbreviations
+iab inp import numpy as np
+iab iplt import matplotlib.pyplot as plt
+iab ipd import pandas as pd
 iab ipdb import ipdb; ipdb.set_trace()
 iab pdb import pdb; pdb.set_trace()
 iab ifmain if __name__ == "__main__":
