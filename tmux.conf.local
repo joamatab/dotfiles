@@ -139,10 +139,6 @@ tmux_conf_theme_window_status_activity_attr='underscore'
 tmux_conf_theme_window_status_bell_fg='#ffff00'         # yellow
 tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
-# disable sound bell
-set -g bell-action none
-# disable visual bell
-set -g visual-bell on
 
 # window last status style
 tmux_conf_theme_window_status_last_fg='#00afff'         # light blue
