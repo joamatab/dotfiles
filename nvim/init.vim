@@ -47,6 +47,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Git help
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 " Plug 'jreybert/vimagit'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
