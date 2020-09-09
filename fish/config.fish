@@ -84,8 +84,6 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # source {{{
 test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
 test -f ~/.local.fish && source ~/.local.fish
-test -f ~/.aliases && source ~/.aliases
-test -f ~/.aliases2 && source ~/.aliases2
 test -f ~/.pyenv; and status --is-interactive; and source (pyenv init -|psub)
 test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
 # test -d "$HOME/.pyenv/versions/miniconda3-latest/bin" && eval "$HOME/.pyenv/versions/miniconda3-latest/bin/conda" "shell.fish" "hook" $argv | source
@@ -120,9 +118,7 @@ test -d "/opt/lumerical/2019b" && set -x PYTHONPATH /opt/lumerical/2019b/api/pyt
 test -d "/Applications/Lumerical 2020a.app/Contents/API/" && set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 test -d "$HOME/.kube/k8s-kops-config" && set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 test -d "$HOME/miniconda3" && source $HOME/miniconda3/etc/fish/conf.d/conda.fish && set PATH $HOME/miniconda3/bin $PATH
-# test -d "$HOME/.pyenv" && set -Ux PYENV_ROOT $HOME/.pyenv && set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths && pyenv init - | source
-# set -Ux PYENV_ROOT $HOME/.pyenv && set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-
+test -d "$HOME/.pyenv" && set -Ux PYENV_ROOT $HOME/.pyenv && set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths && pyenv init - | source
 # test -d "$HOME/.rbenv" && set PATH $HOME/.rbenv/shims $PATH && set PATH $HOME/.rbenv/bin $PATH && set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 # [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
 # [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
