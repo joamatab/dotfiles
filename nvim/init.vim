@@ -24,6 +24,7 @@ Plug 'masukomi/vim-markdown-folding'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
+Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ambv/black'
 Plug 'skywind3000/asyncrun.vim'
@@ -153,6 +154,7 @@ call matchadd('InvisibleSpaces', '\S\@<=\s\+\%#\ze\s*$', -10)
 " Section: Leader
 let mapleader="'"
 
+nmap <leader>y :TagbarToggle<CR>
 map <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
 map <leader>f :Files<CR>
