@@ -24,6 +24,7 @@ Plug 'masukomi/vim-markdown-folding'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
+Plug 'tmhedberg/SimpylFold'
 Plug 'ambv/black'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
@@ -69,7 +70,8 @@ endif
 
 set hidden
 set noerrorbells
-set tabstop=4 softtabstop=4
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
