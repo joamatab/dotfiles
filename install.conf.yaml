@@ -51,6 +51,7 @@
     ~/.dircolors:
     ~/.gitignore: 
     ~/.gitcli.yml: 
+    ~/.inputrc: 
     ~/.local/share/applications: local/share/applications
     ~/.moc/config: moc/config
     ~/.moc/keymap: moc/keymap

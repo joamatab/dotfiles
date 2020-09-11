@@ -1,7 +1,6 @@
 extra/
 *.pyo
 *.pyc
-test.sh
 .bash_profile
 
 # General
