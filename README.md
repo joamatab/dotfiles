@@ -23,3 +23,4 @@ VIM:
 - https://github.com/rapphil/vim-python-ide
 - https://github.com/jeremyckahn/dotfiles
 - https://github.com/mattboehm/dotfiles
+- https://github.com/sdaschner/dotfiles/blob/master/.vimrc
