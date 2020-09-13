@@ -14,6 +14,11 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" find
+Plug 'justinmk/vim-sneak'
+Plug 'dyng/ctrlsf.vim'
+Plug 'majutsushi/tagbar'
+
 " Document writing
 Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
@@ -24,9 +29,7 @@ Plug 'masukomi/vim-markdown-folding'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
-Plug 'dyng/ctrlsf.vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ambv/black'
 Plug 'skywind3000/asyncrun.vim'
@@ -169,7 +172,7 @@ nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>t :tabe<CR>
 nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>bn :bn<CR>
+nmap <leader>; :bn<CR>
 nmap <leader>' :bn<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>q :q <CR>
@@ -376,3 +379,6 @@ nmap <leader>A :CtrlSF -R ""<Left>
 nmap <leader>c :CtrlSFFocus<CR>
 nmap <leader>C :CtrlSFToggle<CR>
 let g:ctrlsf_ackprg = '/usr/bin/rg'
+
+" Sneak
+let g:sneak#label = 1
