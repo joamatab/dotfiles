@@ -24,17 +24,14 @@ Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
+Plug 'tmhedberg/SimpylFold'
 Plug 'mbbill/undotree'
 
+" Coding
 Plug 'davidhalter/jedi-vim'
-Plug 'tmhedberg/SimpylFold'
-Plug 'ambv/black'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', {'for':'python'}
-Plug 'dag/vim-fish', {'for':'fish'}
-Plug 'itspriddle/vim-shellcheck'
 Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
@@ -43,12 +40,18 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 " Plug 'goerz/jupytext'
 
 " Autoformat
+Plug 'ambv/black'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
 " Plug 'prettier/vim-prettier', {
 "             \ 'do': 'yarn install',
 "             \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+" Syntax check
+Plug 'w0rp/ale', {'for':'python'}
+Plug 'itspriddle/vim-shellcheck'
+Plug 'dag/vim-fish', {'for':'fish'}
 
 " Git help
 Plug 'tpope/vim-fugitive'
@@ -190,6 +193,8 @@ nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>gc :Gcommit<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 " nmap <Leader>a :Autoformat<CR>
