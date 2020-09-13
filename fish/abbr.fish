@@ -15,7 +15,7 @@ if status --is-interactive
     abbr -a cfs nvim ~/.config/sxhkd/sxhkdrc
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/dotfiles/tmux.conf.local
-    abbr -a cfv nvim ~/.config/nvim/init.vim
+    abbr -a cfv nvim ~/dotfiles/nvim/init.vim
     abbr -a cfy nvim ~/.yabairc
     abbr -a cfx nvim ~/.xonshrc
     abbr -a cfz nvim ~/.zshrc

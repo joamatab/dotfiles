@@ -8,11 +8,11 @@ Plug 'Shougo/deoplete.nvim'
 " file browsing
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'lvht/mru'
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Plug 'lvht/mru'
+" Plug 'kien/ctrlp.vim'
 
 " find
 Plug 'justinmk/vim-sneak'
@@ -25,10 +25,7 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'mbbill/undotree'
-Plug 'masukomi/vim-markdown-folding'
-" Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
-" Coding
 Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ambv/black'
@@ -41,6 +38,7 @@ Plug 'itspriddle/vim-shellcheck'
 Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+" Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 " Plug 'jupyter-vim/jupyter-vim'
 " Plug 'goerz/jupytext'
 
@@ -109,10 +107,15 @@ set tabstop=4           " 4 space tab
 set expandtab           " use spaces for tabs
 set softtabstop=4       " 4 space tab
 set autochdir           " set path to local dir
+set splitbelow splitright " Splits open at the bottom and right
+
+" nnoremap ; :
+" xnoremap ; :
+" xnoremap : ;
+
 imap jj <ESC> " scape insert mode with `jj`
 map <C-p> "+p
 vnoremap <C-y> "*y :let @+=@*<CR>
-set splitbelow splitright " Splits open at the bottom and right
 
 " split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -167,10 +170,9 @@ nmap <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
 nmap <leader>f :Files<CR>
 nmap <leader>d :r!date "+\%F"<CR>
-nmap <leader>j :CtrlPMRUFiles<CR>
+nmap <leader>j :History<CR>
 nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>t :tabe<CR>
-nmap <leader>m :Mru<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>; :bn<CR>
 nmap <leader>' :bn<CR>
@@ -191,6 +193,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 " nmap <Leader>a :Autoformat<CR>
+" nmap <leader>m :Mru<CR>
 nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 
 " spell chech
