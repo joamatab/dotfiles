@@ -24,6 +24,7 @@ Plug 'masukomi/vim-markdown-folding'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
+Plug 'dyng/ctrlsf.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
@@ -266,7 +267,7 @@ function! PasteClipboardImage() abort
     endif
 endfunction
 
-" FZF
+" FZF from https://github.com/jeremyckahn/vim-docker-env
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
 nmap // :BLines!<CR>
 nmap ?? :Rg!<CR>
@@ -274,14 +275,6 @@ nmap cc :Commands!<CR>
 
 " jupyter vim
 let g:jupyter_mapkeys = 0
-
-" Section: CTL+P
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
-let g:ctrlp_max_height = 20
-let g:ctrlp_working_path_mode = 'ra'
 
 " Section: Nerdtree
 let g:NERDTreeWinPos = "right"
@@ -374,3 +367,12 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
+
+" CtrlSF
+" substitute the word under the cursor
+nmap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+nmap <leader>A :CtrlSF -R ""<Left>
+" nmap <leader>A <Plug>CtrlSFCwordPath -W<CR>
+nmap <leader>c :CtrlSFFocus<CR>
+nmap <leader>C :CtrlSFToggle<CR>
+let g:ctrlsf_ackprg = '/usr/bin/rg'
