@@ -17,3 +17,9 @@ sh install.sh
 - https://github.com/maximbaz/dotfiles
 - https://github.com/ashishb/dotfiles/blob/master/.travis.yml
 - https://github.com/erkrnt/awesome-streamerrc/tree/master/ThePrimeagen
+
+VIM:
+
+- https://github.com/rapphil/vim-python-ide
+- https://github.com/jeremyckahn/dotfiles
+- https://github.com/mattboehm/dotfiles

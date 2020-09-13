@@ -38,6 +38,7 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 " Plug 'jupyter-vim/jupyter-vim'
 " Plug 'goerz/jupytext'
+Plug 'osyo-manga/vim-brightest'
 
 " Autoformat
 Plug 'ambv/black'
@@ -193,7 +194,9 @@ nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
+nmap <leader>ga :Gwrite<CR>
 nmap <leader>gw :Gwrite<CR>
+nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
@@ -310,6 +313,7 @@ augroup configgroup
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
     autocmd FileType python nnoremap <buffer><silent><leader>a :Black<CR>
+	autocmd FileType python nnoremap <buffer> <cr> :silent w<bar>only<bar>vsp<bar>term ipython3 -i %<cr>
 augroup END
 
 
