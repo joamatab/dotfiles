@@ -391,8 +391,7 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 " CtrlSF
 " substitute the word under the cursor
 nmap <leader>S :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
-nmap <leader>A :CtrlSF -R ""<Left>
-" nmap <leader>A <Plug>CtrlSFCwordPath -W<CR>
+nmap <leader>/ :CtrlSF -R ""<Left>
 nmap <leader>c :CtrlSFFocus<CR>
 nmap <leader>C :CtrlSFToggle<CR>
 let g:ctrlsf_ackprg = '/usr/bin/rg'
