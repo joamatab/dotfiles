@@ -32,3 +32,8 @@ dunst &
 setbg &
 dwmblocks &
 
+export EDITOR="nvim"
+export TERMINAL="kitty"
+export BROWSER="chromium"
+export READER="zathura"
+export FILE="lf"

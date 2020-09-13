@@ -5,8 +5,8 @@ super + shift + d
 	dmenu_run
 super + d
 	rofi -show run
-super + r
-	$TERMINAL -e $FILE
+# super + r
+# 	$TERMINAL -e $FILE
 super + m
 	$TERMINAL -e cmus
 super + n
