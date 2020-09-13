@@ -26,6 +26,7 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'mbbill/undotree'
+Plug 'gyim/vim-boxdraw'
 
 " Coding
 Plug 'davidhalter/jedi-vim'
@@ -188,8 +189,6 @@ nmap <leader>z :wq <CR>
 nmap <leader>c :Gwrite <CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
 vnoremap <leader>s :sort<CR>
-nnoremap <leader>ap :call <SID>push()<CR>
-nnoremap <leader>al :call <SID>pull()<CR>
 nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
@@ -202,9 +201,11 @@ nmap <leader>gb :Gblame<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
+nnoremap <leader>gp :call <SID>push()<CR>
+nnoremap <leader>gl :call <SID>pull()<CR>
+nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 " nmap <Leader>a :Autoformat<CR>
 " nmap <leader>m :Mru<CR>
-nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 
 " spell chech
 map <leader>ss :setlocal spell!<CR>
@@ -398,3 +399,6 @@ let g:ctrlsf_ackprg = '/usr/bin/rg'
 
 " Sneak
 let g:sneak#label = 1
+
+" diagrams
+set virtualedit+=all
