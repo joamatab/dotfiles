@@ -24,6 +24,7 @@ Plug 'masukomi/vim-markdown-folding'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 
 " Coding
+Plug 'davidhalter/jedi-vim'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ambv/black'
@@ -154,10 +155,13 @@ call matchadd('InvisibleSpaces', '\S\@<=\s\+\%#\ze\s*$', -10)
 " Section: Leader
 let mapleader="'"
 
+" nnoremap <leader>r :call <SID>compile_and_run()<CR>
+
+nmap 1 :call <SID>compile_and_run()<CR>
 nmap <leader>y :TagbarToggle<CR>
-map <leader>g :G<CR>
+nmap <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
-map <leader>f :Files<CR>
+nmap <leader>f :Files<CR>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :CtrlPMRUFiles<CR>
 nmap <leader>k :EnableAutocorrect<CR>
@@ -174,7 +178,6 @@ nmap <leader>z :wq <CR>
 nmap <leader>c :Gwrite <CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
 vnoremap <leader>s :sort<CR>
-nnoremap <leader>r :call <SID>compile_and_run()<CR>
 nnoremap <leader>ap :call <SID>push()<CR>
 nnoremap <leader>al :call <SID>pull()<CR>
 nmap <leader>v :call PasteClipboardImage()<CR>
@@ -184,7 +187,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 " nmap <Leader>a :Autoformat<CR>
-" nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
+nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 
 " spell chech
 map <leader>ss :setlocal spell!<CR>
