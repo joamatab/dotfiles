@@ -1,4 +1,4 @@
-" Section: Vim Plug
+" Vim Plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/deoplete.nvim'
@@ -197,7 +197,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>ga :Gwrite<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gs :Gstatus<CR>
-nmap <leader>gc :Gcommit<CR>
+nmap <leader>gc :Gcommit -v -a<CR>
 nmap <leader>gb :Gblame<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>gf :diffget //2<CR>
