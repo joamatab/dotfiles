@@ -307,7 +307,11 @@ augroup END
 
 " Section: python
 set suffixesadd=.py
-set wildignore=*.pyc
+set wildignore=*.pyc,*/__pycache__/*
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*.swp,*~,._*
 let g:netrw_list_hide= '.*\.pyc$'
 
 let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
@@ -363,7 +367,6 @@ iab teh the
 iab retrun return
 iab previosu previous
 iab Wb wb
-
 
 " Section: ipython
 let g:slime_target = "tmux"
