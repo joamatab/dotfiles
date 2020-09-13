@@ -266,6 +266,11 @@ function! PasteClipboardImage() abort
     endif
 endfunction
 
+" FZF
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
+nmap // :BLines!<CR>
+nmap ?? :Rg!<CR>
+nmap cc :Commands!<CR>
 
 " jupyter vim
 let g:jupyter_mapkeys = 0
