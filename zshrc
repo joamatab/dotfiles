@@ -2,13 +2,10 @@
 # BASE16_SHELL=$HOME/.config/base16-shell/
 # [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 # export FIGNORE="DS_Store:$FIGNORE"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -d ~/.autojump ] && . ~/.autojump/share/autojump/autojump.zsh
-
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # plugins=(git vi-mode zsh-syntax-highlighting)
 # source "$HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-#
+
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(git vi-mode)
@@ -31,16 +28,13 @@ alias path='echo $PATH | tr -s ":" "\n"'
 [ -d "$HOME/anaconda3" ] && . ~/anaconda3/etc/profile.d/conda.sh
 [ -d "$HOME/miniconda3" ] && . ~/miniconda3/etc/profile.d/conda.sh && export PATH=$HOME/miniconda3/bin:$PATH
 [ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"  && eval "$(rbenv init -)" && export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-
 # }}}
-# Software {{{
+# alias {{{
 alias q="exit"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias ka="killall"
-alias r="ranger"
 alias g="git"
 alias ga="git add"
 alias gc='git commit -v'
@@ -51,8 +45,6 @@ alias ga="git add"
 alias ytm="youtube-dl  -x --audio-format mp3"
 alias ytv="youtube-dl -ic"
 alias diff=colordiff
-# }}}
-# Commands {{{
 alias kpd='kpcli -kdb ~/files/personal/software/database.kdbx'
 alias kpo='open ~/files/personal/software/database.kdbx'
 alias duh='du -d1 -h' # human readable 1 level
@@ -62,7 +54,6 @@ alias pdr='pandoc -o README.pdf README.md --number-sections; open README.pdf &'
 alias pylt='pylint --rcfile=~/.pylintrc'
 alias p8='autopep8 --in-place --aggressive -r'
 alias sc='screencapture -s'
-alias files="ranger"
 alias calendar="calcurse"
 alias define="sdcv"
 alias ip="curl icanhazip.com" # Your public IP address
@@ -74,7 +65,7 @@ alias o="open ." # Open the current directory in Finder
 alias ut="uptime" # Computer uptime
 alias ipy="ipython -i"
 alias ipyq="ipython qtconsole"
-alias ipyn="ipython notrbook"
+alias ipyn="ipython notebook"
 alias h="history"
 alias ssht="ssh -L 5901:localhost:5901" # open vnc tunnel over ssh
 alias sshta="ssh -L 5918:localhost:5918 alpha" # open vnc tunnel over ssh for alpha
@@ -83,6 +74,18 @@ alias cppcompile='c++ -std=c++11 -stdlib=libc++' # cppcompile main.cpp
 alias hostreload='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES ; killall Finder"
 alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO ; killall Finder"
+alias cfc="vi ~/dotfiles/shortcut-sync/configs"
+alias cfs="vi ~/dotfiles/shortcut-sync/folders"
+alias cfssh="vi ~/.ssh/config"
+alias cff="vi ~/dotfiles/fish/config.fish"
+alias cfv="vi ~/.vimrc"
+alias cfz="vi ~/.zshrc"
+alias cfb="vi ~/.bashrc"
+alias cft="vi ~/.tmux.conf"
+alias cfr="vi ~/dotfiles/ranger/rc.conf"
+alias cfq="vi ~/.config/qutebrowser/config.py"
+alias cfp="vi ~/.pdk/pdk.yaml"
+alias to="vi ~/TODO.md"
 # }}}
 # lf {{{
 # LFCD="~/.config/lf/lfcd.sh"                            # pre-built binary
@@ -108,33 +111,10 @@ bindkey -s '^O' 'lfcd\n'  # zsh
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
 # }}}
-# alias {{{
-# }}}
-
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
-
-if [ -f ~/.aliases2 ]; then
-    . ~/.aliases2
-fi
-
+# source {{{
+[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.aliases2 ] && source ~/.aliases2
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# shortcut_sync {{{
-# DO NOT DELETE LMAO
-alias cfc="vi ~/dotfiles/shortcut-sync/configs"
-alias cfs="vi ~/dotfiles/shortcut-sync/folders"
-alias cfssh="vi ~/.ssh/config"
-alias cff="vi ~/dotfiles/fish/config.fish"
-alias cfv="vi ~/.vimrc"
-alias cfz="vi ~/.zshrc"
-alias cfb="vi ~/.bashrc"
-alias cft="vi ~/.tmux.conf"
-alias cfr="vi ~/dotfiles/ranger/rc.conf"
-alias cfq="vi ~/.config/qutebrowser/config.py"
-alias cfp="vi ~/.pdk/pdk.yaml"
-alias to="vi ~/TODO.md"
-# DO NOT DELETE LMAO
+[ -d ~/.autojump ] && . ~/.autojump/share/autojump/autojump.zsh
 # }}}
-# eval "$(starship init zsh)"
 # vim:foldmethod=marker:foldlevel=0

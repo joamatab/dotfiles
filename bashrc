@@ -1,22 +1,10 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files 
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -87,28 +75,12 @@ if ! shopt -oq posix; then
 fi
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
-
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 export PATH="$PATH:$(du "$HOME/dotfiles/luke/.local/bin/" | cut -f2 | paste -sd ':')"
 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
+[ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.aliases2 ] && source ~/.aliases2
+[ -d ~/.rbenv ] && eval "$(rbenv init -)"
 
-if [ -f ~/.aliases2 ]; then
-    . ~/.aliases2
-fi
-
-if [ -f /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br ]; then
-    source /Users/j/Library/Preferences/org.dystroy.broot/launcher/bash/br
-fi
-
-export EDITOR="nvim"
-export READER="zathura"
-export FILE="lf"
-export MUSIC="cmus"
-export BROWSER="google-chrome"
-export SHELL="/usr/bin/fish"
-export TERMINAL="st"
