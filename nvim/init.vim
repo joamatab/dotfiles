@@ -11,6 +11,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-startify'
 " Plug 'lvht/mru'
 " Plug 'kien/ctrlp.vim'
 
