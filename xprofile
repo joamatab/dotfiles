@@ -31,6 +31,7 @@ dunst &
 # davmail &
 setbg &
 dwmblocks &
+clipmenud &
 
 export EDITOR="nvim"
 export TERMINAL="kitty"

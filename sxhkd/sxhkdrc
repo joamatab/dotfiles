@@ -13,6 +13,8 @@ super + n
 	$TERMINAL -e newsboat
 super + w
 	google-chrome
+super + c
+	clipmenu
 super + e
 	firefox
 super + y
