@@ -170,7 +170,7 @@ let mapleader="'"
 
 " nnoremap <leader>r :call <SID>compile_and_run()<CR>
 
-nmap 1 :call <SID>compile_and_run()<CR>
+nmap <leader>1 :call <SID>compile_and_run()<CR>
 nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
@@ -179,7 +179,7 @@ nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :History<CR>
 nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>t :tabe<CR>
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>N :NERDTreeToggle<CR>
 nmap <leader>; :bn<CR>
 nmap <leader>' :bn<CR>
 nmap <leader>p :bp<CR>
