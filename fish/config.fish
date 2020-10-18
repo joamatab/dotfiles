@@ -66,6 +66,7 @@ set -x GIT_EDITOR nvim
 set -x TERMINAL kitty
 set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
+set -x _ZL_MATCH_MODE 1
 test -f ~/.ssh/id_rsa && set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 # set -x _CONDA_ROOT $HOME/miniconda3
 # set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
@@ -83,6 +84,8 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
 test -f ~/.local.fish && source ~/.local.fish
 test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
+# test -f ~/.local/bin/z.lua && source (lua ~/.local/bin/z.lua --init fish | psub)
+# test -f ~/.local/bin/z.lua &&  lua ~/.local/bin/z.lua --init fish 
 # test -f ~/.pyenv; and status --is-interactive; and source (pyenv init -|psub)
 # }}}
 # path {{{

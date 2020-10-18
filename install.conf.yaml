@@ -3,7 +3,6 @@
       create: true
       relink: true
 
-
 - clean:
     ~/.config:
       force: true
@@ -32,14 +31,12 @@
     ~/.config/karabiner: 
     ~/.config/kitty/kitty.conf: 
     ~/.config/mimeapps.list: 
-        force: true
     ~/.config/mpd: mpd
     ~/.config/mpv: mpv
     ~/.config/ncmpcpp:
     ~/.config/newsboat: newsboat
     # ~/.config/polybar:
     ~/.config/ranger: 
-        force: true
     ~/.config/starship.toml:
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/lf:
@@ -58,7 +55,6 @@
     ~/.matplotlib/matplotlibrc: 
     ~/.pylintrc: 
     ~/.tmux.conf.local:
-        force: true
     ~/.vifm: 
     ~/.weechat:
     ~/.xinitrc:
