@@ -67,6 +67,8 @@ set -x TERMINAL kitty
 set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
+# set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
+set -x FZF_DEFAULT_COMMAND 'fd'
 test -f ~/.ssh/id_rsa && set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 # set -x _CONDA_ROOT $HOME/miniconda3
 # set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
