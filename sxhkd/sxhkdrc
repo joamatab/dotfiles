@@ -28,9 +28,9 @@ super + shift + e
 super + shift + g
 	gimp
 super + o
-	mons -o
-super + shift + o
 	mons -s
+super + shift + o
+	mons -o
 
 # Etcetera...
 super + grave

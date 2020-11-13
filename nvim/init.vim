@@ -179,6 +179,7 @@ nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :History<CR>
 nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>t :tabe<CR>
+nmap <leader>T :term<CR>
 nmap <leader>N :NERDTreeToggle<CR>
 nmap <leader>; :bn<CR>
 nmap <leader>' :bn<CR>
