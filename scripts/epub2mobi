@@ -1,5 +1,6 @@
 #!/bin/bash
 # converts all books from epub to mobi
+# npm install ebook-convert
 
 for f in *.epub; do
  ebook-convert "$f" "$f.mobi"
