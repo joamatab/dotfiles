@@ -1,8 +1,10 @@
 " Vim Plug
 call plug#begin('~/.vim/plugged')
 
+" Autocomplete
 Plug 'Shougo/deoplete.nvim'
 " Plug 'kiteco/vim-plugin', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim'
 " Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " file browsing
@@ -28,9 +30,10 @@ Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'mbbill/undotree'
 Plug 'gyim/vim-boxdraw'
+Plug 'jiangmiao/auto-pairs'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " Coding
-Plug 'davidhalter/jedi-vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -41,6 +44,8 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 " Plug 'jupyter-vim/jupyter-vim'
 " Plug 'goerz/jupytext'
 Plug 'osyo-manga/vim-brightest'
+" Plug 'neoclide/jsonc.vim'
+Plug 'elzr/vim-json'
 
 " Autoformat
 Plug 'ambv/black'
@@ -84,7 +89,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set smartindent
+" set smartindent
+set nosmartindent
 set nowrap
 set smartcase
 set noswapfile
@@ -203,11 +209,11 @@ nmap <leader>gb :Gblame<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
-nnoremap <leader>gp :call <SID>push()<CR>
-nnoremap <leader>gl :call <SID>pull()<CR>
 nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 " nmap <Leader>a :Autoformat<CR>
 " nmap <leader>m :Mru<CR>
+" nnoremap <leader>gp :call <SID>push()<CR>
+" nnoremap <leader>gl :call <SID>pull()<CR>
 
 " spell chech
 map <leader>ss :setlocal spell!<CR>
@@ -221,6 +227,9 @@ vnoremap > >gv
 
 
 let g:lf_map_keys = 0
+
+" CoC
+nmap <silent> gd <Plug>(coc-definition)
 
 " Section: Functions
 function! s:compile_and_run()
@@ -368,7 +377,7 @@ let g:vimwiki_list = [
 " Disable warnings about trailing whitespace for Python files.
 " let b:ale_warn_about_trailing_whitespace = 0
 " let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'mypy']}
-let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'pylint','mypy']}
+let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'pylint']}
 let g:ale_fixers = {'json': ['jq'], 'rust': ['rustfmt'], 'javascript': ['prettier'], 'css': ['prettier'], 'python': ['yapf', 'isort', 'remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fixers.markdown = ['prettier', 'remark']
 
