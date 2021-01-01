@@ -33,10 +33,10 @@ if status --is-interactive
     abbr -a ga git add
     abbr -a gb git branch
     abbr -a gc git commit -v
-    abbr -a gca git commit -v -a
+    abbr -a gca git commit -va
     abbr -a gcb git checkout -b
     abbr -a gco git checkout
-    abbr -a gcp "git commit -v -a; git push"
+    abbr -a gcp "git commit -va; git push"
     abbr -a gd git diff
     abbr -a gl git pull
     abbr -a glo git log --oneline
@@ -78,6 +78,9 @@ if status --is-interactive
     abbr -a vpn  'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
+    abbr -a wb nvim  ~/wikis/book-notes/index.md 
+    abbr -a wd nvim  ~/wikis/github/index.md 
+    abbr -a wj nvim  ~/wikis/joaquin/index.md 
     abbr -a xr xrandr --output eDP1 --mode 1920x1080
     abbr -a wea curl wttr.in 
     abbr -a xclip -sel clip < ~/.ssh/id_rsa.pub

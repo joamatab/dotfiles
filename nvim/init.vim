@@ -27,11 +27,14 @@ Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " If you have nodejs and yarn
 Plug 'tmhedberg/SimpylFold'
 Plug 'mbbill/undotree'
 Plug 'gyim/vim-boxdraw'
 Plug 'jiangmiao/auto-pairs'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'junegunn/goyo.vim'
 
 " Coding
 Plug 'skywind3000/asyncrun.vim'
@@ -64,8 +67,8 @@ Plug 'dag/vim-fish', {'for':'fish'}
 " Git help
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
+Plug 'airblade/vim-gitgutter'
 " Plug 'jreybert/vimagit'
-" Plug 'airblade/vim-gitgutter'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Font
@@ -91,7 +94,7 @@ set shiftwidth=4
 set expandtab
 " set smartindent
 set nosmartindent
-set nowrap
+" set nowrap
 set smartcase
 set noswapfile
 set nobackup

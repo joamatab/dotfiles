@@ -2,6 +2,7 @@ extra/
 *.pyo
 *.pyc
 nvim/.netrwhist
+nvim/
 
 
 luke/
