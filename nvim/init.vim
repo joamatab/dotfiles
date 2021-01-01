@@ -224,6 +224,7 @@ map <leader>sf z=
 
 vnoremap < <gv
 vnoremap > >gv
+vnoremap - :s/\%V /_/g
 
 
 let g:lf_map_keys = 0
@@ -364,6 +365,7 @@ let g:vimwiki_list = [
             \ {'path': '~/wikis/joaquin/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/github/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/gotbletu', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
+            \ {'path': '~/wikis/book-notes', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ ]
 
 
