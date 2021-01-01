@@ -54,6 +54,7 @@
     ~/.moc/keymap: moc/keymap
     ~/.matplotlib/matplotlibrc: 
     ~/.pylintrc: 
+    ~/.prettierrc: 
     ~/.tmux.conf.local:
     ~/.vifm: 
     ~/.weechat:

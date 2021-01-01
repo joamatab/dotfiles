@@ -50,14 +50,14 @@ Plug 'elzr/vim-json'
 " Autoformat
 Plug 'ambv/black'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
 " Plug 'prettier/vim-prettier', {
 "             \ 'do': 'yarn install',
 "             \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " Syntax check
-Plug 'w0rp/ale', {'for':'python'}
+Plug 'w0rp/ale'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'dag/vim-fish', {'for':'fish'}
 
@@ -180,6 +180,7 @@ nmap <leader>1 :call <SID>compile_and_run()<CR>
 nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
+" nmap <Leader>a :Autoformat<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :History<CR>
@@ -210,7 +211,6 @@ nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
-" nmap <Leader>a :Autoformat<CR>
 " nmap <leader>m :Mru<CR>
 " nnoremap <leader>gp :call <SID>push()<CR>
 " nnoremap <leader>gl :call <SID>pull()<CR>
@@ -368,6 +368,10 @@ let g:vimwiki_list = [
             \ {'path': '~/wikis/book-notes', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ ]
 
+" Section: Markdown
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_autowrite = 1
 
 " Section: ALE
 " Enable completion where available.
@@ -381,7 +385,8 @@ let g:vimwiki_list = [
 " let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'mypy']}
 let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'pylint']}
 let g:ale_fixers = {'json': ['jq'], 'rust': ['rustfmt'], 'javascript': ['prettier'], 'css': ['prettier'], 'python': ['yapf', 'isort', 'remove_trailing_lines', 'trim_whitespace']}
-let g:ale_fixers.markdown = ['prettier', 'remark']
+" let g:ale_fixers.markdown = ['remark']
+" let g:ale_fixers.markdown = ['prettier', 'remark']
 
 " Section: Abbreviations
 iab inp import numpy as np
