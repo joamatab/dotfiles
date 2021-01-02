@@ -116,7 +116,9 @@ set cursorline " gray line around the line
 set nobackup
 set nowritebackup
 set noswapfile
+set clipboard=unnamed
 " set number              " show line numbers
+" set relativenumber        " show line numbers
 
 set tabstop=4           " 4 space tab
 set expandtab           " use spaces for tabs
