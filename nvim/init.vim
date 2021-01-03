@@ -49,6 +49,7 @@ Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 Plug 'osyo-manga/vim-brightest'
 " Plug 'neoclide/jsonc.vim'
 Plug 'elzr/vim-json'
+" Plug 'tpope/vim-sensible'
 
 " Autoformat
 Plug 'ambv/black'
@@ -405,6 +406,7 @@ iab teh the
 iab retrun return
 iab previosu previous
 iab Wb wb
+iab plts plt.style.use('seaborn-whitegrid')
 
 " Section: ipython
 let g:slime_target = "tmux"

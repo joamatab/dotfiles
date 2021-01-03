@@ -2,13 +2,24 @@
 # from https://github.com/ninjaaron/dot/blob/master/dotfiles/xonshrc
 
 from pathlib import Path
-# XONSH WIZARD START
-xontrib load coreutils jedi vox fzf-widgets
-# XONSH WIZARD END
+
+xontrib load abbrevs
+xontrib load coreutils
+xontrib load fzf-widgets
+# xontrib load jedi
+xontrib load onepath
+xontrib load pipeliner
+xontrib load prompt_vi_mode
+xontrib load readable-traceback
+# xontrib load sh
+xontrib load vox
+xontrib load z
+
 
 $VI_MODE = True
-$XONSH_COLOR_STYLE = 'paraiso-dark'
-$PROMPT = '{env_name:{}|}{BLUE}{short_cwd}{branch_color}{curr_branch:|{}}{NO_COLOR}>{NO_COLOR} '
+# $XONSH_COLOR_STYLE = 'native'
+# $XONSH_COLOR_STYLE = 'paraiso-dark'
+$PROMPT = '{env_name:{}|}{BLUE}{short_cwd}{branch_color}{curr_branch:|{}}{RESET}>{RESET} '
 $XONSH_HISTORY_BACKEND = 'sqlite'
 $XONSH_SHOW_TRACEBACK = True
 
@@ -18,3 +29,5 @@ aliases["l"] = "ls -ltr"
 aliases["la"] = "ls -la"
 aliases["ll"] = "ls -l"
 aliases["q"] = "exit"
+
+abbrevs['gs'] = 'git status'
