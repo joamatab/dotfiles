@@ -19,7 +19,8 @@ export FILE="lf"
 # xrandr --output eDP-1 --mode 2560x1440
 # xrandr --output eDP-1 --mode 3200x1800
 # mons -e right
-mons -O 2
+# mons -O 2
+mons -S 3,2:R
 
 # dunst &
 # davmail &

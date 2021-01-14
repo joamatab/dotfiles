@@ -50,6 +50,16 @@ Plug 'osyo-manga/vim-brightest'
 " Plug 'neoclide/jsonc.vim'
 Plug 'elzr/vim-json'
 " Plug 'tpope/vim-sensible'
+Plug 'dkarter/bullets.vim'
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'yaml',
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+
 
 " Autoformat
 Plug 'ambv/black'
@@ -117,7 +127,7 @@ set cursorline " gray line around the line
 set nobackup
 set nowritebackup
 set noswapfile
-set clipboard=unnamed
+" set clipboard=unnamed
 " set number              " show line numbers
 " set relativenumber        " show line numbers
 
@@ -199,7 +209,8 @@ nmap <leader>' :bn<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>q :q <CR>
 nmap <leader>w :w <CR>
-nmap <leader>x :vsplit<CR>
+nmap <leader>- :vsplit<CR>
+nmap <leader>_ :split<CR>
 nmap <leader>z :wq <CR>
 nmap <leader>c :Gwrite <CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>

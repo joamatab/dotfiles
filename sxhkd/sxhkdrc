@@ -1,6 +1,6 @@
 # Basic binds
 super + Return
-	$TERMINAL
+	$TERMINAL /usr/bin/fish
 super + shift + d
 	dmenu_run
 super + d
@@ -27,10 +27,10 @@ super + shift + e
 	tutorialvids
 super + shift + g
 	gimp
-super + o
-	mons -s
-super + shift + o
-	mons -o
+# super + o
+# 	mons -s
+# super + shift + o
+# 	mons -o
 
 # Etcetera...
 super + grave

@@ -29,6 +29,8 @@ if status --is-interactive
     abbr -a et export TERM=xterm-256color
     abbr -a f fzf
     abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
+    abbr -a kus "setxkbmap -layout us"
+    abbr -a kes "setxkbmap -layout es"
     abbr -a g git 
     abbr -a ga git add
     abbr -a gb git branch
@@ -48,6 +50,7 @@ if status --is-interactive
     abbr -a kpo open ~/.config/keepass/database.kdbx
     abbr -a l lfcd
     abbr -a ll ls -al
+    abbr -a monsr 'mons -S 3,2:R'
     abbr -a lt lsd --tree
     abbr -a nc ncmpcpp 
     abbr -a o open

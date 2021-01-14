@@ -1,4 +1,5 @@
 extra/
+miniconda/
 *.pyo
 *.pyc
 .bash_profile
