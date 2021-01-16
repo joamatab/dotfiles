@@ -50,7 +50,7 @@ if status --is-interactive
     abbr -a kpo open ~/.config/keepass/database.kdbx
     abbr -a l lfcd
     abbr -a ll ls -al
-    abbr -a monsr 'mons -S 3,2:R'
+    abbr -a monsr 'mons -S 2,3:R'
     abbr -a lt lsd --tree
     abbr -a nc ncmpcpp 
     abbr -a o open

@@ -4,3 +4,6 @@
 [ -f "$HOME/.profile" ] && . ~/.profile
 [ -f "$HOME/.xprofile" ] && . ~/.xprofile
 
+setbg &
+dwmblocks &
+clipmenud &

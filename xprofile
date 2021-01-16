@@ -6,9 +6,6 @@ setxkbmap -option ctrl:nocaps # CapsLock behaves like Ctrl
 xcape -e 'Control_L=Escape' # short-pressed Ctrl behaves like Escape
 # xmodmap -e "keycode 47 = colon semicolon" # remap : and ;
 
-setbg &
-dwmblocks &
-clipmenud &
 
 export EDITOR="nvim"
 export TERMINAL="kitty"
@@ -20,7 +17,11 @@ export FILE="lf"
 # xrandr --output eDP-1 --mode 3200x1800
 # mons -e right
 # mons -O 2
-mons -S 3,2:R
+mons -S 2,3:R
+
+setbg &
+dwmblocks &
+clipmenud &
 
 # dunst &
 # davmail &
