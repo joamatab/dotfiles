@@ -26,7 +26,7 @@ if status --is-interactive
     abbr -a dud 'killall -SIGUSR1 dunst'
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
-    abbr -a et export TERM=xterm-256color
+    abbr -a eterm export TERM=xterm-256color
     abbr -a f fzf
     abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
     abbr -a kus "setxkbmap -layout us"
@@ -50,7 +50,7 @@ if status --is-interactive
     abbr -a kpo open ~/.config/keepass/database.kdbx
     abbr -a l lfcd
     abbr -a ll ls -al
-    abbr -a monsr 'mons -S 3,2:R'
+    abbr -a monsr 'mons -S 2,3:R'
     abbr -a lt lsd --tree
     abbr -a nc ncmpcpp 
     abbr -a o open

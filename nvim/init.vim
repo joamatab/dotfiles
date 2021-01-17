@@ -197,14 +197,17 @@ nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
 " nmap <Leader>a :Autoformat<CR>
+nmap <leader>o :Files<CR>
+nmap <leader>O :Files!<CR>
 nmap <leader>f :Files<CR>
+nmap <leader>b :Buffers<CR>
 nmap <leader>d :r!date "+\%F"<CR>
 nmap <leader>j :History<CR>
 nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>t :tabe<CR>
 nmap <leader>T :term<CR>
 nmap <leader>N :NERDTreeToggle<CR>
-nmap <leader>; :bn<CR>
+nmap <leader>" :bp<CR>
 nmap <leader>' :bn<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>q :q <CR>

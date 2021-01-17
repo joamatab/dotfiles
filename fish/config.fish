@@ -61,6 +61,7 @@ end
 # }}}
 # variables {{{
 set -x OPENER xdg-open
+set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x TERMINAL kitty
