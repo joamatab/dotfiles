@@ -19,9 +19,10 @@ export FILE="lf"
 # mons -O 2
 mons -S 2,3:R
 
-setbg &
-dwmblocks &
-clipmenud &
+
+#setbg &
+#dwmblocks &
+#clipmenud &
 
 # dunst &
 # davmail &
