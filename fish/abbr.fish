@@ -81,6 +81,7 @@ if status --is-interactive
     abbr -a vpn  'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
+    abbr -a wa nvim  ~/wikis/awesome_photonics/README.md
     abbr -a wb nvim  ~/wikis/book-notes/index.md 
     abbr -a wd nvim  ~/wikis/github/index.md 
     abbr -a wj nvim  ~/wikis/joaquin/index.md 

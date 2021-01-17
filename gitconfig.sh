@@ -1,5 +1,5 @@
 #!/bin/sh
 
-git remote set-url origin git@github.com:joamatab/dotfiles.git
-git pull origin master
-git push origin master
+git remote remove origin
+git remote add origin  git@github.com:joamatab/dotfiles.git
+git push --set-upstream origin master
