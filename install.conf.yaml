@@ -26,6 +26,7 @@
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/completions: fish/completions
     ~/.config/flake8: 
+    ~/.config/sway/config: sway 
     ~/.config/i3/config: i3/config 
     # ~/.config/i3blocks/config: i3blocks/config
     ~/.config/karabiner: 
