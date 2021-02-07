@@ -211,10 +211,10 @@ nmap <leader>" :bp<CR>
 nmap <leader>' :bn<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>q :q <CR>
-nmap <leader>w :w <CR>
+nmap <leader>w :wa <CR>
 nmap <leader>- :vsplit<CR>
 nmap <leader>_ :split<CR>
-nmap <leader>z :wq <CR>
+nmap <leader>z :wa<CR>:q<CR>
 nmap <leader>c :Gwrite <CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
 vnoremap <leader>s :sort<CR>
@@ -254,7 +254,7 @@ nmap <silent> gd <Plug>(coc-definition)
 
 " Section: Functions
 function! s:compile_and_run()
-    exec 'w'
+    exec 'wa'
     if &filetype == 'c'
         exec "AsyncRun! gcc % -o %<; time ./%<"
     elseif &filetype == 'cpp'
@@ -348,7 +348,7 @@ augroup configgroup
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
     autocmd FileType python nnoremap <buffer><silent><leader>a :Black<CR>
-	autocmd FileType python nnoremap <buffer> <cr> :silent w<bar>only<bar>vsp<bar>term ipython3 -i %<cr>
+	autocmd FileType python nnoremap <buffer> <cr> :silent wa<bar>only<bar>vsp<bar>term ipython3 -i %<cr>
 augroup END
 
 

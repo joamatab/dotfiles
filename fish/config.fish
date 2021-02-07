@@ -87,6 +87,8 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
 test -f ~/.local.fish && source ~/.local.fish
 test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
+test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
+# test -f ~/.aliases2; and status --is-interactive; and  source ~/.aliases2
 # test -f ~/.local/bin/z.lua && source (lua ~/.local/bin/z.lua --init fish | psub)
 # test -f ~/.local/bin/z.lua &&  lua ~/.local/bin/z.lua --init fish 
 # test -f ~/.pyenv; and status --is-interactive; and source (pyenv init -|psub)
