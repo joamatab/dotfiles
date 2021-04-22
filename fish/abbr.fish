@@ -13,6 +13,7 @@ if status --is-interactive
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
     abbr -a cfs nvim ~/.config/sxhkd/sxhkdrc
+    abbr -a cfsw nvim ~/.config/sway/config
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/dotfiles/tmux.conf.local
     abbr -a cfv nvim ~/dotfiles/nvim/init.vim
