@@ -26,10 +26,13 @@ bindsym $mod+i exec firefox
 bindsym $mod+Shift+i exec google-chrome
 
 # change focus
-bindsym $mod+j focus down 
-bindsym $mod+k focus up 
-bindsym $mod+h focus left 
-bindsym $mod+l focus right
+bindsym $mod+j focus next  
+bindsym $mod+k focus prev
+bindsym $mod+h resize shrink width 10 px or 10 ppt
+bindsym $mod+l resize grow width 10 px or 10 ppt
+
+# bindsym $mod+j focus down 
+# bindsym $mod+k focus up 
 
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left

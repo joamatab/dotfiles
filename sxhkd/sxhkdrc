@@ -39,8 +39,8 @@ super + Scroll_Lock
 	killall screenkey || screenkey
 super + Insert
 	showclip
-super + shift + r
-    killandnotify "sxhkd" "Config reloaded" && sxhkd &
+# super + shift + r
+#     killandnotify "sxhkd" "Config reloaded" && sxhkd &
 super + shift + x
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + shift + BackSpace
