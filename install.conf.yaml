@@ -49,6 +49,7 @@
     ~/.dircolors:
     ~/.gitignore: 
     ~/.gitcli.yml: 
+    ~/.gitconfig: 
     ~/.inputrc: 
     ~/.local/share/applications: local/share/applications
     ~/.moc/config: moc/config
