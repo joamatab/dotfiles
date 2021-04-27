@@ -96,6 +96,7 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # path {{{
 path /opt/lumerical/2019b/bin
 path /opt/lumerical/2020a/bin
+path /opt/lumerical/2021/bin
 path /usr/local/sbin
 path ~/.cargo/bin
 path ~/.config/yarn/global/node_modules/.bin
