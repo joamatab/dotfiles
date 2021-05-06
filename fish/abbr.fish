@@ -52,6 +52,7 @@ if status --is-interactive
     abbr -a l lfcd
     abbr -a ll ls -al
     abbr -a monsr 'mons -S 2,3:R'
+    abbr -a monsg 'mons -S 2,1:R'
     abbr -a lt lsd --tree
     abbr -a nc ncmpcpp 
     abbr -a o open

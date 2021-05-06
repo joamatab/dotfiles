@@ -27,6 +27,7 @@ if [ -f "$archive" ] ; then
 		*.lzma) unlzma "$archive" ;;
 		*.bz2) bunzip2 "$archive" ;;
 		*.rar) unrar x -ad "$archive" ;;
+		*.tar.gz) gzip -dc "$archive" | tar xf - ;;
 		*.gz) gunzip "$archive" ;;
 		*.tar) tar xvf "$archive" ;;
 		*.zip) unzip "$archive" ;;
