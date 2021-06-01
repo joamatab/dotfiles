@@ -33,7 +33,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'mbbill/undotree'
 Plug 'gyim/vim-boxdraw'
 Plug 'jiangmiao/auto-pairs'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/goyo.vim'
 
 " Coding
