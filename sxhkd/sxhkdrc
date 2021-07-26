@@ -1,6 +1,6 @@
 # Basic binds
 super + Return
-	$TERMINAL /usr/bin/fish
+	$TERMINAL
 super + shift + d
 	dmenu_run
 super + d
@@ -12,7 +12,7 @@ super + m
 super + n
 	$TERMINAL -e newsboat
 super + w
-	google-chrome
+	google-chrome-beta
 super + c
 	clipmenu
 super + e

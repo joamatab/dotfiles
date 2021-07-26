@@ -64,7 +64,8 @@ set -x OPENER xdg-open
 set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
-set -x TERMINAL kitty
+set -x TERMINAL alacritty
+# set -x TERMINAL kitty
 set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
@@ -92,6 +93,7 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # test -f ~/.local/bin/z.lua && source (lua ~/.local/bin/z.lua --init fish | psub)
 # test -f ~/.local/bin/z.lua &&  lua ~/.local/bin/z.lua --init fish 
 # test -f ~/.pyenv; and status --is-interactive; and source (pyenv init -|psub)
+# status is-interactive; and pyenv init --path | source
 # }}}
 # path {{{
 path /opt/lumerical/2019b/bin
@@ -116,6 +118,7 @@ path ~/dotfiles/luke/.local/bin/statusbar
 path ~/dotfiles/scripts
 path ~/go/bin
 path ~/snap/bin
+path ~/.pyenv/bin
 # }}}
 # more_variables {{{
 test -d "/opt/lumerical/2020a" && set -x PYTHONPATH /opt/lumerical/2020a/api/python

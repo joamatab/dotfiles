@@ -96,6 +96,7 @@ map dd trash
 # zip/unzip functions{{{
 cmd unarchive ${{
   case "$f" in
+	  *.gz) gzip -d "$f" ;;
       *.zip) unzip "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar.bz2) tar -xjvf "$f" ;;

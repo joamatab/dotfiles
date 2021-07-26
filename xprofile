@@ -17,11 +17,11 @@ export FILE="lf"
 # xrandr --output eDP-1 --mode 3200x1800
 # mons -e right
 # mons -O 2
-# mons -S 2,3:R
 
+mons -S 2,3:R
+setbg &
+dwmblocks &
 
-#setbg &
-#dwmblocks &
 #clipmenud &
 
 # dunst &
