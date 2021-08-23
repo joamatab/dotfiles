@@ -124,9 +124,7 @@ set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
 let g:deoplete#enable_at_startup = 1
 set cursorline " gray line around the line
-set nobackup
 set nowritebackup
-set noswapfile
 " set clipboard=unnamed
 " set number              " show line numbers
 " set relativenumber        " show line numbers
@@ -134,7 +132,7 @@ set noswapfile
 set tabstop=4           " 4 space tab
 set expandtab           " use spaces for tabs
 set softtabstop=4       " 4 space tab
-set autochdir           " set path to local dir
+" set autochdir           " set path to local dir
 set splitbelow splitright " Splits open at the bottom and right
 
 " nnoremap ; :
@@ -252,6 +250,7 @@ let g:lf_map_keys = 0
 " CoC
 nmap <silent> gd <Plug>(coc-definition)
 
+
 " Section: Functions
 function! s:compile_and_run()
     exec 'wa'
@@ -315,6 +314,35 @@ function! PasteClipboardImage() abort
         exec "normal! i![](" . file_relative_path . ")"
     endif
 endfunction
+
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
 
 " FZF from https://github.com/jeremyckahn/vim-docker-env
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
@@ -409,6 +437,7 @@ let g:ale_fixers = {'json': ['jq'], 'rust': ['rustfmt'], 'javascript': ['prettie
 " let g:ale_fixers.markdown = ['prettier', 'remark']
 
 " Section: Abbreviations
+iab igf import gdsfactory as gf
 iab inp import numpy as np
 iab iplt import matplotlib.pyplot as plt
 iab ipd import pandas as pd

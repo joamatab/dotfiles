@@ -1,6 +1,8 @@
 # Basic binds
 super + Return
-	$TERMINAL
+	/usr/bin/kitty /usr/bin/fish
+super + shift + a
+	alacritty
 super + shift + d
 	dmenu_run
 super + d
