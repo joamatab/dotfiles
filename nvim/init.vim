@@ -9,6 +9,7 @@ Plug 'davidhalter/jedi-vim'
 
 " file browsing
 Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
