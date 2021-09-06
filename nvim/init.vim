@@ -148,6 +148,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap Y y$
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " line shortcuts
 nnoremap j gj
