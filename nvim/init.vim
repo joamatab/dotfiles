@@ -40,9 +40,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
-Plug 'jpalardy/vim-slime', { 'for': 'python' }
-Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+" Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
+" Plug 'jpalardy/vim-slime', { 'for': 'python' }
+" Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+" Plug 'sillybun/vim-repl'
+" Plug 'luiarthur/repl.vim'
 " Plug 'junegunn/vim-emoji', { 'for': 'markdown' }
 " Plug 'jupyter-vim/jupyter-vim'
 " Plug 'goerz/jupytext'
@@ -148,6 +150,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" nnoremap <Leader>+ :vertical resize +5<CR>
+" nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -225,7 +229,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 nmap <leader>ga :Gwrite<CR>
 nmap <leader>gw :Gwrite<CR>
-nmap <leader>gs :Gstatus<CR>
+nmap <leader>gs :Git<CR>
 nmap <leader>gc :Gcommit -v -a<CR>
 nmap <leader>gb :Gblame<CR>
 nmap <leader>gd :Gdiffsplit<CR>
@@ -354,7 +358,7 @@ nmap ?? :Rg!<CR>
 nmap cc :Commands!<CR>
 
 " jupyter vim
-let g:jupyter_mapkeys = 0
+" let g:jupyter_mapkeys = 0
 
 " Section: Nerdtree
 let g:NERDTreeWinPos = "right"
@@ -453,11 +457,6 @@ iab retrun return
 iab previosu previous
 iab Wb wb
 iab plts plt.style.use('seaborn-whitegrid')
-
-" Section: ipython
-let g:slime_target = "tmux"
-let g:slime_paste_file = "$HOME/.slime_paste"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
 
 " CtrlSF
