@@ -231,7 +231,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>ga :Gwrite<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gs :Git<CR>
-nmap <leader>gc :Gcommit -v -a<CR>
+nmap <leader>gc :Git commit -v -a<CR>
 nmap <leader>gb :Gblame<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 nmap <leader>gf :diffget //2<CR>
