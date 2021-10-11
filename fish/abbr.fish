@@ -92,7 +92,7 @@ if status --is-interactive
     abbr -a xclip -sel clip < ~/.ssh/id_rsa.pub
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
-    abbr -a pl /opt/lumerical/v212/python/bin
+    abbr -a pl /opt/lumerical/v212/python/bin/python
 end
 
 # alias v="nvim"
