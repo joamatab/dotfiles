@@ -198,7 +198,8 @@ let mapleader="'"
 
 " nnoremap <leader>r :call <SID>compile_and_run()<CR>
 
-nmap <leader>1 :call <SID>compile_and_run()<CR>
+nmap <leader>2 :call <SID>compile_and_run()<CR>
+nmap <leader>1 :wa<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
 nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
@@ -274,7 +275,11 @@ function! s:compile_and_run()
         exec "AsyncRun! time fish %"
     elseif &filetype == 'python'
         " exec "AsyncRun! time python %"
-        exec "AsyncRun -raw python %"
+        " exec "AsyncRun -raw python %"
+        " exec "AsyncRun -raw ipython3 -i %"
+        exec "term ipython3 -i %"
+	    " exec "AsyncRun -raw wa<cr>sp<cr>term ipython3 -i %"
+	    " set wa<cr>set sp<cr>set term ipython3 -i %
     endif
 endfunction
 
@@ -395,6 +400,7 @@ set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 set wildignore+=*.swp,*~,._*
+set wildignore+=term*
 let g:netrw_list_hide= '.*\.pyc$'
 
 let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
@@ -470,6 +476,7 @@ let g:ctrlsf_ackprg = '/usr/bin/rg'
 
 " Sneak
 let g:sneak#label = 1
+
 
 " diagrams
 set virtualedit+=all
