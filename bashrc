@@ -84,3 +84,4 @@ export PATH="$PATH:$(du "$HOME/dotfiles/luke/.local/bin/" | cut -f2 | paste -sd 
 [ -f ~/.aliases2 ] && source ~/.aliases2
 [ -d ~/.rbenv ] && eval "$(rbenv init -)"
 
+. "$HOME/.cargo/env"

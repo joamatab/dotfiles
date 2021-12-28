@@ -10,6 +10,14 @@ You can install this config files copy-pasting this into a terminal:
 sh install.sh
 ```
 
+# Private kept configs
+
+Host cloud
+    User ubuntu 
+    Hostname my.ip.com
+    IdentityFile /Users/j/.ssh/joaquin.pem
+
+
 # References
 
 - https://github.com/LukeSmithxyz/voidrice

@@ -101,6 +101,7 @@ path /opt/lumerical/2020a/bin
 path /opt/lumerical/2021/bin
 path /opt/lumerical/v212/bin
 path /usr/local/sbin
+path /opt/homebrew/bin
 path ~/.cargo/bin
 path ~/.config/yarn/global/node_modules/.bin
 path ~/.fzf/bin
