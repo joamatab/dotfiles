@@ -84,7 +84,6 @@ export PATH="$PATH:$(du "$HOME/dotfiles/luke/.local/bin/" | cut -f2 | paste -sd 
 [ -f ~/.aliases2 ] && source ~/.aliases2
 [ -d ~/.rbenv ] && eval "$(rbenv init -)"
 
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/jmatres/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -104,3 +103,4 @@ if [ -f "/home/jmatres/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+. "$HOME/.cargo/env"
