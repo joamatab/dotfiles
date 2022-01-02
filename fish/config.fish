@@ -120,6 +120,8 @@ path ~/dotfiles/scripts
 path ~/go/bin
 path ~/snap/bin
 path ~/.pyenv/bin
+path ~/mambaforge/bin
+
 # }}}
 # more_variables {{{
 test -d "/opt/lumerical/2020a" && set -x PYTHONPATH /opt/lumerical/2020a/api/python
