@@ -2,10 +2,10 @@
 set shell sh
 # set shell zsh
 # set shell fish
+# set color256 true
 set preview true
 set previewer ~/.config/lf/preview
 
-set color256 true
 set icons true
 set ignorecase true
 
