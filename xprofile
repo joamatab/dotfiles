@@ -18,7 +18,7 @@ export FILE="lf"
 # mons -O 2
 
 setxkbmap -layout us &
-mons -S 2,3:R &
+mons -S 3,2:R &
 setbg &
 dwmblocks &
 
