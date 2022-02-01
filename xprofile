@@ -1,9 +1,9 @@
 #!/bin/sh
 
-sxhkd &	# Bind keys
+sxhkd &	
 xset r rate 300 50 & # Speed xrate up
-setxkbmap -option ctrl:nocaps # CapsLock behaves like Ctrl
-xcape -e 'Control_L=Escape' # short-pressed Ctrl behaves like Escape
+setxkbmap -option ctrl:nocaps & # CapsLock behaves like Ctrl
+xcape -e 'Control_L=Escape' & # short-pressed Ctrl behaves like Escape
 # xmodmap -e "keycode 47 = colon semicolon" # remap : and ;
 
 export EDITOR="nvim"
@@ -17,12 +17,12 @@ export FILE="lf"
 # mons -e right
 # mons -O 2
 
-setxkbmap -layout us
-mons -S 2,3:R
+setxkbmap -layout us &
+mons -S 2,3:R &
 setbg &
 dwmblocks &
 
-#clipmenud &
+# clipmenud &
 # dunst &
 # davmail &
 # nmcli con up vpno 2>&1 &

@@ -1,4 +1,4 @@
-function __fish_poetry_68878b5d5a338034_complete_no_subcommand
+function __fish_poetry_b582759d1ed0b771_complete_no_subcommand
     for i in (commandline -opc)
         if contains -- $i about add build cache check config debug env export help init install lock new publish remove run search self shell show update version
             return 1
@@ -8,38 +8,38 @@ function __fish_poetry_68878b5d5a338034_complete_no_subcommand
 end
 
 # global options
-complete -c poetry -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -l ansi -d 'Force ANSI output'
-complete -c poetry -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -l help -d 'Display this help message'
-complete -c poetry -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -l no-ansi -d 'Disable ANSI output'
-complete -c poetry -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -l no-interaction -d 'Do not ask any interactive question'
-complete -c poetry -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -l quiet -d 'Do not output any message'
-complete -c poetry -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -l verbose -d 'Increase the verbosity of messages: "-v" for normal output, "-vv" for more verbose output and "-vvv" for debug'
-complete -c poetry -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -l version -d 'Display this application version'
+complete -c poetry -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -l ansi -d 'Force ANSI output'
+complete -c poetry -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -l help -d 'Display this help message'
+complete -c poetry -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -l no-ansi -d 'Disable ANSI output'
+complete -c poetry -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -l no-interaction -d 'Do not ask any interactive question'
+complete -c poetry -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -l quiet -d 'Do not output any message'
+complete -c poetry -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -l verbose -d 'Increase the verbosity of messages: "-v" for normal output, "-vv" for more verbose output and "-vvv" for debug'
+complete -c poetry -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -l version -d 'Display this application version'
 
 # commands
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a about -d 'Shows information about Poetry.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a add -d 'Adds a new dependency to pyproject.toml.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a build -d 'Builds a package, as a tarball and a wheel by default.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a cache -d 'Interact with Poetry\'s cache'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a check -d 'Checks the validity of the pyproject.toml file.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a config -d 'Manages configuration settings.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a debug -d 'Debug various elements of Poetry.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a env -d 'Interact with Poetry\'s project environments.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a export -d 'Exports the lock file to alternative formats.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a help -d 'Display the manual of a command'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a init -d 'Creates a basic pyproject.toml file in the current directory.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a install -d 'Installs the project dependencies.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a lock -d 'Locks the project dependencies.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a new -d 'Creates a new Python project at <path>.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a publish -d 'Publishes a package to a remote repository.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a remove -d 'Removes a package from the project dependencies.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a run -d 'Runs a command in the appropriate environment.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a search -d 'Searches for packages on remote repositories.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a self -d 'Interact with Poetry directly.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a shell -d 'Spawns a shell within the virtual environment.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a show -d 'Shows information about packages.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a update -d 'Update the dependencies as according to the pyproject.toml file.'
-complete -c poetry -f -n '__fish_poetry_68878b5d5a338034_complete_no_subcommand' -a version -d 'Shows the version of the project or bumps it when a valid bump rule is provided.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a about -d 'Shows information about Poetry.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a add -d 'Adds a new dependency to pyproject.toml.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a build -d 'Builds a package, as a tarball and a wheel by default.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a cache -d 'Interact with Poetry\'s cache'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a check -d 'Checks the validity of the pyproject.toml file.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a config -d 'Manages configuration settings.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a debug -d 'Debug various elements of Poetry.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a env -d 'Interact with Poetry\'s project environments.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a export -d 'Exports the lock file to alternative formats.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a help -d 'Display the manual of a command'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a init -d 'Creates a basic pyproject.toml file in the current directory.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a install -d 'Installs the project dependencies.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a lock -d 'Locks the project dependencies.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a new -d 'Creates a new Python project at <path>.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a publish -d 'Publishes a package to a remote repository.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a remove -d 'Removes a package from the project dependencies.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a run -d 'Runs a command in the appropriate environment.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a search -d 'Searches for packages on remote repositories.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a self -d 'Interact with Poetry directly.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a shell -d 'Spawns a shell within the virtual environment.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a show -d 'Shows information about packages.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a update -d 'Update the dependencies as according to the pyproject.toml file.'
+complete -c poetry -f -n '__fish_poetry_b582759d1ed0b771_complete_no_subcommand' -a version -d 'Shows the version of the project or bumps it when a valid bump rule is provided.'
 
 # command options
 
@@ -50,9 +50,11 @@ complete -c poetry -A -n '__fish_seen_subcommand_from add' -l allow-prereleases 
 complete -c poetry -A -n '__fish_seen_subcommand_from add' -l dev -d 'Add as a development dependency.'
 complete -c poetry -A -n '__fish_seen_subcommand_from add' -l dry-run -d 'Output the operations but do not execute anything (implicitly enables --verbose).'
 complete -c poetry -A -n '__fish_seen_subcommand_from add' -l extras -d 'Extras to activate for the dependency.'
+complete -c poetry -A -n '__fish_seen_subcommand_from add' -l lock -d 'Do not perform operations (only update the lockfile).'
 complete -c poetry -A -n '__fish_seen_subcommand_from add' -l optional -d 'Add as an optional dependency.'
 complete -c poetry -A -n '__fish_seen_subcommand_from add' -l platform -d 'Platforms for which the dependency must be installed.'
 complete -c poetry -A -n '__fish_seen_subcommand_from add' -l python -d 'Python version for which the dependency must be installed.'
+complete -c poetry -A -n '__fish_seen_subcommand_from add' -l source -d 'Name of the source to use to install the package.'
 
 # build
 complete -c poetry -A -n '__fish_seen_subcommand_from build' -l format -d 'Limit the format to either sdist or wheel.'
@@ -87,14 +89,17 @@ complete -c poetry -A -n '__fish_seen_subcommand_from init' -l description -d 'D
 complete -c poetry -A -n '__fish_seen_subcommand_from init' -l dev-dependency -d 'Package to require for development, with an optional version constraint, e.g. requests:^2.10.0 or requests=2.11.1.'
 complete -c poetry -A -n '__fish_seen_subcommand_from init' -l license -d 'License of the package.'
 complete -c poetry -A -n '__fish_seen_subcommand_from init' -l name -d 'Name of the package.'
+complete -c poetry -A -n '__fish_seen_subcommand_from init' -l python -d 'Compatible Python versions.'
 
 # install
 complete -c poetry -A -n '__fish_seen_subcommand_from install' -l dry-run -d 'Output the operations but do not execute anything (implicitly enables --verbose).'
 complete -c poetry -A -n '__fish_seen_subcommand_from install' -l extras -d 'Extra sets of dependencies to install.'
 complete -c poetry -A -n '__fish_seen_subcommand_from install' -l no-dev -d 'Do not install the development dependencies.'
 complete -c poetry -A -n '__fish_seen_subcommand_from install' -l no-root -d 'Do not install the root package (the current project).'
+complete -c poetry -A -n '__fish_seen_subcommand_from install' -l remove-untracked -d 'Removes packages not present in the lock file.'
 
 # lock
+complete -c poetry -A -n '__fish_seen_subcommand_from lock' -l no-update -d 'Do not update locked versions, only refresh lock file.'
 
 # new
 complete -c poetry -A -n '__fish_seen_subcommand_from new' -l name -d 'Set the resulting package name.'
@@ -104,6 +109,7 @@ complete -c poetry -A -n '__fish_seen_subcommand_from new' -l src -d 'Use the sr
 complete -c poetry -A -n '__fish_seen_subcommand_from publish' -l build -d 'Build the package before publishing.'
 complete -c poetry -A -n '__fish_seen_subcommand_from publish' -l cert -d 'Certificate authority to access the repository.'
 complete -c poetry -A -n '__fish_seen_subcommand_from publish' -l client-cert -d 'Client certificate to access the repository.'
+complete -c poetry -A -n '__fish_seen_subcommand_from publish' -l dry-run -d 'Perform all actions except upload the package.'
 complete -c poetry -A -n '__fish_seen_subcommand_from publish' -l password -d 'The password to access the repository.'
 complete -c poetry -A -n '__fish_seen_subcommand_from publish' -l repository -d 'The repository to publish the package to.'
 complete -c poetry -A -n '__fish_seen_subcommand_from publish' -l username -d 'The username to access the repository.'
@@ -133,3 +139,4 @@ complete -c poetry -A -n '__fish_seen_subcommand_from update' -l lock -d 'Do not
 complete -c poetry -A -n '__fish_seen_subcommand_from update' -l no-dev -d 'Do not update the development dependencies.'
 
 # version
+complete -c poetry -A -n '__fish_seen_subcommand_from version' -l short -d 'Output the version number only'
