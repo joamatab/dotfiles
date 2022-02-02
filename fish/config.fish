@@ -96,10 +96,7 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # status is-interactive; and pyenv init --path | source
 # }}}
 # path {{{
-path /opt/lumerical/2019b/bin
-path /opt/lumerical/2020a/bin
-path /opt/lumerical/2021/bin
-path /opt/lumerical/v212/bin
+path /opt/lumerical/(ls /opt/lumerical)/bin
 path /usr/local/sbin
 path /opt/homebrew/bin
 path ~/.cargo/bin
@@ -125,9 +122,7 @@ path ~/mambaforge/bin
 
 # }}}
 # more_variables {{{
-test -d "/opt/lumerical/2020a" && set -x PYTHONPATH /opt/lumerical/2020a/api/python
-test -d "/opt/lumerical/2019b" && set -x PYTHONPATH /opt/lumerical/2019b/api/python
-test -d "/opt/lumerical/v212/bin" && set -x PYTHONPATH /opt/lumerical/v212/api/python
+test -d "/opt/lumerical/" && set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python
 test -d "/Applications/Lumerical 2020a.app/Contents/API/" && set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 test -d "$HOME/.kube/k8s-kops-config" && set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 test -d "$HOME/miniconda3" && source $HOME/miniconda3/etc/fish/conf.d/conda.fish && set PATH $HOME/miniconda3/bin $PATH
