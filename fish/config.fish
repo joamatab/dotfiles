@@ -1,15 +1,9 @@
 # config {{{
-if status --is-interactive
-    # eval sh $HOME/.config/base16-shell/scripts/base16-solarized-light.sh
-    test -f $HOME/.config/base16-shell/scripts/base16-default-dark.sh && eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
-end
 
 # fundle plugin 'tuvistavie/oh-my-fish-core'
 bind -M insert \cc kill-whole-line force-repaint
 set -g -x fish_greeting ''
 bind \cb edit_command_buffer
-
-# test -f "$HOME/.autojump/share/autojump/autojump.fish" && . ~/.autojump/share/autojump/autojump.fish
 set -g fish_key_bindings fish_vi_key_bindings
 # }}}
 # functions {{{
@@ -49,10 +43,10 @@ end
 
 function path
     if not contains $argv $PATH
-        test -d $argv && set PATH $argv $PATH 
+        test -d $argv ; and set PATH $argv $PATH 
     end
-    # test -d $argv && set -U fish_user_paths $argv $fish_user_paths 
-    # test -d $argv && set -Ux fish_user_paths $argv $fish_user_paths 
+    # test -d $argv ; and set -U fish_user_paths $argv $fish_user_paths 
+    # test -d $argv ; and set -Ux fish_user_paths $argv $fish_user_paths 
     # if [ -d $argv ]
         # set PATH $PATH $argv
     # end
@@ -71,7 +65,7 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
 # set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -x FZF_DEFAULT_COMMAND 'fd'
-test -f ~/.ssh/id_rsa && set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
+# test -f ~/.ssh/id_rsa ; and set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 # set -x _CONDA_ROOT $HOME/miniconda3
 # set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
 
@@ -85,13 +79,13 @@ set -gx LESS_TERMCAP_ue \e'[0m'
 set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # }}}
 # source {{{
-test -f ~/.config/fish/abbr.fish && source ~/.config/fish/abbr.fish
-test -f ~/.local.fish && source ~/.local.fish
+test -f ~/.config/fish/abbr.fish; source ~/.config/fish/abbr.fish
+test -f ~/.local.fish ; and source ~/.local.fish
 test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
 test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # test -f ~/.aliases2; and status --is-interactive; and  source ~/.aliases2
-# test -f ~/.local/bin/z.lua && source (lua ~/.local/bin/z.lua --init fish | psub)
-# test -f ~/.local/bin/z.lua &&  lua ~/.local/bin/z.lua --init fish 
+# test -f ~/.local/bin/z.lua ; and source (lua ~/.local/bin/z.lua --init fish | psub)
+# test -f ~/.local/bin/z.lua ; and  lua ~/.local/bin/z.lua --init fish 
 # test -f ~/.pyenv; and status --is-interactive; and source (pyenv init -|psub)
 # status is-interactive; and pyenv init --path | source
 # }}}
@@ -122,14 +116,14 @@ path ~/mambaforge/bin
 
 # }}}
 # more_variables {{{
-test -d "/opt/lumerical/" && set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python
-test -d "/Applications/Lumerical 2020a.app/Contents/API/" && set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
-test -d "$HOME/.kube/k8s-kops-config" && set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
-test -d "$HOME/miniconda3" && source $HOME/miniconda3/etc/fish/conf.d/conda.fish && set PATH $HOME/miniconda3/bin $PATH
+test -d "/opt/lumerical/" ; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python
+test -d "/Applications/Lumerical 2020a.app/Contents/API/" ; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
+test -d "$HOME/.kube/k8s-kops-config" ; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
+test -d "$HOME/miniconda3" ; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish ; and set PATH $HOME/miniconda3/bin $PATH
 mcfly init fish | source
-# test -d "$HOME/.pyenv" && set -Ux PYENV_ROOT $HOME/.pyenv && set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths && pyenv init - | source
-# test -d "$HOME/.pyenv/versions/miniconda3-latest/bin" && eval "$HOME/.pyenv/versions/miniconda3-latest/bin/conda" "shell.fish" "hook" $argv | source
-# test -d "$HOME/.rbenv" && set PATH $HOME/.rbenv/shims $PATH && set PATH $HOME/.rbenv/bin $PATH && set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+# test -d "$HOME/.pyenv" ; and set -Ux PYENV_ROOT $HOME/.pyenv ; and set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths ; and pyenv init - | source
+# test -d "$HOME/.pyenv/versions/miniconda3-latest/bin" ; and eval "$HOME/.pyenv/versions/miniconda3-latest/bin/conda" "shell.fish" "hook" $argv | source
+# test -d "$HOME/.rbenv" ; and set PATH $HOME/.rbenv/shims $PATH ; and set PATH $HOME/.rbenv/bin $PATH ; and set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 # [ -f "$HOME/.klayout/repository/klayout_saltmine/repository.xml" ] ; set -x KLAYOUT_SALT_MINE "$HOME/.klayout/repository/klayout_saltmine/repository.xml"
 # [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
 # [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
