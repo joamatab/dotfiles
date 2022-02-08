@@ -120,7 +120,7 @@ test -d "/opt/lumerical/" ; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumeri
 test -d "/Applications/Lumerical 2020a.app/Contents/API/" ; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 test -d "$HOME/.kube/k8s-kops-config" ; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 test -d "$HOME/miniconda3" ; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish ; and set PATH $HOME/miniconda3/bin $PATH
-mcfly init fish | source
+# mcfly init fish | source
 # test -d "$HOME/.pyenv" ; and set -Ux PYENV_ROOT $HOME/.pyenv ; and set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths ; and pyenv init - | source
 # test -d "$HOME/.pyenv/versions/miniconda3-latest/bin" ; and eval "$HOME/.pyenv/versions/miniconda3-latest/bin/conda" "shell.fish" "hook" $argv | source
 # test -d "$HOME/.rbenv" ; and set PATH $HOME/.rbenv/shims $PATH ; and set PATH $HOME/.rbenv/bin $PATH ; and set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
