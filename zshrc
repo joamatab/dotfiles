@@ -8,7 +8,6 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-# plugins=(git vi-mode)
 plugins=(git vi-mode zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -23,7 +22,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # sh-add -K ~/.ssh/keys/id_rsa # saves git credentials
 
 [ -d /Applications/klayout.app ] && export PATH="/Applications/klayout.app/Contents/MacOS:$PATH"
-[ -d "/opt/lumerical/2019b" ] && export PATH=$PATH:/opt/lumerical/2019b/bin && export PYTHONPATH=/opt/lumerical/2019b/api/python
+[ -d "/opt/lumerical" ] && export PATH=$PATH:/opt/lumerical/$(ls /opt/lumerical)/bin && export PYTHONPATH=/opt/lumerical/$(ls /opt/lumerical)/api/python
 [ -d "$HOME/.lumerical" ] && export PATH=$PATH:$HOME/.lumerical/bin && export PYTHONPATH=$HOME/.lumerical/api/python
 [ -d /opt/sge ] && export PATH=$PATH:/opt/sge/bin:/opt/sge/bin/lx-amd64 && export SGE_ROOT=/opt/sge
 [ -d "$HOME/anaconda3" ] && . ~/anaconda3/etc/profile.d/conda.sh
@@ -116,6 +115,6 @@ bindkey '^E' edit-command-line
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.aliases2 ] && source ~/.aliases2
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -d ~/.autojump ] && . ~/.autojump/share/autojump/autojump.zsh
+# [ -d ~/.autojump ] && . ~/.autojump/share/autojump/autojump.zsh
 # }}}
 # vim:foldmethod=marker:foldlevel=0
