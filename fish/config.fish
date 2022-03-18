@@ -1,8 +1,8 @@
 # config {{{
-if status --is-interactive
+# if status --is-interactive
     # eval sh $HOME/.config/base16-shell/scripts/base16-solarized-light.sh
-    test -f $HOME/.config/base16-shell/scripts/base16-default-dark.sh; and eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
-end
+    # test -f $HOME/.config/base16-shell/scripts/base16-default-dark.sh; and eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
+# end
 
 # fundle plugin 'tuvistavie/oh-my-fish-core'
 bind -M insert \cc kill-whole-line force-repaint
@@ -96,7 +96,8 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # status is-interactive; and pyenv init --path | source
 # }}}
 # path {{{
-path /opt/lumerical/(ls /opt/lumerical)/bin
+# path /opt/lumerical/(ls /opt/lumerical)/bin
+path /opt/lumerical/v212/bin
 path /usr/local/sbin
 path /opt/homebrew/bin
 path ~/.cargo/bin
@@ -137,3 +138,9 @@ test -d '$HOME/.cargo/bin/mcfly'; and mcfly init fish | source
 # }}}
 # dedup_path
 # vim:foldmethod=marker:foldlevel=0
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# eval /home/jmatres/mambaforge/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+

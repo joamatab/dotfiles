@@ -1,6 +1,8 @@
 # Basic binds
 super + Return
-	/usr/bin/kitty /usr/bin/fish
+    alacritty
+	# /usr/bin/kitty /usr/bin/fish
+	# $TERMINAL
 super + shift + a
 	alacritty
 super + shift + d
@@ -14,7 +16,7 @@ super + m
 super + n
 	$TERMINAL -e newsboat
 super + w
-	google-chrome-beta
+	google-chrome-stable
 super + c
 	clipmenu
 super + e
