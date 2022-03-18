@@ -65,7 +65,7 @@ let g:bullets_enabled_file_types = [
 
 
 " Autoformat
-Plug 'ambv/black'
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Chiel92/vim-autoformat'
 " Plug 'prettier/vim-prettier'
