@@ -26,4 +26,7 @@ tmux:
 brodie:
 	git clone https://github.com/BrodieRobertson/scripts.git brodie
 
+git-rm-merged:
+	git branch -D `git branch --merged | grep -v \* | xargs`
+
 .PHONY: help install backup tmux lumerical
