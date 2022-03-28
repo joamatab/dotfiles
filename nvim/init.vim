@@ -445,10 +445,12 @@ let g:vim_markdown_autowrite = 1
 " Disable warnings about trailing whitespace for Python files.
 " let b:ale_warn_about_trailing_whitespace = 0
 " let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'mypy']}
-let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'pylint']}
-let g:ale_fixers = {'json': ['jq'], 'rust': ['rustfmt'], 'javascript': ['prettier'], 'css': ['prettier'], 'python': ['yapf', 'isort', 'remove_trailing_lines', 'trim_whitespace']}
+" let g:ale_linters = {'rust': ['cargo', 'rls'], 'javascript': ['eslint', 'flow'], 'python': ['flake8', 'pylint']}
+" let g:ale_fixers = {'json': ['jq'], 'rust': ['rustfmt'], 'javascript': ['prettier'], 'css': ['prettier'], 'python': ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace']}
 " let g:ale_fixers.markdown = ['remark']
 " let g:ale_fixers.markdown = ['prettier', 'remark']
+let g:ale_fixers = {}
+let g:ale_fixers.python = ['black']
 
 " Section: Abbreviations
 iab igf import gdsfactory as gf
