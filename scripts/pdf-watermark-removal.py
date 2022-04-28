@@ -69,12 +69,8 @@ def process_page(pdf, page_index, skipped):
         if content[obj]['/Subtype'] == '/Image':
             size = (content[obj]['/Width'], content[obj]['/Height'])
             data = content[obj]._data
-            if content[obj]['/ColorSpace'] == '/DeviceRGB':
-                mode = "RGB"
-            else:
-                mode = "P"
-
             if content[obj]['/Filter'] == '/FlateDecode':
+                mode = "RGB" if content[obj]['/ColorSpace'] == '/DeviceRGB' else "P"
                 img = Image.frombytes(mode, size, data)
             else:
                 img = Image.open(io.BytesIO(data))
@@ -90,7 +86,7 @@ def process_page(pdf, page_index, skipped):
         offset += i.size[1]
     if not skipped:
         concat_image = remove_watermark(concat_image)
-    concat_image.save("./temp/{}.jpg".format(page_index))
+    concat_image.save(f"./temp/{page_index}.jpg")
 
 
 def main():
@@ -111,9 +107,9 @@ def main():
 
     images_path = []
     pdf = PdfFileReader(open(args.input_pdf_path, "rb"))
-    for i in range(0, pdf.getNumPages()):
-        logger.info("Processing page {}/{}".format(i + 1, pdf.getNumPages()))
-        images_path.append("./temp/{}.jpg".format(i))
+    for i in range(pdf.getNumPages()):
+        logger.info(f"Processing page {i + 1}/{pdf.getNumPages()}")
+        images_path.append(f"./temp/{i}.jpg")
         process_page(pdf, i, i < args.skip)
 
     logger.info('Writing to output PDF file')

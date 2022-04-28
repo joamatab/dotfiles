@@ -12,12 +12,12 @@ bash_shortcuts = ""
 fish_shortcuts = ""
 
 home = os.getenv("HOME") + "/"
-ranger_location = home + "dotfiles/ranger/shortcuts.conf"
-zsh_location = home + ".shortcuts"
-fish_location = home + ".shortcuts.fish"
-qute_location = home + ".config/qutebrowser/config.py"
-folders_location = home + ".bmdirs"
-configs_location = home + ".bmfiles"
+ranger_location = f"{home}dotfiles/ranger/shortcuts.conf"
+zsh_location = f"{home}.shortcuts"
+fish_location = f"{home}.shortcuts.fish"
+qute_location = f"{home}.config/qutebrowser/config.py"
+folders_location = f"{home}.bmdirs"
+configs_location = f"{home}.bmfiles"
 
 # These are the labels that demarcate where the shortcuts
 # go in the config files.
@@ -29,23 +29,20 @@ end = "# DO NOT DELETE LMAO"
 with open(folders_location) as fold:
     for line in csv.reader(fold, dialect="excel-tab"):
         # Adds the ranger go, tab, move and yank commands:
-        ranger_shortcuts += "map g" + line[0] + " cd " + line[1] + "\n"
+        ranger_shortcuts += f"map g{line[0]} cd {line[1]}" + "\n"
 
-        ranger_shortcuts += "map t" + line[0] + " tab_new " + line[1] + "\n"
+        ranger_shortcuts += f"map t{line[0]} tab_new {line[1]}" + "\n"
 
-        ranger_shortcuts += "map m" + line[0] + " shell mv %s " + line[1] + "\n"
+        ranger_shortcuts += f"map m{line[0]} shell mv %s {line[1]}" + "\n"
 
-        ranger_shortcuts += (
-            "map Y" + line[0] + " shell cp -r %s " + line[1] + "\n"
-        )
+        ranger_shortcuts += (f"map Y{line[0]} shell cp -r %s {line[1]}" + "\n")
 
         # Adds the bash_shortcuts shortcuts:
-        bash_shortcuts += (
-            "alias " + line[0] + '="cd ' + line[1] + ' && ls "' + "\n"
-        )
+        bash_shortcuts += (f"alias {line[0]}" + '="cd ' + line[1] + ' && ls "' + "\n")
         fish_shortcuts += (
-            "abbr -a " + line[0] + ' "cd ' + line[1] + '; and ls -a"' + "\n"
+            f"abbr -a {line[0]}" + ' "cd ' + line[1] + '; and ls -a"' + "\n"
         )
+
 
         # qutebrowser shortcuts:
         qute_shortcuts += (
@@ -64,9 +61,9 @@ with open(configs_location) as conf:
     for line in csv.reader(conf, dialect="excel-tab"):
         # fishshortcuts+=("alias "+line[0]+"=\"vi "+line[1]+"\"\n")
         # fishshortcuts+=("abbr --add "+line[0]+" \"vi "+line[1]+"\"\n")
-        bash_shortcuts += "alias " + line[0] + '="vi ' + line[1] + '"' + "\n"
-        fish_shortcuts += "abbr -a " + line[0] + ' "vi ' + line[1] + '"' + "\n"
-        ranger_shortcuts += "map " + line[0] + " shell vi " + line[1] + "\n"
+        bash_shortcuts += f"alias {line[0]}" + '="vi ' + line[1] + '"' + "\n"
+        fish_shortcuts += f"abbr -a {line[0]}" + ' "vi ' + line[1] + '"' + "\n"
+        ranger_shortcuts += f"map {line[0]} shell vi {line[1]}" + "\n"
 
 
 def replaceInMarkers(text, shortcuts):

@@ -20,9 +20,9 @@ BLUE    = "\033[34m"
 YELLOW  = "\033[36m"
 DEFAULT = "\033[0m"
 
-ACTION  = BLUE + "[+] " + DEFAULT
-ERROR   = RED + "[+] " + DEFAULT
-OK      =  GREEN + "[+] " + DEFAULT
+ACTION = f"{BLUE}[+] {DEFAULT}"
+ERROR = f"{RED}[+] {DEFAULT}"
+OK = f"{GREEN}[+] {DEFAULT}"
 
 #=======================
 #   Spotify application
@@ -72,14 +72,14 @@ def youtube_search(options):
   print "Playlists:\n", "\n".join(playlists), "\n"
 
 def searchYoutube(trackname):
-    textToSearch = trackname
-    query = urllib.quote(textToSearch)
-    url = "https://www.youtube.com/results?search_query=" + query
-    response = urllib2.urlopen(url)
-    html = response.read()
-    soup = BeautifulSoup(html, "html.parser")
-    #we return the first result
-    return "https://youtube.com" + soup.findAll(attrs={'class':'yt-uix-tile-link'})[0]['href']
+  textToSearch = trackname
+  query = urllib.quote(textToSearch)
+  url = f"https://www.youtube.com/results?search_query={query}"
+  response = urllib2.urlopen(url)
+  html = response.read()
+  soup = BeautifulSoup(html, "html.parser")
+  #we return the first result
+  return "https://youtube.com" + soup.findAll(attrs={'class':'yt-uix-tile-link'})[0]['href']
 
 def getTrackName(id, access_token):
     """ get the spotify track name from id """

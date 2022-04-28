@@ -37,13 +37,7 @@ if not version:
 
 json_in = reads(to_parse, version)
 
-if hasattr(json_in, 'worksheets'):
-    # IPython
-    sheets = json_in.worksheets
-else:
-    # Jupyter
-    sheets = [json_in]
-
+sheets = json_in.worksheets if hasattr(json_in, 'worksheets') else [json_in]
 for sheet in sheets:
     for cell in sheet.cells:
         if "outputs" in cell:
@@ -63,9 +57,10 @@ for sheet in sheets:
     if hasattr(sheet.metadata, "widgets"):
         del sheet.metadata["widgets"]
 
-    if hasattr(sheet.metadata, "language_info"):
-        if hasattr(sheet.metadata.language_info, "version"):
-            del sheet.metadata.language_info["version"]
+    if hasattr(sheet.metadata, "language_info") and hasattr(
+        sheet.metadata.language_info, "version"
+    ):
+        del sheet.metadata.language_info["version"]
 
 if 'signature' in json_in.metadata:
     json_in.metadata['signature'] = ""

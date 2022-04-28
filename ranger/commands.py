@@ -26,16 +26,7 @@ class my_edit(Command):
     def execute(self):
         # self.arg(1) is the first (space-separated) argument to the function.
         # This way you can write ":my_edit somefilename<ENTER>".
-        if self.arg(1):
-            # self.rest(1) contains self.arg(1) and everything that follows
-            target_filename = self.rest(1)
-        else:
-            # self.fm is a ranger.core.filemanager.FileManager object and gives
-            # you access to internals of ranger.
-            # self.fm.thisfile is a ranger.container.file.File object and is a
-            # reference to the currently selected file.
-            target_filename = self.fm.thisfile.path
-
+        target_filename = self.rest(1) if self.arg(1) else self.fm.thisfile.path
         # This is a generic function to print text in ranger.
         self.fm.notify("Let's edit the file " + target_filename + "!")
 
@@ -102,10 +93,7 @@ class fzf_locate(Command):
     """
     def execute(self):
         import subprocess
-        if self.quantifier:
-            command="locate home media | fzf -e -i"
-        else:
-            command="locate home media | fzf -e -i"
+        command="locate home media | fzf -e -i"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
@@ -172,7 +160,10 @@ class compress(Command):
         """ Complete with current folder name """
 
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
-        return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+        return [
+            f'compress {os.path.basename(self.fm.thisdir.path)}{ext}'
+            for ext in extension
+        ]
 
 
 class extracthere(Command):

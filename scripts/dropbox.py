@@ -61,7 +61,7 @@ DOWNLOADING = u"Downloading Dropbox... %d%%"
 UNPACKING = u"Unpacking Dropbox... %d%%"
 
 PARENT_DIR = os.path.expanduser("~")
-DROPBOXD_PATH = "%s/.dropbox-dist/dropboxd" % PARENT_DIR
+DROPBOXD_PATH = f"{PARENT_DIR}/.dropbox-dist/dropboxd"
 DESKTOP_FILE = u"/usr/share/applications/dropbox.desktop"
 
 enc = locale.getpreferredencoding()
@@ -154,7 +154,7 @@ def plat():
             plat = arch
         else:
             FatalVisibleError("Platform not supported")
-        return "lnx.%s" % plat
+        return f"lnx.{plat}"
     else:
         FatalVisibleError("Platform not supported")
 
@@ -184,9 +184,8 @@ def gpgme_context(keys):
 
     try:
         os.environ['GNUPGHOME'] = _gpghome
-        fp = open(os.path.join(_gpghome, 'gpg.conf'), 'wb')
-        fp.write(gpg_conf_contents)
-        fp.close()
+        with open(os.path.join(_gpghome, 'gpg.conf'), 'wb') as fp:
+            fp.write(gpg_conf_contents)
         ctx = gpgme.Context()
 
         loaded = []
@@ -208,7 +207,7 @@ class SignatureVerifyError(Exception):
 def verify_signature(key_file, sig_file, plain_file):
     with gpgme_context([key_file]) as ctx:
         sigs = ctx.verify(sig_file, plain_file, None)
-        return sigs[0].status == None
+        return sigs[0].status is None
 
 def download_file_chunk(url, buf):
     opener = urllib2.build_opener()
@@ -251,9 +250,10 @@ class DownloadState(object):
         signature.seek(0)
         self.local_file.seek(0)
 
-        if gpgme:
-            if not verify_signature(StringIO.StringIO(DROPBOX_PUBLIC_KEY), signature, self.local_file):
-                raise SignatureVerifyError()
+        if gpgme and not verify_signature(
+            StringIO.StringIO(DROPBOX_PUBLIC_KEY), signature, self.local_file
+        ):
+            raise SignatureVerifyError()
 
         self.local_file.seek(0)
         archive = tarfile.open(fileobj=self.local_file, mode='r:gz')
@@ -700,8 +700,11 @@ def command(meth):
     if hasattr(meth, 'im_func'): # bound method, if we ever have one
         meth = meth.im_func
     commands[meth.func_name] = meth
-    meth_aliases = [unicode(alias) for alias in aliases.iterkeys() if aliases[alias].func_name == meth.func_name]
-    if meth_aliases:
+    if meth_aliases := [
+        unicode(alias)
+        for alias in aliases.iterkeys()
+        if aliases[alias].func_name == meth.func_name
+    ]:
         meth.__doc__ += u"\nAliases: %s" % ",".join(meth_aliases)
     return meth
 
@@ -734,15 +737,13 @@ def start_dropbox():
         # in seconds
         interval = 0.5
         wait_for = 60
-        for i in xrange(int(wait_for / interval)):
+        for _ in xrange(int(wait_for / interval)):
             if is_dropbox_running():
                 return True
             # back off from connect for a while
             time.sleep(interval)
 
-        return False
-    else:
-        return False
+    return False
 
 # Extracted and modified from os.cmd.Cmd
 def columnize(list, display_list=None, display_width=None):
@@ -1408,13 +1409,10 @@ options:
             if GUI_AVAILABLE:
                 start_dropbox()
                 console_print(u"Done!")
-            else:
-                if start_dropbox():
-                    if not grab_link_url_if_necessary():
-                        console_print(u"Done!")
-    else:
-        if not grab_link_url_if_necessary():
-            console_print(u"Done!")
+            elif start_dropbox() and not grab_link_url_if_necessary():
+                console_print(u"Done!")
+    elif not grab_link_url_if_necessary():
+        console_print(u"Done!")
 
 
 def can_reroll_autostart():
@@ -1489,9 +1487,11 @@ def usage(argv):
     console_print(u"Dropbox command-line interface\n")
     console_print(u"commands:\n")
     console_print(u"Note: use dropbox help <command> to view usage for a specific command.\n")
-    out = []
-    for command in commands:
-        out.append((command, commands[command].__doc__.splitlines()[0]))
+    out = [
+        (command, commands[command].__doc__.splitlines()[0])
+        for command in commands
+    ]
+
     spacing = max(len(o[0])+3 for o in out)
     for o in out:
         console_print(" %-*s%s" % (spacing, o[0], o[1]))
@@ -1509,14 +1509,14 @@ def main(argv):
             cut = i
             break
 
-    if cut == None:
+    if cut is None:
         usage(argv)
         os._exit(0)
         return
 
     # lol no options for now
     globaloptionparser = optparse.OptionParser()
-    globaloptionparser.parse_args(argv[0:i])
+    globaloptionparser.parse_args(argv[:i])
 
     # now dispatch and run
     result = None

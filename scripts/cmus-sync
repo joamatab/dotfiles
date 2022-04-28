@@ -48,12 +48,12 @@ def remove_songs(remove,phone,source_path):
 	print("Removing...")
 	# print the 0% progress, each '#' symbolises 2% 
 	print("["+(" "*50)+"]"+" 0%   ",end='\r')
-	
+
 	if len(remove) != 0:
 		# ppi = procent per item
 		ppi = (100/float(len(remove)))
 		# prp = progress procent
-		prp = ppi	
+		prp = ppi
 		# remove the files
 		for item in remove:
 			# the path /Artist/Album/Song
@@ -68,23 +68,21 @@ def remove_songs(remove,phone,source_path):
 				dirs = posixpath.split(path)
 				path_elem.append(dirs[1])
 				path = dirs[0]	
-			
+
 			# get the hierarchy the relative path from music folder
 			path_elem = [i for i in path_elem if i not in source_path]
-			# merge with phone path and remove song	
 			for i in reversed(path_elem):
-				phone_path = phone_path + '/' + i
-			else:
-				os.remove(phone_path)
-				path_elem.remove(path_elem[0])
-				phone_path =(posixpath.split(phone_path))[0]
+				phone_path = f'{phone_path}/{i}'
+			os.remove(phone_path)
+			path_elem.remove(path_elem[0])
+			phone_path =(posixpath.split(phone_path))[0]
 			# for all remaining elements(folders) check if its empty and
 			# removes
 			for i in path_elem:
 				if os.listdir(phone_path) == []:
 					os.rmdir(phone_path)
 				phone_path = (posixpath.split(phone_path))[0]
-					
+
 			# print current progress
 			print(("["+("#"*prog)+(" "*(50-prog))+"]"+" "+str(round(prp))+"%   "),end='\r')
 			prp += ppi
@@ -103,12 +101,12 @@ def add_songs(add, phone, source_path):
 	print("Adding...")
 	# print the 0% progress, each '#' symbolises 2% 
 	print("["+(" "*50)+"]"+" 0%   ",end='\r')
-	
+
 	if len(add) != 0:
 		# ppi = procent per item
 		ppi = (100/float(len(add)))
 		# prp = progress procent
-		prp = ppi	
+		prp = ppi
 		# remove the files
 		for item in add:
 			# the path /Artist/Album/Song
@@ -123,20 +121,20 @@ def add_songs(add, phone, source_path):
 			while path != '/':
 				dirs = posixpath.split(path)
 				path_elem.append(dirs[1])
-				path = dirs[0]	
+				path = dirs[0]
 			path_elem = [i for i in path_elem if i not in source_path]
 			song = path_elem[0]
-			path_elem.remove(path_elem[0])
+			path_elem.remove(song)
 			# create the wanted folder hierarchy
 			for i in reversed(path_elem):
-				phone_path = phone_path + "/" + i
+				phone_path = f"{phone_path}/{i}"
 				if not(posixpath.exists(phone_path)):
 					os.makedirs(phone_path)
 			# add song
-			phone_path = phone_path + "/" + song
+			phone_path = f"{phone_path}/{song}"
 			shutil.copy(item,phone_path)
-		
-	
+
+
 			# print current progress
 			print(("["+("#"*prog)+(" "*(50-prog))+"]"+" "+str(round(prp))+"%   "),end='\r')
 			prp += ppi
@@ -150,11 +148,11 @@ def add_songs(add, phone, source_path):
 
 if __name__=='__main__':
 	#start time for program
-	start_time = time.time()	
+	start_time = time.time()
 	config = configparser.ConfigParser()
 	home = expanduser("~")
 
-	config.read(home +"/"+ ".cmus-syncrc")
+	config.read(f"{home}/.cmus-syncrc")
 	phone = config["phone"] ["music"]
 	play_phone = config["phone"] ["playlist"]
 	source = config["source"] ["music"]
@@ -162,10 +160,10 @@ if __name__=='__main__':
 
 	# prints the paths from the config file
 	print("\nSource: %s"%(source))
-	print("Music destination: %s"%(phone))
-	print("Source playlist: %s"%(play_cmus))
+	print(f"Music destination: {phone}")
+	print(f"Source playlist: {play_cmus}")
 	print("Phone playlist: %s\n"%(play_phone))
-	
+
 	cmus_sync(source, play_cmus, phone, play_phone)
 	#end time for program
-	print("--- %s seconds ---" % (round((time.time() - start_time),3)))
+	print(f"--- {round(time.time() - start_time, 3)} seconds ---")
