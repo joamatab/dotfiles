@@ -97,6 +97,10 @@ else
     fi
 fi
 unset __conda_setup
+
+if [ -f "/home/jmatres/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/home/jmatres/mambaforge/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
 
 . "$HOME/.cargo/env"
