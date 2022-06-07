@@ -1,0 +1,7 @@
+#!/bin/bash
+# converts all books from epub to mobi
+# npm install ebook-convert
+
+for f in *.xls; do
+    xls2csv "$f" > "$f.csv"
+done 
