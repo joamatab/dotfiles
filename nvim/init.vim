@@ -388,6 +388,7 @@ augroup configgroup
     autocmd BufEnter *.lyrdb setlocal filetype=python
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
+    autocmd BufEnter *.pyxs setlocal ft=python
     autocmd FileType python nnoremap <buffer><silent><leader>a :Black<CR>
 	autocmd FileType python nnoremap <buffer> <cr> :silent wa<bar>only<bar>vsp<bar>term ipython3 -i %<cr>
 augroup END
@@ -454,6 +455,7 @@ let g:ale_fixers.python = ['black']
 
 " Section: Abbreviations
 iab igf import gdsfactory as gf
+iab igc import gdsfactory.components as gc
 iab inp import numpy as np
 iab iplt import matplotlib.pyplot as plt
 iab ipd import pandas as pd

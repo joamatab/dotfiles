@@ -120,6 +120,7 @@ path ~/go/bin
 path ~/snap/bin
 path ~/.pyenv/bin
 path ~/mambaforge/bin
+path ~/install_new_computer/xschem/src
 
 # }}}
 # more_variables {{{
