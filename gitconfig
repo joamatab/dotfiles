@@ -1,9 +1,20 @@
-[diff "gds_diff"]
-command = python -m gdsdiff.gds_diff_git
-binary = True
+[core]
+	editor = /usr/bin/vim
+    attributesfile = ~/.gitattributes
 
 [user]
     name =  Joaquin Matres
 	email = 4514346+joamatab@users.noreply.github.com
-[core]
-	editor = /usr/bin/vim
+
+[diff "jupyternotebook"]
+    command = git-nbdiffdriver diff
+
+[color]
+	ui = auto
+[alias]
+	slog = log --oneline --topo-order --graph
+
+[diff "gds_diff"]
+command = python -m gdsfactory.gdsdiff.gds_diff_git
+binary = True
+
