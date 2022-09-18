@@ -3,6 +3,7 @@ extra/
 *.pyc
 nvim/.netrwhist
 nvim/
+install.conf.yaml.save
 
 
 luke/
