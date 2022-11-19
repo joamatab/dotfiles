@@ -386,6 +386,7 @@ augroup configgroup
     autocmd BufEnter *.lsf setlocal filetype=python
     autocmd BufEnter *.ipynb setlocal filetype=python
     autocmd BufEnter *.lyrdb setlocal filetype=python
+    autocmd BufEnter *.lym setlocal filetype=python
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
     autocmd BufEnter *.pyxs setlocal ft=python
