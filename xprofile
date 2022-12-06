@@ -3,7 +3,7 @@
 sxhkd &	
 # xmodmap -e "keycode 47 = colon semicolon" # remap : and ;
 
-export EDITOR="nvim"
+# export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="chromium"
 export READER="zathura"
