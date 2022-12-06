@@ -54,17 +54,12 @@ if status --is-interactive
     abbr -a monsr 'mons -S 3,2:R'
     abbr -a monsg 'mons -S 1,2:R'
     abbr -a lt lsd --tree
-    abbr -a nc ncmpcpp 
     abbr -a o open
-    abbr -a p python3
-    abbr -a p2 python2
-    abbr -a p3 python3
     abbr -a path 'echo $PATH | tr -s " " "\n"'
     abbr -a pi "pip install"
     abbr -a pu "pip uninstall"
     abbr -a pe "pipenv"
     abbr -a q exit
-    abbr -a r ranger
     abbr -a rs redshift -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
     abbr -a sp sudo pacman -Suy --nocofirm
@@ -94,6 +89,11 @@ if status --is-interactive
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
     abbr -a pl /opt/lumerical/v212/python/bin/python
+    # abbr -a r ranger
+    # abbr -a nc ncmpcpp 
+    # abbr -a p python3
+    # abbr -a p2 python2
+    # abbr -a p3 python3
 end
 
 # alias v="nvim"
