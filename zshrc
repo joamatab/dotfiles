@@ -32,9 +32,6 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # }}}
 # alias {{{
 alias q="exit"
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
 alias ka="killall"
 alias g="git"
 alias ga="git add"
