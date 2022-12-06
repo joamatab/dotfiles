@@ -2,10 +2,5 @@
 
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
 alias q='exit'
-alias f='fish'
-alias x='xonsh'
-alias v='nvim'
-alias vi='nvim'
 alias open='xdg-open'
