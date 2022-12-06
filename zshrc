@@ -11,10 +11,18 @@ ZSH_THEME="robbyrussell"
 plugins=(git vi-mode zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-export GIT_EDITOR=nvim
-export EDITOR=nvim
 export OPENER=open
 alias path='echo $PATH | tr -s ":" "\n"'
+
+# export GIT_EDITOR=nvim
+# export EDITOR=nvim
+if /usr/bin/which -s  nvim
+then
+    export EDITOR=nvim
+else
+    export EDITOR=im
+fi
+
 # }}}
 # PATHS {{{
 # export KLAYOUT_PYTHONPATH="/usr/local/bin/python"
