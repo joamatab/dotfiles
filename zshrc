@@ -16,7 +16,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 # export GIT_EDITOR=nvim
 # export EDITOR=nvim
-if /usr/bin/which nvim
+if /usr/bin/which nvim 2>&1 > /dev/null
 then
     export EDITOR=nvim
     export GIT_EDITOR=nvim
