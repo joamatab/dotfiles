@@ -65,6 +65,7 @@ alias sc='screencapture -s'
 alias calendar="calcurse"
 alias define="sdcv"
 alias ip="curl icanhazip.com" # Your public IP address
+alias l=lfcd
 alias ll="ls -al" # List all files in current directory in long list format
 #alias ll="ls -al | grep -v .DS_Store | grep -v .pyc"
 #alias ls="ls -G | grep -v .pyc"
