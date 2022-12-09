@@ -36,6 +36,8 @@ Plug 'gyim/vim-boxdraw'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/goyo.vim'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
+Plug 'tpope/vim-repeat'
 
 " Coding
 Plug 'skywind3000/asyncrun.vim'
