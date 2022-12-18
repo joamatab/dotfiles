@@ -37,6 +37,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 [ -d /opt/sge ] && export PATH=$PATH:/opt/sge/bin:/opt/sge/bin/lx-amd64 && export SGE_ROOT=/opt/sge
 [ -d "$HOME/anaconda3" ] && . ~/anaconda3/etc/profile.d/conda.sh
 [ -d "$HOME/miniconda3" ] && . ~/miniconda3/etc/profile.d/conda.sh && export PATH=$HOME/miniconda3/bin:$PATH
+[ -d "$HOME/mambaforge" ] && export PATH=$HOME/mambaforge/bin:$PATH
 [ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"  && eval "$(rbenv init -)" && export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 # }}}
