@@ -29,4 +29,7 @@ brodie:
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
 
+update:
+	git submodule update --init --remote dotbot
+
 .PHONY: help install backup tmux lumerical
