@@ -15,23 +15,29 @@
 
 [diff]
     tool = kdiff3
+
 [difftool "kdiff3"]
     path = /usr/bin/kdiff3
+
 [difftool]
     prompt = false
     keepBackup = false
     trustExitCode = false
+
 [merge]
     tool = kdiff3
+
 [mergetool]
     prompt = false
     keepBackup = false
     keepTemporaries = false
+
 [mergetool "kdiff3"]
     path = /usr/bin/kdiff3
 
 [color]
 	ui = auto
+
 [alias]
 	slog = log --oneline --topo-order --graph
 
