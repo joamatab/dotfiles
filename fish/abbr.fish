@@ -39,6 +39,7 @@ if status --is-interactive
     abbr -a gca git commit -va
     abbr -a gcb git checkout -b
     abbr -a gco git checkout
+    abbr -a gfpr git fetch origin pull/ID/head:BRANCHNAME
     abbr -a gcp "git commit -va; git push"
     abbr -a gd git diff
     abbr -a gl git pull

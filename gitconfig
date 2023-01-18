@@ -41,3 +41,10 @@
 [alias]
 	slog = log --oneline --topo-order --graph
 
+[pull]
+	rebase = true
+[filter "nbstripout"]
+	clean = \"/home/jmatres/mambaforge/bin/python3.10\" -m nbstripout
+	smudge = cat
+[diff "ipynb"]
+	textconv = \"/home/jmatres/mambaforge/bin/python3.10\" -m nbstripout -t
