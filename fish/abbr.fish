@@ -76,6 +76,7 @@ if status --is-interactive
     abbr -a timemadrid 'timedatectl set-timezone Europe/Madrid'
     abbr -a te terraform
     abbr -a v nvim
+    abbr -a vi nvim
     abbr -a vpn 'nmcli con up vpno 2>&1'
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
