@@ -16,6 +16,9 @@
 [diff]
     tool = kdiff3
 
+[feature]
+    manyFiles = 1
+
 [difftool "kdiff3"]
     path = /usr/bin/kdiff3
 
@@ -48,3 +51,8 @@
 	smudge = cat
 [diff "ipynb"]
 	textconv = \"/home/jmatres/mambaforge/bin/python3.10\" -m nbstripout -t
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
