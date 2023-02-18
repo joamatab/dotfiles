@@ -53,6 +53,7 @@ if status --is-interactive
     abbr -a kpo open ~/.config/keepass/database.kdbx
     abbr -a l lfcd
     abbr -a ll ls -al
+    abbr -a monsl 'mons -S 3,2:R'
     abbr -a monsr 'mons -S 2,3:R'
     abbr -a monsg 'mons -S 1,2:R'
     abbr -a lt lsd --tree
@@ -85,6 +86,7 @@ if status --is-interactive
     abbr -a wg nvim  ~/wikis/github/index.md 
     abbr -a wj nvim  ~/wikis/joaquin/index.md 
     abbr -a xr xrandr --output eDP1 --mode 1920x1080
+    abbr -a xrbig xrandr --output DP2 --mode 1920x1200 
     abbr -a wea curl wttr.in 
     abbr -a xclip -sel clip < ~/.ssh/id_rsa.pub
     abbr -a ytm youtube-dl  -x --audio-format mp3
