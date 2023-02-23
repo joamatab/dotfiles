@@ -89,6 +89,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Font
 Plug 'sjl/badwolf'
+Plug 'ap/vim-css-color'
 " Plug 'flazz/vim-colorschemes'
 " Plug 'dag/vim-fish'
 " Plug 'tomasr/molokai'
