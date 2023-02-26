@@ -21,6 +21,8 @@ super + c
 	clipmenu
 super + e
 	firefox
+super + shift + w
+	brave-browser
 super + y
 	$TERMINAL -e calcurse
 super + shift + a
