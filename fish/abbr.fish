@@ -87,8 +87,8 @@ if status --is-interactive
     abbr -a wj nvim  ~/wikis/joaquin/index.md 
     abbr -a xr xrandr --output eDP1 --mode 1920x1080
     abbr -a xrbig xrandr --output DP2 --mode 1920x1200 
-    abbr -a wea curl wttr.in 
-    abbr -a xclip -sel clip < ~/.ssh/id_rsa.pub
+    abbr -a wea "curl wttr.in"
+    abbr -a xc "xclip -sel clip < ~/.ssh/id_rsa.pub"
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
     abbr -a pl /opt/lumerical/v212/python/bin/python
