@@ -47,7 +47,7 @@ function dedup_path --description "Removes duplicate entries from \$PATH"
   set PATH $NEWPATH
 end
 
-function path
+function path_append
     if not contains $argv $PATH
         test -d $argv; and set PATH $argv $PATH 
     end
@@ -97,30 +97,30 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # }}}
 # path {{{
 # path /opt/lumerical/(ls /opt/lumerical)/bin
-path /opt/lumerical/v212/bin
-path /usr/local/sbin
-path /opt/homebrew/bin
-path ~/.cargo/bin
-path ~/.config/yarn/global/node_modules/.bin
-path ~/.fzf/bin
-path ~/.gem/ruby/2.7.0/bin
-path ~/.local/bin
-path ~/.local/google-cloud-sdk/bin
-path ~/.local/kitty.app/bin
-path ~/.local/node-v14.5.0-linux-x64/bin
-path ~/.npm-global/bin
-path ~/.poetry/bin
-path ~/.rbenv/bin
-path ~/.yarn/bin
-path ~/dotfiles/brodie
-path ~/dotfiles/luke/.local/bin
-path ~/dotfiles/luke/.local/bin/statusbar
-path ~/dotfiles/scripts
-path ~/go/bin
-path ~/snap/bin
-path ~/.pyenv/bin
-path ~/mambaforge/bin
-path ~/install_new_computer/xschem/src
+path_append /opt/lumerical/v212/bin
+path_append /usr/local/sbin
+path_append /opt/homebrew/bin
+path_append ~/.cargo/bin
+path_append ~/.config/yarn/global/node_modules/.bin
+path_append ~/.fzf/bin
+path_append ~/.gem/ruby/2.7.0/bin
+path_append ~/.local/bin
+path_append ~/.local/google-cloud-sdk/bin
+path_append ~/.local/kitty.app/bin
+path_append ~/.local/node-v14.5.0-linux-x64/bin
+path_append ~/.npm-global/bin
+path_append ~/.poetry/bin
+path_append ~/.rbenv/bin
+path_append ~/.yarn/bin
+path_append ~/dotfiles/brodie
+path_append ~/dotfiles/luke/.local/bin
+path_append ~/dotfiles/luke/.local/bin/statusbar
+path_append ~/dotfiles/scripts
+path_append ~/go/bin
+path_append ~/snap/bin
+path_append ~/.pyenv/bin
+path_append ~/mambaforge/bin
+path_append ~/install_new_computer/xschem/src
 
 # }}}
 # more_variables {{{

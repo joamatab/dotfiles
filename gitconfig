@@ -3,8 +3,8 @@
     attributesfile = ~/.gitattributes
 
 [user]
-    name =  Joaquin Matres
-	email = 4514346+joamatab@users.noreply.github.com
+    name = joamatab
+    email = 4514346+joamatab@users.noreply.github.com
 
 [diff "gdsdiff"]
     command = python -m gdsfactory.gdsdiff.gds_diff_git
