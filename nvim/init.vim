@@ -454,8 +454,12 @@ let g:vim_markdown_autowrite = 1
 " let g:ale_fixers = {'json': ['jq'], 'rust': ['rustfmt'], 'javascript': ['prettier'], 'css': ['prettier'], 'python': ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace']}
 " let g:ale_fixers.markdown = ['remark']
 " let g:ale_fixers.markdown = ['prettier', 'remark']
-let g:ale_fixers = {}
-let g:ale_fixers.python = ['black']
+" let g:ale_fixers = {}
+" let g:ale_fixers.python = ['black']
+let g:ale_linters = { "python": ["ruff"] }
+let g:ale_fixers = {
+\       "python": ["black", "ruff"],
+\}
 
 " Section: Abbreviations
 iab igf import gdsfactory as gf
