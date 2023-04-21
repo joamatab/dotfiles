@@ -190,7 +190,7 @@ colorscheme badwolf
 "set termguicolors
 "call togglebg#map("<F5>")
 " let g:gruvbox_italic=1
-highlight Comment term=bold ctermfg=white
+" highlight Comment term=bold ctermfg=white
 
 " Toggle visibility of naughty characters
 " Make naughty characters visible...
