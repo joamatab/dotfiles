@@ -4,8 +4,8 @@ call plug#begin('~/.vim/plugged')
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
 " Plug 'kiteco/vim-plugin', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim'
-" Plug 'neoclide/coc.nvim', {'branch':'release'}
+" Plug 'davidhalter/jedi-vim'
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " file browsing
 Plug 'ptzz/lf.vim'
@@ -90,6 +90,7 @@ Plug 'airblade/vim-gitgutter'
 " Font
 Plug 'sjl/badwolf'
 Plug 'ap/vim-css-color'
+" Plug 'morhetz/gruvbox'
 " Plug 'flazz/vim-colorschemes'
 " Plug 'dag/vim-fish'
 " Plug 'tomasr/molokai'
@@ -181,12 +182,14 @@ augroup END
 " Section: Colors
 syntax enable           " enable syntax processing
 colorscheme badwolf
-"colorscheme jellybeans "default
+" colorscheme gruvbox
+" colorscheme jellybeans "default
 "colorscheme molokai
 "colorscheme solarized
 "colorscheme zenburn
 "set termguicolors
 "call togglebg#map("<F5>")
+" let g:gruvbox_italic=1
 highlight Comment term=bold ctermfg=white
 
 " Toggle visibility of naughty characters
@@ -456,12 +459,13 @@ let g:vim_markdown_autowrite = 1
 " let g:ale_fixers.markdown = ['prettier', 'remark']
 " let g:ale_fixers = {}
 " let g:ale_fixers.python = ['black']
-let g:ale_linters = { "python": ["ruff"] }
+let g:ale_linters = { "python": ["ruff", 'pylint', 'mypy'] }
 let g:ale_fixers = {
 \       "python": ["black", "ruff"],
 \}
 
 " Section: Abbreviations
+iab ifp from functools import partial
 iab igf import gdsfactory as gf
 iab igc import gdsfactory.components as gc
 iab inp import numpy as np
@@ -488,6 +492,15 @@ let g:ctrlsf_ackprg = '/usr/bin/rg'
 
 " Sneak
 let g:sneak#label = 1
+
+" CoC
+nnoremap <silent> <leader>cl :CocDiagnostics<cr>
+nnoremap <silent> <leader>ch :call CocAction('doHover')<cr>
+nnoremap <silent> <leader>cf <plug>(coc-codeaction-cursor)
+nnoremap <silent> <leader>ca <plug>(coc-fix-current)
+
+nmap <silent> [c <plug>(coc-diagnostic-prev)
+nmap <silent> ]c <plug>(coc-diagnostic-next)
 
 
 " diagrams
