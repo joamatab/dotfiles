@@ -26,7 +26,7 @@ Plug 'majutsushi/tagbar'
 " Document writing
 Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+" Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " If you have nodejs and yarn
@@ -214,7 +214,7 @@ nmap <leader>o :Files<CR>
 nmap <leader>O :Files!<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
-nmap <leader>d :r!date "+\%F"<CR>
+nmap <leader>id :r!date "+\%F"<CR>
 nmap <leader>j :History<CR>
 nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>t :tabe<CR>
@@ -434,9 +434,9 @@ let g:vimwiki_list = [
             \ ]
 
 " Section: Markdown
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_autowrite = 1
+" let g:vim_markdown_new_list_item_indent = 0
+" let g:vim_markdown_auto_insert_bullets = 0
+" let g:vim_markdown_autowrite = 1
 
 " Section: ALE
 " Enable completion where available.
@@ -493,6 +493,7 @@ nnoremap <silent> <leader>cl :CocDiagnostics<cr>
 nnoremap <silent> <leader>ch :call CocAction('doHover')<cr>
 nnoremap <silent> <leader>cf <plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>ca <plug>(coc-fix-current)
+nnoremap <silent> <leader>d <plug>(coc-definition)
 nmap <silent> gd <Plug>(coc-definition)
 
 nmap <silent> [c <plug>(coc-diagnostic-prev)
