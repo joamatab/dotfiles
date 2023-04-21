@@ -259,12 +259,7 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap - :s/\%V /_/g
 
-
 let g:lf_map_keys = 0
-
-" CoC
-nmap <silent> gd <Plug>(coc-definition)
-
 
 " Section: Functions
 function! s:compile_and_run()
@@ -498,6 +493,7 @@ nnoremap <silent> <leader>cl :CocDiagnostics<cr>
 nnoremap <silent> <leader>ch :call CocAction('doHover')<cr>
 nnoremap <silent> <leader>cf <plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>ca <plug>(coc-fix-current)
+nmap <silent> gd <Plug>(coc-definition)
 
 nmap <silent> [c <plug>(coc-diagnostic-prev)
 nmap <silent> ]c <plug>(coc-diagnostic-next)
