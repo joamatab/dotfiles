@@ -242,6 +242,7 @@ nmap <leader>gs :Git<CR>
 nmap <leader>gc :Git commit -v -a<CR>
 nmap <leader>gb :Gblame<CR>
 nmap <leader>gd :Gdiffsplit<CR>
+nmap <leader>gp :Git push<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
