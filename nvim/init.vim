@@ -6,6 +6,7 @@ Plug 'Shougo/deoplete.nvim'
 " Plug 'kiteco/vim-plugin', { 'for': 'python' }
 " Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+Plug 'fannheyward/coc-pyright'
 
 " file browsing
 Plug 'ptzz/lf.vim'
