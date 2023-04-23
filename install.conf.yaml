@@ -39,7 +39,9 @@
     # ~/.config/polybar:
     ~/.config/ranger: 
     ~/.config/starship.toml:
-    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim:
+    ~/.config/coc/python:
+    ~/.config/coc/utilsnips:
     ~/.config/lf:
     ~/.config/clipit/clipitrc:
     ~/.config/dunst/dunstrc:

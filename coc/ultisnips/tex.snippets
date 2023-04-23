@@ -1,0 +1,83 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet template "latex template" b
+\documentclass[12pt]{article}
+
+\begin{document}
+\maketitle
+
+\title{$1}
+\author{$2}
+
+\section{$3}
+
+\end{document}
+endsnippet
+
+snippet figure "Latex figure"
+\begin{figure}[${1:H}]
+    \centering
+    \includegraphics[width=$2\textwidth]{$3}
+    \caption{$4}
+    \label{fig:$5}
+\end{figure}
+endsnippet
+
+snippet figure "Latex figure"
+\begin{figure}[${1:H}]
+    \centering
+    \begin{subfigure}{${2:0.4}\textwidth}
+	\includegraphics[width=\textwidth]{$3}
+	\caption{}
+    \end{subfigure}
+    ~${4:$\quad$}
+    \begin{subfigure}{${5:0.4}\textwidth}
+	\includegraphics[width=\textwidth]{$6}
+	\caption{}
+    \end{subfigure}
+    \caption{$7}
+    \label{fig:$8}
+\end{figure}
+endsnippet
+
+snippet refs "References"
+\bibliographystyle{unsrt}
+\bibliography{${1:refs}}
+endsnippet
+
+snippet pystd "Description" b
+\begin{tcolorbox}
+\begin{pycode}
+$1
+\end{pycode}
+\tcblower
+\begin{stdout}
+$2
+\end{stdout}
+\end{tcolorbox}
+$3
+endsnippet

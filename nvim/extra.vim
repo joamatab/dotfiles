@@ -46,8 +46,6 @@ map <leader>e :set foldmethod=expr<CR>
 "vnoremap <leader>y "+y
 
 
-
-
 " COC
 let g:coc_global_extensions = [
     \ 'coc-snippets',

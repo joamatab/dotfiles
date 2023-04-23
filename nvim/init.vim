@@ -3,10 +3,9 @@ call plug#begin('~/.vim/plugged')
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
-" Plug 'kiteco/vim-plugin', { 'for': 'python' }
-" Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'fannheyward/coc-pyright'
+" Plug 'davidhalter/jedi-vim'
 
 " file browsing
 Plug 'ptzz/lf.vim'
@@ -491,16 +490,38 @@ let g:ctrlsf_ackprg = '/usr/bin/rg'
 let g:sneak#label = 1
 
 " CoC
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-json',
+  \ 'coc-tsserver',
+  \ 'coc-tailwindcss',
+  \ 'coc-elixir',
+  \ 'coc-svelte',
+  \ 'coc-html',
+  \ 'coc-yaml',
+  \ 'coc-vimlsp',
+  \ 'coc-svg',
+  \ 'coc-actions',
+  \ 'coc-lists',
+  \ 'coc-json',
+  \ 'coc-yank',
+  \ 'coc-highlight',
+  \ 'coc-solargraph',
+  \ 'coc-pyright',
+  \ ]
 nnoremap <silent> <leader>cl :CocDiagnostics<cr>
 nnoremap <silent> <leader>ch :call CocAction('doHover')<cr>
 nnoremap <silent> <leader>cf <plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>ca <plug>(coc-fix-current)
-nnoremap <silent> <leader>d <plug>(coc-definition)
+" nnoremap <silent> <leader>d <plug>(coc-definition)
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>D <Plug>(coc-declaration)
+nmap <silent> <leader>r <Plug>(coc-rename)
+nmap <silent> <leader>R <Plug>(coc-refactor)
 
 nmap <silent> [c <plug>(coc-diagnostic-prev)
 nmap <silent> ]c <plug>(coc-diagnostic-next)
-
 
 " diagrams
 set virtualedit+=all
