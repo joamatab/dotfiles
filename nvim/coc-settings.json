@@ -1,0 +1,38 @@
+{
+  "python.jediEnabled": false,
+  "python.autoUpdateLanguageServer": true,
+  "python.pythonPath": "~/.config/coc/python",
+  "coc.preferences.jumpCommand": "tab drop",
+  "python.venvFolders": ["~/venvs"],
+  "python.venvPath": "~/venvs",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": false,
+  "coc.preferences.diagnostic.displayByAle": true,
+  "coc.disable_filetypes": ["tex"],
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    },
+    "ruff-lsp": {
+      "command": "ruff-lsp",
+      "filetypes": ["python"]
+    },
+    "sourcery": {
+      "command": "/home/jmatres/mambaforge/bin/sourcery",
+      "args": ["lsp"],
+      "filetypes": ["python"],
+      "initializationOptions": {
+        "extension_version": "coc.vim",
+        "editor_version": "vim"
+      },
+      "settings": {
+        "sourcery": {
+          "metricsEnabled": true
+        }
+      }
+    }
+  }
+}
