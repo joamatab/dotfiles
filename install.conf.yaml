@@ -40,8 +40,8 @@
     ~/.config/ranger: 
     ~/.config/starship.toml:
     ~/.config/nvim:
-    ~/.config/coc/python:
-    ~/.config/coc/utilsnips:
+    ~/.config/coc/python: coc/python
+    ~/.config/coc/utilsnips: coc/ultisnips
     ~/.config/lf:
     ~/.config/clipit/clipitrc:
     ~/.config/dunst/dunstrc:

@@ -513,9 +513,10 @@ nnoremap <silent> <leader>cl :CocDiagnostics<cr>
 nnoremap <silent> <leader>ch :call CocAction('doHover')<cr>
 nnoremap <silent> <leader>cf <plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>ca <plug>(coc-fix-current)
-" nnoremap <silent> <leader>d <plug>(coc-definition)
+" nmap <silent> gd :call CocActionAsync('jumpDefinition')<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>d <Plug>(coc-definition)
+
 nmap <silent> <leader>D <Plug>(coc-declaration)
 nmap <silent> <leader>r <Plug>(coc-rename)
 nmap <silent> <leader>R <Plug>(coc-refactor)

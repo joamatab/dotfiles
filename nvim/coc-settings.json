@@ -2,7 +2,6 @@
   "python.jediEnabled": false,
   "python.autoUpdateLanguageServer": true,
   "python.pythonPath": "~/.config/coc/python",
-  "coc.preferences.jumpCommand": "tab drop",
   "python.venvFolders": ["~/venvs"],
   "python.venvPath": "~/venvs",
   "python.linting.pylintEnabled": false,
