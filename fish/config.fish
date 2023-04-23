@@ -130,6 +130,11 @@ test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fi
 test -f "$HOME/.kube/k8s-kops-config"; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 test -f "$HOME/.cargo/bin/mcfly"; and mcfly init fish | source
 test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
+
+test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.0.0/bin" 
+
+
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # test -d "$HOME/.pyenv"; and set -Ux PYENV_ROOT $HOME/.pyenv; and set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths; and pyenv init - | source
 # test -d "$HOME/.pyenv/versions/miniconda3-latest/bin"; and eval "$HOME/.pyenv/versions/miniconda3-latest/bin/conda" "shell.fish" "hook" $argv | source
 # test -d "$HOME/.rbenv"; and set PATH $HOME/.rbenv/shims $PATH; and set PATH $HOME/.rbenv/bin $PATH; and set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
@@ -146,3 +151,36 @@ test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
 # eval /home/jmatres/mambaforge/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+
+# ~/.config/fish/functions/nvm.fish
+# function nvm
+#   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+# end
+
+# # ~/.config/fish/functions/nvm_find_nvmrc.fish
+# function nvm_find_nvmrc
+#   bass source ~/.nvm/nvm.sh --no-use ';' nvm_find_nvmrc
+# end
+
+# # ~/.config/fish/functions/load_nvm.fish
+# function load_nvm --on-variable="PWD"
+#   set -l default_node_version (nvm version default)
+#   set -l node_version (nvm version)
+#   set -l nvmrc_path (nvm_find_nvmrc)
+#   if test -n "$nvmrc_path"
+#     set -l nvmrc_node_version (nvm version (cat $nvmrc_path))
+#     if test "$nvmrc_node_version" = "N/A"
+#       nvm install (cat $nvmrc_path)
+#     else if test "$nvmrc_node_version" != "$node_version"
+#       nvm use $nvmrc_node_version
+#     end
+#   else if test "$node_version" != "$default_node_version"
+#     echo "Reverting to default Node version"
+#     nvm use default
+#   end
+# end
+
+# load_nvm > /dev/stderr
+
+# ~/.config/fish/config.fish
+# You must call it on initialization or listening to directory switching won't work

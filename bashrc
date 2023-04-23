@@ -101,6 +101,11 @@ unset __conda_setup
 if [ -f "/home/jmatres/mambaforge/etc/profile.d/mamba.sh" ]; then
     . "/home/jmatres/mambaforge/etc/profile.d/mamba.sh"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # <<< conda initialize <<<
 
 . "$HOME/.cargo/env"
