@@ -1,5 +1,7 @@
 {
   "python.jediEnabled": false,
+  "pyright.python.linting.ruffEnabled": true,
+  "pyright.inlayHints.variableTypes": false,
   "python.autoUpdateLanguageServer": true,
   "python.pythonPath": "~/.config/coc/python",
   "python.venvFolders": ["~/venvs"],

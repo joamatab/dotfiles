@@ -10,7 +10,7 @@ Plug 'fannheyward/coc-pyright'
 " file browsing
 Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
-Plug 'rbgrouleff/bclose.vim'
+" Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -33,7 +33,7 @@ Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'mbbill/undotree'
 Plug 'gyim/vim-boxdraw'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/goyo.vim'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
@@ -256,6 +256,8 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>sf z=
 
+map <leader>n :set rnu!<CR>
+
 vnoremap < <gv
 vnoremap > >gv
 vnoremap - :s/\%V /_/g
@@ -455,7 +457,8 @@ let g:vimwiki_list = [
 " let g:ale_fixers.markdown = ['prettier', 'remark']
 " let g:ale_fixers = {}
 " let g:ale_fixers.python = ['black']
-let g:ale_linters = { "python": ["ruff", 'pylint', 'mypy'] }
+" let g:ale_linters = { "python": ["ruff", 'pylint', 'mypy'] }
+let g:ale_linters = { "python": ["ruff"] }
 let g:ale_fixers = {
 \       "python": ["black", "ruff"],
 \}
