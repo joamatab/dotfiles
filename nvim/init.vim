@@ -70,6 +70,7 @@ let g:bullets_enabled_file_types = [
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Chiel92/vim-autoformat'
+Plug 'sbdchd/neoformat'
 " Plug 'prettier/vim-prettier'
 " Plug 'prettier/vim-prettier', {
 "             \ 'do': 'yarn install',
@@ -133,6 +134,7 @@ let g:deoplete#enable_at_startup = 1
 set cursorline " gray line around the line
 set nowritebackup
 " set clipboard=unnamed
+set clipboard+=unnamedplus
 " set number              " show line numbers
 " set relativenumber        " show line numbers
 
@@ -512,6 +514,7 @@ let g:coc_global_extensions = [
   \ 'coc-solargraph',
   \ 'coc-pyright',
   \ ]
+nnoremap <silent> <leader>h :CocCommand document.toggleInlayHint<cr>
 nnoremap <silent> <leader>cl :CocDiagnostics<cr>
 nnoremap <silent> <leader>ch :call CocAction('doHover')<cr>
 nnoremap <silent> <leader>cf <plug>(coc-codeaction-cursor)
