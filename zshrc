@@ -40,6 +40,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 [ -d "$HOME/mambaforge" ] && export PATH=$HOME/mambaforge/bin:$PATH
 [ -d "$HOME/.rbenv" ] && export PATH="$HOME/.rbenv/bin:$PATH"  && eval "$(rbenv init -)" && export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+[ -d "$HOME/install_new_computer/goroot" ] && export PATH="$HOME/install_new_computer/goroot/bin:$PATH"
 # }}}
 # alias {{{
 alias q="exit"
