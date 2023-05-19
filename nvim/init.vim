@@ -467,6 +467,7 @@ let g:ale_fixers = {
 
 " Section: Abbreviations
 iab ifp from functools import partial
+iab ikf import kfactory as kf
 iab igf import gdsfactory as gf
 iab igc import gdsfactory.components as gc
 iab inp import numpy as np
