@@ -148,7 +148,7 @@ test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/v
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-# eval /home/jmatres/mambaforge/bin/conda "shell.fish" "hook" $argv | source
+eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
 
