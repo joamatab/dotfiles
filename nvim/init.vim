@@ -431,7 +431,6 @@ nnoremap <space> za
 
 " Section: VimWiki
 let g:vimwiki_list = [
-            \ {'path': '~/wikis/go', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/joaquin/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/github/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/gotbletu', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
