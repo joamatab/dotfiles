@@ -2,7 +2,6 @@
 call plug#begin('~/.vim/plugged')
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'fannheyward/coc-pyright'
 " Plug 'davidhalter/jedi-vim'
@@ -131,7 +130,6 @@ set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
 set fillchars+=vert:┃
-let g:deoplete#enable_at_startup = 1
 set cursorline " gray line around the line
 set nowritebackup
 " set clipboard=unnamed
