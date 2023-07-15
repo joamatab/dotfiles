@@ -56,15 +56,6 @@ Plug 'osyo-manga/vim-brightest'
 Plug 'elzr/vim-json'
 " Plug 'tpope/vim-sensible'
 Plug 'dkarter/bullets.vim'
-" Bullets.vim
-let g:bullets_enabled_file_types = [
-    \ 'yaml',
-    \ 'markdown',
-    \ 'text',
-    \ 'gitcommit',
-    \ 'scratch'
-    \]
-
 
 " Autoformat
 Plug 'psf/black', { 'branch': 'stable' }
@@ -248,6 +239,15 @@ nmap <leader>sv :w!<CR>:source ~/.config/nvim/init.vim<CR>
 " nmap <leader>m :Mru<CR>
 " nnoremap <leader>gp :call <SID>push()<CR>
 " nnoremap <leader>gl :call <SID>pull()<CR>
+
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'yaml',
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
 
 " spell chech
 map <leader>ss :setlocal spell!<CR>
