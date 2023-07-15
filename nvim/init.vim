@@ -58,7 +58,7 @@ Plug 'elzr/vim-json'
 Plug 'dkarter/bullets.vim'
 
 " Autoformat
-Plug 'psf/black', { 'branch': 'stable' }
+Plug 'psf/black'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'sbdchd/neoformat'
