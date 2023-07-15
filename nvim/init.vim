@@ -43,6 +43,7 @@ Plug 'tpope/vim-repeat'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
 " Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
 " Plug 'jpalardy/vim-slime', { 'for': 'python' }
 " Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
@@ -230,7 +231,6 @@ nmap <leader>w :wa <CR>
 nmap <leader>- :vsplit<CR>
 nmap <leader>_ :split<CR>
 nmap <leader>z :wa<CR>:q<CR>
-nmap <leader>c :Gwrite <CR>
 map <leader>cfv :vi ~/.config/nvim/init.vim<CR>
 vnoremap <leader>s :sort<CR>
 nmap <leader>v :call PasteClipboardImage()<CR>
@@ -516,6 +516,7 @@ let g:coc_global_extensions = [
   \ ]
 nnoremap <silent> <leader>h :CocCommand document.toggleInlayHint<cr>
 nnoremap <silent> <leader>cl :CocDiagnostics<cr>
+nnoremap <silent> <leader>cp :Copilot <cr>
 nnoremap <silent> <leader>ch :call CocAction('doHover')<cr>
 nnoremap <silent> <leader>cf <plug>(coc-codeaction-cursor)
 nnoremap <silent> <leader>ca <plug>(coc-fix-current)
