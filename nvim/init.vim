@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'fannheyward/coc-pyright'
-" Plug 'davidhalter/jedi-vim'
 
 " file browsing
 Plug 'ptzz/lf.vim'
@@ -62,10 +61,6 @@ Plug 'psf/black'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'sbdchd/neoformat'
-" Plug 'prettier/vim-prettier'
-" Plug 'prettier/vim-prettier', {
-"             \ 'do': 'yarn install',
-"             \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " Syntax check
 Plug 'w0rp/ale'
@@ -82,12 +77,8 @@ Plug 'airblade/vim-gitgutter'
 " Font
 Plug 'sjl/badwolf'
 Plug 'ap/vim-css-color'
-" Plug 'morhetz/gruvbox'
 " Plug 'flazz/vim-colorschemes'
-" Plug 'dag/vim-fish'
 " Plug 'tomasr/molokai'
-" Plug 'ajmwagar/vim-dues'
-" Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 " Section: General
