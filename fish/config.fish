@@ -1,9 +1,4 @@
 # config {{{
-# if status --is-interactive
-    # eval sh $HOME/.config/base16-shell/scripts/base16-solarized-light.sh
-    # test -f $HOME/.config/base16-shell/scripts/base16-default-dark.sh; and eval sh $HOME/.config/base16-shell/scripts/base16-default-dark.sh
-# end
-
 # fundle plugin 'tuvistavie/oh-my-fish-core'
 bind -M insert \cc kill-whole-line force-repaint
 set -g -x fish_greeting ''
@@ -14,7 +9,6 @@ set -g fish_key_bindings fish_vi_key_bindings
 # }}}
 # functions {{{
 source ~/.config/fish/functions.fish
-# source ~/.config/fish/functions/z.fish
 
 function pyc
   command find . -name "*.pyc" -exec rm -rf {} \;
@@ -65,7 +59,6 @@ set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x TERMINAL alacritty
-# set -x TERMINAL kitty
 set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
@@ -73,7 +66,6 @@ set -x _ZL_MATCH_MODE 1
 set -x FZF_DEFAULT_COMMAND 'fd'
 test -f ~/.ssh/id_rsa; and set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 # set -x _CONDA_ROOT $HOME/miniconda3
-# set -x VIRTUALFISH_DEFAULT_PYTHON 3.7.8
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'
@@ -129,11 +121,18 @@ test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumeric
 test -d "/Applications/Lumerical 2020a.app/Contents/API/"; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
 test -f "$HOME/.kube/k8s-kops-config"; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
-test -f "$HOME/.cargo/bin/mcfly"; and mcfly init fish | source
-test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
-
 test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.0.0/bin" 
+# test -f "$HOME/.cargo/bin/mcfly"; and mcfly init fish | source
+# test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
+if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
 
+if command -v mcfly >/dev/null
+    mcfly init fish | source
+end
+if command -v zoxide >/dev/null
+    zoxide init fish | source
+end
+eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
 
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # test -d "$HOME/.pyenv"; and set -Ux PYENV_ROOT $HOME/.pyenv; and set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths; and pyenv init - | source
@@ -146,45 +145,3 @@ test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/v
 # }}}
 # dedup_path
 # vim:foldmethod=marker:foldlevel=0
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
-
-
-# ~/.config/fish/functions/nvm.fish
-# function nvm
-#   bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-# end
-
-# # ~/.config/fish/functions/nvm_find_nvmrc.fish
-# function nvm_find_nvmrc
-#   bass source ~/.nvm/nvm.sh --no-use ';' nvm_find_nvmrc
-# end
-
-# # ~/.config/fish/functions/load_nvm.fish
-# function load_nvm --on-variable="PWD"
-#   set -l default_node_version (nvm version default)
-#   set -l node_version (nvm version)
-#   set -l nvmrc_path (nvm_find_nvmrc)
-#   if test -n "$nvmrc_path"
-#     set -l nvmrc_node_version (nvm version (cat $nvmrc_path))
-#     if test "$nvmrc_node_version" = "N/A"
-#       nvm install (cat $nvmrc_path)
-#     else if test "$nvmrc_node_version" != "$node_version"
-#       nvm use $nvmrc_node_version
-#     end
-#   else if test "$node_version" != "$default_node_version"
-#     echo "Reverting to default Node version"
-#     nvm use default
-#   end
-# end
-
-# load_nvm > /dev/stderr
-
-# ~/.config/fish/config.fish
-# You must call it on initialization or listening to directory switching won't work
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
