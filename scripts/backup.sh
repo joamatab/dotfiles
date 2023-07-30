@@ -26,4 +26,3 @@ rsync -av --delete ~/Calibre\ \Library  $BACKUP_PATH
 # rsync -av --delete VirtualBox\ VMs $BACKUP_PATH
 # rsync -av --delete Google\ Drive $BACKUP_PATH
 # rsync -av --delete Dropbox\ \(Personal\)  $BACKUP_PATH
-

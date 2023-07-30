@@ -2,4 +2,3 @@
 
 for m in $(monkeytype list-modules).split('\n'):
     monkeytype apply @(m)
-

@@ -28,7 +28,7 @@ map <leader>e :set foldmethod=expr<CR>
 " nnoremap <silent><buffer><expr> <C-s> :split<CR>
 " nnoremap <silent><buffer><expr> <C-v> :vsplit<CR>
 
-"nmap <leader>i :!/usr/local/bin/ipython -i  <cr> 
+"nmap <leader>i :!/usr/local/bin/ipython -i  <cr>
 "nnoremap <leader>m :silent make\|redraw!\|cw<CR>
 "nnoremap <leader>h :A<CR>
 "nnoremap <leader>ev :vsp $MYVIMRC<CR>
@@ -37,10 +37,10 @@ map <leader>e :set foldmethod=expr<CR>
 "nnoremap <leader>l :call ToggleNumber()<CR>
 "nnoremap <leader><space> :noh<CR>
 "nnoremap <leader>s :mksession<CR>
-"nnoremap <leader>a :Ag 
+"nnoremap <leader>a :Ag
 "nnoremap <leader>c :SyntasticCheck<CR>:Errors<CR>
 "nnoremap <leader>1 :set number!<CR>
-"nnoremap <leader>d :Make! 
+"nnoremap <leader>d :Make!
 "nnoremap <leader>r :TestFile<CR>
 "nnoremap <leader>g :call RunGoFile()<CR>
 "vnoremap <leader>y "+y
@@ -96,7 +96,7 @@ let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
 
 
-" Section: Functions 
+" Section: Functions
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
 function! <SID>StripTrailingWhitespaces()
@@ -164,7 +164,7 @@ endfunction
 " Section: latex
 " let g:airline#extensions#vimtex#enabled = 1
 
-" show when lines extend past 80 characters 
+" show when lines extend past 80 characters
 highlight ColorColumn ctermfg=208 ctermbg=Black
 
 function! MarkMargin (on)

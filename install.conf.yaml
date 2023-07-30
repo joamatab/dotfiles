@@ -10,57 +10,56 @@
       force: true
 
 - link:
-    ~/.agignore: 
-    ~/.aliases: 
-    ~/.bash_profile: 
-    ~/.bashrc: 
+    ~/.agignore:
+    ~/.aliases:
+    ~/.bash_profile:
+    ~/.bashrc:
     ~/.cmus-syncrc:
     ~/.config/broot:
     ~/.config/bspwm:
     ~/.config/cmus/autosave: cmus/autosave
-    ~/.config/dunst/dunstrc: 
+    ~/.config/dunst/dunstrc:
       force: true
     ~/.config/feh: feh
     ~/.config/fish/functions.fish: fish/functions.fish
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/completions: fish/completions
-    ~/.config/flake8: 
-    ~/.config/sway/config: sway 
-    ~/.config/i3/config: i3/config 
+    ~/.config/flake8:
+    ~/.config/sway/config: sway
+    ~/.config/i3/config: i3/config
     # ~/.config/i3blocks/config: i3blocks/config
-    ~/.config/karabiner: 
-    ~/.config/kitty/kitty.conf: 
-    ~/.config/mimeapps.list: 
+    ~/.config/karabiner:
+    ~/.config/kitty/kitty.conf:
+    ~/.config/mimeapps.list:
     ~/.config/mpd: mpd
     ~/.config/mpv: mpv
     ~/.config/ncmpcpp:
     ~/.config/newsboat: newsboat
     # ~/.config/polybar:
-    ~/.config/ranger: 
+    ~/.config/ranger:
     ~/.config/starship.toml:
     ~/.config/nvim:
     ~/.config/coc/python: coc/python
     ~/.config/coc/utilsnips: coc/ultisnips
     ~/.config/lf:
     ~/.config/clipit/clipitrc:
-    ~/.config/dunst/dunstrc:
     ~/.config/sxhkd/sxhkdrc: sxhkd/sxhkdrc
     ~/.config/synapse:
-    ~/.config/zathura/zathurarc: 
+    ~/.config/zathura/zathurarc:
     ~/.dircolors:
-    ~/.gitignore: 
-    ~/.gitcli.yml: 
-    ~/.gitconfig: 
-    ~/.inputrc: 
+    ~/.gitignore:
+    ~/.gitcli.yml:
+    ~/.gitconfig:
+    ~/.inputrc:
     ~/.local/share/applications: local/share/applications
     ~/.moc/config: moc/config
     ~/.moc/keymap: moc/keymap
-    ~/.matplotlib/matplotlibrc: 
-    ~/.pylintrc: 
-    ~/.prettierrc: 
+    ~/.matplotlib/matplotlibrc:
+    ~/.pylintrc:
+    ~/.prettierrc:
     ~/.tmux.conf.local:
-    ~/.vifm: 
+    ~/.vifm:
     ~/.weechat:
     ~/.xinitrc:
       force: true

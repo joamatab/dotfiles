@@ -1,8 +1,8 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4 
-# set $mod Mod1 
+set $mod Mod4
+# set $mod Mod1
 
 gaps inner 15
 gaps outer 0
@@ -15,24 +15,24 @@ for_window [class="^.*"] border pixel 0
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec i3-sensible-terminal 
+bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec $TERMINAL
 
-bindsym $mod+q kill 
-bindsym $mod+Shift+x exec i3lock 
+bindsym $mod+q kill
+bindsym $mod+Shift+x exec i3lock
 bindsym $mod+d exec rofi -show run
-bindsym $mod+x exec rofi -show window 
+bindsym $mod+x exec rofi -show window
 bindsym $mod+i exec firefox
 bindsym $mod+Shift+i exec google-chrome
 
 # change focus
-bindsym $mod+j focus next  
+bindsym $mod+j focus next
 bindsym $mod+k focus prev
 bindsym $mod+h resize shrink width 10 px or 10 ppt
 bindsym $mod+l resize grow width 10 px or 10 ppt
 
-# bindsym $mod+j focus down 
-# bindsym $mod+k focus up 
+# bindsym $mod+j focus down
+# bindsym $mod+k focus up
 
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left
@@ -41,8 +41,8 @@ bindsym $mod+l resize grow width 10 px or 10 ppt
 # bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move down 
-bindsym $mod+Shift+k move up 
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move left
 bindsym $mod+Shift+h move right
 
@@ -104,10 +104,10 @@ bindsym XF86Forward exec playerctl next
 bindsym $mod+m move workspace to output left
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle 
-bindsym XF86Tools exec gnome-control-center 
-bindsym XF86Display exec dock-it 
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86Tools exec gnome-control-center
+bindsym XF86Display exec dock-it
 #&& notify-send "Mute"
 
 
@@ -161,7 +161,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec compton
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 #exec nm-applet
-exec feh --bg-scale ~/Pictures/background.jpg 
+exec feh --bg-scale ~/Pictures/background.jpg
 # exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
 # exec --no-startup-id i3-msg 'workspace 1: support;'
 # exec --no-startup-id i3-msg 'workspace 2: comms'
@@ -175,4 +175,3 @@ client.focused #000000 #000000 #222222 #444444
 hide_edge_borders vertical
 
 # bindsym $mod+Shift+v exec ~/.vim-anywhere/bin/run
-

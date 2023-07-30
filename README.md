@@ -13,7 +13,7 @@ sh install.sh
 # Private kept configs
 
 Host cloud
-    User ubuntu 
+    User ubuntu
     Hostname my.ip.com
     IdentityFile /Users/j/.ssh/joaquin.pem
 

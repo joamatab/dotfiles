@@ -94,4 +94,3 @@ Press any "verb" followed by any "argument" to perform a folder operation. "gd" 
 - [](https://github.com/atheriel/ranger-config.git)
 - [](https://github.com/trishume/dotfiles/tree/master/ranger/ranger.config)
 - [](https://www.everythingcli.org/ranger-image-preview-on-osx-with-iterm2/)
-

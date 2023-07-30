@@ -62,4 +62,3 @@ alias ytv="youtube-dl -ic"
 # fi
 # eval "$(starship init bash)"
 # alias ls='lsd -hA --group-dirs first'
-

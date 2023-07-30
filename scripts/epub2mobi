@@ -4,4 +4,4 @@
 
 for f in *.epub; do
  ebook-convert "$f" "$f.mobi"
-done 
+done

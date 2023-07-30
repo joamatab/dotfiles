@@ -49,7 +49,7 @@ end
 function path_append
   if not contains $argv $PATH
     if test -d $argv
-      set PATH $argv $PATH 
+      set PATH $argv $PATH
     end
   end
 end
@@ -82,7 +82,7 @@ test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
 test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # test -f ~/.aliases2; and status --is-interactive; and  source ~/.aliases2
 # test -f ~/.local/bin/z.lua; and source (lua ~/.local/bin/z.lua --init fish | psub)
-# test -f ~/.local/bin/z.lua; and  lua ~/.local/bin/z.lua --init fish 
+# test -f ~/.local/bin/z.lua; and  lua ~/.local/bin/z.lua --init fish
 # test -f ~/.pyenv; and status --is-interactive; and source (pyenv init -|psub)
 # status is-interactive; and pyenv init --path | source
 # }}}
@@ -120,7 +120,7 @@ test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumeric
 test -d "/Applications/Lumerical 2020a.app/Contents/API/"; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
 test -f "$HOME/.kube/k8s-kops-config"; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
-test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.0.0/bin" 
+test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.0.0/bin"
 # test -f "$HOME/.cargo/bin/mcfly"; and mcfly init fish | source
 # test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
 if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end

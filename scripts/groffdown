@@ -53,4 +53,3 @@ echo "$output"
 
 # $output >> output.ms
 # s/\*\*\*.*\*\*\*/Hi\1hi/g
-

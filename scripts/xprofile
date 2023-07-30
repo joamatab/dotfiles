@@ -1,4 +1,4 @@
 #!/bin/bash
 
-setxkbmap -layout us  
+setxkbmap -layout us
 bash ~/.xprofile

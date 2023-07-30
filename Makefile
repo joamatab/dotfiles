@@ -8,7 +8,7 @@ backup:
 	mv ~/.bashrc ~/.bashrc.bak
 	mv ~/.zshrc ~/.zshrc.bak
 
-install: 
+install:
 	sh install.sh
 
 lumerical:
@@ -33,6 +33,6 @@ update:
 	git submodule update --init --remote dotbot
 
 update-pre:
-	pre-commit autoupdate 
+	pre-commit autoupdate
 
 .PHONY: help install backup tmux lumerical

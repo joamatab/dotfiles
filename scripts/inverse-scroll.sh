@@ -9,4 +9,4 @@ natural_scrolling_id=`xinput list-props $id | \
                       | cut -d'(' -f2 | cut -d')' -f1`
 
 # Set the property to true
-xinput --set-prop $id $natural_scrolling_id 1 
+xinput --set-prop $id $natural_scrolling_id 1

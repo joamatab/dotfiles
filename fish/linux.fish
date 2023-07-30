@@ -3,7 +3,7 @@
 #         set PATH /opt/lumerical/$app/bin $PATH
 #     end
 # end
-# 
+#
 # if [ -d "/opt/lumerical/fdtd" ]
 #     set -x PYTHONPATH /opt/lumerical/fdtd/api/python
 # end
@@ -29,7 +29,7 @@ end
 #     set PATH $PATH $HOME/dotfiles/scripts/linux
 # end
 
-# set -x TERM xterm-256color  
+# set -x TERM xterm-256color
 # sh-add -K ~/.ssh/keys/id_rsa # saves git credentials
 # set -x KLAYOUT_PYTHONPATH /usr/local/bin/python3
 # set -x KLAYOUT_PATH $HOME/files/code/layout/klayout/klayout-ipc/klayout_dot_config
@@ -90,4 +90,3 @@ end
 # if [ -d "$HOME/.local/kitty.app/bin" ]
 #     set PATH $HOME/.local/kitty.app/bin $PATH
 # end
-

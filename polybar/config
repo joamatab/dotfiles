@@ -274,7 +274,7 @@ format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #fff
 
-label = %date% 
+label = %date%
 
 [module/time]
 type = internal/date
@@ -292,7 +292,7 @@ label = %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume =  
+label-volume =
 label-volume-foreground = ${root.foreground}
 
 label-muted = MUTED
@@ -327,7 +327,7 @@ format-charging-underline = #fff
 format-discharging =   <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = 
+format-full-prefix =
 format-full =   FULL
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
@@ -409,5 +409,3 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
-
-

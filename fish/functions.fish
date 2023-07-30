@@ -152,4 +152,3 @@ function git_is_repo -d "Test if the current directory is a Git repository"
         return 1
     end
 end
-

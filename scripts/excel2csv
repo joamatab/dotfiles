@@ -4,4 +4,4 @@
 
 for f in *.xls; do
     xls2csv "$f" > "$f.csv"
-done 
+done

@@ -1,6 +1,18 @@
 add_new_line = false
 
+[aws]
+disabled = true
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
 [line_break]
+disabled = true
+
+[nodejs]
 disabled = true
 
 [package]
@@ -10,16 +22,4 @@ disabled = true
 disabled = true
 
 [ruby]
-disabled = true
-
-[nodejs]
-disabled = true
-
-[java]
-disabled = true
-
-[golang]
-disabled = true
-
-[aws]
 disabled = true

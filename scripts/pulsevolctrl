@@ -12,4 +12,3 @@ fi
 # Updates volume in bar
 # polybar-msg hook volume 1
 # pkill -SIGRTMIN+1 i3blocks
-

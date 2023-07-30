@@ -1,7 +1,7 @@
 if test -z "$Z_DATA"
   if test -z "$XDG_DATA_HOME"
     set -U Z_DATA_DIR "$HOME/.local/share/z"
-  else 
+  else
     set -U Z_DATA_DIR "$XDG_DATA_HOME/z"
   end
   set -U Z_DATA "$Z_DATA_DIR/data"
@@ -9,7 +9,7 @@ end
 
 if test ! -e "$Z_DATA"
   if test ! -e "$Z_DATA_DIR"
-    mkdir -p -m 700 "$Z_DATA_DIR"  
+    mkdir -p -m 700 "$Z_DATA_DIR"
   end
   touch "$Z_DATA"
 end

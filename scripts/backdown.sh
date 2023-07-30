@@ -9,7 +9,6 @@ for dir in $dirs; do
     rsync -av $BACKUP_PATH ~/$dir
 done
 
-rsync -av  $BACKUP_PATH ~/Calibre\ \Library  
+rsync -av  $BACKUP_PATH ~/Calibre\ \Library
 
-# rsync -av --delete $BACKUP_PATH ~/Calibre\ \Library  
-
+# rsync -av --delete $BACKUP_PATH ~/Calibre\ \Library

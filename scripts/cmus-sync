@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import subprocess
 import posixpath
 import time
 import shutil
@@ -16,13 +15,13 @@ def cmus_sync(source, play_cmus, phone, play_phone):
 	# adds every element of the source playlist
 	with open(play_cmus,"r") as source:
 		for line in source:
-			a.add(line.rstrip('\n'))	
+			a.add(line.rstrip('\n'))
 		if '' in a:
 			a.remove('')
 
 	# adds every element of the dest playlist
 	with open(play_phone,"r") as dest:
-		for line in dest:	
+		for line in dest:
 			b.add(line.rstrip('\n'))
 		if '' in b:
 			b.remove('')
@@ -35,25 +34,25 @@ def cmus_sync(source, play_cmus, phone, play_phone):
 	add = a-b
 	# these items should be removed from dest
 	remove = b-a
-	
+
 	remove_songs(remove,phone,source_path)
 	add_songs(add,phone, source_path)
 
 
 	shutil.copy(play_cmus,play_phone)
-	
+
 def remove_songs(remove,phone,source_path):
-	
+
 	# let the user know we're removing
 	print("Removing...")
-	# print the 0% progress, each '#' symbolises 2% 
+	# print the 0% progress, each '#' symbolises 2%
 	print("["+(" "*50)+"]"+" 0%   ",end='\r')
-	
+
 	if len(remove) != 0:
 		# ppi = procent per item
 		ppi = (100/float(len(remove)))
 		# prp = progress procent
-		prp = ppi	
+		prp = ppi
 		# remove the files
 		for item in remove:
 			# the path /Artist/Album/Song
@@ -67,11 +66,11 @@ def remove_songs(remove,phone,source_path):
 			while path != '/':
 				dirs = posixpath.split(path)
 				path_elem.append(dirs[1])
-				path = dirs[0]	
-			
+				path = dirs[0]
+
 			# get the hierarchy the relative path from music folder
 			path_elem = [i for i in path_elem if i not in source_path]
-			# merge with phone path and remove song	
+			# merge with phone path and remove song
 			for i in reversed(path_elem):
 				phone_path = phone_path + '/' + i
 			else:
@@ -84,7 +83,7 @@ def remove_songs(remove,phone,source_path):
 				if os.listdir(phone_path) == []:
 					os.rmdir(phone_path)
 				phone_path = (posixpath.split(phone_path))[0]
-					
+
 			# print current progress
 			print(("["+("#"*prog)+(" "*(50-prog))+"]"+" "+str(round(prp))+"%   "),end='\r')
 			prp += ppi
@@ -101,14 +100,14 @@ def add_songs(add, phone, source_path):
 
 	# let the user know we're removing
 	print("Adding...")
-	# print the 0% progress, each '#' symbolises 2% 
+	# print the 0% progress, each '#' symbolises 2%
 	print("["+(" "*50)+"]"+" 0%   ",end='\r')
-	
+
 	if len(add) != 0:
 		# ppi = procent per item
 		ppi = (100/float(len(add)))
 		# prp = progress procent
-		prp = ppi	
+		prp = ppi
 		# remove the files
 		for item in add:
 			# the path /Artist/Album/Song
@@ -123,7 +122,7 @@ def add_songs(add, phone, source_path):
 			while path != '/':
 				dirs = posixpath.split(path)
 				path_elem.append(dirs[1])
-				path = dirs[0]	
+				path = dirs[0]
 			path_elem = [i for i in path_elem if i not in source_path]
 			song = path_elem[0]
 			path_elem.remove(path_elem[0])
@@ -135,8 +134,8 @@ def add_songs(add, phone, source_path):
 			# add song
 			phone_path = phone_path + "/" + song
 			shutil.copy(item,phone_path)
-		
-	
+
+
 			# print current progress
 			print(("["+("#"*prog)+(" "*(50-prog))+"]"+" "+str(round(prp))+"%   "),end='\r')
 			prp += ppi
@@ -150,7 +149,7 @@ def add_songs(add, phone, source_path):
 
 if __name__=='__main__':
 	#start time for program
-	start_time = time.time()	
+	start_time = time.time()
 	config = configparser.ConfigParser()
 	home = expanduser("~")
 
@@ -165,7 +164,7 @@ if __name__=='__main__':
 	print("Music destination: %s"%(phone))
 	print("Source playlist: %s"%(play_cmus))
 	print("Phone playlist: %s\n"%(play_phone))
-	
+
 	cmus_sync(source, play_cmus, phone, play_phone)
 	#end time for program
 	print("--- %s seconds ---" % (round((time.time() - start_time),3)))

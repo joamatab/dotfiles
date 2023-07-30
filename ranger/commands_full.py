@@ -902,7 +902,6 @@ class relink(Command):
     """
 
     def execute(self):
-        from ranger.container.file import File
 
         new_path = self.rest(1)
         cf = self.fm.thisfile
@@ -952,7 +951,7 @@ class help_(Command):
             elif answer == "s":
                 self.fm.dump_settings()
 
-        c = self.fm.ui.console.ask("View [m]an page, [k]ey bindings,"
+        self.fm.ui.console.ask("View [m]an page, [k]ey bindings,"
                 " [c]ommands or [s]ettings? (press q to abort)", callback, list("mkcsq") + [chr(27)])
 
 
@@ -1364,7 +1363,6 @@ class diff(Command):
     Displays a diff of selected files against the last committed version
     """
     def execute(self):
-        from ranger.ext.vcs import VcsError
         import tempfile
 
         L = self.fm.thistab.get_selection()
@@ -1392,7 +1390,6 @@ class log(Command):
     Displays the log of the current repo or files
     """
     def execute(self):
-        from ranger.ext.vcs import VcsError
         import tempfile
 
         L = self.fm.thistab.get_selection()
@@ -1475,7 +1472,7 @@ class meta(prompt_metadata):
 
     def execute(self):
         key = self.arg(1)
-        value = self.rest(1)
+        self.rest(1)
         update_dict = dict()
         update_dict[key] = self.rest(2)
         selection = self.fm.thistab.get_selection()

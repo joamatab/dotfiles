@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sxhkd &	
+sxhkd &
 # xmodmap -e "keycode 47 = colon semicolon" # remap : and ;
 
 # export EDITOR="nvim"

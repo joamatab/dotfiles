@@ -24,4 +24,3 @@ xrandr --output eDP-1 --mode 2560x1440
 # Comment out the following if this is .xsessionrc file,
 # as opposed to .xsession. See https://wiki.debian.org/Xsession for details.
 exec i3
-

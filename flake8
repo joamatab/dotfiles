@@ -17,4 +17,3 @@ exclude =
     .tox,
     extra,
     .mypy_cache/
-

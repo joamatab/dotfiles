@@ -33,7 +33,7 @@ if status --is-interactive
     abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
     abbr -a kus "setxkbmap -layout us"
     abbr -a kes "setxkbmap -layout es"
-    abbr -a g git 
+    abbr -a g git
     abbr -a ga git add
     abbr -a gb git branch
     abbr -a gc git commit -v
@@ -47,7 +47,7 @@ if status --is-interactive
     abbr -a glo git log --oneline
     abbr -a gp git push
     abbr -a gpo git push -u origin master
-    abbr -a gps git push --set-upstream origin 
+    abbr -a gps git push --set-upstream origin
     abbr -a gra git remote add origin
     abbr -a gs git status
     abbr -a kpo open ~/.config/keepass/database.kdbx
@@ -66,7 +66,7 @@ if status --is-interactive
     abbr -a rs redshift -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
     abbr -a sp sudo pacman -Suy --nocofirm
-    abbr -a sr sourcery refactor --in-place 
+    abbr -a sr sourcery refactor --in-place
     abbr -a srd sr duckduckgo
     abbr -a srg sr google
     abbr -a ssht ssh -L 5901:localhost:5901
@@ -83,18 +83,18 @@ if status --is-interactive
     abbr -a ww nvim -c "VimwikiIndex"
     abbr -a wi nvim -c "VimwikiDiaryIndex"
     abbr -a wa nvim  ~/wikis/awesome_photonics/README.md
-    abbr -a wb nvim  ~/wikis/book-notes/index.md 
-    abbr -a wg nvim  ~/wikis/github/index.md 
-    abbr -a wj nvim  ~/wikis/joaquin/index.md 
+    abbr -a wb nvim  ~/wikis/book-notes/index.md
+    abbr -a wg nvim  ~/wikis/github/index.md
+    abbr -a wj nvim  ~/wikis/joaquin/index.md
     abbr -a xr xrandr --output eDP1 --mode 1920x1080
-    abbr -a xrbig xrandr --output DP2 --mode 1920x1200 
+    abbr -a xrbig xrandr --output DP2 --mode 1920x1200
     abbr -a wea "curl wttr.in"
     abbr -a xc "xclip -sel clip < ~/.ssh/id_rsa.pub"
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
     abbr -a pl /opt/lumerical/v212/python/bin/python
     # abbr -a r ranger
-    # abbr -a nc ncmpcpp 
+    # abbr -a nc ncmpcpp
     # abbr -a p python3
     # abbr -a p2 python2
     # abbr -a p3 python3
@@ -126,7 +126,7 @@ end
 # alias replace="sed -i -e" # usage: replace s/old/new/g' **.py
 # alias ytm="youtube-dl  -x --audio-format mp3"
 # alias ytv="youtube-dl -ic"
-# alias pandocmakeslides="pandoc -t beamer -o slides.pdf" 
+# alias pandocmakeslides="pandoc -t beamer -o slides.pdf"
 # alias pandocmakereadme='pandoc -o README.pdf README.md --number-sections; open README.pdf &'
 
 # alias duh='du -d1 -h' # human readable 1 level

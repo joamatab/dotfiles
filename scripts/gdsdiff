@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -Euo pipefail
-    
+
 echo "layout a: $1 :: $3"
 echo "layout b: $1 :: $6"
 strmcmp -u $2 $5
