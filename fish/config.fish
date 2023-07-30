@@ -4,33 +4,37 @@ bind -M insert \cc kill-whole-line force-repaint
 set -g -x fish_greeting ''
 bind \cb edit_command_buffer
 
-# test -f "$HOME/.autojump/share/autojump/autojump.fish"; and . ~/.autojump/share/autojump/autojump.fish
+# set key bindings
 set -g fish_key_bindings fish_vi_key_bindings
 # }}}
 # functions {{{
 source ~/.config/fish/functions.fish
 
+# Delete all pyc files in the current directory
 function pyc
   command find . -name "*.pyc" -exec rm -rf {} \;
 end
 
+# Convert markdown to html
 function md2html
-    markdown-to-slides "$argv" -o slides.html
-    open slides.html
+  markdown-to-slides "$argv" -o slides.html
+  open slides.html
 end
 
+# Convert markdown to pdf
 function md2pdf
-    pandoc "$argv"  -o "$argv".pdf  -s -t beamer
-    open "$argv".pdf
+  pandoc "$argv"  -o "$argv".pdf  -s -t beamer
+  open "$argv".pdf
 end
 
 function fish_user_key_bindings
-    bind -M insert \cf accept-autosuggestion
-    bind -M insert \cw forward-word
-    bind -M insert \cp history-token-search-backward
-    bind -M insert \cn history-token-search-forward
+  bind -M insert \cf accept-autosuggestion
+  bind -M insert \cw forward-word
+  bind -M insert \cp history-token-search-backward
+  bind -M insert \cn history-token-search-forward
 end
 
+# Removes duplicate entries from $PATH
 function dedup_path --description "Removes duplicate entries from \$PATH"
   set -l NEWPATH
   for p in $PATH
@@ -41,17 +45,14 @@ function dedup_path --description "Removes duplicate entries from \$PATH"
   set PATH $NEWPATH
 end
 
+# Add a new path to the PATH variable if it is not already in it and it is a valid directory
 function path_append
-    if not contains $argv $PATH
-        test -d $argv; and set PATH $argv $PATH 
+  if not contains $argv $PATH
+    if test -d $argv
+      set PATH $argv $PATH 
     end
-    # test -d $argv; and set -U fish_user_paths $argv $fish_user_paths 
-    # test -d $argv; and set -Ux fish_user_paths $argv $fish_user_paths 
-    # if [ -d $argv ]
-        # set PATH $PATH $argv
-    # end
+  end
 end
-
 # }}}
 # variables {{{
 set -x OPENER xdg-open
@@ -62,10 +63,8 @@ set -x TERMINAL alacritty
 set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
-# set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -x FZF_DEFAULT_COMMAND 'fd'
 test -f ~/.ssh/id_rsa; and set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
-# set -x _CONDA_ROOT $HOME/miniconda3
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'

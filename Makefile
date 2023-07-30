@@ -32,4 +32,7 @@ git-rm-merged:
 update:
 	git submodule update --init --remote dotbot
 
+update-pre:
+	pre-commit autoupdate 
+
 .PHONY: help install backup tmux lumerical
