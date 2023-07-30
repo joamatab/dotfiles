@@ -3,15 +3,12 @@ if status --is-interactive
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
     abbr -a d cd ~/Downloads
-    abbr -a ca 'eval ~/.pyenv/versions/miniconda3-latest/bin/conda "shell.fish" "hook" $argv | source'
     abbr -a cfa nvim ~/.config/fish/abbr.fish
     abbr -a cfb nvim ~/.bashrc
     abbr -a cff nvim ~/.config/fish/config.fish
-    abbr -a cffl nvim ~/.local/share/fish/config.fish
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
     abbr -a cfs nvim ~/.config/sxhkd/sxhkdrc
-    abbr -a cfsw nvim ~/.config/sway/config
     abbr -a cfssh nvim ~/.ssh/config
     abbr -a cft nvim ~/.tmux.conf
     abbr -a cfv nvim ~/.config/nvim/init.vim
@@ -19,6 +16,7 @@ if status --is-interactive
     abbr -a cfx nvim ~/.xonshrc
     abbr -a cfz nvim ~/.zshrc
     abbr -a cfc vi ~/gdsfactory/docs/CHANGELOG.md
+    abbr -a ccp cookiecutter https://github.com/joamatab/cookiecutter-pypackage-minimal
     abbr -a define sdcv
     abbr -a duh du -d1 -h
     abbr -a dus du -d1 | sort -n
@@ -26,7 +24,6 @@ if status --is-interactive
     abbr -a dud 'killall -SIGUSR1 dunst'
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
-    abbr -a eterm export TERM=xterm-256color
     abbr -a f fzf
     abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
     abbr -a kus "setxkbmap -layout us"
@@ -59,7 +56,6 @@ if status --is-interactive
     abbr -a path 'echo $PATH | tr -s " " "\n"'
     abbr -a pi "pip install"
     abbr -a pu "pip uninstall"
-    abbr -a pe "pipenv"
     abbr -a q exit
     abbr -a rs redshift -O 2000 &
     abbr -a sf source ~/.config/fish/config.fish
@@ -90,12 +86,8 @@ if status --is-interactive
     abbr -a xc "xclip -sel clip < ~/.ssh/id_rsa.pub"
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
-    abbr -a pl /opt/lumerical/v212/python/bin/python
     # abbr -a r ranger
     # abbr -a nc ncmpcpp
-    # abbr -a p python3
-    # abbr -a p2 python2
-    # abbr -a p3 python3
 end
 
 # alias v="nvim"
