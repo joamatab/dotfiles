@@ -58,7 +58,7 @@
     ~/.matplotlib/matplotlibrc:
     ~/.pylintrc:
     ~/.prettierrc:
-    ~/.tmux.conf.local:
+    ~/.tmux.conf:
     ~/.vifm:
     ~/.weechat:
     ~/.xinitrc:
