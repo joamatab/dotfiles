@@ -51,6 +51,7 @@ if status --is-interactive
     abbr -a monsl 'mons -S 3,2:R'
     abbr -a monsr 'mons -S 2,3:R'
     abbr -a monsg 'mons -S 1,2:R'
+    abbr -a monst 'mons -S 0,3:T'
     abbr -a lt lsd --tree
     abbr -a o open
     abbr -a path 'echo $PATH | tr -s " " "\n"'
