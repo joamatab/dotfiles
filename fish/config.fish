@@ -132,7 +132,7 @@ end
 if command -v zoxide >/dev/null
     zoxide init fish | source
 end
-eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
+# if [ -f "$HOME/mambaforge" ]; eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
 
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # test -d "$HOME/.pyenv"; and set -Ux PYENV_ROOT $HOME/.pyenv; and set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths; and pyenv init - | source
