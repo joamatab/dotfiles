@@ -22,7 +22,7 @@
       "filetypes": ["python"]
     },
     "sourcery": {
-      "command": "/home/jmatres/mambaforge/bin/sourcery",
+      "command": "sourcery",
       "args": ["lsp"],
       "filetypes": ["python"],
       "initializationOptions": {

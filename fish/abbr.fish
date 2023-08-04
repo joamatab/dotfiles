@@ -4,14 +4,14 @@ if status --is-interactive
     abbr -a bm nvim ~/.bmdirs
     abbr -a d cd ~/Downloads
     abbr -a cfa nvim ~/.config/fish/abbr.fish
-    abbr -a cfb nvim ~/.bashrc
-    abbr -a cff nvim ~/.config/fish/config.fish
+    abbr -a cfb nvim ~/dotfiles/bashrc
+    abbr -a cff nvim ~/dotfiles/fish/config.fish
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
     abbr -a cfs nvim ~/.config/sxhkd/sxhkdrc
     abbr -a cfssh nvim ~/.ssh/config
-    abbr -a cft nvim ~/.tmux.conf
-    abbr -a cfv nvim ~/.config/nvim/init.vim
+    abbr -a cft nvim ~/dotfiles/tmux.conf
+    abbr -a cfv nvim ~/dotfiles/config/nvim/init.vim
     abbr -a cfy nvim ~/.yabairc
     abbr -a cfx nvim ~/.xonshrc
     abbr -a cfz nvim ~/.zshrc

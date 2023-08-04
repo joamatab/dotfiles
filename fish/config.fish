@@ -119,12 +119,16 @@ path_append ~/bin
 # more_variables {{{
 test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python
 test -d "/Applications/Lumerical 2020a.app/Contents/API/"; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
+# test -d "$HOME/mambaforge"; . "$HOME/mambaforge/etc/profile.d/mamba.sh" 
 test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
+# test -d "$HOME/mambaforge"; and source $HOME/mambaforge/etc/fish/conf.d/conda.fish; and set PATH $HOME/mambaforge/bin $PATH
 test -f "$HOME/.kube/k8s-kops-config"; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.0.0/bin"
 # test -f "$HOME/.cargo/bin/mcfly"; and mcfly init fish | source
 # test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
-if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"; end
+# if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"
+# lf [ -f "$HOME/micromamba" ]; and set -gx MAMBA_EXE "$HOME/.local/bin/micromamba"; and set -gx MAMBA_ROOT_PREFIX "$HOME/micromamba"; eval "$HOME/bin/micromamba" shell hook --shell fish --prefix "$HOME/micromamba" | source
+# if [ -f "$HOME/mambaforge" ]; eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source 
 
 if command -v mcfly >/dev/null
     mcfly init fish | source
@@ -132,7 +136,14 @@ end
 if command -v zoxide >/dev/null
     zoxide init fish | source
 end
-# if [ -f "$HOME/mambaforge" ]; eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
+
+if test -f "$HOME/mambaforge/bin/conda"
+    eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
+end
+
+if test -f "$HOME/mambaforge/etc/fish/conf.d/mamba.fish"
+    source "$HOME/mambaforge/etc/fish/conf.d/mamba.fish"
+end
 
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # test -d "$HOME/.pyenv"; and set -Ux PYENV_ROOT $HOME/.pyenv; and set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths; and pyenv init - | source
@@ -145,3 +156,5 @@ end
 # }}}
 # dedup_path
 # vim:foldmethod=marker:foldlevel=0
+
+
