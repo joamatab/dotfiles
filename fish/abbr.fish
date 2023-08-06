@@ -3,6 +3,7 @@ if status --is-interactive
     abbr -a bf nvim ~/.bmfiles
     abbr -a bm nvim ~/.bmdirs
     abbr -a d cd ~/Downloads
+    abbr -a c cd ~/c
     abbr -a cfa nvim ~/.config/fish/abbr.fish
     abbr -a cfb nvim ~/dotfiles/bashrc
     abbr -a cff nvim ~/dotfiles/fish/config.fish
