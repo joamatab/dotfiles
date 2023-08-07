@@ -114,6 +114,7 @@ path_append ~/.pyenv/bin
 path_append ~/mambaforge/bin
 path_append ~/install_new_computer/xschem/src
 path_append ~/bin
+path_append ~/.pulumi/bin
 
 # }}}
 # more_variables {{{
