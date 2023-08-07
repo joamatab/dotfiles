@@ -21,14 +21,13 @@ if status --is-interactive
     abbr -a define sdcv
     abbr -a duh du -d1 -h
     abbr -a dus du -d1 | sort -n
-    abbr -a due 'killall -SIGUSR2 dunst'
-    abbr -a dud 'killall -SIGUSR1 dunst'
     abbr -a e exa --git-ignore -I __pycache__
     abbr -a et exa --tree --git-ignore -I __pycache__
     abbr -a f fzf
     abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
     abbr -a kus "setxkbmap -layout us"
-    abbr -a kes "setxkbmap -layout es"
+    abbr -a kespanol "setxkbmap -layout es"
+    abbr -a killp "ps aux | grep ipykernel | grep -v grep | awk '{print $2}' | xargs kill -9"
     abbr -a g git
     abbr -a ga git add
     abbr -a gb git branch
@@ -52,7 +51,7 @@ if status --is-interactive
     abbr -a monsl 'mons -S 3,2:R'
     abbr -a monsr 'mons -S 2,3:R'
     abbr -a monsg 'mons -S 1,2:R'
-    abbr -a monst 'mons -S 0,3:T'
+    abbr -a monst 'mons -S 0,2:T'
     abbr -a lt lsd --tree
     abbr -a o open
     abbr -a path 'echo $PATH | tr -s " " "\n"'

@@ -65,10 +65,10 @@ XF86MonBrightnessUp
 XF86AudioMute
 	amixer sset Master toggle; pkill -RTMIN+10 blocks
 XF86Audio{Raise,Lower}Volume
-	amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
 # Increase volume
 super + {equal,plus}
-	amixer sset Master {5,15}%+; pkill -RTMIN+10 blocks
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
 # Decrease volume
 super {_,shift +} + minus
 	amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks

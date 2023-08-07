@@ -189,6 +189,7 @@ let mapleader="'"
 
 nmap <leader>2 :call <SID>compile_and_run()<CR>
 nmap <leader>1 :wa<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
+" nmap <leader>1 :wa<CR>:bufdo if &buftype == 'terminal' | bd | endif<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
 nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
 nmap <Leader>a <Plug>(Prettier)
