@@ -1,0 +1,8 @@
+#!/bin/bash
+# Usage: gh_clean <jq filter>
+# For example gh test_update_requirements.yml will delete all workflow runs on github
+
+gh run list --json databaseId  -q '.[].databaseId' -w "$1" --limit 900 |
+        xargs -IID -P 15 gh api \
+              "repos/$(gh repo view --json nameWithOwner -q .nameWithOwner)/actions/runs/ID" \
+              -X DELETE
