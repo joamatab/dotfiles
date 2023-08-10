@@ -16,7 +16,7 @@ if status --is-interactive
     abbr -a cfy nvim ~/.yabairc
     abbr -a cfx nvim ~/.xonshrc
     abbr -a cfz nvim ~/.zshrc
-    abbr -a cfc vi ~/gdsfactory/docs/CHANGELOG.md
+    abbr -a cfc nvim ~/gdsfactory/docs/CHANGELOG.md
     abbr -a ccp cookiecutter https://github.com/joamatab/cookiecutter-pypackage-minimal
     abbr -a define sdcv
     abbr -a duh du -d1 -h
