@@ -63,17 +63,17 @@ XF86MonBrightnessUp
 
 # Audiokeys
 XF86AudioMute
-	amixer sset Master toggle; pkill -RTMIN+10 blocks
+	pulsemixer --toggle-mute; pkill -RTMIN+10 blocks
 XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume @DEFAULT_SINK@ -10%
+	pulsemixer  --change-volume -5
 # Increase volume
 super + {equal,plus}
-    pactl set-sink-volume @DEFAULT_SINK@ +10%
+	pulsemixer  --change-volume +5
 # Decrease volume
 super {_,shift +} + minus
 	amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks
 super + shift + m
-	amixer sset Master toggle; pkill -RTMIN+10 blocks
+	pulsemixer --toggle-mute
 
 # Recording
 # Take screenshot
