@@ -60,7 +60,7 @@ map o open $f
 # text files and a file opener for the rest.
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
-	application/octet-stream) gf gds show $f ;;
+	application/octet-stream) gf show $f ;;
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
         text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;

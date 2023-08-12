@@ -42,6 +42,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
+Plug 'vim-test/vim-test'
 " Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
 " Plug 'jpalardy/vim-slime', { 'for': 'python' }
 " Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
@@ -419,6 +420,11 @@ set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
 nnoremap <space> za
 
+" Section: VimTest
+let test#strategy="neovim"
+nmap <leader>tn :TestNearest<CR>
+nmap <leader>tf :TestFile<CR>
+nmap <leader>ts :TestSuite<CR>
 
 " Section: VimWiki
 let g:vimwiki_list = [
