@@ -64,14 +64,14 @@ XF86MonBrightnessUp
 # Audiokeys
 XF86AudioMute
 	pulsemixer --toggle-mute; pkill -RTMIN+10 blocks
-XF86Audio{Raise,Lower}Volume
-	pulsemixer  --change-volume -5
-# Increase volume
-super + {equal,plus}
+XF86AudioRaiseVolume
 	pulsemixer  --change-volume +5
-# Decrease volume
+XF86AudioLowerVolume
+	pulsemixer  --change-volume -5
+super + {equal,plus}
+    pulsemixer  --change-volume +5
 super {_,shift +} + minus
-	amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks
+	pulsemixer  --change-volume -5
 super + shift + m
 	pulsemixer --toggle-mute
 
@@ -90,16 +90,6 @@ super + Print
 # kill active recording
 super + Delete
 	dmenurecord kill
-
-# Pause audio
-# Increase volume
-super + {equal,plus}
-	amixer sset Master {5,15}%+; pkill -RTMIN+10 blocks
-# Decrease volume
-super {_,shift +} + minus
-	amixer sset Master {5,15}%-; pkill -RTMIN+10 blocks
-super + shift + m
-	amixer sset Master toggle; pkill -RTMIN+10 blocks
 
 # Function keys
 # Show readme
