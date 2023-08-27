@@ -422,9 +422,9 @@ nnoremap <space> za
 
 " Section: VimTest
 let test#strategy="neovim"
-nmap <leader>tn :TestNearest<CR>
-nmap <leader>tf :TestFile<CR>
-nmap <leader>ts :TestSuite<CR>
+nmap <leader>tn :wa<CR>:TestNearest<CR>
+nmap <leader>tf :wa<CR>:TestFile<CR>
+nmap <leader>ts :wa<CR>:TestSuite<CR>
 
 " Section: VimWiki
 let g:vimwiki_list = [
