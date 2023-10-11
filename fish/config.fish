@@ -88,7 +88,7 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # status is-interactive; and pyenv init --path | source
 # }}}
 # path {{{
-# path /opt/lumerical/(ls /opt/lumerical)/bin
+path_append /opt/lumerical/v232/bin
 path_append /opt/lumerical/v212/bin
 path_append /usr/local/sbin
 path_append /opt/homebrew/bin
@@ -118,7 +118,7 @@ path_append ~/.pulumi/bin
 
 # }}}
 # more_variables {{{
-test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python
+test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python; and path_append /opt/lumerical/(ls /opt/lumerical)/bin
 test -d "/Applications/Lumerical 2020a.app/Contents/API/"; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 # test -d "$HOME/mambaforge"; . "$HOME/mambaforge/etc/profile.d/mamba.sh" 
 test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
