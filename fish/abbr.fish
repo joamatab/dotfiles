@@ -16,7 +16,7 @@ if status --is-interactive
     abbr -a cfy nvim ~/.yabairc
     abbr -a cfx nvim ~/.xonshrc
     abbr -a cfz nvim ~/.zshrc
-    abbr -a cfc nvim ~/gdsfactory/docs/CHANGELOG.md
+    abbr -a cfc nvim CHANGELOG.md
     abbr -a ccp cookiecutter https://github.com/joamatab/cookiecutter-pypackage-minimal
     abbr -a define sdcv
     abbr -a duh du -d1 -h
@@ -50,8 +50,7 @@ if status --is-interactive
     abbr -a ll ls -al
     abbr -a monsl 'mons -S 3,2:R'
     abbr -a monsr 'mons -S 2,3:R'
-    abbr -a monsg 'mons -S 1,2:R'
-    abbr -a monst 'mons -S 0,3:T'
+    abbr -a monst 'mons -S 0,1:T'
     abbr -a lt lsd --tree
     abbr -a o open
     abbr -a path 'echo $PATH | tr -s " " "\n"'
