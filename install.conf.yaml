@@ -21,11 +21,11 @@
     ~/.config/dunst/dunstrc:
       force: true
     ~/.config/feh: feh
+    ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/functions.fish: fish/functions.fish
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/completions: fish/completions
-    ~/.config/flake8:
     ~/.config/sway/config: sway
     ~/.config/i3/config: i3/config
     # ~/.config/i3blocks/config: i3blocks/config

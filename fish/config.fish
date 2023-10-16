@@ -124,7 +124,7 @@ test -d "/Applications/Lumerical 2020a.app/Contents/API/"; and set -x PYTHONPATH
 test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
 # test -d "$HOME/mambaforge"; and source $HOME/mambaforge/etc/fish/conf.d/conda.fish; and set PATH $HOME/mambaforge/bin $PATH
 test -f "$HOME/.kube/k8s-kops-config"; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
-test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.0.0/bin"
+test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.8.1/bin"
 # test -f "$HOME/.cargo/bin/mcfly"; and mcfly init fish | source
 # test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
 # if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"
@@ -136,6 +136,10 @@ if command -v mcfly >/dev/null
 end
 if command -v zoxide >/dev/null
     zoxide init fish | source
+end
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
 
 if test -f "$HOME/mambaforge/bin/conda"

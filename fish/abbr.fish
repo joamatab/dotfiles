@@ -51,6 +51,7 @@ if status --is-interactive
     abbr -a monsl 'mons -S 3,2:R'
     abbr -a monsr 'mons -S 2,3:R'
     abbr -a monst 'mons -S 0,1:T'
+    abbr -a monsg 'mons -S 4,1:R'
     abbr -a lt lsd --tree
     abbr -a o open
     abbr -a path 'echo $PATH | tr -s " " "\n"'
@@ -82,6 +83,7 @@ if status --is-interactive
     abbr -a wj nvim  ~/wikis/joaquin/index.md
     abbr -a xr xrandr --output eDP1 --mode 1920x1080
     abbr -a xrbig xrandr --output DP2 --mode 1920x1200
+    abbr -a xrg xrandr --output eDP-1 --mode 2560x1600
     abbr -a wea "curl wttr.in"
     abbr -a ytm youtube-dl  -x --audio-format mp3
     abbr -a ytv youtube-dl -ic
