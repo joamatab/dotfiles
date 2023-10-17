@@ -1,7 +1,6 @@
 # Basic binds
 super + Return
-    alacritty
-	# /usr/bin/kitty /usr/bin/fish
+	/usr/bin/kitty /usr/bin/fish
 	# $TERMINAL
 super + shift + a
 	alacritty
