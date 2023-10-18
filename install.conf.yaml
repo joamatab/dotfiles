@@ -23,6 +23,7 @@
     ~/.config/feh: feh
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/rofi:
+    ~/.config/kanshi: 
     ~/.config/fish/functions.fish: fish/functions.fish
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/completions: fish/completions
