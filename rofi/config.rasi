@@ -1,0 +1,9 @@
+configuration {
+    modi: "combi";
+    combi-modi: "window,drun,run,ssh";
+    location: 2;
+    show-icons: true;
+    matching: "normal";
+    terminal: "alacritty";
+}
+@theme "gruvbox-dark"
