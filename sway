@@ -1,6 +1,6 @@
 # vim: foldmethod=marker foldlevel=1
 # Variables {{{
-# Keys {{{
+# Movement Keys {{{
 set $mod Mod4
 set $left h
 set $down j
@@ -70,7 +70,8 @@ input "type:touchpad" {
 # Keyboard {{{
 input "type:keyboard" {
     xkb_layout us
-    xkb_options caps:escape
+    #xkb_options caps:escape
+    xkb_options ctrl:nocaps
 }
 # }}}
 # }}}
@@ -88,8 +89,8 @@ bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
 # }}}
 # Basics {{{
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+q kill
+bindsym $mod+Return exec $term -e fish
+bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym Control+Shift+L exec swaylock -e -f -i $bg_img
 floating_modifier $mod normal
@@ -97,7 +98,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exit
 # }}}
 # Screenshots {{{
-bindsym Print flameshot
+bindsym Print flameshot gui
 bindsym Control+Print exec grim -o \
     $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') \
     $(xdg-user-dir PICTURES)/screenshots/$(date +'screenshot_%Y%m%d_%H%M%S.png')
