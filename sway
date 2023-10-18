@@ -42,10 +42,8 @@ exec "ssh-agent -a $SSH_AUTH_SOCK"
 # }}}
 # swayidle {{{
 exec swayidle \
-    timeout 300 'swaylock -e -f -i $bg_img' \
     timeout 600 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -e -f -i $bg_img'
 # }}}
 # }}}
 # Outputs {{{
@@ -77,7 +75,7 @@ input "type:keyboard" {
 # }}}
 # Key bindings {{{
 # Laptop suspend {{{
-bindswitch --locked lid:on exec "swaylock -e -f -i $bg_img; systemctl suspend"
+bindswitch --locked lid:on exec "systemctl suspend"
 bindswitch --locked lid:off exec "swaymsg reload"
 # }}}
 # Special keys {{{
