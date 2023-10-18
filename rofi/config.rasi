@@ -1,6 +1,6 @@
 configuration {
     modi: "combi";
-    combi-modi: "window,drun,run,ssh";
+    combi-modi: "drun,run,ssh";
     location: 2;
     show-icons: true;
     matching: "normal";

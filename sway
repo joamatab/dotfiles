@@ -92,7 +92,8 @@ bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
 bindsym $mod+Return exec $term -e fish
 bindsym $mod+q kill
 bindsym $mod+d exec $menu
-bindsym Control+Shift+L exec swaylock -e -f -i $bg_img
+bindsym $mod+x exec swaylock -e -f -i $bg_img
+bindsym $mod+Tab workspace back_and_forth
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exit
