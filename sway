@@ -95,6 +95,7 @@ bindsym $mod+Tab workspace back_and_forth
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exit
+bindsym $mod+grave exec wofi-emoji
 # }}}
 # Screenshots {{{
 bindsym Print exec slurp | grim -g - $(xdg-user-dir PICTURES)/screenshots/$(date +'screenshot_%Y%m%d_%H%M%S.png') | wl-copy slurp
