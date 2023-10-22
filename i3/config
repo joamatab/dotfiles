@@ -90,7 +90,6 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86Tools exec gnome-control-center
 bindsym XF86Display exec dock-it
 # }}}
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bar {
   status_command i3status
   colors {
@@ -100,8 +99,9 @@ bar {
     inactive_workspace #333333 #333333 #AAAAAA
   }
 }
-#exec compton
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# exec compton
+# exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec nm-applet
 # exec feh --bg-scale $HOME/dotfiles/luke/.local/share/thiemeyer_road_to_samarkand.jpg
 # exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
