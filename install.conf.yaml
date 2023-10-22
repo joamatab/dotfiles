@@ -21,7 +21,8 @@
     ~/.config/dunst/dunstrc:
       force: true
     ~/.config/feh: feh
-    ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish:
+      force: true
     ~/.config/rofi:
     ~/.config/kanshi: 
     ~/.config/fish/functions.fish: fish/functions.fish

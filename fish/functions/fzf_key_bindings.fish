@@ -1,1 +1,1 @@
-/home/j/.fzf/shell/key-bindings.fish
+/home/archie/.fzf/shell/key-bindings.fish

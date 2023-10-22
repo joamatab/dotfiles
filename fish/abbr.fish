@@ -10,6 +10,7 @@ if status --is-interactive
     abbr -a cfk nvim ~/dotfiles/kanshi/config
     abbr -a cfl nvim ~/dotfiles/lf/lfrc
     abbr -a cfr nvim ~/dotfiles/ranger/rc.conf
+    abbr -a cfi nvim ~/.config/i3/config
     abbr -a cfs nvim ~/.config/sway/config
     abbr -a cfsx nvim ~/.config/sxhkd/sxhkdrc
     abbr -a cfssh nvim ~/.ssh/config
