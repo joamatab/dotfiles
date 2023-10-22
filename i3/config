@@ -91,13 +91,26 @@ bindsym XF86Tools exec gnome-control-center
 bindsym XF86Display exec dock-it
 # }}}
 bar {
-  status_command i3status
-  colors {
-    statusline #AAAAAA
-    background #111111
-    focused_workspace #282828 #282828 #FFFFFF
-    inactive_workspace #333333 #333333 #AAAAAA
-  }
+	i3bar_command i3bar
+	status_command i3status
+	position bottom
+	bindsym button4 nop
+	bindsym button5 nop
+#   font xft:URWGothic-Book 11
+	strip_workspace_numbers yes
+
+    colors {
+        background #222D31
+        statusline #F9FAF9
+        separator  #454947
+
+#                      border  backgr. text
+        focused_workspace  #F9FAF9 #16a085 #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
+    }
 }
 # exec compton
 # exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
