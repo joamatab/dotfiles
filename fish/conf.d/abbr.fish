@@ -68,6 +68,8 @@ abbr -a srg sr google
 abbr -a ssht ssh -L 5901:localhost:5901
 abbr -a setf set -x SHELL /usr/bin/fish
 abbr -a setb set -x SHELL /usr/bin/bash
+abbr -a sus systemctl suspend -i
+abbr -a susl i3lock && systemctl suspend -i
 abbr -a t trash
 abbr -a timela 'timedatectl set-timezone America/Los_Angeles'
 abbr -a timemadrid 'timedatectl set-timezone Europe/Madrid'
