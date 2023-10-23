@@ -19,7 +19,6 @@ exec --no-startup-id setxkbmap -option ctrl:nocaps # CapsLock behaves like Ctrl
 exec --no-startup-id setxkbmap -layout us
 exec --no-startup-id xcape -e 'Control_L=Escape' # short-pressed Ctrl behaves like Escape
 exec --no-startup-id setbg
-exec --no-startup-id ibus engine xkb:us::eng
 # }}}
 # keybindings {{{
 bindsym $mod+Return exec i3-sensible-terminal -e fish
