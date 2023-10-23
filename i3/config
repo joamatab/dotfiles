@@ -20,7 +20,7 @@ bindsym $mod+Shift+x exec i3lock
 bindsym $mod+d exec rofi -show run
 bindsym $mod+x exec rofi -show window
 bindsym $mod+i exec firefox
-bindsym $mod+Shift+i exec google-chrome
+bindsym $mod+Shift+i exec google-chrome-stable
 bindsym $mod+Shift+c restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'yes' 'i3-msg exit'"
 bindsym $mod+Tab workspace back_and_forth
