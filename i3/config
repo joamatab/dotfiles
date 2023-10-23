@@ -23,6 +23,7 @@ bindsym $mod+i exec firefox
 bindsym $mod+Shift+i exec google-chrome
 bindsym $mod+Shift+c restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'yes' 'i3-msg exit'"
+bindsym $mod+Tab workspace back_and_forth
 # }}}
 # Windows {{{
 bindsym $mod+$left focus left
@@ -108,6 +109,9 @@ bindsym XF86Tools exec gnome-control-center
 bindsym XF86Display exec dock-it
 # }}}
 # Status Bar {{{
+# Screenshots {{{
+bindsym Print exec flameshot gui
+# }}}
 bar {
 	i3bar_command i3bar
 	status_command i3status
@@ -118,14 +122,3 @@ bar {
 	strip_workspace_numbers yes
 }
 # }}}
-# exec compton
-# exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec nm-applet
-# exec feh --bg-scale $HOME/dotfiles/luke/.local/share/thiemeyer_road_to_samarkand.jpg
-# exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
-# exec --no-startup-id i3-msg 'workspace 1: support;'
-# exec --no-startup-id i3-msg 'workspace 2: comms'
-# exec --no-startup-id i3-msg 'workspace 2: comms; exec dynamite; exec gmail'
-# exec $HOME/.i3/autostart.sh
-
