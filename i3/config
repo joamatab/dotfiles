@@ -6,10 +6,8 @@ set $left h
 set $down j
 set $up k
 set $right l
-
-gaps inner 15
+gaps inner 5
 gaps outer 0
-
 workspace_layout default
 floating_modifier $mod
 # }}}
