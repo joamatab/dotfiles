@@ -7,11 +7,31 @@ set $down j
 set $up k
 set $right l
 
-gaps inner 15
+gaps inner 5
 gaps outer 0
 
 workspace_layout default
 floating_modifier $mod
+# }}}
+# startup {{{
+exec --no-startup-id volumeicon
+# }}}
+# shutdown/restart/lock {{{
+bindsym $mod+0 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 # }}}
 # keybindings {{{
 bindsym $mod+Return exec i3-sensible-terminal -e fish
@@ -24,6 +44,7 @@ bindsym $mod+Shift+i exec google-chrome
 bindsym $mod+Shift+c restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'yes' 'i3-msg exit'"
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # }}}
 # Windows {{{
 bindsym $mod+$left focus left
