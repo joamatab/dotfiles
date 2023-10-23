@@ -49,7 +49,7 @@ export SHELL="fish"
 # megasync &
 
 # ssh-agent -a ${XDG_RUNTIME_DIR}/ssh-agent.socket &
-# ssh-agent -a "${SSH_AUTH_SOCK}" &
-# xset r rate 300 50 # Speed xrate up
-# setxkbmap -option ctrl:nocaps # CapsLock behaves like Ctrl
-# xcape -e 'Control_L=Escape' # short-pressed Ctrl behaves like Escape
+ssh-agent -a "${SSH_AUTH_SOCK}" &
+xset r rate 300 50 # Speed xrate up
+setxkbmap -option ctrl:nocaps # CapsLock behaves like Ctrl
+xcape -e 'Control_L=Escape' # short-pressed Ctrl behaves like Escape
