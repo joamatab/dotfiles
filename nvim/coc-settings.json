@@ -35,5 +35,6 @@
         }
       }
     }
-  }
+  },
+  "svelte.enable-ts-plugin": false
 }
