@@ -36,6 +36,7 @@ abbr -a gc git commit -v
 abbr -a gca git commit -va
 abbr -a gcb git checkout -b
 abbr -a gco git checkout
+abbr -a gcopr "git fetch origin pull/123:branchname; git checkout branchname"
 abbr -a gfpr git fetch origin pull/ID/head:BRANCHNAME
 abbr -a gcp "git commit -va; git push"
 abbr -a gd git diff

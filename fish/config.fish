@@ -143,6 +143,19 @@ function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
 
+function ghpr
+    set pr_number $argv[1]
+    set branch_name $argv[2]
+
+    if test (count $argv) -ne 2
+        echo "Usage: ghpr <pull request number> <branch name>"
+        return 1
+    end
+
+    git fetch origin pull/$pr_number/head:$branch_name
+    git checkout $branch_name
+end
+
 if test -f "$HOME/mambaforge/bin/conda"
     eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
 end
