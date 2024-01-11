@@ -220,6 +220,9 @@ nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>i
+
 nmap <leader>ga :Gwrite<CR>
 nmap <leader>gw :Gwrite<CR>
 nmap <leader>gs :Git<CR>
