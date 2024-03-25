@@ -101,4 +101,3 @@ if [ -f "$HOME/mambaforge/etc/profile.d/mamba.sh" ]; then
     . "$HOME/mambaforge/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
-
