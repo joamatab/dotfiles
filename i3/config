@@ -22,6 +22,7 @@ bindsym $mod+Shift+i exec google-chrome-stable
 bindsym $mod+Shift+c restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'yes' 'i3-msg exit'"
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+space exec dmenu-emoji.sh
 # }}}
 # Windows {{{
 bindsym $mod+$left focus left
