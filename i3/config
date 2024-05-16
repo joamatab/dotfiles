@@ -11,7 +11,7 @@ gaps outer 0
 workspace_layout default
 floating_modifier $mod
 # }}}
-# keybindings {{{
+# Keybindings {{{
 bindsym $mod+Return exec i3-sensible-terminal -e fish
 bindsym $mod+q kill
 bindsym $mod+Shift+x exec i3lock
@@ -22,7 +22,6 @@ bindsym $mod+Shift+i exec google-chrome-stable
 bindsym $mod+Shift+c restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'yes' 'i3-msg exit'"
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+space exec dmenu-emoji.sh
 # }}}
 # Windows {{{
 bindsym $mod+$left focus left
@@ -104,20 +103,18 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-# bindsym XF86Tools exec gnome-control-center
-# bindsym XF86Display exec dock-it
+bindsym XF86Tools exec gnome-control-center
+bindsym XF86Display exec dock-it
 # }}}
 # Status Bar {{{
-# Screenshots {{{
-bindsym Print exec flameshot gui
-# }}}
 bar {
-	i3bar_command i3bar
-	status_command i3status
-	position bottom
-	bindsym button4 nop
-	bindsym button5 nop
+    i3bar_command i3bar
+    status_command i3status
+    position bottom
+    bindsym button4 nop
+    bindsym button5 nop
     font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+    strip_workspace_numbers yes
 }
 # }}}
+
