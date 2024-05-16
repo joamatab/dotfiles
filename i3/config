@@ -104,8 +104,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86Tools exec gnome-control-center
-bindsym XF86Display exec dock-it
+# bindsym XF86Tools exec gnome-control-center
+# bindsym XF86Display exec dock-it
 # }}}
 # Status Bar {{{
 # Screenshots {{{
