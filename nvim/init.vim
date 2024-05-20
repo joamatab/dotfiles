@@ -218,7 +218,7 @@ vnoremap <leader>s :sort<CR>
 nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
-nmap <leader>tk :wa<CR>:sp<CR>:resize 10<CR>:term pkill ipython<CR>
+nmap <leader>K :wa<CR>:sp<CR>:resize 10<CR>:term pkill ipython<CR>
 nmap <leader>k :bdelete! <CR>
 map <leader>n :set rnu!<CR>
 
