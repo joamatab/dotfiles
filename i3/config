@@ -11,7 +11,7 @@ gaps outer 0
 workspace_layout default
 floating_modifier $mod
 # }}}
-# keybindings {{{
+# Keybindings {{{
 bindsym $mod+Return exec i3-sensible-terminal -e fish
 bindsym $mod+q kill
 bindsym $mod+Shift+x exec i3lock
@@ -107,16 +107,14 @@ bindsym XF86Tools exec gnome-control-center
 bindsym XF86Display exec dock-it
 # }}}
 # Status Bar {{{
-# Screenshots {{{
-bindsym Print exec flameshot gui
-# }}}
 bar {
-	i3bar_command i3bar
-	status_command i3status
-	position bottom
-	bindsym button4 nop
-	bindsym button5 nop
+    i3bar_command i3bar
+    status_command i3status
+    position bottom
+    bindsym button4 nop
+    bindsym button5 nop
     font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+    strip_workspace_numbers yes
 }
 # }}}
+

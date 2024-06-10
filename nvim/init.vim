@@ -193,7 +193,7 @@ nmap <leader>1 :wa<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
 " nmap <leader>1 :wa<CR>:bufdo if &buftype == 'terminal' | bd | endif<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
 nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
-nmap <Leader>a <Plug>(Prettier)
+nmap <leader>a <Plug>(Prettier)
 " nmap <Leader>a :Autoformat<CR>
 nmap <leader>o :Files<CR>
 nmap <leader>O :Files!<CR>
@@ -201,7 +201,6 @@ nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>id :r!date "+\%F"<CR>
 nmap <leader>j :History<CR>
-nmap <leader>k :EnableAutocorrect<CR>
 nmap <leader>t :tabe<CR>
 nmap <leader>T :term<CR>
 nmap <leader>N :NERDTreeToggle<CR>
@@ -219,6 +218,9 @@ vnoremap <leader>s :sort<CR>
 nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
+nmap <leader>K :wa<CR>:sp<CR>:resize 10<CR>:term pkill ipython<CR>
+nmap <leader>k :bdelete! <CR>
+map <leader>n :set rnu!<CR>
 
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>i
@@ -252,8 +254,6 @@ map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>sf z=
-
-map <leader>n :set rnu!<CR>
 
 vnoremap < <gv
 vnoremap > >gv
