@@ -490,6 +490,8 @@ nmap <leader>/ :CtrlSF -R ""<Left>
 nmap <leader>c :CtrlSFFocus<CR>
 nmap <leader>C :CtrlSFToggle<CR>
 let g:ctrlsf_ackprg = '/usr/bin/rg'
+let g:copilot_assume_mapped = 'true'
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 
 " Sneak
 let g:sneak#label = 1
