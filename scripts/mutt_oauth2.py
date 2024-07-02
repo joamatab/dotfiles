@@ -419,4 +419,3 @@ if args.test:
 
     if errors:
         sys.exit(1)
-
