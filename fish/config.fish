@@ -177,3 +177,4 @@ end
 # vim:foldmethod=marker:foldlevel=0
 
 
+alias klayout_generic_pdk='KLAYOUT_HOME=/home/jmatres/demo/generic_pdk_setup/generic_pdk_klayout klayout -e'
