@@ -29,7 +29,7 @@ abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
 abbr -a kus "setxkbmap -layout us"
 abbr -a kespanol "setxkbmap -layout es"
 abbr -a killp "ps aux | grep ipykernel | grep -v grep | awk '{print $2}' | xargs kill -9"
-abbr -a grm "git branch -D (git branch --merged | grep -v \* | xargs)"
+abbr -a grm 'git branch --merged | grep -v \* | xargs -I{} git branch -D {}'
 abbr -a ga git add
 abbr -a gb git branch
 abbr -a gc git commit -v
