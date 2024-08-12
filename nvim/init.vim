@@ -58,7 +58,7 @@ Plug 'elzr/vim-json'
 Plug 'dkarter/bullets.vim'
 
 " Autoformat
-Plug 'psf/black'
+" Plug 'psf/black'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'sbdchd/neoformat'
@@ -391,7 +391,7 @@ augroup configgroup
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
     autocmd BufEnter *.pyxs setlocal ft=python
-    autocmd FileType python nnoremap <buffer><silent><leader>a :Black<CR>
+    autocmd FileType python nnoremap <buffer><silent><leader>a :ALEFix<CR>
 	autocmd FileType python nnoremap <buffer> <cr> :silent wa<bar>only<bar>vsp<bar>term ipython3 -i %<cr>
 augroup END
 
