@@ -54,6 +54,7 @@
     ~/.gitignore:
     ~/.gitcli.yml:
     ~/.gitconfig:
+      force: true
     ~/.inputrc:
     ~/.local/share/applications: local/share/applications
     ~/.moc/config: moc/config
