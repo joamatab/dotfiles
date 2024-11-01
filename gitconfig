@@ -4,8 +4,8 @@
 
 [user]
 	name = Joaquin Matres
-	email = 4514346+joamatab@users.noreply.github.com
-	signingkey = /home/jmatres/.ssh/id_rsa.pub
+	email = jmatres@google.com
+	signingkey = FDA2E4C6EBED523F
 
 [diff "gdsdiff"]
     command = python -m gdsfactory.gdsdiff.gds_diff_git
@@ -54,5 +54,11 @@
 	required = true
 [init]
 	defaultBranch = main
-[gpg]
-	format = ssh
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/jmatres/miniconda3/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/jmatres/miniconda3/bin/gh auth git-credential
+[commit]
+	gpgSign = true

@@ -60,7 +60,7 @@ set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x TERMINAL alacritty
-set -x BROWSER firefox
+set -x BROWSER google-chrome
 set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
@@ -178,3 +178,6 @@ end
 
 
 alias klayout_generic_pdk='KLAYOUT_HOME=/home/jmatres/demo/generic_pdk_setup/generic_pdk_klayout klayout -e'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jmatres/google-cloud-sdk/path.fish.inc' ]; . '/home/jmatres/google-cloud-sdk/path.fish.inc'; end
