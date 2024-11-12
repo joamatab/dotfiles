@@ -215,6 +215,8 @@ nmap <leader>_ :split<CR>
 nmap <leader>z :wa<CR>:q<CR>
 map <leader>cfv :vi ~/dotfiles/nvim/init.vim<CR>
 map <leader>cff :vi ~/dotfiles/fish/config.fish<CR>
+map <leader>cfx :vi ~/dotfiles/sxhkd/sxhkdrc<CR>
+map <leader>cfi :vi ~/dotfiles/i3/config<CR>
 vnoremap <leader>s :sort<CR>
 nmap <leader>v :call PasteClipboardImage()<CR>
 map <leader>l :Lf<CR>
