@@ -1,27 +1,27 @@
 # Basic binds
-super + Return
-	/usr/bin/kitty /usr/bin/fish
+# super + Return
+# 	/usr/bin/kitty /usr/bin/fish
 	# $TERMINAL
-super + shift + a
-	alacritty
-super + shift + d
-	dmenu_run
-super + d
-	rofi -show run
+# super + shift + a
+# 	alacritty
+# super + shift + d
+# 	dmenu_run
+# super + d
+# 	rofi -show run
 # super + r
 # 	$TERMINAL -e $FILE
-super + m
-	$TERMINAL -e cmus
-super + n
-	$TERMINAL -e newsboat
-super + w
-	google-chrome-stable
+# super + m
+# 	$TERMINAL -e cmus
+# super + n
+# 	$TERMINAL -e newsboat
+# super + w
+# 	google-chrome-stable
 super + c
 	clipmenu
-super + e
-	firefox
-super + shift + w
-	brave-browser
+# super + e
+# 	firefox
+# super + shift + w
+# 	brave-browser
 super + y
 	$TERMINAL -e calcurse
 super + shift + a
@@ -30,8 +30,8 @@ super + shift + c
 	camtoggle
 super + shift + e
 	tutorialvids
-super + shift + g
-	gimp
+# super + shift + g
+# 	gimp
 # super + o
 # 	mons -s
 # super + shift + o
@@ -50,8 +50,8 @@ super + shift + x
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
-super + x
-	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
+# super + x
+# 	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
 XF86Launch1
 	xset dpms force off
 
