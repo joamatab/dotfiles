@@ -5,7 +5,7 @@
 [user]
 	name = Joaquin Matres
 	email = jmatres@google.com
-	signingkey = FDA2E4C6EBED523F
+	signingkey = 1FF989A20672DC3CA0B1F699DBD471FD4416D0E4
 
 [diff "gdsdiff"]
     command = python -m gdsfactory.gdsdiff.gds_diff_git
@@ -61,4 +61,4 @@
 	helper = 
 	helper = !/home/jmatres/miniconda3/bin/gh auth git-credential
 [commit]
-	gpgSign = true
+	gpgsign = true
