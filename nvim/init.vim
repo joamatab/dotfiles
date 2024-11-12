@@ -20,6 +20,7 @@ Plug 'mhinz/vim-startify'
 Plug 'justinmk/vim-sneak'
 Plug 'dyng/ctrlsf.vim'
 Plug 'majutsushi/tagbar'
+Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
 
 " Document writing
 Plug 'vimwiki/vimwiki'
@@ -461,7 +462,7 @@ let g:vimwiki_list = [
 " let g:ale_linters = { "python": ["ruff", 'pylint', 'mypy'] }
 let g:ale_linters = { "python": ["ruff"] }
 let g:ale_fixers = {
-\       "python": ["black", "ruff"],
+\       "python": ["ruff"],
 \}
 
 " Section: Abbreviations
