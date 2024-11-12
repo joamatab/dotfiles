@@ -15,14 +15,13 @@ floating_modifier $mod
 bindsym $mod+Delete exec dmenurecord kill
 bindsym $mod+Print exec dmenurecord
 bindsym $mod+Return exec i3-sensible-terminal -e fish
-bindsym $mod+Shift+c restart
-bindsym $mod+Shift+e restart  # To restart i3
+bindsym $mod+Shift+e restart  
 bindsym $mod+Shift+i exec google-chrome-stable
-bindsym $mod+Shift+r reload  # To reload the config
+bindsym $mod+Shift+r reload  
 bindsym $mod+Shift+x exec i3lock
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+c exec clipmenu
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec "rofi -show run"
 bindsym $mod+i exec firefox
 bindsym $mod+m move workspace to output left
 bindsym $mod+q kill
@@ -113,12 +112,11 @@ bindsym XF86Display exec dock-it
 # }}}
 # Status Bar {{{
 bar {
-    i3bar_command i3bar
     status_command i3status
     position bottom
     bindsym button4 nop
     bindsym button5 nop
-    font xft:URWGothic-Book 11
+    font pango:URWGothic-Book 11
     strip_workspace_numbers yes
 }
 # }}}
