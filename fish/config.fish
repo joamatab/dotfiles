@@ -106,8 +106,8 @@ path_append ~/.poetry/bin
 path_append ~/.rbenv/bin
 path_append ~/.yarn/bin
 path_append ~/dotfiles/brodie
-path_append ~/dotfiles/luke/.local/bin
-path_append ~/dotfiles/luke/.local/bin/statusbar
+path_append ~/dotfiles/extra/luke/.local/bin
+path_append ~/dotfiles/extra/luke/.local/bin/statusbar
 path_append ~/dotfiles/scripts
 path_append ~/go/bin
 path_append ~/snap/bin
