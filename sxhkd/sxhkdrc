@@ -22,14 +22,14 @@ super + c
 # 	firefox
 # super + shift + w
 # 	brave-browser
-super + y
-	$TERMINAL -e calcurse
-super + shift + a
-	$TERMINAL -e pulsemixer; pkill -RTMIN+10 blocks
-super + shift + c
-	camtoggle
-super + shift + e
-	tutorialvids
+# super + y
+# 	$TERMINAL -e calcurse
+# super + shift + a
+# 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 blocks
+# super + shift + c
+# 	camtoggle
+# super + shift + e
+# 	tutorialvids
 # super + shift + g
 # 	gimp
 # super + o
@@ -46,10 +46,10 @@ super + Insert
 	showclip
 # super + shift + r
 #     killandnotify "sxhkd" "Config reloaded" && sxhkd &
-super + shift + x
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
-super + shift + BackSpace
-	prompt "Reboot computer?" "sudo -A shutdown -r now"
+# super + shift + x
+# 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+# super + shift + BackSpace
+# 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 # super + x
 # 	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
 XF86Launch1

@@ -12,16 +12,22 @@ workspace_layout default
 floating_modifier $mod
 # }}}
 # Keybindings {{{
+bindsym $mod+Delete exec dmenurecord kill
+bindsym $mod+Print exec dmenurecord
 bindsym $mod+Return exec i3-sensible-terminal -e fish
-bindsym $mod+q kill
-bindsym $mod+Shift+x exec i3lock
-bindsym $mod+d exec rofi -show run
-bindsym $mod+x exec rofi -show window
-bindsym $mod+i exec firefox
-bindsym $mod+Shift+i exec google-chrome-stable
 bindsym $mod+Shift+c restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'yes' 'i3-msg exit'"
+bindsym $mod+Shift+e restart  # To restart i3
+bindsym $mod+Shift+i exec google-chrome-stable
+bindsym $mod+Shift+r reload  # To reload the config
+bindsym $mod+Shift+x exec i3lock
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+c exec clipmenu
+bindsym $mod+d exec rofi -show run
+bindsym $mod+i exec firefox
+bindsym $mod+m move workspace to output left
+bindsym $mod+q kill
+bindsym $mod+x exec rofi -show window
+bindsym Print exec flameshot gui
 # }}}
 # Windows {{{
 bindsym $mod+$left focus left
@@ -98,7 +104,6 @@ bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86Reload exec playerctl play-pause
 bindsym XF86Back exec playerctl previous
 bindsym XF86Forward exec playerctl next
-bindsym $mod+m move workspace to output left
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
