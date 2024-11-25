@@ -21,6 +21,14 @@ function md2html
   open slides.html
 end
 
+function uva
+    source ~/.venvs/$argv[1]/bin/activate.fish
+end
+
+function uvc
+    uv venv ~/.venvs/$argv[1]
+end
+
 # Convert markdown to pdf
 function md2pdf
   pandoc "$argv"  -o "$argv".pdf  -s -t beamer
