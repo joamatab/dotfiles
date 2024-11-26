@@ -15,6 +15,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 " Plug 'lvht/mru'
 " Plug 'kien/ctrlp.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " find
 Plug 'justinmk/vim-sneak'
@@ -140,8 +142,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" nnoremap <Leader>+ :vertical resize +5<CR>
-" nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -224,6 +224,8 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>K :wa<CR>:sp<CR>:resize 10<CR>:term pkill ipython<CR>
 nmap <leader>k :bdelete! <CR>
 map <leader>n :set rnu!<CR>
+" nnoremap <Leader>+ :vertical resize +5<CR>
+" nnoremap <Leader>- :vertical resize -5<CR>
 
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>i
@@ -438,6 +440,7 @@ let g:vimwiki_list = [
             \ {'path': '~/wikis/github/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/gotbletu', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/book-notes', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
+            \ {'path': '~/wikis/dpd', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ ]
 
 " Section: Markdown
@@ -485,6 +488,11 @@ iab previosu previous
 iab Wb wb
 iab plts plt.style.use('seaborn-whitegrid')
 
+" Section: Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " CtrlSF
 " substitute the word under the cursor

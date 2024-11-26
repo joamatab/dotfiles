@@ -86,6 +86,7 @@ abbr -a wa nvim  ~/wikis/awesome_photonics/README.md
 abbr -a wb nvim  ~/wikis/book-notes/index.md
 abbr -a wg nvim  ~/wikis/github/index.md
 abbr -a wj nvim  ~/wikis/joaquin/index.md
+abbr -a wd nvim  ~/wikis/dpd/index.md
 # abbr -a xr xrandr --output eDP1 --mode 1920x1080
 abbr -a xr xrandr --output eDP-1 --scale 0.5x0.5    
 abbr -a xrbig xrandr --output DP2 --mode 1920x1200
