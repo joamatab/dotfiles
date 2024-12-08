@@ -17,6 +17,7 @@ Plug 'mhinz/vim-startify'
 " Plug 'kien/ctrlp.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'chrisbra/csv.vim'
 
 " find
 Plug 'justinmk/vim-sneak'
@@ -62,7 +63,7 @@ Plug 'dkarter/bullets.vim'
 
 " Autoformat
 " Plug 'psf/black'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'sbdchd/neoformat'
 
@@ -194,8 +195,8 @@ nmap <leader>1 :wa<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
 " nmap <leader>1 :wa<CR>:bufdo if &buftype == 'terminal' | bd | endif<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
 nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
-nmap <leader>a <Plug>(Prettier)
-" nmap <Leader>a :Autoformat<CR>
+" nmap <leader>a <Plug>(Prettier)
+nmap <Leader>a :Autoformat<CR>
 nmap <leader>o :Files<CR>
 nmap <leader>O :Files!<CR>
 nmap <leader>f :Files<CR>
@@ -396,7 +397,7 @@ augroup configgroup
     autocmd BufEnter *.rss setlocal filetype=xml
     autocmd BufEnter *.md setlocal ft=markdown
     autocmd BufEnter *.pyxs setlocal ft=python
-    autocmd FileType python nnoremap <buffer><silent><leader>a :ALEFix<CR>
+    " autocmd FileType python nnoremap <buffer><silent><leader>a :ALEFix<CR>
 	autocmd FileType python nnoremap <buffer> <cr> :silent wa<bar>only<bar>vsp<bar>term ipython3 -i %<cr>
 augroup END
 
