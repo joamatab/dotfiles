@@ -1,5 +1,6 @@
 {
   "python.jediEnabled": false,
+  "inlayHint.enable": false,
   "pyright.python.linting.ruffEnabled": true,
   "pyright.inlayHints.variableTypes": false,
   "python.autoUpdateLanguageServer": true,

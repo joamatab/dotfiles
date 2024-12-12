@@ -266,6 +266,8 @@ vnoremap > >gv
 vnoremap - :s/\%V /_/g
 
 let g:lf_map_keys = 0
+let g:formatters_python = ['ruff']
+let g:formatdef_ruff = '"ruff format -"'
 
 " Section: Functions
 function! s:compile_and_run()
@@ -467,9 +469,7 @@ let g:vimwiki_list = [
 " let g:ale_fixers.python = ['black']
 " let g:ale_linters = { "python": ["ruff", 'pylint', 'mypy'] }
 let g:ale_linters = { "python": ["ruff"] }
-let g:ale_fixers = {
-\       "python": ["ruff"],
-\}
+let g:ale_fixers = {"python": ["ruff"]}
 
 " Section: Abbreviations
 iab ifp from functools import partial
