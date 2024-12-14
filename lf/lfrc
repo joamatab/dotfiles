@@ -1,120 +1,72 @@
 # interpreter for shell commands (needs to be POSIX compatible)
 set shell sh
+# Uncomment the desired shell if applicable
 # set shell zsh
 # set shell fish
-# set color256 true
+
+# General Settings
 set preview true
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
-
 set icons
 set ignorecase true
-
-# set drawbox true
-# set hidden true
-
-# set '-eu' options for shell commands
-# These options are used to have safer shell commands. Option '-e' is used to
-# exit on error and option '-u' is used to give error for unset variables.
-# Option '-f' disables pathname expansion which can be useful when $f, $fs, and
-# $fx variables contain names with '*' or '?' characters. However, this option
-# is used selectively within individual commands as it can be limiting at
-# times.
 set shellopts '-eu'
-
-# set internal field separator (IFS) to "\n" for shell commands
-# This is useful to automatically split file names in $fs and $fx properly
-# since default file separator used in these variables (i.e. 'filesep' option)
-# is newline. You need to consider the values of these options and create your
-# commands accordingly.
 set ifs "\n"
-
-# leave some space at the top and the bottom of the screen
 set scrolloff 10
 
-# use enter for shell commands
+# Mappings for Shell Commands
 map <enter> shell
 
-# execute current file (must be executable)
+# Execute Current File (if executable)
 map x $$f
 map X !$f
 
-# define a custom 'rename' command without prompt for overwrite
-# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-# map r push :rename<space>
-
+# Jump with autojump integration
 cmd aj %lf -remote "send $id cd '$(autojump $1)'"
 map J push :aj<space>
 
-map f $lf -remote "send $id select '$(fzf)'"
+# Select File using fzf
+cmd fzf_select ${{
+  selected=$(fzf)
+  [ -n "$selected" ] && lf -remote "send $id select \"$selected\""
+}}
+map f fzf_select
 
-# file opener actions dedicated keys{{{
-# map o &mimeopen $f
-# map O $mimeopen --ask $f
+# File Open Actions
 map o open $f
-
-# define a custom 'open' command
-# This command is called when current file is not a directory. You may want to
-# use either file extensions and/or mime types here. Below uses an editor for
-# text files and a file opener for the rest.
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
-	application/octet-stream) gf show $f ;;
-	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
-	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
-	image/svg+xml) display -- $f ;;
-	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|avif\|tif\|ico\)\(_large\)*$" |
-		setsid -f nsxiv -aio 2>/dev/null | while read -r file; do
-			[ -z "$file" ] && continue
-			lf -remote "send select \"$file\""
-			lf -remote "send toggle"
-		done &
-		;;
-	audio/*) mpv --audio-display=no $f ;;
-	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
-	application/pgp-encrypted) $EDITOR $fx ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+        application/octet-stream) gf show $f ;;
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+        image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx ;;
+        image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+        image/svg+xml) display -- $f ;;
+        image/*) setsid -f nsxiv -aio $f >/dev/null 2>&1 ;;
+        audio/*) mpv --audio-display=no $f ;;
+        video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+        application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        application/pgp-encrypted) $EDITOR $fx ;;
+        *) setsid -f $OPENER $f >/dev/null 2>&1 ;;
     esac
 }}
-# }}}
 
-# delete {{{
+# Delete and Trash Commands
 cmd delete %set -f; rm -rf $fx
 cmd trash ${{
-  files=$(printf "$fx" | tr '\n' ';')
-  while [ "$files" ]; do
-    # extract the substring from start of string up to delimiter.
-    # this is the first "element" of the string.
-    file=${files%%;*}
-
-    trash-put "$(basename "$file")"
-    # if there's only one element left, set `files` to an empty string.
-    # this causes us to exit this `while` loop.
-    # else, we delete the first "element" of the string from files, and move onto the next.
-    if [ "$files" = "$file" ]; then
-      files=''
-    else
-      files="${files#*;}"
-    fi
-  done
+  printf '%s\n' $fx | xargs -I {} trash-put {}
 }}
-
-# use '<delete>' key for either 'trash' or 'delete' command
 map <delete> delete
 map <bs2> trash
 map D delete
 map t trash
 map dd trash
-# }}}
 
-# zip/unzip functions{{{
+# Archive and Unarchive Commands
 cmd unarchive ${{
   case "$f" in
-	  *.gz) gzip -d "$f" ;;
+      *.gz) gzip -d "$f" ;;
       *.zip) unzip "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;
       *.tar.bz2) tar -xjvf "$f" ;;
@@ -123,26 +75,23 @@ cmd unarchive ${{
       *) echo "Unsupported format" ;;
   esac
 }}
-
-cmd zip %zip -r "$f" "$f"
+cmd zip %zip -r "$f.zip" "$f"
 cmd tar %tar cvf "$f.tar" "$f"
-cmd targz %tar cvzf "$f.tar.gz" "$f"
+cmd targz %tar czvf "$f.tar.gz" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
-# }}}
 
-# Mappings {{{
-map C clear
-map U unselect
-map ee $$EDITOR "$f"
-map br $vimv $fx
-# }}}
-
-# archive mappings {{{
+# Mappings for Archive Commands
 map az zip
 map at tar
 map ag targz
 map ab targz
 map au unarchive
-# }}}
+
+# Additional Mappings
+map C clear
+map U unselect
+map ee $$EDITOR "$f"
+map br $vimv $fx
 
 # vim:foldmethod=marker:foldlevel=0
+
