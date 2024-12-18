@@ -35,7 +35,7 @@ function run_mkinit_in_subfolders
         # Run mkinit in the current subfolder
         echo "Running mkinit in: $dir"
         pushd $dir > /dev/null
-        mkinit . > __init__.py
+        mkinit . --nomods > __init__.py
         if test $status -eq 0
             echo "Successfully generated __init__.py in: $dir"
         else
