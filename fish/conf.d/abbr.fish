@@ -72,6 +72,8 @@ abbr -a setf set -x SHELL /usr/bin/fish
 abbr -a setb set -x SHELL /usr/bin/bash
 abbr -a sus systemctl suspend 
 abbr -a susl lock_and_suspend
+abbr -a sleepon 'xset s on +dpms'
+abbr -a sleepoff 'xset s off -dpms'
 abbr -a t trash
 abbr -a timela 'timedatectl set-timezone America/Los_Angeles'
 abbr -a timemadrid 'timedatectl set-timezone Europe/Madrid'
