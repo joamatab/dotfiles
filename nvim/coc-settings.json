@@ -18,10 +18,6 @@
       "trace.server": "verbose",
       "filetypes": ["go"]
     },
-    "ruff-lsp": {
-      "command": "ruff-lsp",
-      "filetypes": ["python"]
-    },
     "sourcery": {
       "command": "sourcery",
       "args": ["lsp"],

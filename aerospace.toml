@@ -30,8 +30,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     alt-shift-k = 'move up'
     alt-shift-l = 'move right'
 
-    alt-q = 'kill'
-
 
     # Consider using 'join-with' command as a 'split' replacement if you want to enable
     # normalizations
