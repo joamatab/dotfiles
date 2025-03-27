@@ -65,6 +65,7 @@ abbr -a rs redshift -O 2000 &
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sp sudo pacman -Suy --nocofirm
 abbr -a sr sourcery refactor --in-place
+abbr -a se "source .venv/bin/activate.fish"
 abbr -a srd sr duckduckgo
 abbr -a srg sr google
 abbr -a ssht ssh -L 5901:localhost:5901
