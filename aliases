@@ -3,4 +3,4 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias q='exit'
-alias open='xdg-open'
+# alias open='xdg-open'

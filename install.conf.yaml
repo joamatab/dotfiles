@@ -11,6 +11,7 @@
 
 - link:
     ~/.agignore:
+    ~/.aerospace.toml:
     ~/.aliases:
     ~/.bash_profile:
     ~/.bashrc:

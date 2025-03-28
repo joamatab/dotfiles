@@ -63,18 +63,35 @@ function path_append
 end
 # }}}
 # variables {{{
-set -x OPENER xdg-open
+if string match -q "Darwin" (uname)
+    # macOS
+    set -x OPENER open
+else if type -q xdg-open
+    # Linux with xdg-open available
+    set -x OPENER xdg-open
+else
+    echo "No suitable opener found for your system."
+end
+
 set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
 set -x TERMINAL alacritty
 set -x BROWSER firefox
-set -x SHELL /usr/bin/fish
+# set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
 set -x FZF_DEFAULT_COMMAND 'fd'
 set -x XDG_CURRENT_DESKTOP sway
 test -f ~/.ssh/id_rsa; and set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
+
+if test -x /usr/bin/fish
+    set -x SHELL /usr/bin/fish
+else if test -x /opt/homebrew/bin/fish
+    set -x SHELL /opt/homebrew/bin/fish
+else if test -x /usr/local/bin/fish
+    set -x SHELL /usr/local/bin/fish
+end
 
 # color man pages
 set -gx LESS_TERMCAP_mb \e'[1;32m'
