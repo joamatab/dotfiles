@@ -63,7 +63,16 @@ function path_append
 end
 # }}}
 # variables {{{
-set -x OPENER xdg-open
+if string match -q "Darwin" (uname)
+    # macOS
+    set -x OPENER open
+else if type -q xdg-open
+    # Linux with xdg-open available
+    set -x OPENER xdg-open
+else
+    echo "No suitable opener found for your system."
+end
+
 set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
