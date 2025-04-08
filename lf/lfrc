@@ -59,27 +59,69 @@ map o open $f
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
 cmd open ${{
-    case $(file --mime-type "$(readlink -f $f)" -b) in
-	application/octet-stream) gf show $f ;;
-	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
-	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
-	image/svg+xml) display -- $f ;;
-	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|avif\|tif\|ico\)\(_large\)*$" |
-		setsid -f nsxiv -aio 2>/dev/null | while read -r file; do
-			[ -z "$file" ] && continue
-			lf -remote "send select \"$file\""
-			lf -remote "send toggle"
-		done &
-		;;
-	audio/*) mpv --audio-display=no $f ;;
-	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
-	application/pgp-encrypted) $EDITOR $fx ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+    # Detect OS
+    case "$(uname -s)" in
+        Linux*) 
+            MIME_CMD="file --mime-type -b"
+            IMAGE_VIEWER="nsxiv -aio"
+            PDF_VIEWER="zathura"
+            OFFICE_APP="localc"
+            AUDIO_PLAYER="mpv --audio-display=no"
+            VIDEO_PLAYER="setsid -f mpv -quiet"
+            IMAGE_EDITOR="gimp"
+            SVG_VIEWER="display"
+            OPENER_CMD="setsid -f"
+            ABS_PATH="readlink -f"
+            ;;
+        Darwin*)
+            MIME_CMD="file -bI | awk '{print \$1}'"
+            IMAGE_VIEWER="open"
+            PDF_VIEWER="open"
+            OFFICE_APP="open"
+            AUDIO_PLAYER="afplay"
+            VIDEO_PLAYER="open"
+            IMAGE_EDITOR="open -a GIMP"
+            SVG_VIEWER="open"
+            OPENER_CMD=""
+            ABS_PATH="echo"
+            ;;
+        *) ;;
+    esac
+
+    # Get absolute path
+    f_path=$($ABS_PATH "$f")
+
+    # Get MIME type
+    mime_type=$(eval "$MIME_CMD \"$f_path\"")
+
+    case "$mime_type" in
+        application/octet-stream) gf show "$f" ;;
+        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) $OFFICE_APP "$fx" ;;
+        image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) $OPENER_CMD $PDF_VIEWER "$fx" >/dev/null 2>&1 ;;
+        text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR "$fx" ;;
+        image/x-xcf) $OPENER_CMD $IMAGE_EDITOR "$f" >/dev/null 2>&1 ;;
+        image/svg+xml) $SVG_VIEWER "$f" ;;
+        image/*)
+            if [ "$(uname -s)" = "Linux" ]; then
+                rotdir "$f" | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|avif\|tif\|ico\)\(_large\)*$" |
+                    $OPENER_CMD $IMAGE_VIEWER 2>/dev/null | while read -r file; do
+                        [ -z "$file" ] && continue
+                        lf -remote "send select \"$file\""
+                        lf -remote "send toggle"
+                    done &
+            else
+                open "$f"
+            fi
+            ;;
+        audio/*) $AUDIO_PLAYER "$f" ;;
+        video/*) $OPENER_CMD $VIDEO_PLAYER "$f" >/dev/null 2>&1 ;;
+        application/epub*) $OPENER_CMD $PDF_VIEWER "$fx" >/dev/null 2>&1 ;;
+        application/pgp-encrypted) $EDITOR "$fx" ;;
+        *) for f in $fx; do $OPENER_CMD ${OPENER:-$IMAGE_VIEWER} "$f" >/dev/null 2>&1; done ;;
     esac
 }}
+
+
 # }}}
 
 # delete {{{
