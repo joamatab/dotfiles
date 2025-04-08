@@ -141,6 +141,7 @@ path_append ~/mambaforge/bin
 path_append ~/install_new_computer/xschem/src
 path_append ~/bin
 path_append ~/.pulumi/bin
+path_append /opt/homebrew/Caskroom/klayout/0.30.0/KLayout/klayout.app/Contents/MacOS
 
 # }}}
 # more_variables {{{
@@ -201,5 +202,3 @@ end
 # dedup_path
 # vim:foldmethod=marker:foldlevel=0
 
-
-alias klayout_generic_pdk='KLAYOUT_HOME=/home/jmatres/demo/generic_pdk_setup/generic_pdk_klayout klayout -e'
