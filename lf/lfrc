@@ -71,7 +71,7 @@ cmd open ${{
             IMAGE_EDITOR="gimp"
             SVG_VIEWER="display"
             OPENER_CMD="setsid -f"
-            ABS_PATH="readlink -f"
+            ABS_PATH="xdg-open"
             ;;
         Darwin*)
             MIME_CMD="file -bI | awk '{print \$1}'"
