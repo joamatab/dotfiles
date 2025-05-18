@@ -64,6 +64,7 @@
     ~/.pylintrc:
     ~/.prettierrc:
     ~/.tmux.conf:
+      force: true
     ~/.vifm:
     ~/.weechat:
     ~/.xinitrc:
