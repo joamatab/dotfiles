@@ -98,6 +98,7 @@ abbr -a xrg xrandr --output eDP-1 --mode 2560x1600
 abbr -a wea "curl wttr.in"
 abbr -a ytm youtube-dl  -x --audio-format mp3
 abbr -a ytv youtube-dl -ic
+abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet 
 
 # alias diff=colordiff
 # alias kpd='kpcli -kdb ~/.config/keepass/database.kdbx'
