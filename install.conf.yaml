@@ -17,6 +17,7 @@
     ~/.bashrc:
     ~/.cmus-syncrc:
     ~/.config/broot:
+    ~/.config/aider.conf.yml:
     ~/.config/bspwm:
     ~/.config/cmus/autosave: cmus/autosave
     ~/.config/dunst/dunstrc:
