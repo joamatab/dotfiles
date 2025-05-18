@@ -1,0 +1,7 @@
+#!/bin/bash
+# converts Jupyter notebooks to Marimo format
+
+for f in *.ipynb; do
+  base="${f%.ipynb}"
+  marimo convert "$f" > "${base}.py"
+done

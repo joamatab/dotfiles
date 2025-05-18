@@ -47,6 +47,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'vim-test/vim-test'
+Plug 'NoahTheDuke/vim-just'
 " Plug 'szymonmaszke/vimpyter' "jupyter-notebooks
 " Plug 'jpalardy/vim-slime', { 'for': 'python' }
 " Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
