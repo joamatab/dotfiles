@@ -156,9 +156,17 @@ test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/v
 # lf [ -f "$HOME/micromamba" ]; and set -gx MAMBA_EXE "$HOME/.local/bin/micromamba"; and set -gx MAMBA_ROOT_PREFIX "$HOME/micromamba"; eval "$HOME/bin/micromamba" shell hook --shell fish --prefix "$HOME/micromamba" | source
 # if [ -f "$HOME/mambaforge" ]; eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source 
 
+# if command -v mcfly >/dev/null
+#     mcfly init fish | source
+# end
+
+# if command -v mcfly >/dev/null
+#     mcfly init fish | source
+# end
 if command -v mcfly >/dev/null
-    mcfly init fish | source
+    atuin init fish | source
 end
+
 if command -v zoxide >/dev/null
     zoxide init fish | source
 end
