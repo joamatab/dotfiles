@@ -69,8 +69,6 @@ if string match -q "Darwin" (uname)
 else if type -q xdg-open
     # Linux with xdg-open available
     set -x OPENER xdg-open
-else
-    echo "No suitable opener found for your system."
 end
 
 set -x PAGER bat
