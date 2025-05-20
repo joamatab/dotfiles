@@ -201,8 +201,8 @@ end
 # vim:foldmethod=marker:foldlevel=0
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/j/google-cloud-sdk/path.fish.inc' ]; . '/Users/j/google-cloud-sdk/path.fish.inc'; end
-
 # Added by Windsurf
 fish_add_path /Users/j/.codeium/windsurf/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/j/google-cloud-sdk/path.fish.inc' ]; . '/Users/j/google-cloud-sdk/path.fish.inc'; end
