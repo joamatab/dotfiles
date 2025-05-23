@@ -74,7 +74,8 @@ end
 set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
-set -x TERMINAL alacritty
+# set -x TERMINAL alacritty
+set -x TERM xterm-256color
 set -x BROWSER firefox
 # set -x SHELL /usr/bin/fish
 set -U FZF_LEGACY_KEYBINDINGS 0
@@ -112,10 +113,10 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # status is-interactive; and pyenv init --path | source
 # }}}
 # path {{{
+path_append /opt/homebrew/bin
 path_append /opt/lumerical/v232/bin
 path_append /opt/lumerical/v212/bin
 path_append /usr/local/sbin
-path_append /opt/homebrew/bin
 path_append ~/.cargo/bin
 path_append ~/.config/yarn/global/node_modules/.bin
 path_append ~/.fzf/bin
@@ -140,7 +141,6 @@ path_append ~/install_new_computer/xschem/src
 path_append ~/bin
 path_append ~/.pulumi/bin
 path_append /opt/homebrew/Caskroom/klayout/0.30.0/KLayout/klayout.app/Contents/MacOS
-
 # }}}
 # more_variables {{{
 test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python; and path_append /opt/lumerical/(ls /opt/lumerical)/bin
