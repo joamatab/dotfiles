@@ -53,14 +53,24 @@ function dedup_path --description "Removes duplicate entries from \$PATH"
   set PATH $NEWPATH
 end
 
-# Add a new path to the PATH variable if it is not already in it and it is a valid directory
-function path_append
+function path_prepend
+  # Prepend directory to PATH if it exists and is not already included
   if not contains $argv $PATH
     if test -d $argv
       set PATH $argv $PATH
     end
   end
 end
+
+function path_append
+  # Append directory to PATH if it exists and is not already included
+  if not contains $argv $PATH
+    if test -d $argv
+      set PATH $PATH $argv
+    end
+  end
+end
+
 # }}}
 # variables {{{
 if string match -q "Darwin" (uname)
@@ -113,7 +123,6 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # status is-interactive; and pyenv init --path | source
 # }}}
 # path {{{
-path_append /opt/homebrew/bin
 path_append /opt/lumerical/v232/bin
 path_append /opt/lumerical/v212/bin
 path_append /usr/local/sbin
@@ -141,6 +150,7 @@ path_append ~/install_new_computer/xschem/src
 path_append ~/bin
 path_append ~/.pulumi/bin
 path_append /opt/homebrew/Caskroom/klayout/0.30.0/KLayout/klayout.app/Contents/MacOS
+path_prepend /opt/homebrew/bin
 # }}}
 # more_variables {{{
 test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python; and path_append /opt/lumerical/(ls /opt/lumerical)/bin
@@ -211,6 +221,8 @@ end
 
 # Added by Windsurf
 fish_add_path /Users/j/.codeium/windsurf/bin
+set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/j/google-cloud-sdk/path.fish.inc' ]; . '/Users/j/google-cloud-sdk/path.fish.inc'; end
