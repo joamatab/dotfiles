@@ -129,7 +129,6 @@ path_append /usr/local/sbin
 path_append ~/.cargo/bin
 path_append ~/.config/yarn/global/node_modules/.bin
 path_append ~/.fzf/bin
-path_append ~/.gem/ruby/2.7.0/bin
 path_append ~/.local/bin
 path_append ~/.local/google-cloud-sdk/bin
 path_append ~/.local/kitty.app/bin
@@ -151,6 +150,9 @@ path_append ~/bin
 path_append ~/.pulumi/bin
 path_append /opt/homebrew/Caskroom/klayout/0.30.0/KLayout/klayout.app/Contents/MacOS
 path_prepend /opt/homebrew/bin
+path_prepend ~/.rbenv/versions/3.4.4/bin
+path_prepend /opt/homebrew/opt/ruby/bin
+
 # }}}
 # more_variables {{{
 test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python; and path_append /opt/lumerical/(ls /opt/lumerical)/bin
