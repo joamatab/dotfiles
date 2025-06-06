@@ -123,6 +123,7 @@ test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # status is-interactive; and pyenv init --path | source
 # }}}
 # path {{{
+path_append /opt/lumerical/v242/bin
 path_append /opt/lumerical/v232/bin
 path_append /opt/lumerical/v212/bin
 path_append /usr/local/sbin
