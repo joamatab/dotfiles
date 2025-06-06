@@ -99,6 +99,7 @@ abbr -a wea "curl wttr.in"
 abbr -a ytm youtube-dl  -x --audio-format mp3
 abbr -a ytv youtube-dl -ic
 abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet 
+abbr -a dcode cursor --extensionDevelopmentPath=/Users/j/docode/vscode
 
 # alias diff=colordiff
 # alias kpd='kpcli -kdb ~/.config/keepass/database.kdbx'
