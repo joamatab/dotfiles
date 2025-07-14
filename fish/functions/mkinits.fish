@@ -49,4 +49,3 @@ end
 
 # Execute the function
 run_mkinit_in_subfolders $argv
-
