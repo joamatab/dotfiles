@@ -61,7 +61,7 @@ map o open $f
 cmd open ${{
     # Detect OS
     case "$(uname -s)" in
-        Linux*) 
+        Linux*)
             MIME_CMD="file --mime-type -b"
             IMAGE_VIEWER="nsxiv -aio"
             PDF_VIEWER="zathura"
