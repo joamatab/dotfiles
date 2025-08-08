@@ -227,6 +227,13 @@ end
 fish_add_path /Users/j/.codeium/windsurf/bin
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
 
+# fish (see ~/.config/fish/config.fish)
+if test "$TERM_PROGRAM" != "WarpTerminal"
+    ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
+    # Unsupported plugin/prompt code here
+    ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
+end
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/j/google-cloud-sdk/path.fish.inc' ]; . '/Users/j/google-cloud-sdk/path.fish.inc'; end

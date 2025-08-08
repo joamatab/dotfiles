@@ -85,7 +85,17 @@ Plug 'sjl/badwolf'
 Plug 'ap/vim-css-color'
 " Plug 'flazz/vim-colorschemes'
 " Plug 'tomasr/molokai'
+"
+" Code companion
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'olimorris/codecompanion.nvim'
+
 call plug#end()
+
+lua << EOF
+  require("codecompanion").setup()
+EOF
 
 " Section: General
 set nocompatible
