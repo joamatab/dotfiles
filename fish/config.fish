@@ -71,6 +71,15 @@ function path_append
   end
 end
 
+function crab
+    # Temporarily generate bash-compatible wrapper
+    set -l bash_init (ohcrab --shell bash | string replace -r '^alias crab=.*' '')
+    # Evaluate in bash to set everything up for this session
+    bash -c "source /dev/stdin <<< '$bash_init'"
+    # Run the crab alias (which should now be available)
+    bash -c crab
+end
+
 # }}}
 # variables {{{
 if string match -q "Darwin" (uname)
@@ -114,6 +123,7 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # source {{{
 test -f ~/.config/fish/abbr.fish; and source ~/.config/fish/abbr.fish
 test -f ~/.local.fish; and source ~/.local.fish
+test -f ~/dotfiles/private/fish/api_keys.fish; and source ~/dotfiles/private/fish/api_keys.fish
 test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
 test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # test -f ~/.aliases2; and status --is-interactive; and  source ~/.aliases2

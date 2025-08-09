@@ -15,6 +15,7 @@ weechat/logs/
 weechat/logs/core.weechat.weechatlog
 logs/
 vifm/vifminfo
+private/
 
 ranger/bookmarks
 ranger/ranger
