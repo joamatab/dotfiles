@@ -1,6 +1,6 @@
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: "v4.4.0"
+      rev: "v6.0.0"
       hooks:
           - id: check-yaml
           - id: end-of-file-fixer
@@ -12,13 +12,13 @@ repos:
     #       additional_dependencies:
     #         - tomli
 
-    - repo: https://github.com/charliermarsh/ruff-pre-commit
-      rev: "v0.0.280"
+    - repo: https://github.com/astral-sh/ruff-pre-commit
+      rev: "v0.12.8"
       hooks:
         - id: ruff
 
     - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-      rev: v2.10.0
+      rev: v2.15.0
       hooks:
         - id: pretty-format-toml
           args: [--autofix]
