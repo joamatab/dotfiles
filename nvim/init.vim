@@ -28,7 +28,7 @@ Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
 " Document writing
 Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
-" Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+" Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 " Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " If you have nodejs and yarn
@@ -441,6 +441,53 @@ set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
 nnoremap <space> za
+nnoremap zz :setlocal foldmethod=expr<CR>:setlocal foldexpr=MarkdownLevel()<CR>
+
+" Markdown folding
+function! MarkdownLevel()
+    let line = getline(v:lnum)
+    let nextline = getline(v:lnum + 1)
+    
+    " ATX headers (# Header)
+    if line =~ '^#\+ '
+        return '>' . len(matchstr(line, '^#\+'))
+    endif
+    
+    " Setext headers (underlined with = or -)
+    if nextline =~ '^=\+\s*$' && line =~ '\S'
+        return '>1'
+    elseif nextline =~ '^-\+\s*$' && line =~ '\S'
+        return '>2'
+    endif
+    
+    " Keep same fold level
+    return '='
+endfunction
+
+function! MarkdownFoldText()
+    let foldstart = v:foldstart
+    let line = getline(foldstart)
+    
+    " Remove leading hashes and spaces
+    let line = substitute(line, '^#\+\s*', '', '')
+    
+    " Count lines in fold
+    let lines_count = v:foldend - v:foldstart + 1
+    let lines_text = lines_count == 1 ? ' line' : ' lines'
+    
+    " Create fold text
+    return '▸ ' . line . ' [' . lines_count . lines_text . ']'
+endfunction
+
+augroup markdown_folding
+    autocmd!
+    autocmd FileType markdown,vimwiki setlocal foldmethod=expr
+    autocmd FileType markdown,vimwiki setlocal foldexpr=MarkdownLevel()
+    autocmd FileType markdown,vimwiki setlocal foldtext=MarkdownFoldText()
+    autocmd FileType markdown,vimwiki setlocal fillchars=fold:\ 
+    autocmd FileType markdown,vimwiki setlocal foldlevel=99
+    autocmd FileType markdown,vimwiki setlocal foldenable
+augroup END
 
 " Section: VimTest
 let test#strategy="neovim"
@@ -458,9 +505,7 @@ let g:vimwiki_list = [
             \ ]
 
 " Section: Markdown
-" let g:vim_markdown_new_list_item_indent = 0
-" let g:vim_markdown_auto_insert_bullets = 0
-" let g:vim_markdown_autowrite = 1
+" Custom markdown folding without plugins
 
 " Section: ALE
 " Enable completion where available.
