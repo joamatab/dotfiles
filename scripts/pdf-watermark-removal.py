@@ -63,18 +63,18 @@ def remove_watermark(image):
 
 
 def process_page(pdf, page_index, skipped):
-    content = pdf.getPage(page_index)['/Resources']['/XObject'].getObject()
+    content = pdf.getPage(page_index)["/Resources"]["/XObject"].getObject()
     images = {}
     for obj in content:
-        if content[obj]['/Subtype'] == '/Image':
-            size = (content[obj]['/Width'], content[obj]['/Height'])
+        if content[obj]["/Subtype"] == "/Image":
+            size = (content[obj]["/Width"], content[obj]["/Height"])
             data = content[obj]._data
-            if content[obj]['/ColorSpace'] == '/DeviceRGB':
+            if content[obj]["/ColorSpace"] == "/DeviceRGB":
                 mode = "RGB"
             else:
                 mode = "P"
 
-            if content[obj]['/Filter'] == '/FlateDecode':
+            if content[obj]["/Filter"] == "/FlateDecode":
                 img = Image.frombytes(mode, size, data)
             else:
                 img = Image.open(io.BytesIO(data))
@@ -83,7 +83,7 @@ def process_page(pdf, page_index, skipped):
     widths, heights = zip(*(i.size for i in images))
     total_height = sum(heights)
     max_width = max(widths)
-    concat_image = Image.new('RGB', (max_width, total_height))
+    concat_image = Image.new("RGB", (max_width, total_height))
     offset = 0
     for i in images:
         concat_image.paste(i, (0, offset))
@@ -95,17 +95,25 @@ def process_page(pdf, page_index, skipped):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('input_pdf_path', metavar='PATH')
-    parser.add_argument('-o', '--output', metavar='out', type=argparse.FileType('wb'),
-                        help='Output PDF file')
-    parser.add_argument('-s', '--skip', type=int, default=0,
-                        help='Skip over the first n page(s).')
+    parser.add_argument("input_pdf_path", metavar="PATH")
+    parser.add_argument(
+        "-o",
+        "--output",
+        metavar="out",
+        type=argparse.FileType("wb"),
+        help="Output PDF file",
+    )
+    parser.add_argument(
+        "-s", "--skip", type=int, default=0, help="Skip over the first n page(s)."
+    )
     args = parser.parse_args()
 
     logger = logging.getLogger(__name__)
-    logging.basicConfig(level='INFO', format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(
+        level="INFO", format="%(asctime)s - %(levelname)s - %(message)s"
+    )
 
-    directory = './temp/'
+    directory = "./temp/"
     if not os.path.exists(directory):
         os.makedirs(directory)
 
@@ -116,12 +124,12 @@ def main():
         images_path.append("./temp/{}.jpg".format(i))
         process_page(pdf, i, i < args.skip)
 
-    logger.info('Writing to output PDF file')
+    logger.info("Writing to output PDF file")
     args.output.write(img2pdf.convert(*list(map(img2pdf.input_images, images_path))))
-    logger.info('Done')
+    logger.info("Done")
 
     shutil.rmtree(directory, True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
