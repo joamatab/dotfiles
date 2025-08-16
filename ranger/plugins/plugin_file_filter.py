@@ -5,20 +5,21 @@
 
 # Save the original filter function
 
-from __future__ import (absolute_import, division, print_function)
+from __future__ import absolute_import, division, print_function
 
 import ranger.container.directory
 
 
 ACCEPT_FILE_OLD = ranger.container.directory.accept_file
 
-HIDE_FILES = ("/boot",
-              "/sbin",
-              "/proc",
-              "/sys",
-              "~/Applications",
-              "~/Calibre Library",
-              )
+HIDE_FILES = (
+    "/boot",
+    "/sbin",
+    "/proc",
+    "/sys",
+    "~/Applications",
+    "~/Calibre Library",
+)
 
 
 # Define a new one

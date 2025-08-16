@@ -10,7 +10,8 @@ from ranger.core.loader import CommandLoader
 import os
 
 # A simple command for demonstration purposes follows.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
@@ -69,24 +70,32 @@ class fzf_select(Command):
 
     See: https://github.com/junegunn/fzf
     """
+
     def execute(self):
         import subprocess
+
         if self.quantifier:
             # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command = (
+                "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            )
         else:
             # match files and directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command = (
+                "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            )
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
+            fzf_file = os.path.abspath(stdout.decode("utf-8").rstrip("\n"))
             if os.path.isdir(fzf_file):
                 self.fm.cd(fzf_file)
             else:
                 self.fm.select_file(fzf_file)
+
+
 # fzf_locate
 
 
@@ -100,16 +109,18 @@ class fzf_locate(Command):
 
     See: https://github.com/junegunn/fzf
     """
+
     def execute(self):
         import subprocess
+
         if self.quantifier:
-            command="locate home media | fzf -e -i"
+            command = "locate home media | fzf -e -i"
         else:
-            command="locate home media | fzf -e -i"
+            command = "locate home media | fzf -e -i"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
+            fzf_file = os.path.abspath(stdout.decode("utf-8").rstrip("\n"))
             if os.path.isdir(fzf_file):
                 self.fm.cd(fzf_file)
             else:
@@ -124,20 +135,26 @@ class fzf_bring(Command):
 
     See: https://github.com/junegunn/fzf
     """
+
     def execute(self):
         import subprocess
+
         if self.quantifier:
             # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command = (
+                "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            )
         else:
             # match files and directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command = (
+                "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+            )
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
+            fzf_file = os.path.abspath(stdout.decode("utf-8").rstrip("\n"))
             if os.path.isdir(fzf_file):
                 self.fm.cd(fzf_file)
             else:
@@ -146,7 +163,7 @@ class fzf_bring(Command):
 
 class compress(Command):
     def execute(self):
-        """ Compress marked files to current directory """
+        """Compress marked files to current directory"""
         cwd = self.fm.thisdir
         marked_files = cwd.get_selection()
 
@@ -162,22 +179,29 @@ class compress(Command):
         au_flags = parts[1:]
 
         descr = "compressing files in: " + os.path.basename(parts[1])
-        obj = CommandLoader(args=['apack'] + au_flags + \
-                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr)
+        obj = CommandLoader(
+            args=["apack"]
+            + au_flags
+            + [os.path.relpath(f.path, cwd.path) for f in marked_files],
+            descr=descr,
+        )
 
-        obj.signal_bind('after', refresh)
+        obj.signal_bind("after", refresh)
         self.fm.loader.add(obj)
 
     def tab(self):
-        """ Complete with current folder name """
+        """Complete with current folder name"""
 
-        extension = ['.zip', '.tar.gz', '.rar', '.7z']
-        return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+        extension = [".zip", ".tar.gz", ".rar", ".7z"]
+        return [
+            "compress " + os.path.basename(self.fm.thisdir.path) + ext
+            for ext in extension
+        ]
 
 
 class extracthere(Command):
     def execute(self):
-        """ Extract copied files to current directory """
+        """Extract copied files to current directory"""
         copied_files = tuple(self.fm.copy_buffer)
 
         if not copied_files:
@@ -190,9 +214,9 @@ class extracthere(Command):
         one_file = copied_files[0]
         cwd = self.fm.thisdir
         original_path = cwd.path
-        au_flags = ['-X', cwd.path]
+        au_flags = ["-X", cwd.path]
         au_flags += self.line.split()[1:]
-        au_flags += ['-e']
+        au_flags += ["-e"]
 
         self.fm.copy_buffer.clear()
         self.fm.cut_buffer = False
@@ -200,8 +224,9 @@ class extracthere(Command):
             descr = "extracting: " + os.path.basename(one_file.path)
         else:
             descr = "extracting files from: " + os.path.basename(one_file.dirname)
-        obj = CommandLoader(args=['aunpack'] + au_flags \
-                + [f.path for f in copied_files], descr=descr)
+        obj = CommandLoader(
+            args=["aunpack"] + au_flags + [f.path for f in copied_files], descr=descr
+        )
 
-        obj.signal_bind('after', refresh)
+        obj.signal_bind("after", refresh)
         self.fm.loader.add(obj)
