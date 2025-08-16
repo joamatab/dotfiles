@@ -2,4 +2,3 @@
 
 i3lock # add parameters if you want to customize i3lock behavior
 systemctl suspend
-

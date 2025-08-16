@@ -71,6 +71,15 @@ function path_append
   end
 end
 
+function crab
+    # Temporarily generate bash-compatible wrapper
+    set -l bash_init (ohcrab --shell bash | string replace -r '^alias crab=.*' '')
+    # Evaluate in bash to set everything up for this session
+    bash -c "source /dev/stdin <<< '$bash_init'"
+    # Run the crab alias (which should now be available)
+    bash -c crab
+end
+
 # }}}
 # variables {{{
 if string match -q "Darwin" (uname)
@@ -114,6 +123,7 @@ set -gx LESS_TERMCAP_us \e'[1;4;31m'
 # source {{{
 test -f ~/.config/fish/abbr.fish; and source ~/.config/fish/abbr.fish
 test -f ~/.local.fish; and source ~/.local.fish
+test -f ~/dotfiles/private/fish/api_keys.fish; and source ~/dotfiles/private/fish/api_keys.fish
 test -f ~/.rbenv; and status --is-interactive; and rbenv init - | source
 test -f ~/.aliases; and status --is-interactive; and  source ~/.aliases
 # test -f ~/.aliases2; and status --is-interactive; and  source ~/.aliases2
@@ -159,7 +169,7 @@ path_prepend /opt/homebrew/opt/ruby/bin
 # more_variables {{{
 test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python; and path_append /opt/lumerical/(ls /opt/lumerical)/bin
 test -d "/Applications/Lumerical 2020a.app/Contents/API/"; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
-# test -d "$HOME/mambaforge"; . "$HOME/mambaforge/etc/profile.d/mamba.sh" 
+# test -d "$HOME/mambaforge"; . "$HOME/mambaforge/etc/profile.d/mamba.sh"
 test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
 # test -d "$HOME/mambaforge"; and source $HOME/mambaforge/etc/fish/conf.d/conda.fish; and set PATH $HOME/mambaforge/bin $PATH
 test -f "$HOME/.kube/k8s-kops-config"; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
@@ -168,7 +178,7 @@ test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/v
 # test -f "$HOME/.cargo/bin/zoxide"; and zoxide init fish | source
 # if [ -f "$HOME/google-cloud-sdk/path.fish.inc" ]; . "$HOME/google-cloud-sdk/path.fish.inc"
 # lf [ -f "$HOME/micromamba" ]; and set -gx MAMBA_EXE "$HOME/.local/bin/micromamba"; and set -gx MAMBA_ROOT_PREFIX "$HOME/micromamba"; eval "$HOME/bin/micromamba" shell hook --shell fish --prefix "$HOME/micromamba" | source
-# if [ -f "$HOME/mambaforge" ]; eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source 
+# if [ -f "$HOME/mambaforge" ]; eval "$HOME/mambaforge/bin/conda" "shell.fish" "hook" $argv | source
 
 # if command -v mcfly >/dev/null
 #     mcfly init fish | source
@@ -226,6 +236,13 @@ end
 # Added by Windsurf
 fish_add_path /Users/j/.codeium/windsurf/bin
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
+
+# fish (see ~/.config/fish/config.fish)
+if test "$TERM_PROGRAM" != "WarpTerminal"
+    ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
+    # Unsupported plugin/prompt code here
+    ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
+end
 
 
 # The next line updates PATH for the Google Cloud SDK.

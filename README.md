@@ -7,7 +7,7 @@ Your dotfiles are how you personalize your system. These are the ones I use for 
 You can install this config files copy-pasting this into a terminal:
 
 ```
-sh install.sh
+bash install
 ```
 
 # Private kept configs

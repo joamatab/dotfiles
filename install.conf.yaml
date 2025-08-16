@@ -23,10 +23,11 @@
     ~/.config/dunst/dunstrc:
       force: true
     ~/.config/feh: feh
+    ~/.config/ghostty:
     ~/.config/fish:
       force: true
     ~/.config/rofi:
-    ~/.config/kanshi: 
+    ~/.config/kanshi:
     ~/.config/fish/functions.fish: fish/functions.fish
     ~/.config/fish/abbr.fish: fish/abbr.fish
     ~/.config/fish/completions: fish/completions
