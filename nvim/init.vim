@@ -447,19 +447,19 @@ nnoremap zz :setlocal foldmethod=expr<CR>:setlocal foldexpr=MarkdownLevel()<CR>
 function! MarkdownLevel()
     let line = getline(v:lnum)
     let nextline = getline(v:lnum + 1)
-    
+
     " ATX headers (# Header)
     if line =~ '^#\+ '
         return '>' . len(matchstr(line, '^#\+'))
     endif
-    
+
     " Setext headers (underlined with = or -)
     if nextline =~ '^=\+\s*$' && line =~ '\S'
         return '>1'
     elseif nextline =~ '^-\+\s*$' && line =~ '\S'
         return '>2'
     endif
-    
+
     " Keep same fold level
     return '='
 endfunction
@@ -467,14 +467,14 @@ endfunction
 function! MarkdownFoldText()
     let foldstart = v:foldstart
     let line = getline(foldstart)
-    
+
     " Remove leading hashes and spaces
     let line = substitute(line, '^#\+\s*', '', '')
-    
+
     " Count lines in fold
     let lines_count = v:foldend - v:foldstart + 1
     let lines_text = lines_count == 1 ? ' line' : ' lines'
-    
+
     " Create fold text
     return '▸ ' . line . ' [' . lines_count . lines_text . ']'
 endfunction
@@ -484,7 +484,7 @@ augroup markdown_folding
     autocmd FileType markdown,vimwiki setlocal foldmethod=expr
     autocmd FileType markdown,vimwiki setlocal foldexpr=MarkdownLevel()
     autocmd FileType markdown,vimwiki setlocal foldtext=MarkdownFoldText()
-    autocmd FileType markdown,vimwiki setlocal fillchars=fold:\ 
+    autocmd FileType markdown,vimwiki setlocal fillchars=fold:\
     autocmd FileType markdown,vimwiki setlocal foldlevel=99
     autocmd FileType markdown,vimwiki setlocal foldenable
 augroup END

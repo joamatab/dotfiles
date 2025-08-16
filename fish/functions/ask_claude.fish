@@ -162,7 +162,7 @@ end
 function fix_last_command -d "Fix the last failed command using Claude AI"
     # Get the last command from history
     set -l last_cmd (history | head -n 1)
-    
+
     # Remove leading/trailing whitespace
     set last_cmd (string trim $last_cmd)
 

@@ -71,7 +71,7 @@ abbr -a srg sr google
 abbr -a ssht ssh -L 5901:localhost:5901
 abbr -a setf set -x SHELL /usr/bin/fish
 abbr -a setb set -x SHELL /usr/bin/bash
-abbr -a sus systemctl suspend 
+abbr -a sus systemctl suspend
 abbr -a susl lock_and_suspend
 abbr -a sleepon 'xset s on +dpms'
 abbr -a sleepoff 'xset s off -dpms'
@@ -91,16 +91,16 @@ abbr -a wg nvim  ~/wikis/github/index.md
 abbr -a wj nvim  ~/wikis/joaquin/index.md
 abbr -a wd nvim  ~/wikis/dpd/index.md
 # abbr -a xr xrandr --output eDP1 --mode 1920x1080
-abbr -a xr xrandr --output eDP-1 --scale 0.5x0.5    
+abbr -a xr xrandr --output eDP-1 --scale 0.5x0.5
 abbr -a xrbig xrandr --output DP2 --mode 1920x1200
 abbr -a xrs xrandr --output DP2 --mode 1024x768
 abbr -a xrg xrandr --output eDP-1 --mode 2560x1600
 abbr -a wea "curl wttr.in"
 abbr -a ytm youtube-dl  -x --audio-format mp3
 abbr -a ytv youtube-dl -ic
-abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet 
+abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet
 abbr -a dcode cursor --extensionDevelopmentPath=/Users/j/docode/vscode
-abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 output3.gif' 
+abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 output3.gif'
 abbr -a claude2 'claude --dangerously-skip-permissions'
 
 # alias diff=colordiff
