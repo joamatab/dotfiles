@@ -23,6 +23,7 @@
     ~/.config/dunst/dunstrc:
       force: true
     ~/.config/feh: feh
+    ~/.config/ghostty:
     ~/.config/fish:
       force: true
     ~/.config/rofi:

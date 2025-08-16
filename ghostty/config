@@ -1,0 +1,6 @@
+# Ghostty configuration
+# Enable command+click for URLs
+auto-update = off
+confirm-close-surface = false
+mouse-hide-while-typing = true
+copy-on-select = true
