@@ -102,6 +102,7 @@ abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet
 abbr -a dcode cursor --extensionDevelopmentPath=/Users/j/docode/vscode
 abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 output3.gif'
 abbr -a claude2 'claude --dangerously-skip-permissions'
+abbr -a ghprc 'gh pr create --fill'
 
 # alias diff=colordiff
 # alias kpd='kpcli -kdb ~/.config/keepass/database.kdbx'
