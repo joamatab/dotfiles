@@ -15,6 +15,15 @@ function pyc
   command find . -name "*.pyc" -exec rm -rf {} \;
 end
 
+# Remove all if __name__ == "__main__": blocks from Python files in current directory
+function rmif
+  for file in (find . -name "*.py" -type f)
+    sed -i '' '/^if __name__ == ["'"'"']__main__["'"'"']:/,/^[^ \t]/{ /^[^ \t]/!d; }' $file
+    sed -i '' '/^if __name__ == ["'"'"']__main__["'"'"']:/d' $file
+  end
+  echo "Removed if __name__ == '__main__' blocks from Python files"
+end
+
 # Convert markdown to html
 function md2html
   markdown-to-slides "$argv" -o slides.html
