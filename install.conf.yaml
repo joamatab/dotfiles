@@ -28,9 +28,6 @@
       force: true
     ~/.config/rofi:
     ~/.config/kanshi:
-    ~/.config/fish/functions.fish: fish/functions.fish
-    ~/.config/fish/abbr.fish: fish/abbr.fish
-    ~/.config/fish/completions: fish/completions
     ~/.config/sway/config: sway
     ~/.config/waybar:
     ~/.config/i3/config: i3/config

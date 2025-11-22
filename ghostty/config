@@ -4,3 +4,4 @@ auto-update = off
 confirm-close-surface = false
 mouse-hide-while-typing = true
 copy-on-select = true
+keybind = shift+enter=text:\x1b\r
