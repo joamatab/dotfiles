@@ -9,6 +9,19 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Workspace to monitor assignment (Yabai-style: 3 workspaces per monitor)
+[workspace-to-monitor-force-assignment]
+1 = 1    # Monitor 1: workspaces 1, 2, 3
+2 = 1
+3 = 1
+4 = 2    # Monitor 2: workspaces 4, 5, 6
+5 = 2
+6 = 2
+7 = 3    # Monitor 3: workspaces 7, 8, 9, 10
+8 = 3
+9 = 3
+10 = 3
+
 [mode.main.binding]
 alt-0 = 'workspace 10'
 alt-1 = 'workspace 1'
@@ -74,6 +87,14 @@ alt-tab = 'workspace-back-and-forth'
 
 # Move workspace to left output (like i3: mod+m)
 alt-m = 'move-workspace-to-monitor --wrap-around prev'
+
+# Focus monitors (no shift)
+alt-comma = 'focus-monitor --wrap-around prev'
+alt-period = 'focus-monitor --wrap-around next'
+
+# Move window to another monitor (with shift)
+alt-shift-comma = 'move-node-to-monitor --wrap-around prev'
+alt-shift-period = 'move-node-to-monitor --wrap-around next'
 
 [mode.resize.binding]
 enter = 'mode main'
