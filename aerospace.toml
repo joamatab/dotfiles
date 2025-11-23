@@ -12,12 +12,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Workspace to monitor assignment (Yabai-style: 3 workspaces per monitor)
 # Using monitor names to ensure consistent assignment regardless of connection order
 [workspace-to-monitor-force-assignment]
-1 = 'Built-in Retina Display'    # Retina: workspaces 1, 2, 3
-2 = 'Built-in Retina Display'
-3 = 'Built-in Retina Display'
-4 = 'PB328'                      # ASUS: workspaces 4, 5, 6
-5 = 'PB328'
-6 = 'PB328'
+1 = 'PB328'                      # ASUS: workspaces 4, 5, 6
+2 = 'PB328'
+3 = 'PB328'
+4 = 'Built-in Retina Display'    # Retina: workspaces 1, 2, 3
+5 = 'Built-in Retina Display'
+6 = 'Built-in Retina Display'
 7 = 'HP 27f'                     # HP: workspaces 7, 8, 9, 10
 8 = 'HP 27f'
 9 = 'HP 27f'
