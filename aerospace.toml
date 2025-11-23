@@ -10,17 +10,18 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # Workspace to monitor assignment (Yabai-style: 3 workspaces per monitor)
+# Using monitor names to ensure consistent assignment regardless of connection order
 [workspace-to-monitor-force-assignment]
-1 = 1    # Monitor 1: workspaces 1, 2, 3
-2 = 1
-3 = 1
-4 = 2    # Monitor 2: workspaces 4, 5, 6
-5 = 2
-6 = 2
-7 = 3    # Monitor 3: workspaces 7, 8, 9, 10
-8 = 3
-9 = 3
-10 = 3
+1 = 'Built-in Retina Display'    # Retina: workspaces 1, 2, 3
+2 = 'Built-in Retina Display'
+3 = 'Built-in Retina Display'
+4 = 'PB328'                      # ASUS: workspaces 4, 5, 6
+5 = 'PB328'
+6 = 'PB328'
+7 = 'HP 27f'                     # HP: workspaces 7, 8, 9, 10
+8 = 'HP 27f'
+9 = 'HP 27f'
+10 = 'HP 27f'
 
 [mode.main.binding]
 alt-0 = 'workspace 10'
