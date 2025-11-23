@@ -57,23 +57,33 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 alt-shift-space = 'layout floating tiling'  # 'floating toggle' in i3
 alt-w = 'layout h_accordion'  # 'layout tabbed' in i3
-alt-q = 'close'
+alt-q = 'close'  # same as i3: mod+q kill
 
-# Move focus between monitors
-alt-comma = 'focus-monitor left'
-alt-period = 'focus-monitor right'
+# Arrow key navigation (like i3)
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
 
-# Move windows between monitors
-alt-shift-comma = 'move-node-to-monitor left'
-alt-shift-period = 'move-node-to-monitor right'
+# Workspace back and forth toggle (like i3: mod+Tab)
+alt-tab = 'workspace-back-and-forth'
 
-# Move workspace to different monitor
-alt-shift-m = 'move-workspace-to-monitor --wrap-around next'
+# Move workspace to left output (like i3: mod+m)
+alt-m = 'move-workspace-to-monitor --wrap-around prev'
 
 [mode.resize.binding]
 enter = 'mode main'
 esc = 'mode main'
+# Match i3 resize behavior
 h = 'resize width -50'
 j = 'resize height +50'
 k = 'resize height -50'
 l = 'resize width +50'
+left = 'resize width -50'
+down = 'resize height +50'
+up = 'resize height -50'
+right = 'resize width +50'
