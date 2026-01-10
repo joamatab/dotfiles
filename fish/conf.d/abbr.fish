@@ -33,6 +33,7 @@ abbr -a grm 'git branch --merged | grep -v \* | xargs -I{} git branch -D {}'
 abbr -a ga git add
 abbr -a gb git branch
 abbr -a gc git commit -v
+abbr -a gclone git clone --no-single-branch --tags
 abbr -a gcfe "git config --global user.email '4514346+joamatab@users.noreply.github.com'"
 abbr -a gca git commit -va
 abbr -a gcb git checkout -b
