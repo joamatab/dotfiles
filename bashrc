@@ -73,6 +73,8 @@ fi
 
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 export PATH="$PATH:$(du "$HOME/dotfiles/luke/.local/bin/" | cut -f2 | paste -sd ':')"
+export UV_LINK_MODE=hardlink
+export UV_CACHE_DIR=/tmp/uv-cache
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local

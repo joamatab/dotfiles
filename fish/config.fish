@@ -109,6 +109,8 @@ set -x BROWSER firefox
 set -U FZF_LEGACY_KEYBINDINGS 0
 set -x _ZL_MATCH_MODE 1
 set -x FZF_DEFAULT_COMMAND 'fd'
+set -x UV_LINK_MODE hardlink
+set -x UV_CACHE_DIR /tmp/uv-cache
 set -x XDG_CURRENT_DESKTOP sway
 test -f ~/.ssh/id_rsa; and set -x SSH_KEY_PATH $HOME/.ssh/id_rsa
 
