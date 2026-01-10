@@ -9,6 +9,20 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Workspace to monitor assignment (Yabai-style: 3 workspaces per monitor)
+# Using monitor names to ensure consistent assignment regardless of connection order
+[workspace-to-monitor-force-assignment]
+1 = 'PB328'                      # ASUS: workspaces 4, 5, 6
+2 = 'PB328'
+3 = 'PB328'
+4 = 'Built-in Retina Display'    # Retina: workspaces 1, 2, 3
+5 = 'Built-in Retina Display'
+6 = 'Built-in Retina Display'
+7 = 'HP 27f'                     # HP: workspaces 7, 8, 9, 10
+8 = 'HP 27f'
+9 = 'HP 27f'
+10 = 'HP 27f'
+
 [mode.main.binding]
 alt-0 = 'workspace 10'
 alt-1 = 'workspace 1'
@@ -57,11 +71,41 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 alt-shift-space = 'layout floating tiling'  # 'floating toggle' in i3
 alt-w = 'layout h_accordion'  # 'layout tabbed' in i3
+alt-q = 'close'  # same as i3: mod+q kill
+
+# Arrow key navigation (like i3)
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
+
+# Workspace back and forth toggle (like i3: mod+Tab)
+alt-tab = 'workspace-back-and-forth'
+
+# Move workspace to left output (like i3: mod+m)
+alt-m = 'move-workspace-to-monitor --wrap-around prev'
+
+# Focus monitors (no shift)
+alt-comma = 'focus-monitor --wrap-around prev'
+alt-period = 'focus-monitor --wrap-around next'
+
+# Move window to another monitor (with shift)
+alt-shift-comma = 'move-node-to-monitor --wrap-around prev'
+alt-shift-period = 'move-node-to-monitor --wrap-around next'
 
 [mode.resize.binding]
 enter = 'mode main'
 esc = 'mode main'
+# Match i3 resize behavior
 h = 'resize width -50'
 j = 'resize height +50'
 k = 'resize height -50'
 l = 'resize width +50'
+left = 'resize width -50'
+down = 'resize height +50'
+up = 'resize height -50'
+right = 'resize width +50'
