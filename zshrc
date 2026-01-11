@@ -12,6 +12,7 @@ plugins=(git vi-mode zsh-autosuggestions history-substring-search zsh-syntax-hig
 
 # source $ZSH/oh-my-zsh.sh
 export OPENER=open
+export UV_LINK_MODE=hardlink
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # export GIT_EDITOR=nvim
