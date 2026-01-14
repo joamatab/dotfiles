@@ -22,8 +22,8 @@ abbr -a ccp cookiecutter gh:joamatab/python
 abbr -a define sdcv
 abbr -a duh du -d1 -h
 abbr -a dus du -d1 | sort -n
-abbr -a e exa --git-ignore -I __pycache__
-abbr -a et exa --tree --git-ignore -I __pycache__
+abbr -a e eza --git-ignore -I __pycache__
+abbr -a et eza --tree --git-ignore -I __pycache__
 abbr -a f fzf
 abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
 abbr -a kus "setxkbmap -layout us"

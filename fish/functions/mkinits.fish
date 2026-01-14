@@ -46,6 +46,3 @@ function run_mkinit_in_subfolders
 
     echo "Done!"
 end
-
-# Execute the function
-run_mkinit_in_subfolders $argv
