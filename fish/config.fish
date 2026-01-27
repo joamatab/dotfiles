@@ -180,7 +180,7 @@ path_prepend /opt/homebrew/opt/ruby/bin
 test -d "/opt/lumerical/"; and set -x PYTHONPATH /opt/lumerical/(ls /opt/lumerical)/api/python; and path_append /opt/lumerical/(ls /opt/lumerical)/bin
 test -d "/Applications/Lumerical 2020a.app/Contents/API/"; and set -x PYTHONPATH '/Applications/Lumerical 2020a.app/Contents/API/Python'
 # test -d "$HOME/mambaforge"; . "$HOME/mambaforge/etc/profile.d/mamba.sh"
-test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
+# test -d "$HOME/miniconda3"; and source $HOME/miniconda3/etc/fish/conf.d/conda.fish; and set PATH $HOME/miniconda3/bin $PATH
 # test -d "$HOME/mambaforge"; and source $HOME/mambaforge/etc/fish/conf.d/conda.fish; and set PATH $HOME/mambaforge/bin $PATH
 test -f "$HOME/.kube/k8s-kops-config"; and set -x  KUBECONFIG "$HOME/.kube/k8s-local-config:$HOME/.kube/k8s-kops-config"
 test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/versions/node/v20.8.1/bin"
