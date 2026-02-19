@@ -41,6 +41,7 @@
     ~/.config/newsboat: newsboat
     # ~/.config/polybar:
     ~/.config/ranger:
+    ~/.config/s/config: s/config
     ~/.config/starship.toml:
     ~/.config/nvim:
     ~/.config/coc/python: coc/python
