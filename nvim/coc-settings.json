@@ -1,4 +1,5 @@
 {
+  "http.proxyStrictSSL": false,
   "python.jediEnabled": false,
   "inlayHint.enable": false,
   "pyright.python.linting.ruffEnabled": true,

@@ -8,6 +8,7 @@ backup:
 	mv ~/.bashrc ~/.bashrc.bak
 	mv ~/.zshrc ~/.zshrc.bak
 
+
 install:
 	sh install.sh
 
