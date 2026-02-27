@@ -10,8 +10,12 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(git vi-mode zsh-autosuggestions history-substring-search zsh-syntax-highlighting)
 
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
+eval "$($HOME/.brew/bin/brew shellenv)"
 # source $ZSH/oh-my-zsh.sh
 export OPENER=open
+export SHELL=fish
 export UV_LINK_MODE=hardlink
 alias path='echo $PATH | tr -s ":" "\n"'
 

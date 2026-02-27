@@ -73,3 +73,4 @@
     ~/.profile:
     ~/.xprofile:
     ~/.zshrc:
+      force: true

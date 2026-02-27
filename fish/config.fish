@@ -119,6 +119,10 @@ else if test -x /opt/homebrew/bin/fish
     set -x SHELL /opt/homebrew/bin/fish
 else if test -x /usr/local/bin/fish
     set -x SHELL /usr/local/bin/fish
+
+else if test -x /Users/joaquin/.brew/bin/fish
+    set -x SHELL /Users/joaquin/.brew/bin/fish
+
 end
 
 # color man pages
@@ -245,6 +249,7 @@ end
 
 # Added by Windsurf
 fish_add_path /Users/j/.codeium/windsurf/bin
+fish_add_path ~/Applications/Ghostty.app/Contents/MacOS
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
 
 # fish (see ~/.config/fish/config.fish)
