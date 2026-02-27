@@ -559,6 +559,7 @@ nmap <leader>/ :CtrlSF -R ""<Left>
 nmap <leader>c :CtrlSFFocus<CR>
 nmap <leader>C :CtrlSFToggle<CR>
 let g:ctrlsf_ackprg = '/usr/bin/rg'
+let g:copilot_node_command = expand('~/.brew/opt/node@20/bin/node')
 let g:copilot_assume_mapped = 'true'
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 
