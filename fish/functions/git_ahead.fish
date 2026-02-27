@@ -6,6 +6,9 @@ function git_ahead
 
     command git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null | read -l -d \t left right
 
+    set -q left[1]; or set left 0
+    set -q right[1]; or set right 0
+
     if test $left -gt 0 -a $right -gt 0
         echo $diverged
     else if test $left -gt 0

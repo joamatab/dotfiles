@@ -18,7 +18,7 @@ Plug 'mhinz/vim-startify'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'chrisbra/csv.vim'
-Plug 'pimalaya/himalaya-vim'
+" Plug 'pimalaya/himalaya-vim'
 
 " find
 Plug 'justinmk/vim-sneak'
