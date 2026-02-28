@@ -83,6 +83,8 @@ export UV_LINK_MODE=hardlink
 
 . "$HOME/.cargo/env"
 
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
 
 #alias klayout_generic_pdk='KLAYOUT_HOME=/home/jmatres/demo/generic_pdk_setup/generic_pdk_klayout KLAYOUT_PYTHONPATH=/home/jmatres/demo/generic_pdk_setup/generic_pdk_env/lib/python3.11/site-packages klayout -e'
 alias klayout_generic_pdk='KLAYOUT_HOME=/home/jmatres/demo/generic_pdk_setup/generic_pdk_klayout klayout -e'

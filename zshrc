@@ -126,6 +126,8 @@ bindkey -s '^O' 'lfcd\n'  # zsh
 # edit current line in VIM with ctrl-e {{{
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
+
+export NODE_TLS_REJECT_UNAUTHORIZED=0
 # }}}
 # source {{{
 [ -f ~/.aliases ] && source ~/.aliases
