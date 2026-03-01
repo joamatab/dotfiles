@@ -65,10 +65,7 @@ abbr -a q exit
 abbr -a rs redshift -O 2000 &
 abbr -a sf source ~/.config/fish/config.fish
 abbr -a sp sudo pacman -Suy --nocofirm
-abbr -a sr sourcery refactor --in-place
 abbr -a se "source .venv/bin/activate.fish"
-abbr -a srd sr duckduckgo
-abbr -a srg sr google
 abbr -a ssht ssh -L 5901:localhost:5901
 abbr -a setf set -x SHELL /usr/bin/fish
 abbr -a setb set -x SHELL /usr/bin/bash
@@ -103,6 +100,8 @@ abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet
 abbr -a dcode cursor --extensionDevelopmentPath=/Users/j/docode/vscode
 abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 output3.gif'
 abbr -a claude2 'claude --dangerously-skip-permissions'
+abbr -a codex2 'codex --dangerously-bypass-approvals-and-sandbox'
+
 abbr -a ghprc 'gh pr create --fill'
 
 # alias diff=colordiff
