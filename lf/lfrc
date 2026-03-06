@@ -94,6 +94,7 @@ cmd open ${{
     # Handle by file extension first
     case "$f" in
         *.mp3) $AUDIO_PLAYER "$f"; exit ;;
+        *.avi) mpv "$f"; exit ;;
     esac
 
     # Get MIME type
