@@ -91,6 +91,11 @@ cmd open ${{
     # Get absolute path
     f_path=$($ABS_PATH "$f")
 
+    # Handle by file extension first
+    case "$f" in
+        *.mp3) $AUDIO_PLAYER "$f"; exit ;;
+    esac
+
     # Get MIME type
     mime_type=$(eval "$MIME_CMD \"$f_path\"")
 
