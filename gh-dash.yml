@@ -78,8 +78,8 @@ defaults:
     refetchIntervalMinutes: 30
 keybindings:
     prs:
-        - key: M
-          command: gh pr merge --merge --delete-branch {{.PrNumber}} -R {{.RepoName}}
+        - key: m
+          command: GH_PROMPT_DISABLED=1 gh pr merge --merge --delete-branch {{.PrNumber}} -R {{.RepoName}} &
 repoPaths: {}
 theme:
     ui:
