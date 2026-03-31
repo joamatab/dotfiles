@@ -104,6 +104,7 @@ abbr -a claude2 'claude --dangerously-skip-permissions'
 abbr -a codex2 'codex --dangerously-bypass-approvals-and-sandbox'
 
 abbr -a ghprc 'gh pr create --fill'
+abbr -a ghprm 'gh pr merge --merge --delete-branch'
 
 # alias diff=colordiff
 # alias kpd='kpcli -kdb ~/.config/keepass/database.kdbx'
