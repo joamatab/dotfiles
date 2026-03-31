@@ -63,6 +63,8 @@
     ~/.matplotlib/matplotlibrc:
     ~/.pylintrc:
     ~/.prettierrc:
+    ~/.ripgreprc:
+    ~/.ignore:
     ~/.tmux.conf:
       force: true
     ~/.vifm:
