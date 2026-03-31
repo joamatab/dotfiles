@@ -75,4 +75,6 @@
     ~/.xonshrc:
     ~/.profile:
     ~/.xprofile:
+    ~/.config/zellij:
+      force: true
     ~/.zshrc:
