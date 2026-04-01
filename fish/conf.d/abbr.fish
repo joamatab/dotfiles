@@ -101,7 +101,7 @@ abbr -a dcode 'cd /Users/j/c/dpd/gdsfactoryplus/vscode && just dev && code --ext
 abbr -a dcode2 cursor --extensionDevelopmentPath=/Users/j/docode/vscode
 abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 output3.gif'
 abbr -a claude2 'claude --dangerously-skip-permissions'
-abbr -a cc 'claude --permission-mode auto'
+abbr -a cc claude
 abbr -a codex2 'codex --dangerously-bypass-approvals-and-sandbox'
 
 abbr -a ghprc 'gh pr create --fill'
