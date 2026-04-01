@@ -97,10 +97,11 @@ abbr -a wea "curl wttr.in"
 abbr -a ytm youtube-dl  -x --audio-format mp3
 abbr -a ytv youtube-dl -ic
 abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet
-abbr -a dcode 'cd /Users/j/c/dpd/gdsfactoryplus/vscode && just build && code --extensionDevelopmentPath=/Users/j/c/dpd/gdsfactoryplus/vscode'
+abbr -a dcode 'cd /Users/j/c/dpd/gdsfactoryplus/vscode && just dev && code --extensionDevelopmentPath=/Users/j/c/dpd/gdsfactoryplus/vscode'
 abbr -a dcode2 cursor --extensionDevelopmentPath=/Users/j/docode/vscode
 abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 output3.gif'
 abbr -a claude2 'claude --dangerously-skip-permissions'
+abbr -a c3 'claude --permission-mode auto'
 abbr -a codex2 'codex --dangerously-bypass-approvals-and-sandbox'
 
 abbr -a ghprc 'gh pr create --fill'

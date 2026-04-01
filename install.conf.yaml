@@ -75,6 +75,7 @@
     ~/.xonshrc:
     ~/.profile:
     ~/.xprofile:
+    ~/.config/tridactyl:
     ~/.config/zellij:
       force: true
     ~/.zshrc:
