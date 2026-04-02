@@ -23,6 +23,7 @@
     ~/.config/dunst/dunstrc:
       force: true
     ~/.config/feh: feh
+    ~/.config/gh-dash/config.yml: gh-dash.yml
     ~/.config/ghostty:
     ~/.config/fish:
       force: true
@@ -63,6 +64,8 @@
     ~/.matplotlib/matplotlibrc:
     ~/.pylintrc:
     ~/.prettierrc:
+    ~/.ripgreprc:
+    ~/.ignore:
     ~/.tmux.conf:
       force: true
     ~/.vifm:
@@ -72,4 +75,7 @@
     ~/.xonshrc:
     ~/.profile:
     ~/.xprofile:
+    ~/.config/tridactyl:
+    ~/.config/zellij:
+      force: true
     ~/.zshrc:

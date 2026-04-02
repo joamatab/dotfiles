@@ -1,0 +1,3 @@
+set editorcmd neovide --nofork
+bind --mode=insert <C-i> editor
+bind --mode=input <C-i> editor
