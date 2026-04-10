@@ -17,20 +17,6 @@
       "rootPatterns": ["go.mod"],
       "trace.server": "verbose",
       "filetypes": ["go"]
-    },
-    "sourcery": {
-      "command": "sourcery",
-      "args": ["lsp"],
-      "filetypes": ["python"],
-      "initializationOptions": {
-        "extension_version": "coc.vim",
-        "editor_version": "vim"
-      },
-      "settings": {
-        "sourcery": {
-          "metricsEnabled": true
-        }
-      }
     }
   },
   "svelte.enable-ts-plugin": false

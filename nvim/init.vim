@@ -29,6 +29,8 @@ Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
 " Document writing
 Plug 'vimwiki/vimwiki'
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
+Plug 'HakonHarnes/img-clip.nvim'
+Plug '3rd/image.nvim'
 " Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 " Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -95,7 +97,202 @@ Plug 'olimorris/codecompanion.nvim'
 call plug#end()
 
 lua << EOF
+  package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
+  package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
+
   require("codecompanion").setup()
+
+  -- img-clip.nvim: paste images from clipboard
+  require("img-clip").setup({
+    default = {
+      use_absolute_path = false,
+      relative_to_current_file = true,
+      dir_path = function()
+        return vim.fn.expand("%:t:r") .. "-img"
+      end,
+      prompt_for_file_name = false,
+      file_name = "%y%m%d-%H%M%S",
+      extension = "avif",
+      process_cmd = "convert - -quality 75 avif:-",
+    },
+    filetypes = {
+      markdown = {
+        url_encode_path = true,
+        template = "![Image](./$FILE_PATH)",
+      },
+    },
+  })
+
+  -- image.nvim: render images inline in the terminal
+  require("image").setup({
+    backend = "kitty",
+    kitty_method = "normal",
+    integrations = {
+      markdown = {
+        enabled = true,
+        clear_in_insert_mode = false,
+        download_remote_images = true,
+        only_render_image_at_cursor = true,
+        filetypes = { "markdown", "vimwiki" },
+      },
+      html = {
+        enabled = true,
+        only_render_image_at_cursor = true,
+        filetypes = { "html", "xhtml", "htm" },
+      },
+      css = {
+        enabled = true,
+      },
+    },
+    max_height_window_percentage = 40,
+    window_overlap_clear_enabled = false,
+    editor_only_render_when_focused = true,
+    tmux_show_only_in_active_window = true,
+    hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" },
+  })
+
+  ---------------------------------------------------------------------------
+  --                           Folding (from linkarzu)
+  ---------------------------------------------------------------------------
+
+  -- Markdown fold expression: frontmatter-aware, heading-level based
+  function _G.markdown_foldexpr()
+    local lnum = vim.v.lnum
+    local line = vim.fn.getline(lnum)
+    local heading = line:match("^(#+)%s")
+    if heading then
+      local level = #heading
+      if level == 1 then
+        if lnum == 1 then
+          return ">1"
+        end
+        local frontmatter_end = vim.b.frontmatter_end
+        if frontmatter_end and (lnum == frontmatter_end + 1) then
+          return ">1"
+        end
+      elseif level >= 2 and level <= 6 then
+        return ">" .. level
+      end
+    end
+    return "="
+  end
+
+  local function set_markdown_folding()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.markdown_foldexpr()"
+    vim.opt_local.foldlevel = 99
+    -- Detect frontmatter closing line
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    local found_first = false
+    local frontmatter_end = nil
+    for i, line in ipairs(lines) do
+      if line == "---" then
+        if not found_first then
+          found_first = true
+        else
+          frontmatter_end = i
+          break
+        end
+      end
+    end
+    vim.b.frontmatter_end = frontmatter_end
+  end
+
+  vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+    pattern = { "markdown", "vimwiki" },
+    callback = set_markdown_folding,
+  })
+
+  -- Fold all headings of a specific level
+  local function fold_headings_of_level(level)
+    vim.cmd("keepjumps normal! gg")
+    local total_lines = vim.fn.line("$")
+    for line = 1, total_lines do
+      local line_content = vim.fn.getline(line)
+      if line_content:match("^" .. string.rep("#", level) .. "%s") then
+        vim.cmd(string.format("keepjumps call cursor(%d, 1)", line))
+        local current_foldlevel = vim.fn.foldlevel(line)
+        if current_foldlevel > 0 then
+          if vim.fn.foldclosed(line) == -1 then
+            vim.cmd("normal! za")
+          end
+        end
+      end
+    end
+  end
+
+  local function fold_markdown_headings(levels)
+    local saved_view = vim.fn.winsaveview()
+    for _, level in ipairs(levels) do
+      fold_headings_of_level(level)
+    end
+    vim.cmd("nohlsearch")
+    vim.fn.winrestview(saved_view)
+  end
+
+  -- zj: fold all headings level 1+
+  vim.keymap.set("n", "zj", function()
+    vim.cmd("silent update")
+    vim.cmd("edit!")
+    vim.cmd("normal! zR")
+    fold_markdown_headings({ 6, 5, 4, 3, 2, 1 })
+    vim.cmd("normal! zz")
+  end, { desc = "Fold all headings level 1 or above" })
+
+  -- zk: fold all headings level 2+
+  vim.keymap.set("n", "zk", function()
+    vim.cmd("silent update")
+    vim.cmd("edit!")
+    vim.cmd("normal! zR")
+    fold_markdown_headings({ 6, 5, 4, 3, 2 })
+    vim.cmd("normal! zz")
+  end, { desc = "Fold all headings level 2 or above" })
+
+  -- zl: fold all headings level 3+
+  vim.keymap.set("n", "zl", function()
+    vim.cmd("silent update")
+    vim.cmd("edit!")
+    vim.cmd("normal! zR")
+    fold_markdown_headings({ 6, 5, 4, 3 })
+    vim.cmd("normal! zz")
+  end, { desc = "Fold all headings level 3 or above" })
+
+  -- z;: fold all headings level 4+
+  vim.keymap.set("n", "z;", function()
+    vim.cmd("silent update")
+    vim.cmd("edit!")
+    vim.cmd("normal! zR")
+    fold_markdown_headings({ 6, 5, 4 })
+    vim.cmd("normal! zz")
+  end, { desc = "Fold all headings level 4 or above" })
+
+  -- <CR>: toggle fold under cursor
+  vim.keymap.set("n", "<CR>", function()
+    local line = vim.fn.line(".")
+    local foldlevel = vim.fn.foldlevel(line)
+    if foldlevel == 0 then
+      vim.notify("No fold found", vim.log.levels.INFO)
+    else
+      vim.cmd("normal! za")
+      vim.cmd("normal! zz")
+    end
+  end, { desc = "Toggle fold" })
+
+  -- zu: unfold all
+  vim.keymap.set("n", "zu", function()
+    vim.cmd("silent update")
+    vim.cmd("edit!")
+    vim.cmd("normal! zR")
+    vim.cmd("normal! zz")
+  end, { desc = "Unfold all headings" })
+
+  -- zi: jump to heading above and fold it
+  vim.keymap.set("n", "zi", function()
+    vim.cmd("silent update")
+    vim.cmd("normal gk")
+    vim.cmd("normal! za")
+    vim.cmd("normal! zz")
+  end, { desc = "Fold the heading cursor is on" })
 EOF
 
 " Section: General
@@ -231,7 +428,7 @@ map <leader>cff :vi ~/dotfiles/fish/config.fish<CR>
 map <leader>cfx :vi ~/dotfiles/sxhkd/sxhkdrc<CR>
 map <leader>cfi :vi ~/dotfiles/i3/config<CR>
 vnoremap <leader>s :sort<CR>
-nmap <leader>v :call PasteClipboardImage()<CR>
+nmap <leader>v :PasteImage<CR>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>K :wa<CR>:sp<CR>:resize 10<CR>:term pkill ipython<CR>
@@ -320,34 +517,7 @@ let g:asyncrun_open = 5
 let $PYTHONUNBUFFERED=1
 " }}}
 
-function! PasteClipboardImage() abort
-    " Create `img` directory if it doesn't exist
-    let img_dir = getcwd() . '/images'
-    let img_path = 'images'
-    if !isdirectory(img_dir)
-        silent call mkdir(img_dir)
-    endif
-
-    let index = strftime("%y%m%d%H%M%S")
-    let file_path = img_dir . "/" . index . ".png"
-
-    let file_relative_path = "images/" . index . ".png"
-    let clip_command = 'osascript'
-    let clip_command .= ' -e "set png_data to the clipboard as «class PNGf»"'
-    let clip_command .= ' -e "set referenceNumber to open for access POSIX path of'
-    let clip_command .= ' (POSIX file \"' . file_path . '\") with write permission"'
-    let clip_command .= ' -e "write png_data to referenceNumber"'
-
-    silent call system(clip_command)
-
-    if v:shell_error == 1
-        normal! p
-    elseif &filetype == 'rst'
-        exec "normal! i.. image:: " . file_relative_path
-    else
-        exec "normal! i![](" . file_relative_path . ")"
-    endif
-endfunction
+" Image pasting is now handled by img-clip.nvim (see lua config below)
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
@@ -436,59 +606,11 @@ let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 set completefunc=emoji#complete
 
 " Section: Folding
-" set foldmethod=syntax
 set foldmethod=indent   " fold based on indent level
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
 nnoremap <space> za
-nnoremap zz :setlocal foldmethod=expr<CR>:setlocal foldexpr=MarkdownLevel()<CR>
-
-" Markdown folding
-function! MarkdownLevel()
-    let line = getline(v:lnum)
-    let nextline = getline(v:lnum + 1)
-
-    " ATX headers (# Header)
-    if line =~ '^#\+ '
-        return '>' . len(matchstr(line, '^#\+'))
-    endif
-
-    " Setext headers (underlined with = or -)
-    if nextline =~ '^=\+\s*$' && line =~ '\S'
-        return '>1'
-    elseif nextline =~ '^-\+\s*$' && line =~ '\S'
-        return '>2'
-    endif
-
-    " Keep same fold level
-    return '='
-endfunction
-
-function! MarkdownFoldText()
-    let foldstart = v:foldstart
-    let line = getline(foldstart)
-
-    " Remove leading hashes and spaces
-    let line = substitute(line, '^#\+\s*', '', '')
-
-    " Count lines in fold
-    let lines_count = v:foldend - v:foldstart + 1
-    let lines_text = lines_count == 1 ? ' line' : ' lines'
-
-    " Create fold text
-    return '▸ ' . line . ' [' . lines_count . lines_text . ']'
-endfunction
-
-augroup markdown_folding
-    autocmd!
-    autocmd FileType markdown,vimwiki setlocal foldmethod=expr
-    autocmd FileType markdown,vimwiki setlocal foldexpr=MarkdownLevel()
-    autocmd FileType markdown,vimwiki setlocal foldtext=MarkdownFoldText()
-    autocmd FileType markdown,vimwiki setlocal fillchars=fold:\
-    autocmd FileType markdown,vimwiki setlocal foldlevel=99
-    autocmd FileType markdown,vimwiki setlocal foldenable
-augroup END
 
 " Section: VimTest
 let test#strategy="neovim"
@@ -497,6 +619,7 @@ nmap <leader>tf :wa<CR>:TestFile<CR>
 nmap <leader>ts :wa<CR>:TestSuite<CR>
 
 " Section: VimWiki
+let g:vimwiki_folding = 'custom'
 let g:vimwiki_list = [
             \ {'path': '~/wikis/joaquin/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
             \ {'path': '~/wikis/github/', 'path_html': '~/wikis/html', 'syntax': 'markdown', 'ext': '.md'},
