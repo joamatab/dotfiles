@@ -1,6 +1,9 @@
 [mgr]
 
 prepend_keymap = [
+	# Quit without task confirmation
+	{ on = "q",              run = "quit --confirm", desc = "Quit" },
+
 	# Trash (matches lf: t, dd, D) - no confirmation
 	{ on = "t",              run = "remove --force",               desc = "Trash selected files" },
 	{ on = [ "d", "d" ],    run = "remove --force",               desc = "Trash selected files" },
