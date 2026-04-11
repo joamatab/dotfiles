@@ -131,7 +131,7 @@ $env.config = {
     color_config: $dark_theme
     footer_mode: 25
     float_precision: 2
-    buffer_editor: ""
+    buffer_editor: "nvim"
     use_ansi_coloring: true
     bracketed_paste: true
     edit_mode: vi
@@ -250,6 +250,48 @@ $env.config = {
     ]
 
     keybindings: [
+        # Vi insert mode: Ctrl+F = accept autosuggestion (like fish)
+        {
+            name: accept_autosuggestion
+            modifier: control
+            keycode: char_f
+            mode: vi_insert
+            event: { send: historyhintcomplete }
+        }
+        # Vi insert mode: Ctrl+W = forward word (like fish)
+        {
+            name: forward_word
+            modifier: control
+            keycode: char_w
+            mode: vi_insert
+            event: { send: historyhintwordcomplete }
+        }
+        # Vi insert mode: Ctrl+P = history search backward (like fish)
+        {
+            name: history_search_backward
+            modifier: control
+            keycode: char_p
+            mode: vi_insert
+            event: {
+                until: [
+                    { send: menuup }
+                    { send: up }
+                ]
+            }
+        }
+        # Vi insert mode: Ctrl+N = history search forward (like fish)
+        {
+            name: history_search_forward
+            modifier: control
+            keycode: char_n
+            mode: vi_insert
+            event: {
+                until: [
+                    { send: menudown }
+                    { send: down }
+                ]
+            }
+        }
         {
             name: delete_one_word_backward
             modifier: alt
@@ -274,7 +316,7 @@ $env.config = {
             name: ide_completion_menu
             modifier: control
             keycode: char_n
-            mode: [emacs vi_normal vi_insert]
+            mode: [emacs vi_normal]
             event: {
                 until: [
                     { send: menu name: ide_completion_menu }
@@ -358,11 +400,19 @@ $env.config = {
             mode: [emacs, vi_normal, vi_insert]
             event: { send: searchhistory }
         }
+        # Ctrl+B = open command in editor (like fish Ctrl+B edit_command_buffer)
+        {
+            name: open_command_editor
+            modifier: control
+            keycode: char_b
+            mode: [vi_normal, vi_insert]
+            event: { send: openeditor }
+        }
         {
             name: open_command_editor
             modifier: control
             keycode: char_o
-            mode: [emacs, vi_normal, vi_insert]
+            mode: emacs
             event: { send: openeditor }
         }
         {
@@ -489,7 +539,7 @@ $env.config = {
             name: move_up
             modifier: control
             keycode: char_p
-            mode: [emacs, vi_normal, vi_insert]
+            mode: [emacs, vi_normal]
             event: {
                 until: [
                     { send: menuup }
@@ -543,13 +593,6 @@ $env.config = {
             keycode: char_h
             mode: [emacs, vi_insert]
             event: { edit: backspace }
-        }
-        {
-            name: delete_one_word_backward
-            modifier: control
-            keycode: char_w
-            mode: [emacs, vi_insert]
-            event: { edit: backspaceword }
         }
         {
             name: move_left
@@ -750,52 +793,7 @@ $env.config = {
     ]
 }
 
-# Custom commands
-def --env cx [arg] {
-    cd $arg
-    ls -l
-}
-
-# Aliases
-alias l = ls --all
-alias c = clear
-alias ll = ls -l
-alias la = ls --all
-alias q = exit
-alias v = nvim
-
-# Git
-alias gc = git commit -m
-alias gca = git commit -a -m
-alias gp = git push origin HEAD
-alias gpu = git pull origin
-alias gst = git status
-alias glog = git log --graph --topo-order --pretty='%w(100,0,6)%C(yellow)%h%C(bold)%C(black)%d %C(cyan)%ar %C(green)%an%n%C(bold)%C(white)%s %N' --abbrev-commit
-alias gdiff = git diff
-alias gco = git checkout
-alias gb = git branch
-alias gba = git branch -a
-alias gadd = git add
-alias ga = git add -p
-alias gcoall = git checkout -- .
-alias gr = git remote
-alias gre = git reset
-
-# Python helpers
-def pyc [] {
-    glob **/*.pyc | each { |f| rm $f }
-}
-
-def --env uva [name: string] {
-    let venv_path = ($env.HOME | path join ".venvs" $name "bin" "activate.nu")
-    if ($venv_path | path exists) {
-        source $venv_path
-    } else {
-        print $"Venv ($name) not found at ($venv_path)"
-    }
-}
-
-# Source integrations
-source ~/.zoxide.nu
-source ~/.local/share/atuin/init.nu
-use ~/.cache/starship/init.nu
+# =============================================================================
+# Source functions and aliases
+# =============================================================================
+source aliases.nu

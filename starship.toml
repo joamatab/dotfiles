@@ -1,4 +1,4 @@
-add_new_line = false
+add_newline = false
 
 [aws]
 disabled = true
