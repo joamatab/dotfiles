@@ -91,10 +91,10 @@ def uvc [name: string] {
     uv venv ($env.HOME | path join ".venvs" $name)
 }
 
-# lf and cd to last dir (from fish lfcd function)
-def --env lfcd [] {
+# yazi and cd to last dir
+def --env yazicd [] {
     let tmp = (mktemp)
-    lf $"-last-dir-path=($tmp)"
+    yazi --cwd-file $tmp
     let dir = (open $tmp | str trim)
     rm -f $tmp
     if ($dir | is-not-empty) and ($dir | path exists) and ($dir != $env.PWD) {
@@ -116,10 +116,10 @@ def dcode [] {
 # =============================================================================
 
 # General
-# l = lfcd (inline to avoid forward-reference issues)
+# l = yazi with cd to last dir on quit
 def --env l [] {
     let tmp = (mktemp)
-    lf $"-last-dir-path=($tmp)"
+    yazi --cwd-file $tmp
     let dir = (open $tmp | str trim)
     rm -f $tmp
     if ($dir | is-not-empty) and ($dir | path exists) and ($dir != $env.PWD) {
