@@ -6,9 +6,9 @@ prepend_keymap = [
 	{ on = [ "d", "d" ],    run = "remove",               desc = "Trash selected files" },
 	{ on = "D",              run = "remove --permanently", desc = "Delete permanently" },
 
-	# Shell (matches lf: <Enter> for shell)
+	# Open / Edit
 	{ on = "<Enter>",        run = "open",                 desc = "Open selected files" },
-	{ on = [ "e", "e" ],    run = "open",                 desc = "Open in editor" },
+	{ on = "e",              run = "open",                 desc = "Open in editor" },
 
 	# FZF / Zoxide (matches lf: f for fzf, J for autojump)
 	{ on = "f",              run = "plugin fzf",           desc = "Jump via fzf" },
