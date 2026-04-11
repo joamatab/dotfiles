@@ -78,4 +78,6 @@
     ~/.config/tridactyl:
     ~/.config/zellij:
       force: true
+    ~/.config/nushell:
+      force: true
     ~/.zshrc:
