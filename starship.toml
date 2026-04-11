@@ -23,3 +23,6 @@ disabled = true
 
 [ruby]
 disabled = true
+
+[gcloud]
+disabled = true
