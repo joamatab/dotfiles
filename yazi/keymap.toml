@@ -1,10 +1,10 @@
 [mgr]
 
 prepend_keymap = [
-	# Trash (matches lf: t, dd, D)
-	{ on = "t",              run = "remove",               desc = "Trash selected files" },
-	{ on = [ "d", "d" ],    run = "remove",               desc = "Trash selected files" },
-	{ on = "D",              run = "remove --permanently", desc = "Delete permanently" },
+	# Trash (matches lf: t, dd, D) - no confirmation
+	{ on = "t",              run = "remove --force",               desc = "Trash selected files" },
+	{ on = [ "d", "d" ],    run = "remove --force",               desc = "Trash selected files" },
+	{ on = "D",              run = "remove --permanently --force", desc = "Delete permanently" },
 
 	# Open / Edit
 	{ on = "<Enter>",        run = "open",                 desc = "Open selected files" },

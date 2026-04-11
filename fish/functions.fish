@@ -125,7 +125,7 @@ end
 
 function lfcd
     set tmp (mktemp)
-    lf -last-dir-path=$tmp $argv
+    yazi --cwd-file=$tmp $argv
     if test -f "$tmp"
         set dir (cat $tmp)
         rm -f $tmp
