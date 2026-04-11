@@ -103,8 +103,8 @@ starship init nu | save -f ~/.cache/starship/init.nu
 # Zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
 
-# Atuin
-atuin init nu | save -f ~/.local/share/atuin/init.nu
+# Atuin (patch deprecated `get -i` → `get -o` until atuin updates)
+atuin init nu | str replace --all 'get -i ' 'get -o ' | save -f ~/.local/share/atuin/init.nu
 
 # Variables (mirrors fish config.fish variables section)
 $env.STARSHIP_CONFIG = ($env.HOME | path join ".config/starship.toml")
