@@ -1,0 +1,7 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:fzf"
+rev = "babfd0f"
+hash = "99aa06d3014798d86001c324468d497f"
+
+[flavor]
+deps = []

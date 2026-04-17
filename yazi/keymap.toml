@@ -1,0 +1,32 @@
+[mgr]
+
+prepend_keymap = [
+	# Quit without task confirmation
+	{ on = "q",              run = "quit --confirm", desc = "Quit" },
+
+	# Trash (matches lf: t, dd, D) - no confirmation
+	{ on = "t",              run = "remove --force",               desc = "Trash selected files" },
+	{ on = [ "d", "d" ],    run = "remove --force",               desc = "Trash selected files" },
+	{ on = "D",              run = "remove --permanently --force", desc = "Delete permanently" },
+
+	# Open / Edit
+	{ on = "<Enter>",        run = "open",                 desc = "Open selected files" },
+	{ on = "e",              run = "open",                 desc = "Open in editor" },
+
+	# FZF / Zoxide (matches lf: f for fzf, J for autojump)
+	{ on = "f",              run = "plugin fzf",           desc = "Jump via fzf" },
+	{ on = "J",              run = "plugin zoxide",        desc = "Jump via zoxide" },
+
+	# Bulk rename (matches lf: br)
+	{ on = [ "b", "r" ],    run = "shell 'vimv \"$@\"' --block", desc = "Bulk rename with vimv" },
+
+	# Archive (matches lf: az, at, ag, au)
+	{ on = [ "a", "u" ],    run = "plugin extract",        desc = "Extract archive" },
+	{ on = [ "a", "z" ],    run = "shell 'zip -r \"${1}.zip\" \"$@\"' --block", desc = "Zip" },
+	{ on = [ "a", "t" ],    run = "shell 'tar cvf \"${1}.tar\" \"$@\"' --block", desc = "Tar" },
+	{ on = [ "a", "g" ],    run = "shell 'tar cvzf \"${1}.tar.gz\" \"$@\"' --block", desc = "Tar.gz" },
+
+	# Create file/dir (matches lf default, remap since 'a' is taken by archive)
+	{ on = "o",              run = "create",               desc = "Create file/directory" },
+	{ on = "O",              run = "open --interactive",   desc = "Open interactively" },
+]

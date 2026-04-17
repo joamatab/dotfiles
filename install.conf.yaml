@@ -76,6 +76,10 @@
     ~/.profile:
     ~/.xprofile:
     ~/.config/tridactyl:
+    ~/.config/yazi:
+      force: true
     ~/.config/zellij:
+      force: true
+    ~/Library/Application Support/nushell:
       force: true
     ~/.zshrc:

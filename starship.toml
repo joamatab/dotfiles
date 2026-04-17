@@ -1,4 +1,40 @@
-add_new_line = false
+add_newline = false
+format = "$character$directory$git_branch$git_status$python "
+
+[character]
+success_symbol = "[⋊>](cyan)"
+error_symbol = "[⋊>](bold red)"
+vimcmd_symbol = "[⋊>](cyan)"
+
+[directory]
+format = "[$path]($style)"
+style = "yellow"
+truncation_length = 0
+truncate_to_repo = false
+
+[git_branch]
+format = " on [$branch](green) "
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = ""
+modified = "⨯"
+untracked = "⨯"
+staged = ""
+renamed = ""
+deleted = ""
+stashed = ""
+conflicted = "⥄ "
+ahead = "↑"
+behind = "↓"
+diverged = "⥄ "
+up_to_date = "◦"
+
+[python]
+format = '[\($virtualenv\)](bg:blue fg:white) '
+detect_files = []
+detect_folders = []
+detect_extensions = []
 
 [aws]
 disabled = true
@@ -18,8 +54,8 @@ disabled = true
 [package]
 disabled = true
 
-[python]
+[ruby]
 disabled = true
 
-[ruby]
+[gcloud]
 disabled = true

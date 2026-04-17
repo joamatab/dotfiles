@@ -51,6 +51,7 @@ abbr -a gra git remote add origin
 abbr -a gs git status
 abbr -a kpo open ~/.config/keepass/database.kdbx
 abbr -a l lfcd
+abbr -a j yazicd
 abbr -a ll ls -al
 abbr -a monsl 'mons -S 3,2:R'
 abbr -a monsr 'mons -S 2,3:R'
