@@ -12,5 +12,6 @@
   "attribution": {
     "commit": "",
     "pr": ""
-  }
+  },
+  "includeCoAuthoredBy": false
 }
