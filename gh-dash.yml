@@ -79,7 +79,7 @@ defaults:
 keybindings:
     prs:
         - key: m
-          command: GH_PROMPT_DISABLED=1 gh pr merge --merge --delete-branch {{.PrNumber}} -R {{.RepoName}} &
+          command: GH_PROMPT_DISABLED=1 gh pr merge --merge --delete-branch {{.PrNumber}} -R {{.RepoName}}
 repoPaths: {}
 theme:
     ui:
