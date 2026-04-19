@@ -43,6 +43,8 @@
     # ~/.config/polybar:
     ~/.config/ranger:
     ~/.config/s/config: s/config
+    ~/.config/borders:
+    ~/.config/svim:
     ~/.config/starship.toml:
     ~/.config/nvim:
     ~/.config/coc/python: coc/python
