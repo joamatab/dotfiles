@@ -1,4 +1,5 @@
 Ghostty
+ghostty
 Terminal
 iTerm2
 kitty
@@ -7,4 +8,5 @@ WezTerm
 tmux
 Hyper
 vim
+nvim
 fish
