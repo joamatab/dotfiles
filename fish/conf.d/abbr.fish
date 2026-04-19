@@ -44,6 +44,7 @@ abbr -a gcp "git commit -va; git push"
 abbr -a gd git diff
 abbr -a gl git pull
 abbr -a glo git log --oneline
+abbr -a glog "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 abbr -a gp git push
 abbr -a gpo git push -u origin master
 abbr -a gps git push --set-upstream origin
