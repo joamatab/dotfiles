@@ -36,12 +36,7 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-e = 'layout tiles horizontal vertical'  # 'layout toggle split' in i3
 # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
-alt-enter = '''exec-and-forget osascript -e '
-    tell application "Terminal"
-        do script
-        activate
-    end tell'
-    '''
+alt-enter = 'exec-and-forget open -na Ghostty'
 # Consider using 'join-with' command as a 'split' replacement if you want to enable
 # normalizations
 # alt-| = 'split horizontal'
