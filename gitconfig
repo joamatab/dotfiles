@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	pager = delta
 
 [user]
 	name = Joaquin Matres
@@ -15,6 +16,7 @@
 
 [diff]
     tool = kdiff3
+	colorMoved = default
 
 [difftool "kdiff3"]
     path = /usr/bin/kdiff3
@@ -26,6 +28,7 @@
 
 [merge]
     tool = kdiff3
+	conflictstyle = diff3
 
 [mergetool]
     prompt = false
@@ -64,3 +67,7 @@
 	directory = sky130
 	directory = sky130/src
 	directory = /__w/skywater130/skywater130
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
