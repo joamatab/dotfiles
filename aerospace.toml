@@ -15,13 +15,13 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 1 = 'PB328'                      # ASUS: workspaces 4, 5, 6
 2 = 'PB328'
 3 = 'PB328'
-4 = 'Built-in Retina Display'    # Retina: workspaces 1, 2, 3
-5 = 'Built-in Retina Display'
+4 = 'PB328'
+5 = 'PB328'
 6 = 'Built-in Retina Display'
-7 = 'HP 27f'                     # HP: workspaces 7, 8, 9, 10
-8 = 'HP 27f'
-9 = 'HP 27f'
-10 = 'HP 27f'
+7 = 'Built-in Retina Display'
+8 = 'Built-in Retina Display'
+9 = 'HP 27f'                     # HP: workspaces 7, 8, 9, 10
+0 = 'HP 27f'
 
 [mode.main.binding]
 alt-0 = 'workspace 10'
@@ -36,12 +36,7 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-e = 'layout tiles horizontal vertical'  # 'layout toggle split' in i3
 # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
-alt-enter = '''exec-and-forget osascript -e '
-    tell application "Terminal"
-        do script
-        activate
-    end tell'
-    '''
+alt-enter = 'exec-and-forget open -na Ghostty'
 # Consider using 'join-with' command as a 'split' replacement if you want to enable
 # normalizations
 # alt-| = 'split horizontal'
