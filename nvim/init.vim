@@ -136,7 +136,7 @@ lua << EOF
         filetypes = { "markdown", "vimwiki" },
       },
       html = {
-        enabled = true,
+        enabled = false,
         only_render_image_at_cursor = true,
         filetypes = { "html", "xhtml", "htm" },
       },
