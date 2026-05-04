@@ -79,7 +79,7 @@ defaults:
 keybindings:
     prs:
         - key: m
-          command: gh pr merge --merge --delete-branch --yes {{.PrNumber}} -R {{.RepoName}} &
+          command: gh pr merge --merge --yes {{.PrNumber}} -R {{.RepoName}} &
 repoPaths: {}
 theme:
     ui:
