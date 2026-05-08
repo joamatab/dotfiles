@@ -81,7 +81,7 @@ export UV_LINK_MODE=hardlink
 [ -f ~/.aliases2 ] && source ~/.aliases2
 [ -d ~/.rbenv ] && eval "$(rbenv init -)"
 
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 
 #alias klayout_generic_pdk='KLAYOUT_HOME=/home/jmatres/demo/generic_pdk_setup/generic_pdk_klayout KLAYOUT_PYTHONPATH=/home/jmatres/demo/generic_pdk_setup/generic_pdk_env/lib/python3.11/site-packages klayout -e'
