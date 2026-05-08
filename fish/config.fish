@@ -259,4 +259,3 @@ end
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/j/google-cloud-sdk/path.fish.inc' ]; . '/Users/j/google-cloud-sdk/path.fish.inc'; end
 set -gx PRE_COMMIT_COLOR never
-ulimit -n 4096
