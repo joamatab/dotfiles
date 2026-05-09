@@ -400,7 +400,7 @@ let mapleader="'"
 " nnoremap <leader>r :call <SID>compile_and_run()<CR>
 
 nmap <leader>2 :call <SID>compile_and_run()<CR>
-nmap <leader>1 :wa<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
+nmap <leader>1 :wa<CR>:sp<CR>:resize 10<CR>:execute 'term ' . <SID>get_ipython() . ' -i %:p'<CR>
 " nmap <leader>1 :wa<CR>:bufdo if &buftype == 'terminal' | bd | endif<CR>:sp<CR>:resize 10<CR>:term ipython3 -i %<CR>
 nmap <leader>y :TagbarToggle<CR>
 nmap <leader>g :G<CR>
@@ -495,7 +495,7 @@ function! s:compile_and_run()
         " exec "AsyncRun! time python %"
         " exec "AsyncRun -raw python %"
         " exec "AsyncRun -raw ipython3 -i %"
-        exec "term ipython3 -i %"
+        exec "term " . s:get_ipython() . " -i " . expand('%:p')
 	    " exec "AsyncRun -raw wa<cr>sp<cr>term ipython3 -i %"
 	    " set wa<cr>set sp<cr>set term ipython3 -i %
     endif
@@ -582,11 +582,60 @@ augroup configgroup
     autocmd BufEnter *.md setlocal ft=markdown
     autocmd BufEnter *.pyxs setlocal ft=python
     " autocmd FileType python nnoremap <buffer><silent><leader>a :ALEFix<CR>
-	autocmd FileType python nnoremap <buffer> <cr> :silent wa<bar>only<bar>vsp<bar>term ipython3 -i %<cr>
+	autocmd FileType python nnoremap <buffer> <cr> :silent wa<bar>only<bar>vsp<bar>execute 'term ' . <SID>get_ipython() . ' -i %:p'<cr>
 augroup END
 
 
 " Section: python
+" Auto-cd to project root
+function! s:find_project_root()
+    let l:markers = ['.git', 'pyproject.toml', '.venv', 'setup.py', 'Makefile']
+    let l:dir = expand('%:p:h')
+    while l:dir !=# '/'
+        for l:marker in l:markers
+            if isdirectory(l:dir . '/' . l:marker) || filereadable(l:dir . '/' . l:marker)
+                return l:dir
+            endif
+        endfor
+        let l:dir = fnamemodify(l:dir, ':h')
+    endwhile
+    return ''
+endfunction
+
+function! s:cd_project_root()
+    let l:root = s:find_project_root()
+    if !empty(l:root)
+        execute 'cd ' . fnameescape(l:root)
+    endif
+endfunction
+
+autocmd BufEnter * call s:cd_project_root()
+
+" Auto-discover .venv in project root
+function! s:detect_venv()
+    let l:venv = finddir('.venv', getcwd())
+    if !empty(l:venv)
+        let l:python = l:venv . '/bin/python'
+        if filereadable(l:python)
+            call coc#config('python.pythonPath', l:python)
+        endif
+    endif
+endfunction
+
+function! s:get_ipython()
+    let l:venv_ipython = getcwd() . '/.venv/bin/ipython'
+    let l:venv_python = getcwd() . '/.venv/bin/python'
+    if filereadable(l:venv_ipython)
+        return l:venv_ipython
+    elseif filereadable(l:venv_python)
+        return l:venv_python
+    else
+        return 'ipython3'
+    endif
+endfunction
+
+autocmd DirChanged,VimEnter * call s:detect_venv()
+
 set suffixesadd=.py
 set wildignore=*.pyc,*/__pycache__/*
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem

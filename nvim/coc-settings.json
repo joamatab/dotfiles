@@ -5,7 +5,7 @@
   "pyright.inlayHints.variableTypes": false,
   "python.autoUpdateLanguageServer": true,
   "python.pythonPath": "~/.config/coc/python",
-  "python.venvFolders": ["~/venvs"],
+  "python.venvFolders": ["~/venvs", ".venv", "venv"],
   "python.venvPath": "~/venvs",
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": false,

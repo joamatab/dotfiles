@@ -167,8 +167,10 @@ alias ghprc = gh pr create --fill
 alias ghprm = gh pr merge --merge --delete-branch
 
 # Python
-alias pi = pip install
-alias pu = pip uninstall
+alias pi = uv pip install
+alias pu = uv pip uninstall
+alias uti = uv tool install
+alias utu = uv tool uninstall
 
 # Claude / AI
 alias cc = claude
