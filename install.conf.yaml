@@ -84,6 +84,8 @@
       force: true
     ~/Library/Application Support/nushell:
       force: true
+    ~/.claude/CLAUDE.md:
+      force: true
     ~/.claude/settings.json:
       path: claude-settings.json
       force: true

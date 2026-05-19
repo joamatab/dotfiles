@@ -102,6 +102,9 @@ lua << EOF
 
   require("codecompanion").setup()
 
+  -- OpenClaw remote integration (node6)
+  dofile(vim.fn.expand("~/dotfiles/nvim/openclaw.lua"))
+
   -- img-clip.nvim: paste images from clipboard
   require("img-clip").setup({
     default = {

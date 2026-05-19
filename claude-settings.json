@@ -1,7 +1,8 @@
 {
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "agent-teams@claude-plugins-official": true
   },
   "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
