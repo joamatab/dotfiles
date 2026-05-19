@@ -6,3 +6,4 @@ mouse-hide-while-typing = true
 copy-on-select = true
 clipboard-read = allow
 keybind = shift+enter=text:\x1b\r
+image-storage-limit = 320000000

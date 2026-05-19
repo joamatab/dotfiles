@@ -148,10 +148,19 @@ lua << EOF
       },
     },
     max_height_window_percentage = 40,
-    window_overlap_clear_enabled = false,
+    window_overlap_clear_enabled = true,
+    window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "scrollview", "scrollview_sign" },
     editor_only_render_when_focused = true,
     tmux_show_only_in_active_window = true,
     hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" },
+  })
+
+  -- Clear lingering images when leaving buffers/windows
+  vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave", "WinClosed" }, {
+    callback = function()
+      local ok, image = pcall(require, "image")
+      if ok then image.clear() end
+    end,
   })
 
   ---------------------------------------------------------------------------
@@ -432,6 +441,8 @@ map <leader>cfx :vi ~/dotfiles/sxhkd/sxhkdrc<CR>
 map <leader>cfi :vi ~/dotfiles/i3/config<CR>
 vnoremap <leader>s :sort<CR>
 nmap <leader>v :PasteImage<CR>
+nmap <leader>ic :lua require("image").clear()<CR>
+nmap <C-l> :nohlsearch<CR>:lua pcall(function() require("image").clear() end)<CR><C-l>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>K :wa<CR>:sp<CR>:resize 10<CR>:term pkill ipython<CR>
