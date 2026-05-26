@@ -158,8 +158,7 @@ lua << EOF
   -- Clear lingering images when leaving buffers/windows
   vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave", "WinClosed" }, {
     callback = function()
-      local ok, image = pcall(require, "image")
-      if ok then image.clear() end
+      pcall(function() require("image").clear() end)
     end,
   })
 
