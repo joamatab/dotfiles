@@ -441,12 +441,12 @@ map <leader>cfi :vi ~/dotfiles/i3/config<CR>
 vnoremap <leader>s :sort<CR>
 nmap <leader>v :PasteImage<CR>
 nmap <leader>ic :lua require("image").clear()<CR>
-nnoremap <C-l> :nohlsearch<CR>:lua pcall(function() require("image").clear() end)<CR><C-l>
 map <leader>l :Lf<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nmap <leader>K :wa<CR>:sp<CR>:resize 10<CR>:term pkill ipython<CR>
 nmap <leader>k :bdelete! <CR>
 map <leader>n :set rnu!<CR>
+" nnoremap <leader>ir :nohlsearch<CR>:lua pcall(function() require("image").clear() end)<CR>
 " nnoremap <Leader>+ :vertical resize +5<CR>
 " nnoremap <Leader>- :vertical resize -5<CR>
 

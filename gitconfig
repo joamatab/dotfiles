@@ -5,7 +5,7 @@
 [user]
 	name = Joaquin Matres
 	email = 4514346+joamatab@users.noreply.github.com
-	signingkey = /home/jmatres/.ssh/id_rsa.pub
+	signingkey = ~/.ssh/id_ed25519.pub
 
 [diff "gdsdiff"]
     command = python -m gdsfactory.gdsdiff.gds_diff_git
@@ -45,10 +45,10 @@
 	slog = log --oneline --topo-order --graph
 
 [filter "nbstripout"]
-	clean = \"/home/jmatres/mambaforge/bin/python3.10\" -m nbstripout
+	clean = python3 -m nbstripout
 	smudge = cat
 [diff "ipynb"]
-	textconv = \"/home/jmatres/mambaforge/bin/python3.10\" -m nbstripout -t
+	textconv = python3 -m nbstripout -t
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -61,15 +61,6 @@
 [push]
 	autoSetupRemote = true
 [safe]
-	directory = sky130
-	directory = sky130/src
-	directory = /__w/skywater130/skywater130
-	directory = sky130
-	directory = sky130/src
-	directory = /__w/skywater130/skywater130
-	directory = sky130
-	directory = sky130/src
-	directory = /__w/skywater130/skywater130
 	directory = sky130
 	directory = sky130/src
 	directory = /__w/skywater130/skywater130
