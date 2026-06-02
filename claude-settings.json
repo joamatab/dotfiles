@@ -13,7 +13,7 @@
     "agent-teams@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true
   },
-  "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }
