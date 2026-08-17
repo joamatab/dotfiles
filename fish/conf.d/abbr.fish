@@ -61,8 +61,10 @@ abbr -a monsg 'mons -S 1,4:R'
 abbr -a lt lsd --tree
 abbr -a o open
 abbr -a path 'echo $PATH | tr -s " " "\n"'
-abbr -a pi "pip install"
-abbr -a pu "pip uninstall"
+abbr -a pi "uv pip install"
+abbr -a pu "uv pip uninstall"
+abbr -a uti "uv tool install"
+abbr -a utu "uv tool uninstall"
 abbr -a q exit
 abbr -a rs redshift -O 2000 &
 abbr -a sf source ~/.config/fish/config.fish
