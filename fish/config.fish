@@ -198,7 +198,7 @@ test -f "$HOME/.nvm"; and set -x NVM_DIR "$HOME/.nvm"; path_append "$HOME/.nvm/v
 # if command -v mcfly >/dev/null
 #     mcfly init fish | source
 # end
-if command -v mcfly >/dev/null
+if command -v atuin >/dev/null
     atuin init fish | source
 end
 
