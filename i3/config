@@ -19,6 +19,10 @@ bindsym $mod+Shift+e restart
 bindsym $mod+Shift+i exec google-chrome-stable
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+x exec i3lock
+# XRDP can miss a macOS modifier-key release. Reset its keyboard device.
+bindsym Mod4+Shift+Escape exec --no-startup-id /sbin/xinput disable xrdpKeyboard && /sbin/xinput enable xrdpKeyboard && /sbin/rofi -e "RDP keyboard reset"
+bindsym Mod1+Shift+Escape exec --no-startup-id /sbin/xinput disable xrdpKeyboard && /sbin/xinput enable xrdpKeyboard && /sbin/rofi -e "RDP keyboard reset"
+bindsym Control+Shift+Escape exec --no-startup-id /sbin/xinput disable xrdpKeyboard && /sbin/xinput enable xrdpKeyboard && /sbin/rofi -e "RDP keyboard reset"
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+c exec clipmenu
 bindsym $mod+d exec "rofi -show run"
