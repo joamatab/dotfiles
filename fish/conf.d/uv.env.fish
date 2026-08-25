@@ -1,2 +1,2 @@
 
-source "$HOME/.local/bin/env.fish"
+fish_add_path --global "$HOME/.local/bin"
