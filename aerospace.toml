@@ -37,6 +37,8 @@ alt-9 = 'workspace 9'
 alt-e = 'layout tiles horizontal vertical'  # 'layout toggle split' in i3
 # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
 alt-enter = 'exec-and-forget open -na Ghostty'
+# Reset joaquin's XRDP keyboard from macOS, bypassing unreliable RDP modifier events.
+cmd-shift-esc = 'exec-and-forget ssh joaquin "export DISPLAY=:10 XAUTHORITY=/home/joaquin/.Xauthority; xinput disable xrdpKeyboard && xinput enable xrdpKeyboard"'
 # Consider using 'join-with' command as a 'split' replacement if you want to enable
 # normalizations
 # alt-| = 'split horizontal'

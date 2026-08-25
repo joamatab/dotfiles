@@ -161,14 +161,35 @@ map dd trash
 
 # zip/unzip functions{{{
 cmd unarchive ${{
+  archive_name="${f##*/}"
+  archive_name="${archive_name%.tar.gz}"
+  archive_name="${archive_name%.tar.bz2}"
+  archive_name="${archive_name%.tar.xz}"
+  archive_name="${archive_name%.tgz}"
+  archive_name="${archive_name%.tbz2}"
+  archive_name="${archive_name%.txz}"
+  archive_name="${archive_name%.zip}"
+  archive_name="${archive_name%.tar}"
+  archive_name="${archive_name%.gz}"
+  archive_name="${archive_name%.bz2}"
+  archive_name="${archive_name%.xz}"
+  destination="$PWD/$archive_name"
+
+  if [ -e "$destination" ]; then
+    printf 'Not extracting: %s already exists\n' "$destination"
+    exit 1
+  fi
+
+  mkdir "$destination" || exit 1
+
   case "$f" in
-	  *.gz) gzip -d "$f" ;;
-      *.zip) unzip "$f" ;;
-      *.tar.gz) tar -xzvf "$f" ;;
-      *.tar.bz2) tar -xjvf "$f" ;;
-      *.tar) tar -xvf "$f" ;;
-      *.xz) tar -xvf "$f" ;;
-      *) echo "Unsupported format" ;;
+      *.zip|*.tar.gz|*.tar.bz2|*.tar.xz|*.tgz|*.tbz2|*.txz|*.tar|*.gz|*.bz2|*.xz)
+        bsdtar -xvf "$f" -C "$destination"
+        ;;
+      *)
+        rmdir "$destination"
+        echo "Unsupported format"
+        ;;
   esac
 }}
 
