@@ -203,6 +203,12 @@ if command -v atuin >/dev/null
 end
 
 if command -v zoxide >/dev/null
+    # Fish 4 embeds its stock functions. After Oh My Fish adjusts
+    # fish_function_path, zoxide may otherwise look for a nonexistent
+    # $__fish_data_dir/functions/cd.fish file during startup.
+    if not functions -q __zoxide_cd_internal
+        functions -c cd __zoxide_cd_internal
+    end
     zoxide init fish | source
 end
 
