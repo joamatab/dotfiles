@@ -193,7 +193,7 @@ cmd unarchive ${{
   esac
 }}
 
-cmd zip %zip -r "$f" "$f"
+cmd zip %zip -r "$f.zip" "$f"
 cmd tar %tar cvf "$f.tar" "$f"
 cmd targz %tar cvzf "$f.tar.gz" "$f"
 cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
@@ -207,6 +207,7 @@ map br $vimv $fx
 # }}}
 
 # archive mappings {{{
+map z zip
 map az zip
 map at tar
 map ag targz
