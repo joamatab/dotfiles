@@ -207,12 +207,14 @@ map br $vimv $fx
 # }}}
 
 # archive mappings {{{
-map z zip
 map az zip
 map at tar
 map ag targz
 map ab targz
 map au unarchive
 # }}}
+
+# toggle hidden files
+map zh set hidden!
 
 # vim:foldmethod=marker:foldlevel=0
