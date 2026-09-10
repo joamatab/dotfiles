@@ -10,6 +10,9 @@
       force: true
 
 - link:
+    ~/.config/ImageMagick/type.xml:
+      path: imagemagick/type.xml
+      if: '[ "$(uname -s)" = Darwin ]'
     ~/.agignore:
     ~/.aerospace.toml:
     ~/.aliases:

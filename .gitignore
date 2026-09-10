@@ -106,6 +106,7 @@ Icon?
 *.mat
 
 *.xml
+!imagemagick/type.xml
 *.tar.gz
 *.gds
 *.zip

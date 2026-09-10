@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typemap>
+  <!-- Homebrew ImageMagick without fontconfig needs explicit macOS fonts.
+       SVG README badges rendered by image.nvim use Verdana or a sans fallback. -->
+  <type name="Arial" family="Arial" style="normal" stretch="normal" weight="400" glyphs="/System/Library/Fonts/Supplemental/Arial.ttf"/>
+  <type name="Helvetica" family="Helvetica" style="normal" stretch="normal" weight="400" glyphs="/System/Library/Fonts/Supplemental/Arial.ttf"/>
+  <type name="Verdana" family="Verdana" style="normal" stretch="normal" weight="400" glyphs="/System/Library/Fonts/Supplemental/Verdana.ttf"/>
+</typemap>
