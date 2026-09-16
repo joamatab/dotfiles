@@ -78,13 +78,13 @@ rules = [
 	{ mime = "text/*", fg = "#a6e3a1" },
 	{ mime = "application/json", fg = "#f9e2af" },
 	# Executables
-	{ name = "*.sh", fg = "#a6e3a1", bold = true },
+	{ url = "*.sh", fg = "#a6e3a1", bold = true },
 	# Symlinks
-	{ is = "link", fg = "#94e2d5", italic = true },
+	{ url = "*", is = "link", fg = "#94e2d5", italic = true },
 	# Orphan links
-	{ is = "orphan", fg = "#f38ba8", italic = true },
+	{ url = "*", is = "orphan", fg = "#f38ba8", italic = true },
 	# Directories
-	{ name = "*/", fg = "#89b4fa", bold = true },
+	{ url = "*/", fg = "#89b4fa", bold = true },
 	# Executables
-	{ is = "exec", fg = "#a6e3a1", bold = true },
+	{ url = "*", is = "exec", fg = "#a6e3a1", bold = true },
 ]

@@ -32,7 +32,7 @@ play = [
 
 [open]
 rules = [
-	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	{ url = "*/", use = [ "edit", "open", "reveal" ] },
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	{ mime = "application/{json,ndjson}", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
@@ -40,10 +40,10 @@ rules = [
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	{ mime = "video/*", use = [ "open", "play", "reveal" ] },
 	{ mime = "audio/*", use = [ "open", "play", "reveal" ] },
-	{ name = "*.{mp4,mkv,avi,mov,webm,flv,wmv,mpg,mpeg,m4v}", use = [ "open", "play", "reveal" ] },
-	{ name = "*.{mp3,flac,wav,ogg,m4a,opus,aac}", use = [ "open", "play", "reveal" ] },
+	{ url = "*.{mp4,mkv,avi,mov,webm,flv,wmv,mpg,mpeg,m4v}", use = [ "open", "play", "reveal" ] },
+	{ url = "*.{mp3,flac,wav,ogg,m4a,opus,aac}", use = [ "open", "play", "reveal" ] },
 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "extract", "reveal" ] },
 	{ mime = "application/pdf", use = [ "open", "reveal" ] },
 	{ mime = "application/epub*", use = [ "open", "reveal" ] },
-	{ name = "*", use = [ "open", "reveal" ] },
+	{ url = "*", use = [ "open", "reveal" ] },
 ]
