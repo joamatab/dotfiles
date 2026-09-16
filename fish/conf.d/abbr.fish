@@ -48,6 +48,7 @@ abbr -a glog "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow
 abbr -a gp git push
 abbr -a gpo git push -u origin master
 abbr -a gps git push --set-upstream origin
+abbr -a gr "git fetch --all && git reset --hard '@{upstream}'"
 abbr -a gra git remote add origin
 abbr -a gs git status
 abbr -a kpo open ~/.config/keepass/database.kdbx
