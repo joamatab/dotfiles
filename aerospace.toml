@@ -1,5 +1,9 @@
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 
+# Preserve the v1 inferred workspaces when opting into config-version 2.
+config-version = 2
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
 # i3 doesn't have "normalizations" feature that why we disable them here.
 # But the feature is very helpful.
 # Normalizations eliminate all sorts of weird tree configurations that don't make sense.
