@@ -10,7 +10,7 @@ You can install this config files copy-pasting this into a terminal:
 bash install
 ```
 
-## Local clipboard correction (macOS)
+## Local clipboard polishing for email and Slack (macOS)
 
 Copy text, press **Control + Option + C**, and wait for the notification, then
 paste normally. Notifications include the model being used. Either left or right
@@ -21,8 +21,14 @@ the model with `ollama pull qwen3:4b` if needed. No API key or cloud service is
 used. The first correction loads the model; subsequent requests keep it in memory
 for speed. Run `ollama stop qwen3:4b` to release that memory.
 
-Cleanup preserves language and meaning, replaces the clipboard with plain text,
-and leaves newer clipboard content alone if you copy again during a request.
+Cleanup improves grammar, clarity, and flow, and removes filler and repetition.
+It aims to keep your voice: casual Slack messages stay casual, and professional
+emails stay professional. The prompt asks the model to preserve language,
+meaning, facts, links, mentions, code, and formatting, without inventing details
+or adding greetings or sign-offs.
+
+Cleanup replaces the clipboard with plain text and leaves newer clipboard
+content alone if you copy again during a request.
 Empty, failed, or truncated responses do not replace the clipboard. Input is
 limited to 12 KB of UTF-8 text. Model corrections can still need review.
 
@@ -31,7 +37,7 @@ Implementation: `scripts/clipboard_cleanup.py` and `scripts/clipboard_cleanup.js
 Test without changing the clipboard:
 
 ```sh
-echo 'this sentense need correcting.' | /bin/sh ~/.config/karabiner/clipboard-cleanup.sh --stdin
+echo 'hey team, just wanted to say that the update is ready ready for review.' | /bin/sh ~/.config/karabiner/clipboard-cleanup.sh --stdin
 /usr/bin/python3 -m unittest discover -s scripts -p 'test_clipboard_cleanup.py'
 ```
 
