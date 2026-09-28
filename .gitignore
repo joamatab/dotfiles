@@ -120,6 +120,7 @@ Icon?
 *.ppt
 *.pptx
 *.js
+!scripts/clipboard_cleanup.js
 *.prj
 *.swp
 *.lms

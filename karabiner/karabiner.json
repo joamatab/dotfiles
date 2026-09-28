@@ -4,6 +4,35 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Fn/Globe + Shift: correct clipboard locally with Ollama",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "left_shift", "modifiers": { "mandatory": ["fn"] } },
+                                "to": [{ "key_code": "left_shift", "modifiers": ["fn"], "lazy": true }],
+                                "to_if_alone": [{ "shell_command": "/bin/sh \"$HOME/.config/karabiner/clipboard-cleanup.sh\"" }]
+                            },
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "right_shift", "modifiers": { "mandatory": ["fn"] } },
+                                "to": [{ "key_code": "right_shift", "modifiers": ["fn"], "lazy": true }],
+                                "to_if_alone": [{ "shell_command": "/bin/sh \"$HOME/.config/karabiner/clipboard-cleanup.sh\"" }]
+                            },
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "fn", "modifiers": { "mandatory": ["left_shift"] } },
+                                "to": [{ "key_code": "fn", "modifiers": ["left_shift"], "lazy": true }],
+                                "to_if_alone": [{ "shell_command": "/bin/sh \"$HOME/.config/karabiner/clipboard-cleanup.sh\"" }]
+                            },
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "fn", "modifiers": { "mandatory": ["right_shift"] } },
+                                "to": [{ "key_code": "fn", "modifiers": ["right_shift"], "lazy": true }],
+                                "to_if_alone": [{ "shell_command": "/bin/sh \"$HOME/.config/karabiner/clipboard-cleanup.sh\"" }]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Caps Lock → Control when held, Escape when tapped",
                         "manipulators": [
                             {
