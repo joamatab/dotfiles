@@ -81,7 +81,9 @@ class ClipboardCleanupTests(unittest.TestCase):
         body = {
             "done": True,
             "done_reason": "stop",
-            "message": {"content": "¡Hola! ¿Cómo estás?"},
+            "message": {
+                "content": json.dumps({"corrected_text": "¡Hola! ¿Cómo estás?"})
+            },
         }
 
         def respond(request, timeout):
@@ -89,12 +91,36 @@ class ClipboardCleanupTests(unittest.TestCase):
             payload = json.loads(request.data)
             self.assertEqual(payload["messages"][-1]["content"], "hola como estas")
             self.assertFalse(payload["stream"])
+            self.assertFalse(payload["think"])
+            self.assertEqual(payload["format"]["required"], ["corrected_text"])
             return io.BytesIO(json.dumps(body).encode())
 
         with patch.object(self.app, "open_local", side_effect=respond):
             self.assertEqual(
                 self.app.correct_text("hola como estas"), "¡Hola! ¿Cómo estás?"
             )
+
+    def test_invalid_structured_correction_is_rejected(self):
+        for content in (
+            "not json",
+            "{}",
+            "[]",
+            '{"corrected_text": null}',
+            '{"corrected_text": "   "}',
+        ):
+            with self.subTest(content=content):
+                body = {
+                    "done": True,
+                    "done_reason": "stop",
+                    "message": {"content": content},
+                }
+                with patch.object(
+                    self.app,
+                    "open_local",
+                    return_value=io.BytesIO(json.dumps(body).encode()),
+                ):
+                    with self.assertRaises(RuntimeError):
+                        self.app.correct_text("helo")
 
     def test_oversized_unicode_is_rejected_before_request(self):
         with patch.object(

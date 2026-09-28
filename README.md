@@ -13,12 +13,13 @@ bash install
 ## Local clipboard correction (macOS)
 
 Copy text, press **Control + Option + C**, and wait for the notification, then
-paste normally. Either left or right Control and Option keys work.
+paste normally. Notifications include the model being used. Either left or right
+Control and Option keys work.
 
-This uses Karabiner and local Ollama with `gemma3:4b`. Start Ollama and install
-the model with `ollama pull gemma3:4b` if needed. No API key or cloud service is
+This uses Karabiner and local Ollama with `qwen3:4b`. Start Ollama and install
+the model with `ollama pull qwen3:4b` if needed. No API key or cloud service is
 used. The first correction loads the model; subsequent requests keep it in memory
-for speed. Run `ollama stop gemma3:4b` to release that memory.
+for speed. Run `ollama stop qwen3:4b` to release that memory.
 
 Cleanup preserves language and meaning, replaces the clipboard with plain text,
 and leaves newer clipboard content alone if you copy again during a request.
