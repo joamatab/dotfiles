@@ -41,6 +41,13 @@ echo 'hey team, just wanted to say that the update is ready ready for review.' |
 /usr/bin/python3 -m unittest discover -s scripts -p 'test_clipboard_cleanup.py'
 ```
 
+Run the optional editing-quality regression against the installed Ollama model
+(without reading or changing the clipboard):
+
+```sh
+CLIPBOARD_CLEANUP_LIVE_TESTS=1 /usr/bin/python3 -m unittest discover -s scripts -p 'test_clipboard_cleanup_live.py'
+```
+
 # Private kept configs
 
 Host cloud
