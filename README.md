@@ -12,9 +12,8 @@ bash install
 
 ## Local clipboard correction (macOS)
 
-Copy text, tap **Fn/Globe + Shift**, and release within one second. Either Shift
-key and either press order work. Wait for the notification, then paste normally.
-Using another key while holding the combination cancels cleanup.
+Copy text, press **Control + Option + C**, and wait for the notification, then
+paste normally. Either left or right Control and Option keys work.
 
 This uses Karabiner and local Ollama with `gemma3:4b`. Start Ollama and install
 the model with `ollama pull gemma3:4b` if needed. No API key or cloud service is
