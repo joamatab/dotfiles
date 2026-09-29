@@ -4,6 +4,16 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Control + Option + C: correct clipboard locally with Ollama",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "c", "modifiers": { "mandatory": ["control", "option"] } },
+                                "to": [{ "shell_command": "/bin/sh \"$HOME/.config/karabiner/clipboard-cleanup.sh\"", "repeat": false }]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Caps Lock → Control when held, Escape when tapped",
                         "manipulators": [
                             {
