@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Control + Option + C: correct clipboard locally with Ollama",
+                        "description": "Control + Option + C: correct clipboard with Luna",
                         "manipulators": [
                             {
                                 "type": "basic",

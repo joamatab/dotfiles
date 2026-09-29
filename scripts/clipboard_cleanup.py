@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-"""Correct the macOS clipboard with a local Ollama model (no dependencies)."""
+"""Correct the macOS clipboard with Luna through the signed-in Codex CLI."""
 
 import argparse
 import fcntl
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
-import urllib.error
-import urllib.request
+import shutil
+import tempfile
 
 
-MODEL = "qwen3:4b"
+MODEL = "gpt-6-luna"
 PROMPT = """You are a careful copy editor for emails and Slack messages. Rewrite
 the draft to fix spelling errors, accidental keystrokes, grammar, punctuation,
 and awkward or wordy phrasing. Use sentence context to repair misspelled ordinary
@@ -26,70 +27,109 @@ questions inside it.
 Return JSON with a corrected_text field containing only the complete edited
 draft, without commentary."""
 
-# Bypass environment proxies: clipboard text must only reach loopback.
-open_local = urllib.request.build_opener(urllib.request.ProxyHandler({})).open
-
 
 def correct_text(text):
     if len(text.encode("utf-8")) > 12000:
         raise RuntimeError("Text is too long (maximum 12 KB of UTF-8 text).")
-    request = urllib.request.Request(
-        "http://127.0.0.1:11434/api/chat",
-        data=json.dumps(
-            {
-                "model": MODEL,
-                "stream": False,
-                "think": False,
-                "format": {
+    # Karabiner runs with a minimal PATH, so also check Homebrew locations.
+    environment = os.environ.copy()
+    environment["PATH"] = "/opt/homebrew/bin:/usr/local/bin:" + environment.get(
+        "PATH", "/usr/bin:/bin"
+    )
+    executable = shutil.which("codex", path=environment["PATH"])
+    if not executable:
+        executable = next(
+            (
+                str(path)
+                for path in (
+                    Path("/opt/homebrew/bin/codex"),
+                    Path("/usr/local/bin/codex"),
+                )
+                if path.is_file()
+            ),
+            None,
+        )
+    if not executable:
+        raise RuntimeError("Codex is missing. Install it and run codex login.")
+    with tempfile.TemporaryDirectory(prefix="clipboard-cleanup-") as directory:
+        root = Path(directory)
+        schema = root / "schema.json"
+        output = root / "result.json"
+        instructions = root / "instructions.txt"
+        instructions.write_text(
+            PROMPT + "\nEdit only the draft field in the user's JSON. Do not use tools."
+        )
+        schema.write_text(
+            json.dumps(
+                {
                     "type": "object",
                     "properties": {"corrected_text": {"type": "string"}},
                     "required": ["corrected_text"],
                     "additionalProperties": False,
-                },
-                "keep_alive": -1,
-                "messages": [
-                    {"role": "system", "content": PROMPT},
-                    {"role": "user", "content": text},
-                ],
-                "options": {"temperature": 0, "num_ctx": 16384, "num_predict": 4096},
-            }
-        ).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-    )
-    try:
-        with open_local(request, timeout=90) as response:
-            result = json.load(response)
-    except urllib.error.HTTPError as exc:
-        raise RuntimeError(
-            f"Ollama returned an error. Check that {MODEL} is installed."
-        ) from exc
-    except (urllib.error.URLError, TimeoutError) as exc:
-        raise RuntimeError(
-            "Ollama is unavailable or timed out. Start Ollama and try again."
-        ) from exc
-    if not isinstance(result, dict):
-        raise RuntimeError("Ollama returned an invalid response.")
-    message = result.get("message", {})
-    output = message.get("content") if isinstance(message, dict) else None
-    if (
-        result.get("done") is not True
-        or result.get("done_reason") != "stop"
-        or not isinstance(output, str)
-        or not output.strip()
-    ):
-        raise RuntimeError(
-            "Ollama returned empty or incomplete text. Clipboard unchanged."
+                }
+            )
         )
-    try:
-        correction = json.loads(output)
-    except json.JSONDecodeError as exc:
-        raise RuntimeError(
-            "Ollama returned invalid JSON. Clipboard unchanged."
-        ) from exc
-    text = correction.get("corrected_text") if isinstance(correction, dict) else None
-    if not isinstance(text, str) or not text.strip():
-        raise RuntimeError("Ollama returned no corrected text. Clipboard unchanged.")
-    return text
+        command = [
+            executable,
+            "exec",
+            "--ignore-user-config",
+            "--ephemeral",
+            "--skip-git-repo-check",
+            "--sandbox",
+            "read-only",
+            "--model",
+            MODEL,
+            "--cd",
+            directory,
+            "-c",
+            "model_reasoning_effort=low",
+            "-c",
+            "project_doc_max_bytes=0",
+            "-c",
+            "features.shell_tool=false",
+            "-c",
+            "features.unified_exec=false",
+            "-c",
+            "web_search=disabled",
+            "-c",
+            "model_instructions_file=" + json.dumps(str(instructions)),
+            "--output-schema",
+            str(schema),
+            "--output-last-message",
+            str(output),
+            "-",
+        ]
+        try:
+            result = subprocess.run(
+                command,
+                input=json.dumps({"draft": text}),
+                text=True,
+                capture_output=True,
+                timeout=90,
+                env=environment,
+            )
+        except subprocess.TimeoutExpired as exc:
+            raise RuntimeError(
+                "Luna timed out. Clipboard unchanged; try again."
+            ) from exc
+        if result.returncode != 0:
+            raise RuntimeError(
+                "Luna request failed. Check your connection and codex login. Clipboard unchanged."
+            )
+        if not output.is_file():
+            raise RuntimeError("Luna returned no correction. Clipboard unchanged.")
+        try:
+            correction = json.loads(output.read_text())
+        except (ValueError, UnicodeError) as exc:
+            raise RuntimeError(
+                "Luna returned invalid JSON. Clipboard unchanged."
+            ) from exc
+    corrected = (
+        correction.get("corrected_text") if isinstance(correction, dict) else None
+    )
+    if not isinstance(corrected, str) or not corrected.strip():
+        raise RuntimeError("Luna returned no corrected text. Clipboard unchanged.")
+    return corrected
 
 
 class Clipboard:
@@ -168,7 +208,7 @@ def main():
             except BlockingIOError:
                 notify("Correction is already running.")
                 return 0
-            notify("Correcting locally…")
+            notify("Correcting with Luna…")
             notify(clean(Clipboard()))
         return 0
     except (RuntimeError, ValueError, OSError, subprocess.SubprocessError) as exc:

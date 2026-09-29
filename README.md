@@ -10,16 +10,16 @@ You can install this config files copy-pasting this into a terminal:
 bash install
 ```
 
-## Local clipboard polishing for email and Slack (macOS)
+## Clipboard polishing for email and Slack (macOS)
 
 Copy text, press **Control + Option + C**, and wait for the notification, then
 paste normally. Notifications include the model being used. Either left or right
 Control and Option keys work.
 
-This uses Karabiner and local Ollama with `qwen3:4b`. Start Ollama and install
-the model with `ollama pull qwen3:4b` if needed. No API key or cloud service is
-used. The first correction loads the model; subsequent requests keep it in memory
-for speed. Run `ollama stop qwen3:4b` to release that memory.
+This uses Karabiner and `gpt-6-luna` through the Codex CLI with your existing
+ChatGPT login (`codex login`). Copied text is sent to OpenAI and requires an
+internet connection; Ollama is no longer used. Each correction runs in an
+ephemeral Codex session with a temporary working directory and no session history.
 
 Cleanup improves grammar, clarity, and flow, and removes filler and repetition.
 It aims to keep your voice: casual Slack messages stay casual, and professional
@@ -41,7 +41,7 @@ echo 'hey team, just wanted to say that the update is ready ready for review.' |
 /usr/bin/python3 -m unittest discover -s scripts -p 'test_clipboard_cleanup.py'
 ```
 
-Run the optional editing-quality regression against the installed Ollama model
+Run the optional editing-quality regression against Luna using your Codex login
 (without reading or changing the clipboard):
 
 ```sh
