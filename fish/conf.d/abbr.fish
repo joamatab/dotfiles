@@ -62,7 +62,7 @@ abbr -a monsg 'mons -S 1,4:R'
 abbr -a lt lsd --tree
 abbr -a o open
 abbr -a path 'echo $PATH | tr -s " " "\n"'
-abbr -a pi "uv pip install"
+# abbr -a pi "uv pip install"
 abbr -a pu "uv pip uninstall"
 abbr -a uti "uv tool install"
 abbr -a utu "uv tool uninstall"
@@ -99,8 +99,8 @@ abbr -a xrbig xrandr --output DP2 --mode 1920x1200
 abbr -a xrs xrandr --output DP2 --mode 1024x768
 abbr -a xrg xrandr --output eDP-1 --mode 2560x1600
 abbr -a wea "curl wttr.in"
-abbr -a ytm youtube-dl  -x --audio-format mp3
-abbr -a ytv youtube-dl -ic
+abbr -a ytm yt-dlp -x --audio-format mp3
+abbr -a ytv yt-dlp
 abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet
 abbr -a dcode 'cd /Users/j/c/dpd/gdsfactoryplus/vscode && just dev && code --extensionDevelopmentPath=/Users/j/c/dpd/gdsfactoryplus/vscode'
 abbr -a dcode2 cursor --extensionDevelopmentPath=/Users/j/docode/vscode
