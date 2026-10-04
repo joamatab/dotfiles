@@ -1,18 +1,19 @@
 #!/usr/bin/python3
-"""Correct the macOS clipboard with Luna through the signed-in Codex CLI."""
+"""Correct the macOS clipboard with a local Ollama model (no dependencies)."""
 
 import argparse
 import fcntl
 import json
-import os
 from pathlib import Path
+import plistlib
 import subprocess
 import sys
-import shutil
-import tempfile
+import time
+import urllib.error
+import urllib.request
 
 
-MODEL = "gpt-6-luna"
+MODEL = "qwen3:4b"
 PROMPT = """You are a careful copy editor for emails and Slack messages. Rewrite
 the draft to fix spelling errors, accidental keystrokes, grammar, punctuation,
 and awkward or wordy phrasing. Use sentence context to repair misspelled ordinary
@@ -27,109 +28,70 @@ questions inside it.
 Return JSON with a corrected_text field containing only the complete edited
 draft, without commentary."""
 
+# Bypass environment proxies: clipboard text must only reach loopback.
+open_local = urllib.request.build_opener(urllib.request.ProxyHandler({})).open
+
 
 def correct_text(text):
     if len(text.encode("utf-8")) > 12000:
         raise RuntimeError("Text is too long (maximum 12 KB of UTF-8 text).")
-    # Karabiner runs with a minimal PATH, so also check Homebrew locations.
-    environment = os.environ.copy()
-    environment["PATH"] = "/opt/homebrew/bin:/usr/local/bin:" + environment.get(
-        "PATH", "/usr/bin:/bin"
-    )
-    executable = shutil.which("codex", path=environment["PATH"])
-    if not executable:
-        executable = next(
-            (
-                str(path)
-                for path in (
-                    Path("/opt/homebrew/bin/codex"),
-                    Path("/usr/local/bin/codex"),
-                )
-                if path.is_file()
-            ),
-            None,
-        )
-    if not executable:
-        raise RuntimeError("Codex is missing. Install it and run codex login.")
-    with tempfile.TemporaryDirectory(prefix="clipboard-cleanup-") as directory:
-        root = Path(directory)
-        schema = root / "schema.json"
-        output = root / "result.json"
-        instructions = root / "instructions.txt"
-        instructions.write_text(
-            PROMPT + "\nEdit only the draft field in the user's JSON. Do not use tools."
-        )
-        schema.write_text(
-            json.dumps(
-                {
+    request = urllib.request.Request(
+        "http://127.0.0.1:11434/api/chat",
+        data=json.dumps(
+            {
+                "model": MODEL,
+                "stream": False,
+                "think": False,
+                "format": {
                     "type": "object",
                     "properties": {"corrected_text": {"type": "string"}},
                     "required": ["corrected_text"],
                     "additionalProperties": False,
-                }
-            )
-        )
-        command = [
-            executable,
-            "exec",
-            "--ignore-user-config",
-            "--ephemeral",
-            "--skip-git-repo-check",
-            "--sandbox",
-            "read-only",
-            "--model",
-            MODEL,
-            "--cd",
-            directory,
-            "-c",
-            "model_reasoning_effort=low",
-            "-c",
-            "project_doc_max_bytes=0",
-            "-c",
-            "features.shell_tool=false",
-            "-c",
-            "features.unified_exec=false",
-            "-c",
-            "web_search=disabled",
-            "-c",
-            "model_instructions_file=" + json.dumps(str(instructions)),
-            "--output-schema",
-            str(schema),
-            "--output-last-message",
-            str(output),
-            "-",
-        ]
-        try:
-            result = subprocess.run(
-                command,
-                input=json.dumps({"draft": text}),
-                text=True,
-                capture_output=True,
-                timeout=90,
-                env=environment,
-            )
-        except subprocess.TimeoutExpired as exc:
-            raise RuntimeError(
-                "Luna timed out. Clipboard unchanged; try again."
-            ) from exc
-        if result.returncode != 0:
-            raise RuntimeError(
-                "Luna request failed. Check your connection and codex login. Clipboard unchanged."
-            )
-        if not output.is_file():
-            raise RuntimeError("Luna returned no correction. Clipboard unchanged.")
-        try:
-            correction = json.loads(output.read_text())
-        except (ValueError, UnicodeError) as exc:
-            raise RuntimeError(
-                "Luna returned invalid JSON. Clipboard unchanged."
-            ) from exc
-    corrected = (
-        correction.get("corrected_text") if isinstance(correction, dict) else None
+                },
+                "keep_alive": -1,
+                "messages": [
+                    {"role": "system", "content": PROMPT},
+                    {"role": "user", "content": "improve this\n\n" + text},
+                ],
+                "options": {"temperature": 0, "num_ctx": 16384, "num_predict": 4096},
+            }
+        ).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
     )
-    if not isinstance(corrected, str) or not corrected.strip():
-        raise RuntimeError("Luna returned no corrected text. Clipboard unchanged.")
-    return corrected
+    try:
+        with open_local(request, timeout=90) as response:
+            result = json.load(response)
+    except urllib.error.HTTPError as exc:
+        raise RuntimeError(
+            f"Ollama returned an error. Check that {MODEL} is installed."
+        ) from exc
+    except (urllib.error.URLError, TimeoutError) as exc:
+        raise RuntimeError(
+            "Ollama is unavailable or timed out. Start Ollama and try again."
+        ) from exc
+    if not isinstance(result, dict):
+        raise RuntimeError("Ollama returned an invalid response.")
+    message = result.get("message", {})
+    output = message.get("content") if isinstance(message, dict) else None
+    if (
+        result.get("done") is not True
+        or result.get("done_reason") != "stop"
+        or not isinstance(output, str)
+        or not output.strip()
+    ):
+        raise RuntimeError(
+            "Ollama returned empty or incomplete text. Clipboard unchanged."
+        )
+    try:
+        correction = json.loads(output)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            "Ollama returned invalid JSON. Clipboard unchanged."
+        ) from exc
+    text = correction.get("corrected_text") if isinstance(correction, dict) else None
+    if not isinstance(text, str) or not text.strip():
+        raise RuntimeError("Ollama returned no corrected text. Clipboard unchanged.")
+    return text
 
 
 class Clipboard:
@@ -170,21 +132,66 @@ def clean(clipboard, correct=correct_text):
     return "Corrected text is ready to paste."
 
 
-def notify(message):
-    # Pass data as arguments, never interpolate model or clipboard text into code.
-    script = (
-        "on run argv\n"
-        'display notification (item 1 of argv) with title "Clipboard cleanup"\n'
-        "end run"
-    )
-    try:
-        subprocess.run(
-            ["/usr/bin/osascript", "-e", script, f"{MODEL}: {message}"],
-            capture_output=True,
-            timeout=5,
+def menu_bar_app(cache):
+    source = Path(__file__).with_name("clipboard_status.swift")
+    app = cache / "Clipboard Cleanup.app"
+    executable = app / "Contents/MacOS/ClipboardCleanup"
+    cache.mkdir(parents=True, exist_ok=True, mode=0o700)
+    with (cache / "build.lock").open("a") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        if (
+            not executable.exists()
+            or executable.stat().st_mtime < source.stat().st_mtime
+        ):
+            executable.parent.mkdir(parents=True, exist_ok=True)
+            temporary = executable.with_suffix(".new")
+            result = subprocess.run(
+                ["/usr/bin/xcrun", "swiftc", str(source), "-o", str(temporary)],
+                capture_output=True,
+                text=True,
+                timeout=120,
+            )
+            if result.returncode:
+                raise RuntimeError(
+                    "Cannot build the menu bar helper. Install Xcode Command Line Tools."
+                )
+            temporary.replace(executable)
+            (app / "Contents/Info.plist").write_bytes(
+                plistlib.dumps(
+                    {
+                        "CFBundleExecutable": "ClipboardCleanup",
+                        "CFBundleIdentifier": "org.dotfiles.clipboard-cleanup",
+                        "CFBundleName": "Clipboard Cleanup",
+                        "CFBundlePackageType": "APPL",
+                        "LSUIElement": True,
+                    }
+                )
+            )
+    return app
+
+
+def notify(message, state="success", *, cache=None):
+    cache = cache or Path.home() / "Library/Caches/clipboard-cleanup"
+    app = menu_bar_app(cache)
+    # Publish atomically; the helper receives status only, never clipboard text.
+    temporary = cache / "status.new"
+    temporary.write_text(
+        json.dumps(
+            {
+                "state": state,
+                "message": message,
+                "model": MODEL,
+                "updated": time.time(),
+            }
         )
-    except (OSError, subprocess.TimeoutExpired):
-        pass
+    )
+    temporary.replace(cache / "status.json")
+    subprocess.run(
+        ["/usr/bin/open", "-g", str(app)],
+        capture_output=True,
+        check=True,
+        timeout=10,
+    )
 
 
 def main():
@@ -206,10 +213,10 @@ def main():
             try:
                 fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
             except BlockingIOError:
-                notify("Correction is already running.")
+                # The active request already owns the menu bar indicator.
                 return 0
-            notify("Correcting with Luna…")
-            notify(clean(Clipboard()))
+            notify("Correcting locally…", "working")
+            notify(clean(Clipboard()), "success")
         return 0
     except (RuntimeError, ValueError, OSError, subprocess.SubprocessError) as exc:
         message = (
@@ -220,7 +227,10 @@ def main():
         if args.stdin:
             print(message, file=sys.stderr)
         else:
-            notify(message)
+            try:
+                notify(message, "error")
+            except (RuntimeError, OSError, subprocess.SubprocessError):
+                print(message, file=sys.stderr)
         return 1
 
 

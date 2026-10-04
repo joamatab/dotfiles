@@ -1,5 +1,7 @@
 import importlib.util
+import io
 import json
+import plistlib
 from pathlib import Path
 import subprocess
 import sys
@@ -44,7 +46,7 @@ class ClipboardCleanupTests(unittest.TestCase):
         clipboard = MemoryClipboard("helo world")
 
         def correct(text):
-            raise RuntimeError("Luna is unavailable")
+            raise RuntimeError("Ollama is unavailable")
 
         with self.assertRaises(RuntimeError):
             self.app.clean(clipboard, correct)
@@ -61,34 +63,49 @@ class ClipboardCleanupTests(unittest.TestCase):
                 self.app.clean(clipboard, correct)
                 self.assertEqual(clipboard.text, text)
 
-    def response(self, content, returncode=0):
-        def run(command, **kwargs):
-            Path(command[command.index("--output-last-message") + 1]).write_text(
-                content
+    def test_invalid_model_output_is_rejected(self):
+        for body in (
+            {"done": True, "done_reason": "length", "message": {"content": "partial"}},
+            {"done": True, "done_reason": "stop", "message": {"content": ""}},
+            {"done": False, "message": {"content": "partial"}},
+        ):
+            with self.subTest(body=body):
+                with patch.object(
+                    self.app,
+                    "open_local",
+                    return_value=io.BytesIO(json.dumps(body).encode()),
+                ):
+                    with self.assertRaises(RuntimeError):
+                        self.app.correct_text("helo")
+
+    def test_unicode_and_local_request(self):
+        body = {
+            "done": True,
+            "done_reason": "stop",
+            "message": {
+                "content": json.dumps({"corrected_text": "¡Hola! ¿Cómo estás?"})
+            },
+        }
+
+        def respond(request, timeout):
+            self.assertEqual(request.full_url, "http://127.0.0.1:11434/api/chat")
+            payload = json.loads(request.data)
+            self.assertEqual(payload["model"], "qwen3:4b")
+            self.assertEqual(
+                payload["messages"][-1]["content"], "improve this\n\nhola como estas"
             )
-            return subprocess.CompletedProcess(command, returncode, "", "")
+            self.assertFalse(payload["stream"])
+            self.assertFalse(payload["think"])
+            self.assertEqual(payload["format"]["required"], ["corrected_text"])
+            return io.BytesIO(json.dumps(body).encode())
 
-        return run
-
-    def test_unicode_correction_uses_luna_and_stdin(self):
-        draft = "hola como estas `literal` $(not a command)"
-        respond = self.response(json.dumps({"corrected_text": "¡Hola! ¿Cómo estás?"}))
-
-        def run(command, **kwargs):
-            self.assertEqual(command[command.index("--model") + 1], "gpt-6-luna")
-            self.assertIn("--ephemeral", command)
-            self.assertIn("/opt/homebrew/bin", kwargs["env"]["PATH"].split(":"))
-            self.assertNotIn(draft, command)
-            self.assertEqual(json.loads(kwargs["input"])["draft"], draft)
-            self.assertEqual(command[command.index("--sandbox") + 1], "read-only")
-            return respond(command, **kwargs)
-
-        with patch.object(self.app.subprocess, "run", side_effect=run):
-            self.assertEqual(self.app.correct_text(draft), "¡Hola! ¿Cómo estás?")
+        with patch.object(self.app, "open_local", side_effect=respond):
+            self.assertEqual(
+                self.app.correct_text("hola como estas"), "¡Hola! ¿Cómo estás?"
+            )
 
     def test_invalid_structured_correction_is_rejected(self):
         for content in (
-            "",
             "not json",
             "{}",
             "[]",
@@ -96,38 +113,89 @@ class ClipboardCleanupTests(unittest.TestCase):
             '{"corrected_text": "   "}',
         ):
             with self.subTest(content=content):
+                body = {
+                    "done": True,
+                    "done_reason": "stop",
+                    "message": {"content": content},
+                }
                 with patch.object(
-                    self.app.subprocess, "run", side_effect=self.response(content)
+                    self.app,
+                    "open_local",
+                    return_value=io.BytesIO(json.dumps(body).encode()),
                 ):
                     with self.assertRaises(RuntimeError):
                         self.app.correct_text("helo")
 
-    def test_failed_process_rejects_even_valid_output(self):
-        with patch.object(
-            self.app.subprocess,
-            "run",
-            side_effect=self.response('{"corrected_text": "Hello"}', returncode=1),
-        ):
-            with self.assertRaises(RuntimeError):
-                self.app.correct_text("helo")
-
     def test_timeout_preserves_clipboard(self):
         clipboard = MemoryClipboard("helo")
-        with patch.object(
-            self.app.subprocess,
-            "run",
-            side_effect=subprocess.TimeoutExpired("codex", 90),
-        ):
+        with patch.object(self.app, "open_local", side_effect=TimeoutError):
             with self.assertRaises(RuntimeError):
                 self.app.clean(clipboard)
         self.assertEqual(clipboard.text, "helo")
 
     def test_oversized_unicode_is_rejected_before_request(self):
         with patch.object(
-            self.app.subprocess, "run", side_effect=AssertionError("Unexpected request")
+            self.app, "open_local", side_effect=AssertionError("Unexpected request")
         ):
             with self.assertRaisesRegex(RuntimeError, "too long"):
                 self.app.correct_text("😀" * 3001)
+
+    def test_menu_bar_status_has_no_clipboard_content(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cache = Path(directory)
+            # Prebuilt helper: this test exercises status publication, not Swift compilation.
+            executable = cache / "Clipboard Cleanup.app/Contents/MacOS/ClipboardCleanup"
+            executable.parent.mkdir(parents=True)
+            executable.touch()
+            with patch.object(self.app.subprocess, "run") as run:
+                self.app.notify("Ready to paste", "success", cache=cache)
+            status = json.loads((cache / "status.json").read_text())
+            self.assertEqual(status["state"], "success")
+            self.assertEqual(status["message"], "Ready to paste")
+            self.assertEqual(status["model"], "qwen3:4b")
+            self.assertGreater(status["updated"], 0)
+            self.assertEqual(run.call_args.args[0][:2], ["/usr/bin/open", "-g"])
+
+    def test_menu_bar_build_creates_background_app(self):
+        with tempfile.TemporaryDirectory() as directory:
+            cache = Path(directory)
+
+            def compile_helper(command, **kwargs):
+                Path(command[command.index("-o") + 1]).touch()
+                return subprocess.CompletedProcess(command, 0, "", "")
+
+            with patch.object(self.app.subprocess, "run", side_effect=compile_helper):
+                app = self.app.menu_bar_app(cache)
+            info = plistlib.loads((app / "Contents/Info.plist").read_bytes())
+            self.assertTrue(info["LSUIElement"])
+            self.assertTrue((app / "Contents/MacOS/ClipboardCleanup").exists())
+
+    def test_shortcut_reports_progress_and_success(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.object(self.app.Path, "home", return_value=Path(directory)):
+                with patch.object(sys, "argv", ["clipboard_cleanup.py"]):
+                    with patch.object(self.app, "clean", return_value="Ready to paste"):
+                        with patch.object(self.app, "notify") as notify:
+                            self.assertEqual(self.app.main(), 0)
+            self.assertEqual(notify.call_args_list[0].args[1], "working")
+            self.assertEqual(
+                notify.call_args_list[-1].args, ("Ready to paste", "success")
+            )
+
+    def test_shortcut_reports_persistent_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.object(self.app.Path, "home", return_value=Path(directory)):
+                with patch.object(sys, "argv", ["clipboard_cleanup.py"]):
+                    with patch.object(
+                        self.app,
+                        "clean",
+                        side_effect=RuntimeError("Ollama unavailable"),
+                    ):
+                        with patch.object(self.app, "notify") as notify:
+                            self.assertEqual(self.app.main(), 1)
+            self.assertEqual(
+                notify.call_args_list[-1].args, ("Ollama unavailable", "error")
+            )
 
     @unittest.skipUnless(sys.platform == "darwin", "Requires macOS pasteboard")
     def test_native_pasteboard_rejects_stale_write(self):

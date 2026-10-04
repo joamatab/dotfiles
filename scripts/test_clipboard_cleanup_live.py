@@ -1,4 +1,4 @@
-"""Opt-in editing-quality checks against the Luna via Codex.
+"""Opt-in editing-quality checks against local Qwen via Ollama.
 
 Run with CLIPBOARD_CLEANUP_LIVE_TESTS=1; no clipboard access is performed.
 """
@@ -11,7 +11,7 @@ from clipboard_cleanup import correct_text
 
 @unittest.skipUnless(
     os.environ.get("CLIPBOARD_CLEANUP_LIVE_TESTS") == "1",
-    "Requires explicitly enabled live Luna requests",
+    "Requires explicitly enabled live local Qwen requests",
 )
 class ClipboardEditingQualityTests(unittest.TestCase):
     def test_repairs_accidental_letters_in_message(self):

@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Control + Option + C: correct clipboard with Luna",
+                        "description": "Control + Option + C: correct clipboard with local Qwen",
                         "manipulators": [
                             {
                                 "type": "basic",
