@@ -12,26 +12,37 @@ bash install
 
 ## Clipboard polishing for email and Slack (macOS)
 
-Copy text and press **Control + Option + C**. The macOS menu bar shows
-**Qwen ⏳** while processing, then a green **Qwen ✓** for five seconds when ready
-to paste. Errors show a red **Qwen ⚠** until dismissed or a new request starts.
-Click the indicator for details or to dismiss it. Either left or right Control
-and Option keys work.
+Copy text, focus the destination, and press **Control + Option + C**. Luna
+polishes the clipboard and automatically pastes the result with Command+V.
+Keep the destination text field focused until the paste completes.
+The macOS menu bar shows **Luna ⏳** while processing, then a green **Luna ✓**
+for five seconds after pasting. Errors show **Luna ⚠** until dismissed or a new
+request starts. Click the indicator for details or to dismiss it. Either left
+or right Control and Option keys work.
 
-This uses Karabiner and the local `qwen3:4b` model through Ollama. Start
-Ollama and install the model with `ollama pull qwen3:4b` if needed. Copied text
-stays on your machine. Each request prefixes the draft with `improve this`.
+This uses Karabiner and `gpt-6-luna` through the signed-in Codex CLI, with
+reasoning disabled. Install Codex and run `codex login` if needed. Clipboard
+text is sent to OpenAI; it is no longer processed locally. Requests are
+isolated from your repository and user configuration and cannot use tools.
+There is no request deadline. The target is 5–10 seconds for ordinary messages;
+network conditions and draft length can affect the wait.
 
-Cleanup improves grammar, clarity, and flow, and removes filler and repetition.
-It aims to keep your voice: casual Slack messages stay casual, and professional
-emails stay professional. The prompt asks the model to preserve language,
-meaning, facts, links, mentions, code, and formatting, without inventing details
-or adding greetings or sign-offs.
+Cleanup rewrites rough drafts for clarity and flow, fixes grammar, and removes
+filler and repetition. Emails get a warm, professional tone, short paragraphs,
+clear scheduling questions, and a simple closing (`Best,` in English) when they
+have a greeting but no sign-off. Casual Slack messages stay casual. The prompt
+asks the model to preserve language, meaning, facts, uncertainty, links,
+mentions, code, and lists, and use consistent product names.
 
-Cleanup replaces the clipboard with plain text and leaves newer clipboard
-content alone if you copy again during a request.
-Empty, failed, or truncated responses do not replace the clipboard. Input is
-limited to 12 KB of UTF-8 text. Model corrections can still need review.
+Cleanup replaces the clipboard with plain text. If you copy again during a
+request, newer clipboard content is kept and nothing is pasted. If you switch
+apps, the correction stays on the clipboard for manual paste. Empty or failed
+responses do not replace the clipboard. Input is limited to 12 KB of UTF-8
+text. Model corrections can still need review.
+
+Automatic paste requires Karabiner-Elements to have macOS Accessibility and
+Automation permission for System Events. If paste fails, the corrected text
+remains available for Command+V.
 
 The existing `~/.config/karabiner` symlink activates the shortcut automatically.
 Implementation: `scripts/clipboard_cleanup.py`, `scripts/clipboard_cleanup.js`,
@@ -45,7 +56,7 @@ echo 'hey team, just wanted to say that the update is ready ready for review.' |
 /usr/bin/python3 -m unittest discover -s scripts -p 'test_clipboard_cleanup.py'
 ```
 
-Run the optional editing-quality regression against local Qwen using Ollama
+Run the optional editing-quality and latency regressions against Luna
 (without reading or changing the clipboard):
 
 ```sh
@@ -57,6 +68,7 @@ Check the native menu bar states and timing with a temporary indicator
 
 ```sh
 CLIPBOARD_CLEANUP_UI_TESTS=1 /usr/bin/python3 -m unittest discover -s scripts -p 'test_clipboard_status_live.py'
+CLIPBOARD_CLEANUP_UI_TESTS=1 /usr/bin/python3 -m unittest discover -s scripts -p 'test_clipboard_paste_live.py'
 ```
 
 # Private kept configs

@@ -1,5 +1,4 @@
 import importlib.util
-import io
 import json
 import plistlib
 from pathlib import Path
@@ -30,6 +29,24 @@ class ClipboardCleanupTests(unittest.TestCase):
         clipboard = MemoryClipboard("helo world")
         self.app.clean(clipboard, lambda text: "Hello, world!")
         self.assertEqual(clipboard.text, "Hello, world!")
+        self.assertTrue(clipboard.pasted)
+
+    def test_unchanged_text_is_still_pasted(self):
+        clipboard = MemoryClipboard("Hello!")
+        self.app.clean(clipboard, lambda text: text)
+        self.assertTrue(clipboard.pasted)
+
+    def test_focus_change_keeps_correction_without_pasting(self):
+        clipboard = MemoryClipboard("helo")
+
+        def correct(text):
+            clipboard.app_pid = 2
+            return "Hello!"
+
+        result = self.app.clean(clipboard, correct)
+        self.assertEqual(clipboard.text, "Hello!")
+        self.assertFalse(clipboard.pasted)
+        self.assertIn("ready to paste", result)
 
     def test_copy_during_request_is_preserved_even_if_text_matches(self):
         clipboard = MemoryClipboard("helo world")
@@ -63,49 +80,40 @@ class ClipboardCleanupTests(unittest.TestCase):
                 self.app.clean(clipboard, correct)
                 self.assertEqual(clipboard.text, text)
 
-    def test_invalid_model_output_is_rejected(self):
-        for body in (
-            {"done": True, "done_reason": "length", "message": {"content": "partial"}},
-            {"done": True, "done_reason": "stop", "message": {"content": ""}},
-            {"done": False, "message": {"content": "partial"}},
-        ):
-            with self.subTest(body=body):
-                with patch.object(
-                    self.app,
-                    "open_local",
-                    return_value=io.BytesIO(json.dumps(body).encode()),
-                ):
-                    with self.assertRaises(RuntimeError):
-                        self.app.correct_text("helo")
-
-    def test_unicode_and_local_request(self):
-        body = {
-            "done": True,
-            "done_reason": "stop",
-            "message": {
-                "content": json.dumps({"corrected_text": "¡Hola! ¿Cómo estás?"})
-            },
-        }
-
-        def respond(request, timeout):
-            self.assertEqual(request.full_url, "http://127.0.0.1:11434/api/chat")
-            payload = json.loads(request.data)
-            self.assertEqual(payload["model"], "qwen3:4b")
-            self.assertEqual(
-                payload["messages"][-1]["content"], "improve this\n\nhola como estas"
+    def response(self, content, returncode=0):
+        def run(command, **kwargs):
+            Path(command[command.index("--output-last-message") + 1]).write_text(
+                content
             )
-            self.assertFalse(payload["stream"])
-            self.assertFalse(payload["think"])
-            self.assertEqual(payload["format"]["required"], ["corrected_text"])
-            return io.BytesIO(json.dumps(body).encode())
+            return subprocess.CompletedProcess(command, returncode, "", "")
 
-        with patch.object(self.app, "open_local", side_effect=respond):
-            self.assertEqual(
-                self.app.correct_text("hola como estas"), "¡Hola! ¿Cómo estás?"
-            )
+        return run
+
+    def test_unicode_correction_uses_luna_and_stdin(self):
+        draft = "hola como estas `literal` $(not a command)"
+        respond = self.response(json.dumps({"corrected_text": "¡Hola! ¿Cómo estás?"}))
+
+        def run(command, **kwargs):
+            self.assertEqual(command[command.index("--model") + 1], "gpt-6-luna")
+            self.assertIn("--ephemeral", command)
+            self.assertIn("--ignore-user-config", command)
+            self.assertIn("model_reasoning_effort=none", command)
+            self.assertIn("features.shell_tool=false", command)
+            self.assertIn("features.unified_exec=false", command)
+            self.assertIn("web_search=disabled", command)
+            self.assertNotIn("timeout", kwargs)
+            self.assertIn("/opt/homebrew/bin", kwargs["env"]["PATH"].split(":"))
+            self.assertNotIn(draft, command)
+            self.assertEqual(json.loads(kwargs["input"])["draft"], draft)
+            self.assertEqual(command[command.index("--sandbox") + 1], "read-only")
+            return respond(command, **kwargs)
+
+        with patch.object(self.app.subprocess, "run", side_effect=run):
+            self.assertEqual(self.app.correct_text(draft), "¡Hola! ¿Cómo estás?")
 
     def test_invalid_structured_correction_is_rejected(self):
         for content in (
+            "",
             "not json",
             "{}",
             "[]",
@@ -113,29 +121,35 @@ class ClipboardCleanupTests(unittest.TestCase):
             '{"corrected_text": "   "}',
         ):
             with self.subTest(content=content):
-                body = {
-                    "done": True,
-                    "done_reason": "stop",
-                    "message": {"content": content},
-                }
                 with patch.object(
-                    self.app,
-                    "open_local",
-                    return_value=io.BytesIO(json.dumps(body).encode()),
+                    self.app.subprocess, "run", side_effect=self.response(content)
                 ):
                     with self.assertRaises(RuntimeError):
                         self.app.correct_text("helo")
 
+    def test_failed_process_rejects_even_valid_output(self):
+        with patch.object(
+            self.app.subprocess,
+            "run",
+            side_effect=self.response('{"corrected_text": "Hello"}', returncode=1),
+        ):
+            with self.assertRaises(RuntimeError):
+                self.app.correct_text("helo")
+
     def test_timeout_preserves_clipboard(self):
         clipboard = MemoryClipboard("helo")
-        with patch.object(self.app, "open_local", side_effect=TimeoutError):
+        with patch.object(
+            self.app.subprocess,
+            "run",
+            side_effect=subprocess.TimeoutExpired("codex", 10),
+        ):
             with self.assertRaises(RuntimeError):
                 self.app.clean(clipboard)
         self.assertEqual(clipboard.text, "helo")
 
     def test_oversized_unicode_is_rejected_before_request(self):
         with patch.object(
-            self.app, "open_local", side_effect=AssertionError("Unexpected request")
+            self.app.subprocess, "run", side_effect=AssertionError("Unexpected request")
         ):
             with self.assertRaisesRegex(RuntimeError, "too long"):
                 self.app.correct_text("😀" * 3001)
@@ -152,7 +166,7 @@ class ClipboardCleanupTests(unittest.TestCase):
             status = json.loads((cache / "status.json").read_text())
             self.assertEqual(status["state"], "success")
             self.assertEqual(status["message"], "Ready to paste")
-            self.assertEqual(status["model"], "qwen3:4b")
+            self.assertEqual(status["model"], "gpt-6-luna")
             self.assertGreater(status["updated"], 0)
             self.assertEqual(run.call_args.args[0][:2], ["/usr/bin/open", "-g"])
 
@@ -239,9 +253,19 @@ class MemoryClipboard:
     def __init__(self, text):
         self.text = text
         self.version = 1
+        self.app_pid = 1
+        self.pasted = False
 
     def read(self):
-        return {"text": self.text, "version": self.version}
+        return {"text": self.text, "version": self.version, "app_pid": self.app_pid}
+
+    def replace_and_paste(self, version, text, app_pid):
+        if not self.replace(version, text):
+            return "clipboard_changed"
+        if self.app_pid != app_pid:
+            return "focus_changed"
+        self.pasted = True
+        return "pasted"
 
     def replace(self, version, text):
         if version != self.version:

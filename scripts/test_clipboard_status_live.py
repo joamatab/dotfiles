@@ -30,7 +30,7 @@ class NativeMenuBarTests(unittest.TestCase):
                         {
                             "state": state,
                             "message": "Menu bar verification",
-                            "model": "qwen3:4b",
+                            "model": "gpt-6-luna",
                             "updated": time.time() if updated is None else updated,
                         }
                     )
@@ -59,24 +59,24 @@ class NativeMenuBarTests(unittest.TestCase):
                         return json.loads(process.stdout.readline())
 
                     working = snapshot()
-                    self.assertEqual(working["title"], "Qwen ⏳")
+                    self.assertEqual(working["title"], "Luna ⏳")
                     self.assertTrue(working["visible"])
                     publish("success")
                     success = snapshot()
-                    self.assertEqual(success["title"], "Qwen ✓")
+                    self.assertEqual(success["title"], "Luna ✓")
                     self.assertTrue(success["visible"])
                     self.assertFalse(snapshot()["visible"])
                     # Old errors still show; they have no automatic expiry.
                     publish("error", time.time() - 60)
                     error = snapshot()
-                    self.assertEqual(error["title"], "Qwen ⚠")
+                    self.assertEqual(error["title"], "Luna ⚠")
                     self.assertTrue(error["visible"])
                     self.assertFalse(
                         selector.select(1), "Error indicator unexpectedly expired"
                     )
                     # A later request replaces the error with active progress.
                     publish("working")
-                    self.assertEqual(snapshot()["title"], "Qwen ⏳")
+                    self.assertEqual(snapshot()["title"], "Luna ⏳")
             finally:
                 process.terminate()
                 process.communicate(timeout=5)

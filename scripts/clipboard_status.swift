@@ -8,16 +8,14 @@ struct CleanupStatus: Codable {
 
     var title: String {
         switch state {
-        case "working": return "Qwen ⏳"
-        case "error": return "Qwen ⚠"
-        default: return "Qwen ✓"
+        case "working": return "Luna ⏳"
+        case "error": return "Luna ⚠"
+        default: return "Luna ✓"
         }
     }
 
     func isVisible(at now: Double) -> Bool {
-        // A request normally times out after 90 seconds. Don't leave a hung
-        // process looking active forever if it was killed outside the shortcut.
-        if state == "working" { return now - updated < 120 }
+        if state == "working" { return true }
         if state == "error" { return true }
         return now - updated < 5
     }
