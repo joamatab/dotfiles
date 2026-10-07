@@ -108,6 +108,7 @@ abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 o
 abbr -a claude2 'claude --dangerously-skip-permissions'
 abbr -a cc claude
 abbr -a codex2 'codex --dangerously-bypass-approvals-and-sandbox'
+abbr -a cl 'codex --dangerously-bypass-approvals-and-sandbox -m gpt-5.6-luna'
 
 abbr -a ghprc 'gh pr create --fill'
 abbr -a ghprm 'gh pr merge --merge --delete-branch'
