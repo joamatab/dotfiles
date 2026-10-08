@@ -10,6 +10,10 @@
       force: true
 
 - link:
+    ~/.config/aerc: aerc
+    ~/Library/Preferences/aerc:
+      path: aerc
+      if: '[ "$(uname -s)" = Darwin ]'
     ~/.config/ImageMagick/type.xml:
       path: imagemagick/type.xml
       if: '[ "$(uname -s)" = Darwin ]'
@@ -93,3 +97,6 @@
       path: claude-settings.json
       force: true
     ~/.zshrc:
+
+- shell:
+    - ['[ ! -f ~/.config/aerc/accounts.conf ] || chmod 600 ~/.config/aerc/accounts.conf', Secure aerc account configuration]

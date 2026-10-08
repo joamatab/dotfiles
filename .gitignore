@@ -247,3 +247,11 @@ venv.bak/
 mpd/state
 mpv/watch_later/
 fish/fishd.xps
+
+# aerc: local account details and personal setup helpers
+/aerc/accounts.conf
+/aerc/setup-login.py
+/aerc/login.command
+/aerc/open-mail.command
+/aerc/*.backup*
+/aerc/*.log

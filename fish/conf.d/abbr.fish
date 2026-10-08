@@ -1,3 +1,4 @@
+abbr -a ae aerc -I -a GDSFactory
 abbr -a bf nvim ~/.bmfiles
 abbr -a bm nvim ~/.bmdirs
 abbr -a d cd ~/Downloads
