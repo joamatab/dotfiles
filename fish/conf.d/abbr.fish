@@ -1,3 +1,4 @@
+abbr -a ae aerc -I -a GDSFactory
 abbr -a bf nvim ~/.bmfiles
 abbr -a bm nvim ~/.bmdirs
 abbr -a d cd ~/Downloads
@@ -62,7 +63,7 @@ abbr -a monsg 'mons -S 1,4:R'
 abbr -a lt lsd --tree
 abbr -a o open
 abbr -a path 'echo $PATH | tr -s " " "\n"'
-abbr -a pi "uv pip install"
+# abbr -a pi "uv pip install"
 abbr -a pu "uv pip uninstall"
 abbr -a uti "uv tool install"
 abbr -a utu "uv tool uninstall"
@@ -99,8 +100,8 @@ abbr -a xrbig xrandr --output DP2 --mode 1920x1200
 abbr -a xrs xrandr --output DP2 --mode 1024x768
 abbr -a xrg xrandr --output eDP-1 --mode 2560x1600
 abbr -a wea "curl wttr.in"
-abbr -a ytm youtube-dl  -x --audio-format mp3
-abbr -a ytv youtube-dl -ic
+abbr -a ytm yt-dlp -x --audio-format mp3
+abbr -a ytv yt-dlp
 abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet
 abbr -a dcode 'cd /Users/j/c/dpd/gdsfactoryplus/vscode && just dev && code --extensionDevelopmentPath=/Users/j/c/dpd/gdsfactoryplus/vscode'
 abbr -a dcode2 cursor --extensionDevelopmentPath=/Users/j/docode/vscode
@@ -108,6 +109,7 @@ abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 o
 abbr -a claude2 'claude --dangerously-skip-permissions'
 abbr -a cc claude
 abbr -a codex2 'codex --dangerously-bypass-approvals-and-sandbox'
+abbr -a cl 'codex --dangerously-bypass-approvals-and-sandbox -m gpt-5.6-luna'
 
 abbr -a ghprc 'gh pr create --fill'
 abbr -a ghprm 'gh pr merge --merge --delete-branch'

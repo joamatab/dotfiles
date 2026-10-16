@@ -7,6 +7,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus",
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
@@ -17,6 +18,5 @@
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "model": "claude-sonnet-5"
+  "voiceEnabled": true
 }
