@@ -126,3 +126,6 @@ bar {
     strip_workspace_numbers yes
 }
 # }}}
+
+# Faster Magic Trackpad pointer movement.
+exec_always --no-startup-id ~/.local/bin/trackpad-speed

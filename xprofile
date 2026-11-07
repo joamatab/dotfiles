@@ -22,7 +22,7 @@ setbg &
 
 # ssh-agent -a ${XDG_RUNTIME_DIR}/ssh-agent.socket &
 ssh-agent -a "${SSH_AUTH_SOCK}" &
-xset r rate 300 50 # Speed xrate up
+xset r rate 200 50 # Repeat after 200 ms at 50 keys/sec
 setxkbmap -option ctrl:nocaps # CapsLock behaves like Ctrl
 xmodmap -e "keycode 160 = Print"
 clipmenud &

@@ -35,7 +35,7 @@ exec "$HOME/.local/bin/pcloud" --smart-tray
 exec keychain --dir ~/.cache/keychain
 # }}}
 # keyboard {{{
-exec xset r rate 300 50 # Speed xrate up
+exec xset r rate 200 50 # Repeat after 200 ms at 50 keys/sec
 # }}}
 # ssh agent {{{
 exec "ssh-agent -a $SSH_AUTH_SOCK"
