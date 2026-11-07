@@ -145,7 +145,6 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    # browser = palemoon
     # browser = firefox
     browser = google-chrome
 

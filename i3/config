@@ -24,9 +24,10 @@ bindsym $mod+Delete exec dmenurecord kill
 bindsym $mod+Print exec dmenurecord
 bindsym $mod+Return exec env TERMINAL=ghostty i3-sensible-terminal -e fish
 bindsym $mod+Shift+e restart
-bindsym $mod+Shift+i exec google-chrome-stable
+bindsym $mod+Shift+i exec google-chrome-stable --force-dark-mode
 bindsym $mod+Shift+r reload
 bindsym $mod+Ctrl+l exec i3lock
+bindsym $mod+Ctrl+h exec --no-startup-id ~/.local/bin/neru hints
 bindsym $mod+Shift+x exec --no-startup-id flameshot gui
 # XRDP can miss a macOS modifier-key release. Reset its keyboard device.
 bindsym Mod4+Shift+Escape exec --no-startup-id xinput disable xrdpKeyboard && xinput enable xrdpKeyboard && rofi -e "RDP keyboard reset"
