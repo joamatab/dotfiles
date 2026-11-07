@@ -13,6 +13,10 @@ workspace_layout default
 exec_always --no-startup-id xset r rate 200 50
 # macOS maps Caps Lock to left Control; use it as the i3 modifier instead.
 exec_always --no-startup-id xmodmap -e "remove control = Control_L" -e "add mod4 = Control_L"
+# Click the network icon in the tray to select Wi-Fi networks.
+exec --no-startup-id nm-applet
+# The HDMI monitor sits to the left of the DisplayPort monitor.
+exec --no-startup-id xrandr --output HDMI-A-0 --primary --pos 0x0 --output DisplayPort-2 --pos 1920x0
 floating_modifier $mod
 # }}}
 # Keybindings {{{
@@ -22,7 +26,8 @@ bindsym $mod+Return exec env TERMINAL=ghostty i3-sensible-terminal -e fish
 bindsym $mod+Shift+e restart
 bindsym $mod+Shift+i exec google-chrome-stable
 bindsym $mod+Shift+r reload
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Ctrl+l exec i3lock
+bindsym $mod+Shift+x exec --no-startup-id flameshot gui
 # XRDP can miss a macOS modifier-key release. Reset its keyboard device.
 bindsym Mod4+Shift+Escape exec --no-startup-id xinput disable xrdpKeyboard && xinput enable xrdpKeyboard && rofi -e "RDP keyboard reset"
 bindsym Mod1+Shift+Escape exec --no-startup-id xinput disable xrdpKeyboard && xinput enable xrdpKeyboard && rofi -e "RDP keyboard reset"
@@ -122,8 +127,10 @@ bindsym XF86Display exec dock-it
 # }}}
 # Status Bar {{{
 bar {
-    status_command i3status
+    status_command i3status -c ~/.config/i3status/config
     position bottom
+    height 36
+    tray_padding 6
     bindsym button4 nop
     bindsym button5 nop
     font pango:URWGothic-Book 11

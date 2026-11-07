@@ -40,6 +40,7 @@
     ~/.config/sway/config: sway
     ~/.config/waybar:
     ~/.config/i3/config: i3/config
+    ~/.config/i3status/config: i3/status.conf
     # ~/.config/i3blocks/config: i3blocks/config
     ~/.config/karabiner:
     ~/.config/kitty/kitty.conf:
