@@ -28,6 +28,8 @@ bindsym Control+Shift+Escape exec --no-startup-id xinput disable xrdpKeyboard &&
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+c exec clipmenu
 bindsym $mod+d exec "rofi -show run"
+# Spotlight-style application search (Command/Super + Space).
+bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+i exec firefox
 bindsym $mod+m move workspace to output left
 bindsym $mod+q kill
@@ -99,7 +101,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Ctrl+space focus mode_toggle
 bindsym $mod+a focus parent
 default_border pixel 1
 # }}}

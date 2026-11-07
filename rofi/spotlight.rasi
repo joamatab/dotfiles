@@ -1,0 +1,73 @@
+/* Spotlight-inspired search panel. Opaque so no compositor is required. */
+* {
+    font: "Noto Sans 13";
+    background-color: transparent;
+    text-color: #eeeeef;
+    border-color: #535357;
+    spacing: 0;
+}
+
+window {
+    location: north;
+    anchor: north;
+    y-offset: 18%;
+    width: 640px;
+    background-color: #27272a;
+    border: 1px;
+    border-radius: 16px;
+    padding: 12px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 10px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    padding: 12px 14px 18px;
+    spacing: 16px;
+    border: 0 0 1px;
+    border-color: #424246;
+}
+
+prompt {
+    text-color: #a1a1aa;
+    vertical-align: 0.5;
+}
+
+entry {
+    font: "Noto Sans 20";
+    placeholder: "Search applications…";
+    placeholder-color: #a1a1aa;
+    vertical-align: 0.5;
+}
+
+listview {
+    lines: 7;
+    columns: 1;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 4px;
+}
+
+element {
+    children: [ element-icon, element-text ];
+    padding: 10px 14px;
+    spacing: 12px;
+    border-radius: 9px;
+}
+
+element selected.normal, element selected.active, element selected.urgent {
+    background-color: #2563eb;
+    text-color: #ffffff;
+}
+
+element-icon {
+    size: 28px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+}
