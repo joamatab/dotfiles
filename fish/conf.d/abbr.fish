@@ -64,6 +64,14 @@ abbr -a lt lsd --tree
 abbr -a o open
 abbr -a path 'echo $PATH | tr -s " " "\n"'
 # abbr -a pi "uv pip install"
+# Pi model shortcuts
+abbr -a pid "pi --provider together --model deepseek-ai/DeepSeek-V4.1-Flash-1017" # routine coding, quick edits; custom ID needs catalog/config support
+abbr -a pis "pi --provider openai-codex --model gpt-6.1-sol" # coding, debugging, multi-file changes
+abbr -a pidp "pi --provider together --model deepseek-ai/DeepSeek-V4-Pro-0813" # try for complex debugging and architecture
+abbr -a pik "pi --provider together --model moonshotai/Kimi-K3.1-Pro" # try for large repositories and long-context analysis
+abbr -a piq "pi --provider together --model Qwen/Qwen3.7-Max" # try for everyday coding, refactoring, and tests
+abbr -a pig "pi --provider together --model zai-org/GLM-5.3" # try for tool-driven coding workflows
+abbr -a pio "pi --provider together --model openai/gpt-oss-120b" # general reasoning and smaller coding tasks
 abbr -a pu "uv pip uninstall"
 abbr -a uti "uv tool install"
 abbr -a utu "uv tool uninstall"
