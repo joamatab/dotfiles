@@ -16,7 +16,7 @@ floating_modifier $mod
 # Keybindings {{{
 bindsym $mod+Delete exec dmenurecord kill
 bindsym $mod+Print exec dmenurecord
-bindsym $mod+Return exec i3-sensible-terminal -e fish
+bindsym $mod+Return exec env TERMINAL=ghostty i3-sensible-terminal -e fish
 bindsym $mod+Shift+e restart
 bindsym $mod+Shift+i exec google-chrome-stable
 bindsym $mod+Shift+r reload

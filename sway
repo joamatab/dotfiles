@@ -8,7 +8,7 @@ set $up k
 set $right l
 # }}}
 # Terminal {{{
-set $term "$HOME/.cargo/bin/alacritty"
+set $term ghostty
 # }}}
 # Scripts {{{
 set $scripts "$HOME/.config/sway/scripts"

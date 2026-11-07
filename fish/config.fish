@@ -102,7 +102,7 @@ end
 set -x PAGER bat
 set -x EDITOR nvim
 set -x GIT_EDITOR nvim
-# set -x TERMINAL alacritty
+set -gx TERMINAL ghostty
 set -x TERM xterm-256color
 set -x BROWSER firefox
 # set -x SHELL /usr/bin/fish

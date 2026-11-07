@@ -6,6 +6,6 @@ configuration {
     sort: true;
     drun-display-format: "{name}";
     display-drun: "Search";
-    terminal: "alacritty";
+    terminal: "ghostty";
 }
 @theme "spotlight"

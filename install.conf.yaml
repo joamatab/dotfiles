@@ -32,6 +32,7 @@
     ~/.config/feh: feh
     ~/.config/gh-dash/config.yml: gh-dash.yml
     ~/.config/ghostty:
+    ~/.config/xdg-terminals.list: xdg-terminals.list
     ~/.config/fish:
       force: true
     ~/.config/rofi:
