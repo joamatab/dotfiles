@@ -9,6 +9,8 @@ set $right l
 gaps inner 5
 gaps outer 0
 workspace_layout default
+# Repeat after 200 ms at 50 keys/sec.
+exec_always --no-startup-id xset r rate 200 50
 # macOS maps Caps Lock to left Control; use it as the i3 modifier instead.
 exec_always --no-startup-id xmodmap -e "remove control = Control_L" -e "add mod4 = Control_L"
 floating_modifier $mod
