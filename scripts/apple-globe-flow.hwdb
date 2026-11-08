@@ -1,5 +1,5 @@
-# Apple Magic Keyboard (05ac:0320): expose Globe/Fn as Right Ctrl for
+# Apple Magic Keyboard (05ac:0320): expose Globe/Fn as Right Alt for
 # Wispr Flow on X11. KEY_FN (464) exceeds X11's keycode range.
 # The Globe key no longer acts as Fn for function-key combinations.
 evdev:input:b0003v05ACp0320*
- KEYBOARD_KEY_00ff0003=rightctrl
+ KEYBOARD_KEY_00ff0003=rightalt

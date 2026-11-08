@@ -7,7 +7,6 @@ export READER="zathura"
 export FILE="lf"
 export SHELL="fish"
 
-setxkbmap -layout us &
 # mons -S 2,3:R &
 setbg &
 
@@ -23,7 +22,10 @@ setbg &
 # ssh-agent -a ${XDG_RUNTIME_DIR}/ssh-agent.socket &
 ssh-agent -a "${SSH_AUTH_SOCK}" &
 xset r rate 200 50 # Repeat after 200 ms at 50 keys/sec
-setxkbmap -option ctrl:nocaps # CapsLock behaves like Ctrl
+# Single setxkbmap call: layout + option together so CapsLock->Ctrl is applied
+# atomically. Two separate calls (one backgrounded) used to race and leave
+# CapsLock in mod4 (Super) instead of control.
+setxkbmap -layout us -option ctrl:nocaps
 xmodmap -e "keycode 160 = Print"
 clipmenud &
 # sxhkd &

@@ -18,5 +18,5 @@ for device in /sys/class/input/event*; do
     fi
 done
 udevadm settle
-echo 'Globe now sends Right Ctrl. Record it in Wispr Flow Settings → Shortcuts.'
+echo 'Globe now sends Right Alt. Record it in Wispr Flow Settings → Shortcuts.'
 echo 'To undo: remove /etc/udev/hwdb.d/90-apple-globe-flow.hwdb, run systemd-hwdb update, and reconnect the keyboard.'
