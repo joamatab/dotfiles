@@ -11,8 +11,13 @@ gaps outer 0
 workspace_layout default
 # Repeat after 200 ms at 50 keys/sec.
 exec_always --no-startup-id xset r rate 200 50
-# macOS maps Caps Lock to left Control; use it as the i3 modifier instead.
-exec_always --no-startup-id xmodmap -e "remove control = Control_L" -e "add mod4 = Control_L"
+# macOS maps Caps Lock to left Control, so Caps Lock behaves as Control here too.
+# (Previously this moved Control_L into mod4 to use Caps Lock as the i3 modifier;
+#  that is intentionally reversed so Caps Lock is a plain Control key.)
+exec_always --no-startup-id xmodmap -e "remove mod4 = Control_L" -e "add control = Control_L"
+# Wispr Flow renders a black 200x110 transparent status window at the bottom of
+# the screen (Electron transparent window without compositing). Park it off-screen.
+for_window [class="^(wispr-flow)$" title="^Status$"] move to scratchpad
 # Click the network icon in the tray to select Wi-Fi networks.
 exec --no-startup-id nm-applet
 # The HDMI monitor sits to the left of the DisplayPort monitor.
@@ -80,6 +85,8 @@ bindsym $mod+comma resize grow width 10 px or 10 ppt
 bindsym $mod+period resize shrink width 10 px or 10 ppt
 # }}}
 # Workspaces {{{
+# Keep workspace 9 on the left monitor.
+workspace 9 output HDMI-A-0
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
