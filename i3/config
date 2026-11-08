@@ -15,9 +15,14 @@ exec_always --no-startup-id xset r rate 200 50
 # (Previously this moved Control_L into mod4 to use Caps Lock as the i3 modifier;
 #  that is intentionally reversed so Caps Lock is a plain Control key.)
 exec_always --no-startup-id xmodmap -e "remove mod4 = Control_L" -e "add control = Control_L"
-# Wispr Flow renders a black 200x110 transparent status window at the bottom of
-# the screen (Electron transparent window without compositing). Park it off-screen.
-for_window [class="^(wispr-flow)$" title="^Status$"] move to scratchpad
+# Wispr Flow renders an opaque-black ~200x110 "Status" window at the bottom of
+# the screen (an Electron transparent overlay). It is an *override-redirect*
+# window, so i3 never manages it -- `for_window ... move to scratchpad` does
+# nothing. wispr-hide-status unmaps it and keeps re-hiding it across launches,
+# which removes the black box entirely.
+exec_always --no-startup-id ~/.local/bin/wispr-hide-status &
+# Start Wispr Flow on login (give i3/X a moment to settle first).
+exec --no-startup-id sh -c 'sleep 3; ~/.local/bin/wispr-flow'
 # Click the network icon in the tray to select Wi-Fi networks.
 exec --no-startup-id nm-applet
 # The HDMI monitor sits to the left of the DisplayPort monitor.
