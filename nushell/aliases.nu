@@ -257,8 +257,10 @@ alias timela = timedatectl set-timezone America/Los_Angeles
 alias timemadrid = timedatectl set-timezone Europe/Madrid
 
 # Keyboard layout
-alias kus = setxkbmap -layout us
-alias kespanol = setxkbmap -layout es
+# Always pass -option ctrl:nocaps: a bare setxkbmap rebuilds the keymap and
+# drops CapsLock->Ctrl plus the Globe->XF86Dictate relabel from ~/.xprofile.
+alias kus = (setxkbmap -layout us -option ctrl:nocaps; xmodmap -e 'keycode 198 = XF86Dictate XF86Dictate XF86Dictate XF86Dictate')
+alias kespanol = (setxkbmap -layout es -option ctrl:nocaps; xmodmap -e 'keycode 198 = XF86Dictate XF86Dictate XF86Dictate XF86Dictate')
 
 # System
 alias sus = systemctl suspend

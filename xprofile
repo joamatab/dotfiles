@@ -27,5 +27,7 @@ xset r rate 200 50 # Repeat after 200 ms at 50 keys/sec
 # CapsLock in mod4 (Super) instead of control.
 setxkbmap -layout us -option ctrl:nocaps
 xmodmap -e "keycode 160 = Print"
+# Ordinary F20 for Globe dictation; no extra modifier or exotic keysym.
+xmodmap -e "keycode 198 = F20"
 clipmenud &
 # sxhkd &
