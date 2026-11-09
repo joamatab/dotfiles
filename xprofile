@@ -25,6 +25,10 @@ xset r rate 200 50 # Repeat after 200 ms at 50 keys/sec
 # Single setxkbmap call: layout + option together so CapsLock->Ctrl is applied
 # atomically. Two separate calls (one backgrounded) used to race and leave
 # CapsLock in mod4 (Super) instead of control.
+#
+# This is the ONLY place Caps Lock is remapped -- it owns keycode 66 and the
+# Lock modifier. Do not add raw `xmodmap -e "keycode 66 = ..."` lines (in
+# i3/config or elsewhere): those re-fire on i3 reload and revert this keymap.
 setxkbmap -layout us -option ctrl:nocaps
 xmodmap -e "keycode 160 = Print"
 # Ordinary F20 for Globe dictation; no extra modifier or exotic keysym.

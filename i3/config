@@ -11,11 +11,14 @@ gaps outer 0
 workspace_layout default
 # Repeat after 200 ms at 50 keys/sec.
 exec_always --no-startup-id xset r rate 200 50
-# macOS maps Caps Lock to left Control, so Caps Lock behaves as Control here too.
-# (Previously this moved Control_L into mod4 to use Caps Lock as the i3 modifier;
-#  that is intentionally reversed so Caps Lock is a plain Control key.)
-# Do not call setxkbmap here: preserve the rest of the active keymap.
-exec_always --no-startup-id xmodmap -e "clear Lock" -e "keycode 66 = Control_L" -e "remove mod4 = Control_L" -e "add control = Control_L" -e "keycode 198 = F20"
+# macOS maps Caps Lock to left Control. That mapping is owned entirely by
+# xprofile's `setxkbmap -layout us -option ctrl:nocaps` (one atomic call at
+# login) -- do NOT re-map keycode 66 here. Running `exec_always xmodmap` with
+# raw keycode 66 / mod4 edits re-fires on every i3 reload and fights the
+# setxkbmap keymap, which is what kept silently reverting Caps Lock.
+# Only re-assert the Globe key (keycode 198 -> F20) here, because setxkbmap in
+# xprofile may run after i3 and the hwdb mapping is per-keyboard, not per-keymap.
+exec_always --no-startup-id xmodmap -e "keycode 198 = F20"
 # Wispr Flow renders an opaque-black ~200x110 "Status" window at the bottom of
 # the screen (an Electron transparent overlay). It is an *override-redirect*
 # window, so i3 never manages it -- `for_window ... move to scratchpad` does
