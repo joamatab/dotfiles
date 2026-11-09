@@ -91,6 +91,9 @@
       force: true
     ~/.config/zellij:
       force: true
+    ~/.config/herdr-app/keys.json:
+      path: herdr/keys.json
+      force: true
     ~/Library/Application Support/nushell:
       force: true
     ~/.claude/CLAUDE.md:
