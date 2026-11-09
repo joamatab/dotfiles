@@ -29,9 +29,9 @@ abbr -a f fzf
 abbr -a is "find . -type l | sed -e s'/^\.\///g' >> .gitignore"
 # Keep ctrl:nocaps (CapsLock->Ctrl) in every layout switch. A bare setxkbmap
 # rebuilds the whole keymap and silently drops the capsule remap AND the
-# Globe->XF86Dictate relabel from ~/.xprofile.
-abbr -a kus "setxkbmap -layout us -option ctrl:nocaps; xmodmap -e 'keycode 198 = XF86Dictate XF86Dictate XF86Dictate XF86Dictate'"
-abbr -a kespanol "setxkbmap -layout es -option ctrl:nocaps; xmodmap -e 'keycode 198 = XF86Dictate XF86Dictate XF86Dictate XF86Dictate'"
+# Globe->F20 relabel from ~/.xprofile.
+abbr -a kus "setxkbmap -layout us -option ctrl:nocaps; xmodmap -e 'keycode 198 = F20'"
+abbr -a kespanol "setxkbmap -layout es -option ctrl:nocaps; xmodmap -e 'keycode 198 = F20'"
 abbr -a killp "ps aux | grep ipykernel | grep -v grep | awk '{print $2}' | xargs kill -9"
 abbr -a grm 'git branch --merged | grep -v \* | xargs -I{} git branch -D {}'
 abbr -a ga git add
