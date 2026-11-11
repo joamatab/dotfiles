@@ -10,6 +10,23 @@ You can install this config files copy-pasting this into a terminal:
 bash install
 ```
 
+On a new computer, the installer asks whether to use Joaquin's Git name and
+email or enter your own. Existing Git identities are preserved. The choice is
+saved in `~/.gitconfig.local`, which overrides the shared defaults and survives
+updates without modifying the repository's `gitconfig`.
+
+For unattended installation, choose Joaquin's identity explicitly:
+
+```sh
+DOTFILES_IDENTITY=joaquin bash install
+```
+
+Or provide your own (also overrides a previously saved choice):
+
+```sh
+DOTFILES_GIT_NAME="Your Name" DOTFILES_GIT_EMAIL="you@example.com" bash install
+```
+
 ## Clipboard polishing for email and Slack (macOS)
 
 Copy text, focus the destination, and press **Control + Option + C**. Luna

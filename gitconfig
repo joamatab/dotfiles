@@ -74,3 +74,7 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
+
+# Keep this last so each computer's identity overrides the shared defaults.
+[include]
+	path = ~/.gitconfig.local

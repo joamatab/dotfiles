@@ -264,3 +264,8 @@ end
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/j/google-cloud-sdk/path.fish.inc' ]; . '/Users/j/google-cloud-sdk/path.fish.inc'; end
 set -gx PRE_COMMIT_COLOR never
+
+# mise (tool version manager) activation
+if type -q mise
+    mise activate fish | source
+end
