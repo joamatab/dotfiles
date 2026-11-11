@@ -4,7 +4,7 @@ extra/
 nvim/.netrwhist
 nvim/
 install.conf.yaml.save
-
+fish/completions/copilot.fish
 
 luke/
 brodie/
