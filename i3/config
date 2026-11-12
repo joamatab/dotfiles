@@ -30,7 +30,9 @@ exec --no-startup-id sh -c 'sleep 3; ~/.local/bin/wispr-flow'
 # Click the network icon in the tray to select Wi-Fi networks.
 exec --no-startup-id nm-applet
 # The HDMI monitor sits to the left of the DisplayPort monitor.
-exec --no-startup-id xrandr --output HDMI-A-0 --primary --pos 0x0 --output DisplayPort-2 --pos 1920x0
+# The DisplayPort monitor is primary; the HDMI (HP) one is secondary and only
+# hosts workspace 9 (pinned below).
+exec --no-startup-id xrandr --output HDMI-A-0 --pos 0x0 --output DisplayPort-2 --primary --pos 1920x0
 floating_modifier $mod
 # }}}
 # Keybindings {{{
@@ -138,7 +140,9 @@ bindsym XF86Forward exec playerctl next
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# Stock evdev labels Globe/F20 as XF86AudioMicMute when a keyboard reconnects.
+# Leave it unbound so i3 cannot grab Globe or mute dictation before the F20
+# xmodmap command above runs again.
 bindsym XF86Tools exec gnome-control-center
 bindsym XF86Display exec dock-it
 # }}}

@@ -1,14 +1,11 @@
 # Apple Magic Keyboard (05ac:0320): expose the Globe/Fn key as KEY_F20 so
 # Wispr Flow can use it as a dictation key on X11.
 #
-# The Globe key reports MSC_SCAN 0x6f (HID usage page 0x07, usage 0x6f = F20).
-# Verified with `showkey --scancodes`: pressing Globe prints 0x6f, releasing
-# prints 0xef (= 0x6f | 0x80, the set-1 release bit), i.e. one physical key.
-#
-# Only the raw set-1 scancode 6f is correct here. Two wrong variants have
-# broken this key before -- do not reintroduce them:
-#   00ff0003  is KEY_FN, which this keyboard never emits for Globe.
-#   7006f     is a HID usage (0x7006f), not a set-1 scancode.
+# The keyboard's HID descriptor declares Globe/Fn on usage page 0x00ff,
+# usage 0x0003. hid_apple initially maps that usage to KEY_FN (464), which
+# is outside X11's keycode range. Remap the HID scancode before X11 sees it.
+# `showkey --scancodes` prints translated console codes, not the HID
+# scancodes that udev's keyboard builtin needs. Its 0x6f was misleading.
 #
 # F20 is chosen because it is in range for X11 (keycodes cap at 255): the real
 # KEY_DICTATE (0x24a, 586) would need keycode 594 and can never reach an X
@@ -18,4 +15,4 @@
 # system-wide, and Firefox binds Alt aggressively (Alt+Left/Right history, Alt+D
 # address bar, menu mnemonics), which dropped/duplicated dictated text.
 evdev:input:b0003v05ACp0320*
- KEYBOARD_KEY_6f=f20
+ KEYBOARD_KEY_00ff0003=f20

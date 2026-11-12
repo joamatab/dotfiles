@@ -61,6 +61,8 @@ output * bg $bg_img fill
 input "type:touchpad" {
     dwt enabled
     tap enabled
+    accel_profile adaptive
+    pointer_accel 1.5
     natural_scroll disabled
     middle_emulation enabled
 }
