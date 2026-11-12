@@ -1,0 +1,1 @@
+{ "place": "none", "title": "Jump to a folder", "overlay": { "kind": "popup", "at": "top", "offset": 72, "width": 720, "height": 440 } }

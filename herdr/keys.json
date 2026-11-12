@@ -62,7 +62,7 @@
     "alt-+": "pane.zoom",
     "ctrl-shift-z": "pane.zoom",
     "ctrl-shift-l": "layout.switch",
-    "f2": "tab.rename",
+    "f2": "jumper.open",
     "shift-f2": "space.rename"
   },
   "terminal": {

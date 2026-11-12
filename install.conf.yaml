@@ -94,6 +94,9 @@
     ~/.config/herdr-app/keys.json:
       path: herdr/keys.json
       force: true
+    ~/.config/herdr-app/mods/jumper:
+      path: herdr/mods/jumper
+      force: true
     ~/Library/Application Support/nushell:
       force: true
     ~/.claude/CLAUDE.md:
