@@ -21,7 +21,6 @@ setbg &
 
 # ssh-agent -a ${XDG_RUNTIME_DIR}/ssh-agent.socket &
 ssh-agent -a "${SSH_AUTH_SOCK}" &
-xset r rate 200 50 # Repeat after 200 ms at 50 keys/sec
 # Single setxkbmap call: layout + option together so CapsLock->Ctrl is applied
 # atomically. Two separate calls (one backgrounded) used to race and leave
 # CapsLock in mod4 (Super) instead of control.
@@ -33,5 +32,6 @@ setxkbmap -layout us -option ctrl:nocaps
 xmodmap -e "keycode 160 = Print"
 # Ordinary F20 for Globe dictation; no extra modifier or exotic keysym.
 xmodmap -e "keycode 198 = F20"
+xset r rate 250 35 # Repeat after 250 ms at 35 keys/sec
 clipmenud &
 # sxhkd &

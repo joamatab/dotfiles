@@ -9,8 +9,8 @@ set $right l
 gaps inner 5
 gaps outer 0
 workspace_layout default
-# Repeat after 200 ms at 50 keys/sec.
-exec_always --no-startup-id xset r rate 200 50
+# Repeat after 250 ms at 35 keys/sec.
+exec_always --no-startup-id xset r rate 250 35
 # macOS maps Caps Lock to left Control. That mapping is owned entirely by
 # xprofile's `setxkbmap -layout us -option ctrl:nocaps` (one atomic call at
 # login) -- do NOT re-map keycode 66 here. Running `exec_always xmodmap` with
