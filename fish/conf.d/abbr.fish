@@ -117,11 +117,8 @@ abbr -a ai aider --architect openrouter/deepseek-r1:free --editor-model sonnet
 abbr -a dcode 'cd /Users/j/c/dpd/gdsfactoryplus/vscode && just dev && code --extensionDevelopmentPath=/Users/j/c/dpd/gdsfactoryplus/vscode'
 abbr -a dcode2 cursor --extensionDevelopmentPath=/Users/j/docode/vscode
 abbr -a gif 'ffmpeg -i gif.mp4 -vf "fps=12,scale=600:-1:flags=lanczos" -loop 0 output3.gif'
-abbr -a claude2 'claude --dangerously-skip-permissions'
-abbr -a cc claude
-abbr -a codex2 'codex --dangerously-bypass-approvals-and-sandbox'
-abbr -a cl 'codex --dangerously-bypass-approvals-and-sandbox -m gpt-5.6-luna'
-
+abbr -a cc 'claude --dangerously-skip-permissions'
+abbr -a co 'codex --dangerously-bypass-approvals-and-sandbox'
 abbr -a ghprc 'gh pr create --fill'
 abbr -a ghprm 'gh pr merge --merge --delete-branch'
 

@@ -7,7 +7,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5-1[1m]",
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
@@ -15,6 +14,7 @@
     "superpowers@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true
   },
+  "autoUpdatesChannel": "stable",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "skipAutoPermissionPrompt": true,
