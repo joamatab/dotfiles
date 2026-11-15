@@ -1,5 +1,5 @@
 # Ghostty configuration
-window-decoration = none
+window-decoration = auto
 # Enable command+click for URLs
 auto-update = off
 confirm-close-surface = false
