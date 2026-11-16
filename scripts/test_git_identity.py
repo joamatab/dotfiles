@@ -35,16 +35,18 @@ class GitIdentityTests(unittest.TestCase):
         )
 
     def git(self, *args):
-        return subprocess.check_output(
-            ["git", *args], env=self.env, text=True
-        ).strip()
+        return subprocess.check_output(["git", *args], env=self.env, text=True).strip()
 
     def assert_identity(self, name, email):
         config = self.home / ".gitconfig"
         if not config.exists():
             config.symlink_to(ROOT / "gitconfig")
-        self.assertEqual(self.git("config", "--global", "--includes", "user.name"), name)
-        self.assertEqual(self.git("config", "--global", "--includes", "user.email"), email)
+        self.assertEqual(
+            self.git("config", "--global", "--includes", "user.name"), name
+        )
+        self.assertEqual(
+            self.git("config", "--global", "--includes", "user.email"), email
+        )
 
     def test_custom_identity_and_rerun(self):
         result = self.run_setup("no\n\n   \nAlex Example\n\nalex@example.com\n")
